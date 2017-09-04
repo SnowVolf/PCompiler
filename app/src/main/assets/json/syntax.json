@@ -1,0 +1,8 @@
+{
+  "syntax": {
+    "#e62117": "\\[|\\]|\\.|\\{|\\}|true|false",
+    "#ffa000": "MIN_ENGINE_VER|AUTHOR|PACKAGE|MATCH_GOTO|MATCH_ASSIGN|MATCH_REPLACE|GOTO|ADD_FILES|REMOVE|FILES|MERGE|DUMMY|REGEX:|MATCH:|TARGET:|MERGE:|SOURCE:|DUMMY",
+    "#2962ff": "\\([^)]+\\)",
+    "#ba68c8": "(?<!-|/|\\$)-?\b(?:0(X|x)[0-9a-zA-Z]+(?:t|T|s|S|l|L)?|\\d+(?:\\.\\d+)?(?:f|F|t|T|s|S|l|L)?)\b"
+  }
+}

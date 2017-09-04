@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="common_status_bar">#aa757575</color>
+    <color name="common_status_bar_dark">#aa181818</color>
+    <color name="control_hl">#88448aff</color>
+
+    <color name="light_colorPrimary">#ffffff</color>
+    <color name="light_colorPrimaryDark">#bdbdbd</color>
+    <color name="light_colorAccent">#448aff</color>
+    <color name="light_icon">#212121</color>
+
+    <color name="dark_colorPrimary">#212121</color>
+    <color name="dark_colorPrimaryDark">#181818</color>
+    <color name="dark_colorAccent">#448aff</color>
+    <color name="dark_windowBackground">#141414</color>
+    <color name="dark_icon">#fafafa</color>
+
+    <!--syntax-->
+    <color name="syntax_num_attribute">#2962ff</color>
+    <color name="syntax_num">#ba68c8</color>
+    <color name="syntax_element">#ffa000</color>
+    <color name="syntax_string">#4caf50</color>
+    <color name="syntax_keyword">#e62117</color>
+
+    <color name="syntax_arta_num_attribute">#7e57c2</color>
+    <color name="syntax_arta_num">#21d17a</color>
+    <color name="syntax_arta_element">#29b6f6</color>
+    <color name="syntax_arta_string">#fbc02d</color>
+    <color name="syntax_arta_keyword">#ad1457</color>
+</resources>

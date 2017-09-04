@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_header_container"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="?attr/selectableItemBackground">
+
+    <ImageView
+        android:id="@+id/drawer_header_avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_list"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/drawer_header_nick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="16dp"
+        android:layout_toEndOf="@+id/drawer_header_avatar"
+        android:layout_toStartOf="@+id/drawer_header_open_link"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:lines="1"
+        android:text="@string/title_list_of_rules"
+        android:textColor="?icon_color"/>
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/drawer_header_open_link"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        app:srcCompat="@drawable/ic_add" />
+</RelativeLayout>

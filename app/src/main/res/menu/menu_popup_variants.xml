@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/var_smali"
+        android:title="@string/menu_context_smali"/>
+    <item
+        android:id="@+id/var_xml"
+        android:title="@string/menu_context_xml"/>
+    <item
+        android:id="@+id/var_manifest"
+        android:title="@string/menu_context_androidmanifest"/>
+    <item
+        android:id="@+id/var_app"
+        android:title="@string/menu_context_application"/>
+    <item
+        android:id="@+id/var_activities"
+        android:title="@string/menu_context_activities"/>
+    <item
+        android:id="@+id/var_launcher"
+        android:title="@string/menu_context_launcher_activities"/>
+</menu>

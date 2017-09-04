@@ -1,0 +1,89 @@
+<resources>
+    <!--Common strings-->
+    <string name="error_occurred">Произошла непредвиденная ошибка, остановившая приложение. Помогите исправить её, отправив отчет об ошибке.</string>
+    <string name="error_crashed">Приложение остановлено!</string>
+    <string name="button_clear">Очистить</string>
+    <string name="button_save">Сохранить</string>
+    <string name="app_lang_changed">Язык приложения был изменен. Требуется перезапуск</string>
+    <string name="activity_settings">@string/menu_settings</string>
+    <string name="button_uni">Uni</string>
+    <!--Menu items-->
+    <string name="menu_fullview">Расширенная форма</string>
+    <string name="menu_savepatch">Сохранить патч</string>
+    <string name="menu_reset">Сброс</string>
+    <string name="menu_regexp">REGEXP</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="menu_about">О программе</string>
+    <string name="menu_flags">Флаги</string>
+    <string name="menu_clear">Очистить</string>
+    <string name="menu_web">Ссылка</string>
+    <string name="menu_context_smali">smali*/*.smali</string>
+    <string name="menu_context_xml">res/*.xml</string>
+    <string name="menu_context_androidmanifest">AndroidManifest.xml</string>
+    <string name="menu_context_application">[APPLICATION]</string>
+    <string name="menu_context_launcher_activities">[ACTIVITIES]</string>
+    <string name="menu_context_activities">[LAUNCHER_ACTIVITIES]</string>
+    <!--Title-->
+    <string name="title_fullview">Просмотр патча</string>
+    <string name="title_save">Сохранение</string>
+    <string name="title_filename">Имя файла</string>
+    <string name="title_zip_filename">Имя zip файла</string>
+    <string name="title_list_of_rules">Список правил</string>
+    <string name="title_regexp_flags">Флаги REGEXP</string>
+    <!-- Hints -->
+    <string name="hint_comment">Комментарий</string>
+    <string name="hint_author">Автор патча</string>
+    <string name="hint_package">Имя пакета</string>
+    <string name="hint_name">Имя</string>
+    <string name="hint_target">Целевой ресурс</string>
+    <string name="hint_find">Найти</string>
+    <string name="hint_replace">Заменить</string>
+    <string name="hint_next_rule">Следующее правило</string>
+    <string name="hint_vars">Переменные</string>
+    <string name="hint_source">Исходник</string>
+    <string name="hint_regexp">RegExp</string>
+    <string name="hint_text">Текст</string>
+    <string name="hint_min_engine_ver">Целевая версия движка</string>
+    <!--Prefs strings-->
+    <string name="pref_interface">Интерфейс</string>
+    <string name="pref_interface_theme">Тема</string>
+    <string name="pref_interface_arta">Синтаксис Arta</string>
+    <string name="pref_system_language">Системное</string>
+    <string name="pref_sys_lang">Язык (Language)</string>
+    <string name="pref_interaction">Взаимодействие</string>
+    <string name="pref_interaction_open">Открывать при запуске</string>
+    <string name="pref_interaction_open_symmary">Изменение стартовой вкладки. Требуется перезапуск приложения.</string>
+    <string name="pref_interaction_back">Двойное нажатие для выхода</string>
+    <string name="pref_presets">Пресеты</string>
+    <string name="pref_presets_engine">Версия движка по умолчанию</string>
+    <string name="pref_presets_author">Автор по умолчанию</string>
+    <string name="pref_presets_path">Путь к папке сохранения патчей</string>
+    <string name="pref_presets_archive_comment">Архивный комментарий</string>
+    <string name="pref_tweaks">Твики</string>
+    <string name="pref_tweaks_escape_find">EscapeFind</string>
+    <string name="pref_tweaks_escape_find_summary">Экранировать символ перевода строки, точки, фигурные скобки и т.д.</string>
+    <string name="pref_tweaks_force_regexp">ForceRegexp</string>
+    <string name="pref_tweaks_force_regexp_summary">Принудительно включить поддержку regexp, там где это возможно</string>
+    <!--Short messages-->
+    <string name="message_patch_cleared">Настройки патча сброшены</string>
+    <string name="message_press_back">Нажмите еще раз, для выхода</string>
+    <string name="message_copied_to_clipboard">Скопировано в буфер обмена</string>
+    <string name="message_saved_in_path" formatted="false">Сохранено в: %s%s</string>
+    <string name="message_saved_in_path_zip" formatted="false">Сохранено в: %s</string>
+    <string name="message_patch_cannot_empty">Ошибка: патч не может быть пустым!</string>
+    <string name="message_file_overwrite">Создание файла…</string>
+    <string name="message_saved">Сохранено</string>
+    <string name="message_name_reserved">Это имя зарезервировано. Введите другое</string>
+    <!--Tabs TRANSLATABLE-->
+    <string name="tab_help">Помощь</string>
+    <string name="tab_regex">REGEXP</string>
+    <string name="tab_documentation">Документация</string>
+    <!--About-->
+    <string name="about_version">Версия: %s</string>
+    <string name="about_time">Дата сборки: %s</string>
+    <string name="authors">Автор и разработчик: Snow Volf (Artem Zhiganov)\nПомощник: htc 600</string>
+    <!--REGEXP-->
+    <string name="regex_def_match">Совпадений: 0</string>
+    <string name="regex_def_match_one">%d совпадение</string>
+    <string name="regex_def_match_few">Совпадений: %d</string>
+</resources>

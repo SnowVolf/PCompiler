@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="theme_names">
+        <item>Светлая</item>
+        <item>Темная</item>
+    </string-array>
+    <string-array name="save_items">
+        <item>Скопировать в буфер</item>
+        <item>Сохранить в файл</item>
+        <item>Создать ZIP</item>
+        <item>Поделиться</item>
+    </string-array>
+    <string-array name="entries_lang">
+        <item>Системный</item>
+        <item>English</item>
+        <item>Русский</item>
+    </string-array>
+
+    <string-array name="about_items">
+        <item>История изменений</item>
+    </string-array>
+</resources>

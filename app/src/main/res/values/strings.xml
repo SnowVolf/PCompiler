@@ -1,0 +1,104 @@
+<resources>
+    <!--Common strings-->
+    <string name="app_name" translatable="false">PCompiler</string>
+    <string name="error_occurred">An unexpected error occurred. Please send the error report</string>
+    <string name="error_crashed">App crashed!</string>
+    <string name="button_clear">Clear</string>
+    <string name="button_save">Save</string>
+    <string name="app_lang_changed">App language has been changed. Please restart the application</string>
+    <string name="activity_settings">@string/menu_settings</string>
+    <string name="button_uni">Uni</string>
+    <!--Menu items-->
+    <string name="menu_fullview">Full view</string>
+    <string name="menu_savepatch">Save patch</string>
+    <string name="menu_reset">Reset</string>
+    <string name="menu_regexp">REGEXP</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_about">About</string>
+    <string name="menu_flags">Flags</string>
+    <string name="menu_clear">@string/button_clear</string>
+    <string name="menu_web">Link</string>
+    <string name="menu_context_smali">smali*/*.smali</string>
+    <string name="menu_context_xml">res/*.xml</string>
+    <string name="menu_context_androidmanifest">AndroidManifest.xml</string>
+    <string name="menu_context_application">[APPLICATION]</string>
+    <string name="menu_context_launcher_activities">[ACTIVITIES]</string>
+    <string name="menu_context_activities">[LAUNCHER_ACTIVITIES]</string>
+    <!--Title-->
+    <string name="title_fullview">Patch viewer</string>
+    <string name="title_save">Save</string>
+    <string name="title_filename">File name</string>
+    <string name="title_zip_filename">Zip file name</string>
+    <string name="title_list_of_rules">List of rules</string>
+    <string name="title_regexp_flags">REGEXP flags</string>
+    <!-- Hints -->
+    <string name="hint_comment">Comment</string>
+    <string name="hint_author">Author</string>
+    <string name="hint_package">Package name</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_target">Target resource</string>
+    <string name="hint_find">Find</string>
+    <string name="hint_replace">Replace</string>
+    <string name="hint_next_rule">Next rule</string>
+    <string name="hint_vars">Variables</string>
+    <string name="hint_source">Source</string>
+    <string name="root_f" translatable="false">ROOT F</string>
+    <string name="regex" translatable="false">REGEX</string>
+    <string name="hint_regexp">RegExp</string>
+    <string name="hint_text">Text</string>
+    <string name="hint_min_engine_ver">Min engine version</string>
+    <!--Prefs strings-->
+    <string name="pref_interface">Interface</string>
+    <string name="pref_interface_theme">App theme</string>
+    <string name="pref_interface_arta">Arta syntax highlighting</string>
+    <string name="pref_system_language">System</string>
+    <string name="pref_sys_lang">Language</string>
+    <string name="pref_interaction">Interaction</string>
+    <string name="pref_interaction_open">Main tab</string>
+    <string name="pref_interaction_open_symmary">Changes the main app tab. Needs app restart</string>
+    <string name="pref_interaction_back">Twice back button press</string>
+    <string name="pref_presets">Presets</string>
+    <string name="pref_presets_engine">Default min engine version</string>
+    <string name="pref_presets_author">Default author</string>
+    <string name="pref_presets_path">Patch output folder</string>
+    <string name="pref_presets_archive_comment">Archive comment</string>
+    <string name="pref_tweaks">Tweaks</string>
+    <string name="pref_tweaks_escape_find">EscapeFind</string>
+    <string name="pref_tweaks_escape_find_summary">Escape all line breaks, dots, brackets, and more…</string>
+    <string name="pref_tweaks_force_regexp">ForceRegexp</string>
+    <string name="pref_tweaks_force_regexp_summary">Force enable regexp support</string>
+    <!--Short messages-->
+    <string name="message_patch_cleared">Patch configuration cleared</string>
+    <string name="message_press_back">Press back once more</string>
+    <string name="message_copied_to_clipboard">Copied to clipboard</string>
+    <string name="message_saved_in_path" formatted="false">Saved in: %s%s</string>
+    <string name="message_saved_in_path_zip" formatted="false">Saved in: %s</string>
+    <string name="message_patch_cannot_empty">Error: Patch cannot be empty!</string>
+    <string name="message_file_overwrite">Create file…</string>
+    <string name="message_saved">Saved</string>
+    <string name="message_name_reserved">This name is reversed. Enter another one</string>
+    <!--Tabs NOT TRANSLATABLE-->
+    <string name="tab_about" translatable="false">About</string>
+    <string name="tab_match_replace" translatable="false">Match Replace</string>
+    <string name="tab_match_goto" translatable="false">Match GoTo</string>
+    <string name="tab_match_assign" translatable="false">Match Assign</string>
+    <string name="tab_goto" translatable="false">GoTo</string>
+    <string name="tab_add_files" translatable="false">Add files</string>
+    <string name="tab_remove_files" translatable="false">Remove files</string>
+    <string name="tab_merge" translatable="false">Merge</string>
+    <string name="tab_dummy" translatable="false">Dummy</string>
+    <!--Tabs TRANSLATABLE-->
+    <string name="tab_help">Quick help</string>
+    <string name="tab_regex">REGEXP</string>
+    <string name="tab_documentation">Documentation</string>
+    <!--About-->
+    <string name="about_version">Version: %s</string>
+    <string name="about_time">Build date: %s</string>
+    <string name="copyright_c" translatable="false">Copyright © 2017 Snow Volf (Artem Zhiganov).</string>
+    <string name="authors">Author and developer: Snow Volf (Artem Zhiganov)\nMain contributor: htc 600</string>
+    <!--REGEXP-->
+    <string name="regex_def_match">0 matches</string>
+    <string name="regex_def_match_one">%d match</string>
+    <string name="regex_def_match_few">%d matches</string>
+
+</resources>

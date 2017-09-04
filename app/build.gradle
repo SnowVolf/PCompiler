@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+//apply plugin: 'kotlin-android'
+apply plugin: 'me.tatarka.retrolambda'
+
+static def buildTime(){
+    def date = new Date().format("dd.MM.yyyy, HH:mm:ss")
+    return date
+}
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
+    defaultConfig {
+        applicationId "ru.SnowVolf.pcompiler"
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 8
+        versionName "1.0.7"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BUILD_TIME", '"' + buildTime().toString() + '"'
+        }
+        debug {
+            pseudoLocalesEnabled false
+            buildConfigField "String", "BUILD_TIME", '"' + buildTime().toString() + '"'
+        }
+    }
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support:design:26.0.0-alpha1'
+    compile 'com.android.support:support-v4:26.0.0-alpha1'
+    compile 'com.android.support:recyclerview-v7:26.+'
+    testCompile 'junit:junit:4.12'
+    compile 'com.jakewharton:butterknife:8.7.0'
+    compile 'com.jakewharton:butterknife-compiler:8.7.0'
+    compile 'com.jakewharton:butterknife-annotations:8.7.0'
+    //compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile 'com.faendir:acra:4.10.0'
+    compile files('libs/zip4j_1.3.2.jar')
+}
+repositories {
+    mavenCentral()
+}
