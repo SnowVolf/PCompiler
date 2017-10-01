@@ -2,18 +2,18 @@ package ru.SnowVolf.pcompiler.ui.fragment.dialog;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.preference.Preference;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomSheetDialogFragment;
+import android.support.v7.preference.Preference;
 
-import ru.SnowVolf.girl.nativex.NativeBottomSheetDialogFragment;
 import ru.SnowVolf.pcompiler.App;
 
 /**
  * Created by Snow Volf on 24.09.2017, 2:20
  */
 
-public class SweetInputDialogFragment extends NativeBottomSheetDialogFragment {
+public class SweetInputDialogFragment extends BottomSheetDialogFragment {
 
     public SweetInputDialogFragment() { }
 

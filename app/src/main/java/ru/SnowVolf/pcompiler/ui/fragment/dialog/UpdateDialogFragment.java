@@ -9,12 +9,14 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
-import android.support.design.widget.Snackbar;
+import android.support.design.widget.BottomSheetDialog;
+import android.support.design.widget.BottomSheetDialogFragment;
 import android.util.Patterns;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,8 +26,6 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import ru.SnowVolf.girl.compat.Html;
-import ru.SnowVolf.girl.nativex.NativeBottomSheet;
-import ru.SnowVolf.girl.nativex.NativeBottomSheetDialogFragment;
 import ru.SnowVolf.girl.utils.IntentHandler;
 import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.BuildConfig;
@@ -33,12 +33,13 @@ import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.net.Client;
 import ru.SnowVolf.pcompiler.net.NetworkResponse;
 import ru.SnowVolf.pcompiler.util.RuntimeUtil;
+import ru.SnowVolf.pcompiler.util.ThemeWrapper;
 
 /**
  * Created by Snow Volf on 28.09.2017, 22:41
  */
 
-public class UpdateDialogFragment extends NativeBottomSheetDialogFragment {
+public class UpdateDialogFragment extends BottomSheetDialogFragment {
     private static String mValue;
     String jsonSource = null;
     private View rootView;
@@ -64,7 +65,7 @@ public class UpdateDialogFragment extends NativeBottomSheetDialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        NativeBottomSheet dialog = new NativeBottomSheet(getActivity());
+        BottomSheetDialog dialog = new BottomSheetDialog(getActivity(), ThemeWrapper.getTheme());
         dialog.setContentView(rootView);
         rootView.findViewById(R.id.update_button).setOnClickListener(null);
         return dialog;
@@ -162,7 +163,7 @@ public class UpdateDialogFragment extends NativeBottomSheetDialogFragment {
             }
         } else {
             rootView.findViewById(R.id.update_button).setOnClickListener(null);
-            Snackbar.make(rootView.findViewById(R.id.update_info), R.string.message_no_updates, Snackbar.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), R.string.message_no_updates, Toast.LENGTH_LONG).show();
         }
     }
 

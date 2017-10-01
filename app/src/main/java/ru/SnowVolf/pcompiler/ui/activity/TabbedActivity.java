@@ -14,6 +14,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetDialog;
+import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
@@ -213,7 +214,7 @@ public class TabbedActivity extends BaseActivity {
     }
 
     private void setViewPager(ViewPager viewPager){
-        adapter = new ViewPagerAdapter(getFragmentManager());
+        adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new AboutPatchFragment(), getString(R.string.tab_about));
         adapter.addFragment(new ReplaceFragment(), getString(R.string.tab_match_replace));
         adapter.addFragment(new GotoFragment(), getString(R.string.tab_match_goto));

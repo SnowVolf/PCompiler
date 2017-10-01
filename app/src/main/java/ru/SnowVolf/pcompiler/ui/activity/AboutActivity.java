@@ -1,6 +1,6 @@
 package ru.SnowVolf.pcompiler.ui.activity;
 
-import android.app.FragmentManager;
+import android.support.v4.app.FragmentManager;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -128,7 +128,7 @@ public class AboutActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_schedule_update:{
-                FragmentManager manager = getFragmentManager();
+                FragmentManager manager = getSupportFragmentManager();
                 UpdateDialogFragment dialogFragment = UpdateDialogFragment.newInstance(JSON_LINK);
                 dialogFragment.show(manager, null);
                 return true;

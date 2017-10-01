@@ -1,7 +1,9 @@
 package ru.SnowVolf.pcompiler.adapter;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
+
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
 import java.util.ArrayList;
 
@@ -9,7 +11,7 @@ import java.util.ArrayList;
  * Created by Snow Volf on 10.06.2017, 1:06
  */
 
-public class ViewPagerAdapter extends NativeAdapter {
+public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
     private ArrayList<Fragment> fragmentList = new ArrayList<>();
     private ArrayList<String> fragmentTitleList = new ArrayList<>();

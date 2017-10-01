@@ -1,8 +1,8 @@
 package ru.SnowVolf.girl.preference;
 
 import android.content.Context;
-import android.preference.Preference;
 import android.preference.PreferenceManager;
+import android.support.v7.preference.Preference;
 import android.util.AttributeSet;
 
 /**

@@ -50,23 +50,23 @@
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/pref_presets">
-        <ru.SnowVolf.girl.preference.GirlPreference
+        <Preference
             android:icon="@drawable/ic_settings_presets"
             android:key="preset.engine_ver"
             android:title="@string/pref_presets_engine"/>
-        <ru.SnowVolf.girl.preference.GirlPreference
+        <Preference
             android:icon="@drawable/ic_settings_person"
             android:key="preset.author"
             android:title="@string/pref_presets_author"/>
-        <ru.SnowVolf.girl.preference.GirlPreference
+        <Preference
             android:icon="@drawable/ic_settings_folder"
             android:key="preset.path"
             android:title="@string/pref_presets_path"/>
-        <ru.SnowVolf.girl.preference.GirlPreference
+        <Preference
             android:icon="@drawable/ic_settings_edit"
             android:key="preset.archive_comment"
             android:title="@string/pref_presets_archive_comment"/>
-        <ru.SnowVolf.girl.preference.GirlPreference
+        <Preference
             android:icon="@drawable/ic_settings_presets"
             android:key="preset.mime_type"
             android:title="@string/pref_presets_mime_type"/>

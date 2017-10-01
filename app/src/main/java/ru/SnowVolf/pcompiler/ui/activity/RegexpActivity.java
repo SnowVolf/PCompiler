@@ -39,7 +39,7 @@ public class RegexpActivity extends BaseActivity {
     }
 
     private void setViewPager(ViewPager viewPager){
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getFragmentManager());
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new RegexValidator(), getString(R.string.tab_regex));
         adapter.addFragment(new SpurFragment(), getString(R.string.tab_help));
         adapter.addFragment(new DocumentationFragment(), getString(R.string.tab_documentation));

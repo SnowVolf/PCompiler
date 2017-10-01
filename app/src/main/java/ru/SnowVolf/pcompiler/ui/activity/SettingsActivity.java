@@ -1,10 +1,14 @@
 package ru.SnowVolf.pcompiler.ui.activity;
 
+import android.app.AlertDialog;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
+
+import org.acra.ACRA;
 
 import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
@@ -24,14 +28,39 @@ public class SettingsActivity extends BaseActivity {
         if (Build.VERSION.SDK_INT >= 23) {
             toolbar.setTitleTextColor(App.getColorFromAttr(this, R.attr.colorAccent));
         }
+        toolbar.getMenu().add("Debug menu")
+                .setIcon(R.drawable.ic_bug)
+                .setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS)
+                .setOnMenuItemClickListener(menuItem -> {
+                    debugMenu();
+                    return true;
+                });
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
         toolbar.setNavigationOnClickListener(v -> finish());
         toolbar.setElevation(App.dpToPx(4));
-        getFragmentManager().
+        getSupportFragmentManager().
                 beginTransaction()
                 .replace(R.id.frame_container, new SettingsFragment())
                 .commit();
+    }
+
+    private void debugMenu() {
+        final CharSequence[] items = new CharSequence[]{"Throw an exception"};
+        new AlertDialog.Builder(this)
+                .setTitle("Debug menu")
+                .setItems(items, (dialogInterface, i) -> {
+                    switch (i){
+                        case 0:{
+                            try {
+                                throw new RuntimeException("DevException");
+                            } catch (RuntimeException ex){
+                                ACRA.getErrorReporter().handleException(ex);
+                            }
+                            break;
+                        }
+                    }
+                }).show();
     }
 
     @Override
