@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
-import ru.SnowVolf.girl.ui.GirlEditText;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.PopupMenu;
 import android.util.Log;
@@ -21,6 +20,7 @@ import java.io.File;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import ru.SnowVolf.girl.ui.GirlEditText;
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.patch.PatchBuilder;
 import ru.SnowVolf.pcompiler.settings.Preferences;

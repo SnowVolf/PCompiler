@@ -2,15 +2,12 @@ package ru.SnowVolf.girl.utils;
 
 import android.app.AlertDialog;
 import android.app.DownloadManager;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
 import android.util.Log;
 import android.widget.Toast;
-
-import org.acra.ACRA;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;

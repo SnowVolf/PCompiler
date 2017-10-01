@@ -8,14 +8,12 @@ import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.os.Build;
 import android.util.Base64;
-import android.util.Log;
 
 import org.acra.ACRA;
 
 import java.io.ByteArrayInputStream;
 import java.security.MessageDigest;
 import java.security.cert.CertificateFactory;
-import java.util.Arrays;
 import java.util.Objects;
 
 import ru.SnowVolf.pcompiler.App;

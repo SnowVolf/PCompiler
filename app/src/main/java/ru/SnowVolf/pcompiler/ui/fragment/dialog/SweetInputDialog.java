@@ -3,12 +3,12 @@ package ru.SnowVolf.pcompiler.ui.fragment.dialog;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetDialog;
-import ru.SnowVolf.girl.ui.GirlEditText;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import ru.SnowVolf.girl.ui.GirlEditText;
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.util.ThemeWrapper;
 

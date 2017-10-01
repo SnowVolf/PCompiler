@@ -8,7 +8,6 @@ import android.os.RecoverySystem;
 import android.util.Log;
 import android.widget.Toast;
 
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -16,7 +15,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Observer;
 import java.util.concurrent.TimeUnit;
-
 
 import okhttp3.Cookie;
 import okhttp3.HttpUrl;

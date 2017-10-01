@@ -4,7 +4,6 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
-import ru.SnowVolf.girl.ui.GirlEditText;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.text.Editable;
@@ -26,6 +25,7 @@ import java.util.regex.PatternSyntaxException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import ru.SnowVolf.girl.ui.GirlEditText;
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.settings.Preferences;
 import ru.SnowVolf.pcompiler.ui.fragment.NativeContainerFragment;

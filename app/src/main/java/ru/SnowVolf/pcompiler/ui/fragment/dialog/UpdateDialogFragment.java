@@ -10,7 +10,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
 import android.util.Patterns;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,8 +57,8 @@ public class UpdateDialogFragment extends NativeBottomSheetDialogFragment {
         if (Build.VERSION.SDK_INT >= 23) {
             if (!RuntimeUtil.isGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
                 RuntimeUtil.storage(getActivity(), RuntimeUtil.REQUEST_EXTERNAL_STORAGE_ZIP);
-            } else shceduleUpdate();
-        } else shceduleUpdate();
+            } else scheduleUpdate();
+        } else scheduleUpdate();
     }
 
     @NonNull
@@ -83,7 +82,7 @@ public class UpdateDialogFragment extends NativeBottomSheetDialogFragment {
         if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             switch (requestCode){
                 case RuntimeUtil.REQUEST_EXTERNAL_STORAGE_ZIP:{
-                    shceduleUpdate();
+                    scheduleUpdate();
                     break;
                 }
             }
@@ -98,7 +97,7 @@ public class UpdateDialogFragment extends NativeBottomSheetDialogFragment {
         }
     }
 
-    private void shceduleUpdate(){
+    private void scheduleUpdate(){
         if (jsonSource != null) {
             checkSource(jsonSource);
         } else {

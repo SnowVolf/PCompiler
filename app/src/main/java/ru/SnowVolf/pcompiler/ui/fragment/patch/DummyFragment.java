@@ -3,7 +3,6 @@ package ru.SnowVolf.pcompiler.ui.fragment.patch;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
-import ru.SnowVolf.girl.ui.GirlEditText;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +10,7 @@ import android.widget.Button;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import ru.SnowVolf.girl.ui.GirlEditText;
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.patch.PatchBuilder;
 import ru.SnowVolf.pcompiler.ui.fragment.NativeContainerFragment;

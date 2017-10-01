@@ -1,13 +1,13 @@
 package ru.SnowVolf.girl.nativex;
 
-import static android.support.annotation.RestrictTo.Scope.LIBRARY_GROUP;
-
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RestrictTo;
 import android.view.Window;
 import android.view.WindowManager;
+
+import static android.support.annotation.RestrictTo.Scope.LIBRARY_GROUP;
 
 public class NativeDialogFragment extends NativeAppDialogFragment {
 

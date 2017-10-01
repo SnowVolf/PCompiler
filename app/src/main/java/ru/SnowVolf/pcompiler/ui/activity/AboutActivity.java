@@ -21,7 +21,6 @@ import java.util.zip.CRC32;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
 import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.BuildConfig;
 import ru.SnowVolf.pcompiler.R;

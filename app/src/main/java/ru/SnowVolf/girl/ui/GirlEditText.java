@@ -5,8 +5,6 @@ import android.graphics.Typeface;
 import android.support.design.widget.TextInputEditText;
 import android.util.AttributeSet;
 
-import java.io.IOException;
-
 import ru.SnowVolf.pcompiler.settings.Preferences;
 
 /**

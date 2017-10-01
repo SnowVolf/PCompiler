@@ -1,5 +1,6 @@
 package ru.SnowVolf.pcompiler.ui.fragment.settings;
 
+import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,13 +8,11 @@ import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.PreferenceFragment;
 import android.support.annotation.Nullable;
-import android.app.FragmentManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
-
 
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.settings.Preferences;
