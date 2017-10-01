@@ -2,6 +2,7 @@ package ru.SnowVolf.pcompiler.ui.fragment.dialog;
 
 import android.Manifest;
 import android.app.Dialog;
+import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
@@ -74,6 +75,19 @@ public class UpdateDialogFragment extends NativeBottomSheetDialogFragment {
     public void onDestroyView() {
         super.onDestroyView();
         rootView = null;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            switch (requestCode){
+                case RuntimeUtil.REQUEST_EXTERNAL_STORAGE_ZIP:{
+                    shceduleUpdate();
+                    break;
+                }
+            }
+        }
     }
 
     private void setRefreshing(boolean isRefreshing) {
