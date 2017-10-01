@@ -31,8 +31,6 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,7 +49,6 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 
 import ru.SnowVolf.pcompiler.App;
-import ru.SnowVolf.pcompiler.BuildConfig;
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.adapter.ViewPagerAdapter;
 import ru.SnowVolf.pcompiler.patch.RegexPattern;
@@ -68,8 +65,8 @@ import ru.SnowVolf.pcompiler.ui.fragment.patch.match.AssignFragment;
 import ru.SnowVolf.pcompiler.ui.fragment.patch.match.GotoFragment;
 import ru.SnowVolf.pcompiler.ui.fragment.patch.match.ReplaceFragment;
 import ru.SnowVolf.pcompiler.util.Constants;
+import ru.SnowVolf.pcompiler.util.LocaleGirl;
 import ru.SnowVolf.pcompiler.util.RuntimeUtil;
-import ru.SnowVolf.pcompiler.util.StrF;
 import ru.SnowVolf.pcompiler.util.StringWrapper;
 import ru.SnowVolf.pcompiler.util.ThemeWrapper;
 
@@ -78,32 +75,38 @@ public class TabbedActivity extends BaseActivity {
     String fileName = "patch.txt";
     private String lang = null;
     ViewPagerAdapter adapter;
+    public static ArrayList<File> extra;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tab_drawer);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        if (Build.VERSION.SDK_INT >= 23) {
+            toolbar.setTitleTextColor(App.getColorFromAttr(this, R.attr.colorAccent));
+        }
         setSupportActionBar(toolbar);
         final Drawable overflow = AppCompatResources.getDrawable(this, R.drawable.ic_more_vert);
         toolbar.setOverflowIcon(overflow);
-        ViewPager viewPager = (ViewPager) findViewById(R.id.tab_pager);
+        ViewPager viewPager = findViewById(R.id.tab_pager);
         setViewPager(viewPager);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.setScrollPosition(Preferences.getTabIndex(), 0f, true);
         viewPager.setCurrentItem(Preferences.getTabIndex());
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.app_name, R.string.app_name);
 
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        toggle.getDrawerArrowDrawable().setColor(ThemeWrapper.isLightTheme()
-                ? ContextCompat.getColor(this, android.R.color.black) :
-                ContextCompat.getColor(this, android.R.color.white));
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        toggle.getDrawerArrowDrawable().setColor(Build.VERSION.SDK_INT < 23 ?
+                App.getColorFromAttr(this, R.attr.icon_color) :
+                App.getColorFromAttr(this, R.attr.colorAccent));
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setPadding(0, App.ctx().getStatusBarHeight(), 0, 0);
+        extra = new ArrayList<>();
     }
 
     @Override
@@ -127,6 +130,7 @@ public class TabbedActivity extends BaseActivity {
             }
             case R.id.action_reset:{
                 App.ctx().getPatchPreferences().edit().clear().apply();
+                extra.clear();
                 Toast.makeText(this, R.string.message_patch_cleared, Toast.LENGTH_SHORT).show();
                 return true;
             }
@@ -144,7 +148,8 @@ public class TabbedActivity extends BaseActivity {
                 return true;
             }
             case R.id.action_about:{
-                showAboutDialog();
+                startActivity(new Intent(this, AboutActivity.class), ActivityOptions
+                        .makeSceneTransitionAnimation(this).toBundle());
                 return true;
             }
         }
@@ -187,14 +192,15 @@ public class TabbedActivity extends BaseActivity {
 
         // Языковые настройки
         if (lang == null){
-            lang = Preferences.getDefaultLanguage();
+            lang = LocaleGirl.getLanguage(this);
         }
         // Проверка не изменися ли язык
-        if (!Preferences.getDefaultLanguage().equals(lang)){
+        if (!LocaleGirl.getLanguage(this).equals(lang)){
+            //Context newContext = LocaleGirl.onAttach(this);
             SweetContentDialog dialog = new SweetContentDialog(this);
             dialog.setContentText(R.string.app_lang_changed);
             dialog.setPositive(android.R.string.ok, v -> {
-                        Intent mStartActivity = new Intent(TabbedActivity.this, TabbedActivity.class);
+                        Intent mStartActivity = new Intent(this, TabbedActivity.class);
                         int mIntentPendingId = 6;
                         PendingIntent mPendingIntent = PendingIntent.getActivity(TabbedActivity.this, mIntentPendingId, mStartActivity, PendingIntent.FLAG_CANCEL_CURRENT);
                         AlarmManager manager = (AlarmManager) TabbedActivity.this.getSystemService(Context.ALARM_SERVICE);
@@ -239,15 +245,11 @@ public class TabbedActivity extends BaseActivity {
         saveDialog.setOnItemClickListener((adapterView, view, i, l) -> {
             switch (i) {
                 case 0: {
-                    StringWrapper.copyToClipboard(patch.get(0) +
-                            patch.get(1) +
-                            patch.get(2) +
-                            patch.get(3) +
-                            patch.get(4) +
-                            patch.get(5) +
-                            patch.get(6) +
-                            patch.get(7) +
-                            patch.get(8));
+                    StringBuilder str = new StringBuilder();
+                    for (String s: patch) {
+                        str.append(s);
+                    }
+                    StringWrapper.copyToClipboard(str.toString());
                     Toast.makeText(TabbedActivity.this, R.string.message_copied_to_clipboard, Toast.LENGTH_SHORT).show();
                     break;
                 }
@@ -262,15 +264,12 @@ public class TabbedActivity extends BaseActivity {
                 case 3:{
                     final Intent send = new Intent(Intent.ACTION_SEND);
                     send.setType("text/plain");
-                    send.putExtra(Intent.EXTRA_TEXT, patch.get(0) +
-                            patch.get(1) +
-                            patch.get(2) +
-                            patch.get(3) +
-                            patch.get(4) +
-                            patch.get(5) +
-                            patch.get(6) +
-                            patch.get(7) +
-                            patch.get(8));
+                    StringBuilder str = new StringBuilder();
+                    for (String s: patch) {
+                        str.append(s);
+                    }
+                    send.putExtra(Intent.EXTRA_TEXT, str.toString());
+
                     startActivity(send);
                     break;
                 }
@@ -293,21 +292,19 @@ public class TabbedActivity extends BaseActivity {
         final TextView content = view.findViewById(R.id.content);
 
         Spannable spannable;
-        final Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/RobotoMono-Regular.ttf");
-        content.setTypeface(typeface);
-
-        content.setText(
-                patch.get(0) +
-                        patch.get(1) +
-                        patch.get(2) +
-                        patch.get(3) +
-                        patch.get(4) +
-                        patch.get(5) +
-                        patch.get(6) +
-                        patch.get(7) +
-                        patch.get(8));
+        if (Preferences.isMonospaceFontAllowed()) {
+            final Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/RobotoMono-Regular.ttf");
+            content.setTypeface(typeface);
+        }
+        content.setTextSize(Preferences.getFontSize());
+        StringBuilder str = new StringBuilder();
+        for (String s: patch) {
+            str.append(s);
+        }
+        content.setText(str);
         spannable = new SpannableString(content.getText());
         Matcher matcherAttr = RegexPattern.ATTRIBUTE.matcher(content.getText());
+        Matcher matcherSubAttr = RegexPattern.SUB_ATTRIBUTE.matcher(content.getText());
         Matcher matcherBraces = RegexPattern.COMMON_SYMBOLS.matcher(content.getText());
         Matcher matcherNumAttr = RegexPattern.OPERATOR.matcher(content.getText());
         Matcher matcherNum = RegexPattern.NUMBERS.matcher(content.getText());
@@ -315,6 +312,10 @@ public class TabbedActivity extends BaseActivity {
 
         while (matcherAttr.find()){
             spannable.setSpan(new ForegroundColorSpan(Preferences.isArtaSyntaxAllowed() ? ContextCompat.getColor(App.getContext(), R.color.syntax_arta_element) : ContextCompat.getColor(App.getContext(), R.color.syntax_element)), matcherAttr.start(), matcherAttr.end(), 33);
+        }
+
+        while (matcherSubAttr.find()){
+            spannable.setSpan(new ForegroundColorSpan(Preferences.isArtaSyntaxAllowed() ? ContextCompat.getColor(App.getContext(), R.color.syntax_sub_element) : ContextCompat.getColor(App.getContext(), R.color.syntax_sub_element)), matcherSubAttr.start(), matcherSubAttr.end(), 33);
         }
 
         while (matcherBraces.find()){
@@ -338,41 +339,15 @@ public class TabbedActivity extends BaseActivity {
         dialog.show();
     }
 
-    private void showAboutDialog(){
-        String[] mItems;
-        ArrayAdapter<String> mAdapter;
-        @SuppressLint("InflateParams") View view = LayoutInflater.from(this).inflate(R.layout.dialog_about, null);
-        TextView version = view.findViewById(R.id.version);
-        TextView date = view.findViewById(R.id.date);
-        ListView list = view.findViewById(R.id.listview);
-        mItems = getResources().getStringArray(R.array.about_items);
-        mAdapter = new ArrayAdapter<>(this, R.layout.menu_row, R.id.list_item_content, mItems);
-        list.setAdapter(mAdapter);
-        version.setText(String.format(getString(R.string.about_version), BuildConfig.VERSION_NAME));
-        date.setText(String.format(getString(R.string.about_time), BuildConfig.BUILD_TIME));
-        BottomSheetDialog dialog = new BottomSheetDialog(this, ThemeWrapper.getTheme());
-        dialog.setContentView(view);
-        list.setOnItemClickListener((adapterView, view1, i, l) -> {
-            switch (i){
-                case 0:{
-                    showChangelog();
-                    dialog.dismiss();
-                    break;
-                }
-            }
-        });
-        dialog.show();
-    }
-
     private void checkPermissionsText(){
         if (Build.VERSION.SDK_INT >= 23 && !RuntimeUtil.isGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE)){
             RuntimeUtil.storage(this, RuntimeUtil.REQUEST_EXTERNAL_STORAGE_TEXT);
         } else {
-            writeToFile(
-                    patch.get(0) + patch.get(1) + patch.get(2)
-                            + patch.get(3) + patch.get(4) + patch.get(5)
-                            + patch.get(6) + patch.get(7) + patch.get(8)
-            );
+            StringBuilder str = new StringBuilder();
+            for (String s: patch) {
+                str.append(s);
+            }
+            writeToFile(str.toString());
         }
     }
 
@@ -389,10 +364,12 @@ public class TabbedActivity extends BaseActivity {
         try {
             File dir = new File(Preferences.getPatchOutput());
             if (!dir.exists() && !dir.isDirectory()){
+                //noinspection ResultOfMethodCallIgnored
                 dir.mkdirs();
             }
             patchFile = new File(dir, fileName + ".txt");
             if (!patchFile.exists()) {
+                //noinspection ResultOfMethodCallIgnored
                 patchFile.createNewFile();
                 Toast.makeText(this, R.string.message_file_overwrite, Toast.LENGTH_SHORT).show();
             }
@@ -417,6 +394,7 @@ public class TabbedActivity extends BaseActivity {
         try {
             patchFile = new File(getExternalFilesDir(null), "patch.txt");
             if (!patchFile.exists()) {
+                //noinspection ResultOfMethodCallIgnored
                 patchFile.createNewFile();
             }
             FileOutputStream outputStream = new FileOutputStream(patchFile);
@@ -436,7 +414,7 @@ public class TabbedActivity extends BaseActivity {
 
     private void showSaveNameDialog(){
         final SweetInputDialog dialog = new SweetInputDialog(this);
-        dialog.setTitle(getString(R.string.title_filename));
+        dialog.setPrefTitle(getString(R.string.title_filename));
         dialog.setPositive(getString(R.string.button_save), view -> {
             fileName = dialog.getInputString();
             checkPermissionsText();
@@ -448,7 +426,7 @@ public class TabbedActivity extends BaseActivity {
 
     private void showSaveZipDialog(){
         final SweetInputDialog dialog = new SweetInputDialog(this);
-        dialog.setTitle(getString(R.string.title_zip_filename));
+        dialog.setPrefTitle(getString(R.string.title_zip_filename));
         dialog.setPositive(getString(R.string.button_save), view -> {
             fileName = dialog.getInputString();
             if (!Objects.equals(fileName, "patch")){
@@ -465,38 +443,34 @@ public class TabbedActivity extends BaseActivity {
     private void zipIo(){
         File dir = new File(Preferences.getPatchOutput());
         if (!dir.exists() && !dir.isDirectory()){
+            //noinspection ResultOfMethodCallIgnored
             dir.mkdirs();
         }
-        File temp = writeToTempFile(
-                patch.get(0) +
-                        patch.get(1) +
-                        patch.get(2) +
-                        patch.get(3) +
-                        patch.get(4) +
-                        patch.get(5) +
-                        patch.get(6) +
-                        patch.get(7) +
-                        patch.get(8)
-        );
+        StringBuilder str = new StringBuilder();
+        for (String s: patch) {
+            str.append(s);
+        }
+        File temp = writeToTempFile(str.toString());
+
         try {
             ZipFile zipFile = new ZipFile(Preferences.getPatchOutput() + fileName + ".zip");
             ZipParameters parameters = new ZipParameters();
             parameters.setCompressionMethod(Zip4jConstants.COMP_DEFLATE);
             parameters.setCompressionLevel(0);
             zipFile.addFile(temp, parameters);
+            if (!StringWrapper.readFromPrefs(Constants.KEY_EXTRA_FILES).isEmpty()) {
+                try {
+                    zipFile.addFiles(extra, parameters);
+                } catch (Exception e){
+                    ACRA.getErrorReporter().handleException(e);
+                    Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            }
             zipFile.setComment(Preferences.getArchiveComment());
             Toast.makeText(this, String.format(getString(R.string.message_saved_in_path_zip), zipFile.getFile().getAbsolutePath()), Toast.LENGTH_LONG).show();
         } catch (ZipException e){
             Log.e(Constants.TAG, e.getMessage());
             ACRA.getErrorReporter().handleException(e);
         }
-    }
-
-    private void showChangelog(){
-        SweetContentDialog dialog = new SweetContentDialog(this);
-        dialog.setContentText(StrF.parseText("changelog.txt"));
-        dialog.setTypeface("fonts/RobotoMono-Regular.ttf");
-        dialog.setPositive(android.R.string.ok, view -> dialog.dismiss());
-        dialog.show();
     }
 }

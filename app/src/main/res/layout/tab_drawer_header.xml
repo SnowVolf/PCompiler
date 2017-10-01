@@ -1,10 +1,19 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_header_container"
     android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize"
-    android:background="?attr/selectableItemBackground">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
+    <!--<ImageView
+        android:id="@+id/drawer_header_background"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/melissa"/>-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <ImageView
         android:id="@+id/drawer_header_avatar"
         android:layout_width="wrap_content"
@@ -25,7 +34,7 @@
         android:textStyle="bold"
         android:lines="1"
         android:text="@string/title_list_of_rules"
-        android:textColor="?icon_color"/>
+        style="@style/TextAppearance.AppCompat.Title"/>
 
     <android.support.v7.widget.AppCompatImageButton
         android:id="@+id/drawer_header_open_link"
@@ -37,4 +46,5 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:clickable="true"
         app:srcCompat="@drawable/ic_add" />
-</RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

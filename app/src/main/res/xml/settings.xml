@@ -3,18 +3,30 @@
     <PreferenceCategory
         android:title="@string/pref_interface">
         <ListPreference
+            android:icon="@drawable/ic_settings_style"
             android:defaultValue="0"
             android:key="ui.theme"
             android:title="@string/pref_interface_theme"
             android:entries="@array/theme_names"
             android:entryValues="@array/theme_values"/>
         <SwitchPreference
+            android:icon="@drawable/ic_settings_arta"
             android:key="ui.arta"
             android:title="@string/pref_interface_arta"/>
+        <Preference
+            android:icon="@drawable/ic_settings_font_size"
+            android:key="ui.font_size"
+            android:title="@string/pref_interface_font_size"/>
+        <SwitchPreference
+            android:icon="@drawable/ic_settings_typeface"
+            android:key="ui.font_monospace"
+            android:title="@string/pref_interface_typeface"
+            android:defaultValue="true"/>
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/pref_system_language">
         <ListPreference
+            android:icon="@drawable/ic_settings_language"
             android:key="sys.language"
             android:title="@string/pref_sys_lang"
             android:entries="@array/entries_lang"
@@ -23,6 +35,7 @@
     <PreferenceCategory
         android:title="@string/pref_interaction">
         <ListPreference
+            android:icon="@drawable/ic_settings_launch"
             android:defaultValue="1"
             android:key="tab.sort"
             android:title="@string/pref_interaction_open"
@@ -30,33 +43,44 @@
             android:entries="@array/tab_names"
             android:entryValues="@array/tab_values"/>
         <SwitchPreference
+            android:icon="@drawable/ic_settings_back"
             android:key="interaction.back"
             android:title="@string/pref_interaction_back"
             android:defaultValue="true"/>
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/pref_presets">
-        <Preference
+        <ru.SnowVolf.girl.preference.GirlPreference
+            android:icon="@drawable/ic_settings_presets"
             android:key="preset.engine_ver"
             android:title="@string/pref_presets_engine"/>
-        <Preference
+        <ru.SnowVolf.girl.preference.GirlPreference
+            android:icon="@drawable/ic_settings_person"
             android:key="preset.author"
             android:title="@string/pref_presets_author"/>
-        <Preference
+        <ru.SnowVolf.girl.preference.GirlPreference
+            android:icon="@drawable/ic_settings_folder"
             android:key="preset.path"
             android:title="@string/pref_presets_path"/>
-        <Preference
+        <ru.SnowVolf.girl.preference.GirlPreference
+            android:icon="@drawable/ic_settings_edit"
             android:key="preset.archive_comment"
             android:title="@string/pref_presets_archive_comment"/>
+        <ru.SnowVolf.girl.preference.GirlPreference
+            android:icon="@drawable/ic_settings_presets"
+            android:key="preset.mime_type"
+            android:title="@string/pref_presets_mime_type"/>
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/pref_tweaks">
     <SwitchPreference
+        android:icon="@drawable/ic_settings_escape"
         android:key="other.escape_find"
         android:title="@string/pref_tweaks_escape_find"
         android:summary="@string/pref_tweaks_escape_find_summary"
         android:defaultValue="false"/>
     <SwitchPreference
+        android:icon="@drawable/ic_settings_forceregex"
         android:key="other.regexp"
         android:title="@string/pref_tweaks_force_regexp"
         android:summary="@string/pref_tweaks_force_regexp_summary"

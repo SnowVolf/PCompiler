@@ -3,7 +3,7 @@ package ru.SnowVolf.pcompiler.ui.fragment.patch;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
-import android.support.design.widget.TextInputEditText;
+import ru.SnowVolf.girl.ui.GirlEditText;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,8 +23,8 @@ import ru.SnowVolf.pcompiler.util.StringWrapper;
  */
 
 public class GotoFragment extends NativeContainerFragment {
-    @BindView(R.id.field_comment) TextInputEditText mFieldComment;
-    @BindView(R.id.field_next_rule) TextInputEditText mFieldNextRule;
+    @BindView(R.id.field_comment) GirlEditText mFieldComment;
+    @BindView(R.id.field_next_rule) GirlEditText mFieldNextRule;
     @BindView(R.id.button_save) Button buttonSave;
     @BindView(R.id.button_clear) Button buttonClear;
 

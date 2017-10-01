@@ -3,10 +3,12 @@
     <string-array name="theme_values" translatable="false">
         <item>0</item>
         <item>1</item>
+        <item>2</item>
     </string-array>
     <string-array name="theme_names">
         <item>Light</item>
         <item>Dark</item>
+        <item>Black</item>
     </string-array>
 
     <string-array name="tab_values" translatable="false">
@@ -48,9 +50,5 @@
         <item>default</item>
         <item>en</item>
         <item>ru</item>
-    </string-array>
-
-    <string-array name="about_items">
-        <item>Changelog</item>
     </string-array>
 </resources>

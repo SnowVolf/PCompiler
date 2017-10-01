@@ -7,11 +7,46 @@
     android:layout_height="match_parent"
     android:layout_marginStart="8dp"
     android:layout_marginEnd="8dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp">
+        <ImageView
+            android:id="@+id/drawer_header_avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="6dp"
+            android:src="@drawable/ic_file"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/drawer_header_nick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@+id/drawer_header_avatar"
+            android:layout_toStartOf="@+id/add"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:lines="1"
+            style="@style/Base.TextAppearance.AppCompat.Title"/>
+
+        <ImageButton
+            android:id="@+id/add"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:src="@drawable/ic_add" />
+    </RelativeLayout>
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_comment">
-        <android.support.design.widget.TextInputEditText
+        <ru.SnowVolf.girl.ui.GirlEditText
             android:id="@+id/field_comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -20,7 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_name">
-        <android.support.design.widget.TextInputEditText
+        <ru.SnowVolf.girl.ui.GirlEditText
             android:id="@+id/field_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -33,7 +68,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/hint_source"
             android:layout_toStartOf="@+id/checkBoxContainer">
-            <android.support.design.widget.TextInputEditText
+            <ru.SnowVolf.girl.ui.GirlEditText
                 android:id="@+id/field_source"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -67,7 +102,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/hint_target"
             android:layout_toStartOf="@+id/variants">
-            <android.support.design.widget.TextInputEditText
+            <ru.SnowVolf.girl.ui.GirlEditText
                 android:id="@+id/field_target"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />

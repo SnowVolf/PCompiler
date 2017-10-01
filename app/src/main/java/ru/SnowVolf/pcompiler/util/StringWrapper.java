@@ -53,21 +53,17 @@ public class StringWrapper {
             pm = App.ctx().getPackageManager();
             name = App.ctx().getPackageName();
             sa = pm.getPackageInfo(name, PackageManager.GET_SIGNATURES).signatures;
-            Log.w(Constants.TAG, "Signature[] :: " + Arrays.toString(sa));
+            //Log.w(Constants.TAG, "Signature[] :: " + Arrays.toString(sa));
             for (Signature a$a : sa) {
-                Log.w(Constants.TAG, "byte[] :: " + Arrays.toString(bs));
+                //Log.w(Constants.TAG, "byte[] :: " + Arrays.toString(bs));
                 bs = a$a.toByteArray();
-                Log.w(Constants.TAG, "new byte[] :: " + Arrays.toString(bs));
+                //Log.w(Constants.TAG, "new byte[] :: " + Arrays.toString(bs));
                 bs = CertificateFactory.getInstance("X509").generateCertificate(
                         new ByteArrayInputStream(bs)).getEncoded();
-                Log.w(Constants.TAG, "new byte[] encoded :: " + Arrays.toString(bs));
+                //Log.w(Constants.TAG, "new byte[] encoded :: " + Arrays.toString(bs));
                 s = new String(Base64.encode(MessageDigest.getInstance("MD5").digest(bs), 19));
-                Log.w(Constants.TAG, "result string :: " + s);
-                if (!Objects.equals(st, s) && Build.VERSION.SDK_INT > 21) {
-                    Log.w(Constants.TAG, "compare strings ::\nspecified\n" + st + "\nand\ngenerated ::\n" + s);
-                    return false;
-                } else
-                    return true;
+                //Log.w(Constants.TAG, "result string :: " + s);
+                return Objects.equals(st, s) && Build.VERSION.SDK_INT > 21;
             }
         } catch (Exception e){
             ACRA.getErrorReporter().handleException(e);
@@ -75,27 +71,27 @@ public class StringWrapper {
         return false;
     }
 
-    @SuppressLint("PackageManagerGetSignatures")
-    public static String gs(){
-        try {
-            pm = App.ctx().getPackageManager();
-            name = App.ctx().getPackageName();
-            sa = pm.getPackageInfo(name, PackageManager.GET_SIGNATURES).signatures;
-            Log.w(Constants.TAG, "Signature[] :: " + Arrays.toString(sa));
-            for (Signature aSa : sa) {
-                Log.w(Constants.TAG, "byte[] :: " + Arrays.toString(bs));
-                bs = aSa.toByteArray();
-                Log.w(Constants.TAG, "new byte[] :: " + Arrays.toString(bs));
-                bs = CertificateFactory.getInstance("X509").generateCertificate(
-                        new ByteArrayInputStream(bs)).getEncoded();
-                Log.w(Constants.TAG, "new byte[] encoded :: " + Arrays.toString(bs));
-                s = new String(Base64.encode(MessageDigest.getInstance("MD5").digest(bs), 19));
-                Log.w(Constants.TAG, "result string :: " + s);
-                return s;
-            }
-        } catch (Exception e){
-            ACRA.getErrorReporter().handleException(e);
-        }
-        return null;
-    }
+//    @SuppressLint("PackageManagerGetSignatures")
+//    public static String gs(){
+//        try {
+//            pm = App.ctx().getPackageManager();
+//            name = App.ctx().getPackageName();
+//            sa = pm.getPackageInfo(name, PackageManager.GET_SIGNATURES).signatures;
+//            Log.w(Constants.TAG, "Signature[] :: " + Arrays.toString(sa));
+//            for (Signature aSa : sa) {
+//                Log.w(Constants.TAG, "byte[] :: " + Arrays.toString(bs));
+//                bs = aSa.toByteArray();
+//                Log.w(Constants.TAG, "new byte[] :: " + Arrays.toString(bs));
+//                bs = CertificateFactory.getInstance("X509").generateCertificate(
+//                        new ByteArrayInputStream(bs)).getEncoded();
+//                Log.w(Constants.TAG, "new byte[] encoded :: " + Arrays.toString(bs));
+//                s = new String(Base64.encode(MessageDigest.getInstance("MD5").digest(bs), 19));
+//                Log.w(Constants.TAG, "result string :: " + s);
+//                return s;
+//            }
+//        } catch (Exception e){
+//            ACRA.getErrorReporter().handleException(e);
+//        }
+//        return null;
+//    }
 }

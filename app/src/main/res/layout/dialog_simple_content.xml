@@ -11,8 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:textColor="?icon_color"
-        android:layout_margin="16dp"/>
+        android:layout_margin="16dp"
+        style="@style/Base.TextAppearance.AppCompat.Subhead"/>
 
     </android.support.v4.widget.NestedScrollView>
 

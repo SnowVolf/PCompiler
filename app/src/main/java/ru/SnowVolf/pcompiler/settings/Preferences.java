@@ -21,16 +21,8 @@ public class Preferences {
         return App.ctx().getPreferences().getBoolean("interaction.back", true);
     }
 
-    public static void setPatchEngineVer(String s){
-        App.ctx().getPreferences().edit().putString("preset.engine_ver", s).apply();
-    }
-
     public static String getPatchEngineVer(){
         return App.ctx().getPreferences().getString("preset.engine_ver", "2");
-    }
-
-    public static void setPatchOutput(String s){
-        App.ctx().getPreferences().edit().putString("preset.output", s).apply();
     }
 
     public static String getPatchOutput(){
@@ -38,16 +30,8 @@ public class Preferences {
                 Environment.getExternalStorageDirectory().getPath() + "/ApkEditor/PCompiler/");
     }
 
-    public static void setPatchAuthor(String s){
-        App.ctx().getPreferences().edit().putString("preset.author", s).apply();
-    }
-
     public static String getPatchAuthor(){
         return App.ctx().getPreferences().getString("preset.author", "Snow Volf");
-    }
-
-    public static void setArchiveComment(String s){
-        App.ctx().getPreferences().edit().putString("preset.archive_comment", s).apply();
     }
 
     public static String getArchiveComment(){
@@ -64,5 +48,23 @@ public class Preferences {
 
     public static boolean isArtaSyntaxAllowed(){
         return App.ctx().getPreferences().getBoolean("ui.arta", false);
+    }
+
+    public static String getMimeType(){
+        return App.ctx().getPreferences().getString("preset.mime_type", "file/*");
+    }
+
+    public static boolean isMonospaceFontAllowed(){
+        return App.ctx().getPreferences().getBoolean("ui.font_monospace", true);
+    }
+
+    public static int getFontSize(){
+        int size = App.ctx().getPreferences().getInt("ui.font_size", 16);
+        size = Math.max(Math.min(size, 64), 8);
+        return size;
+    }
+
+    public static void setFontSize(int size){
+        App.ctx().getPreferences().edit().putInt("ui.font_size", size).apply();
     }
 }

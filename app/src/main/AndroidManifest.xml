@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ru.SnowVolf.pcompiler">
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -14,7 +16,8 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="android.max_aspect"
-            android:value="2.1"/>
+            android:value="2.1" />
+
         <activity android:name=".ui.activity.TabbedActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,11 +25,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.SettingsActivity"
-            android:label="@string/activity_settings"/>
-        <activity android:name=".ui.activity.RegexpActivity"
-            android:label="Regexp"/>
-        <activity android:name=".ui.activity.BaseActivity"/>
+        <activity
+            android:name=".ui.activity.SettingsActivity"
+            android:label="@string/activity_settings" />
+        <activity
+            android:name=".ui.activity.RegexpActivity"
+            android:label="Regexp" />
+        <activity android:name=".ui.activity.BaseActivity" />
+        <activity
+            android:name=".ui.activity.AboutActivity"
+            android:label="@string/title_activity_about"
+            android:parentActivityName=".ui.activity.TabbedActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ru.SnowVolf.pcompiler.ui.activity.TabbedActivity" />
+        </activity>
     </application>
 
 </manifest>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/light_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/light_colorPrimaryDark_v23</item>
+        <item name="colorAccent">@color/light_colorAccent</item>
+        <item name="icon_color">?colorAccent</item>
+        <item name="android:colorControlHighlight">@color/control_hl</item>
+        <item name="android:listDivider">@null</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="cardStyle">@style/CardStyle.Light</item>
+        <item name="android:titleTextColor">?colorAccent</item>
+        <item name="settings_icon_color">@color/light_settings_icon</item>
+        <item name="backgroundPrefs">@color/dark_icon</item>
+    </style>
+    <style name="AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/dark_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/dark_colorPrimaryDark</item>
+        <item name="colorAccent">@color/dark_colorAccent</item>
+        <item name="android:windowBackground">@color/dark_windowBackground</item>
+        <item name="icon_color">?colorAccent</item>
+        <item name="android:colorControlHighlight">@color/control_hl</item>
+        <item name="android:listDivider">@null</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="cardStyle">@style/CardStyle.Dark</item>
+        <item name="android:titleTextColor">?colorAccent</item>
+        <item name="settings_icon_color">@color/dark_settings_icon</item>
+        <item name="backgroundPrefs">?colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.Dark.Glass" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/glass_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/glass_colorPrimaryDark</item>
+        <item name="colorAccent">@color/glass_colorAccent</item>
+        <item name="android:windowBackground">@color/glass_windowBackground</item>
+        <item name="icon_color">?colorAccent</item>
+        <item name="android:colorControlHighlight">@color/control_hl</item>
+        <item name="android:listDivider">@null</item>
+        <item name="cardStyle">@style/CardStyle.Dark.Glass</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="settings_icon_color">@color/glass_settings_icon</item>
+        <item name="backgroundPrefs">?colorPrimary</item>
+    </style>
+</resources>

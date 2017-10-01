@@ -4,7 +4,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
-import android.support.design.widget.TextInputEditText;
+import ru.SnowVolf.girl.ui.GirlEditText;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.text.Editable;
@@ -27,6 +27,7 @@ import java.util.regex.PatternSyntaxException;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.SnowVolf.pcompiler.R;
+import ru.SnowVolf.pcompiler.settings.Preferences;
 import ru.SnowVolf.pcompiler.ui.fragment.NativeContainerFragment;
 
 /**
@@ -34,8 +35,8 @@ import ru.SnowVolf.pcompiler.ui.fragment.NativeContainerFragment;
  */
 
 public class RegexValidator extends NativeContainerFragment {
-    @BindView(R.id.regex_text) TextInputEditText regexVal;
-    @BindView(R.id.plain_text) TextInputEditText sourceSoup;
+    @BindView(R.id.regex_text) GirlEditText regexVal;
+    @BindView(R.id.plain_text) GirlEditText sourceSoup;
     @BindView(R.id.regex_count) TextView counter;
     @BindView(R.id.regex_result) TextView getCounterResult;
     @BindView(R.id.regex_flags) TextView currentFlag;
@@ -58,11 +59,19 @@ public class RegexValidator extends NativeContainerFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Typeface mono = Typeface.createFromAsset(getActivity().getAssets(), "fonts/RobotoMono-Regular.ttf");
-        currentFlag.setTypeface(mono);
-        getCounterResult.setTypeface(mono);
-        regexVal.setTypeface(mono);
-        sourceSoup.setTypeface(mono);
+        if (Preferences.isMonospaceFontAllowed()) {
+            final Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/RobotoMono-Regular.ttf");
+            regexVal.setTypeface(typeface);
+            sourceSoup.setTypeface(typeface);
+            counter.setTypeface(typeface);
+            getCounterResult.setTypeface(typeface);
+            currentFlag.setTypeface(typeface);
+        }
+        regexVal.setTextSize(Preferences.getFontSize());
+        sourceSoup.setTextSize(Preferences.getFontSize());
+        counter.setTextSize(Preferences.getFontSize());
+        getCounterResult.setTextSize(Preferences.getFontSize());
+        currentFlag.setTextSize(Preferences.getFontSize());
     }
 
     @Override

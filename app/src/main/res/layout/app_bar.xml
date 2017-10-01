@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
-    android:layout_height="?actionBarSize"
+    android:layout_height="wrap_content"
+    android:minHeight="?actionBarSize"
     android:background="?colorPrimary"
     android:popupTheme="?popupTheme"
     app:layout_scrollFlags="scroll|enterAlways" />

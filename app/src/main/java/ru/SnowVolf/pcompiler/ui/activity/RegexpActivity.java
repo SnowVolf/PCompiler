@@ -1,10 +1,12 @@
 package ru.SnowVolf.pcompiler.ui.activity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 
+import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.adapter.ViewPagerAdapter;
 import ru.SnowVolf.pcompiler.ui.fragment.regex.DocumentationFragment;
@@ -16,17 +18,23 @@ import ru.SnowVolf.pcompiler.ui.fragment.regex.SpurFragment;
  */
 
 public class RegexpActivity extends BaseActivity {
+    private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tabbed);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
+        toolbar.setPadding(0, App.ctx().getStatusBarHeight(), 0, 0);
+        if (Build.VERSION.SDK_INT >= 23) {
+            toolbar.setTitleTextColor(App.getColorFromAttr(this, R.attr.colorAccent));
+        }
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
         toolbar.setNavigationOnClickListener(v -> finish());
-        ViewPager viewPager = (ViewPager) findViewById(R.id.tab_pager);
+        ViewPager viewPager = findViewById(R.id.tab_pager);
         setViewPager(viewPager);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);
     }
 
@@ -37,4 +45,5 @@ public class RegexpActivity extends BaseActivity {
         adapter.addFragment(new DocumentationFragment(), getString(R.string.tab_documentation));
         viewPager.setAdapter(adapter);
     }
+
 }

@@ -2,7 +2,8 @@
 <resources>
     <string-array name="theme_names">
         <item>Светлая</item>
-        <item>Темная</item>
+        <item>Тёмная</item>
+        <item>Чёрная</item>
     </string-array>
     <string-array name="save_items">
         <item>Скопировать в буфер</item>
@@ -14,9 +15,5 @@
         <item>Системный</item>
         <item>English</item>
         <item>Русский</item>
-    </string-array>
-
-    <string-array name="about_items">
-        <item>История изменений</item>
     </string-array>
 </resources>

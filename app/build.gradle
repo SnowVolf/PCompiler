@@ -14,13 +14,14 @@ android {
         applicationId "ru.SnowVolf.pcompiler"
         minSdkVersion 21
         targetSdkVersion 26
-        versionCode 8
-        versionName "1.0.7"
+        versionCode 16
+        versionName "1.1.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField "String", "BUILD_TIME", '"' + buildTime().toString() + '"'
         }
@@ -40,18 +41,24 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:26.+'
-    compile 'com.android.support:design:26.0.0-alpha1'
-    compile 'com.android.support:support-v4:26.0.0-alpha1'
-    compile 'com.android.support:recyclerview-v7:26.+'
+    compile 'com.android.support:appcompat-v7:26.1.0'
+    compile 'com.android.support:design:26.1.0'
+    compile 'com.android.support:support-v4:26.1.0'
+    compile 'com.android.support:cardview-v7:26.1.0'
+    compile 'com.android.support:recyclerview-v7:26.1.0'
     testCompile 'junit:junit:4.12'
     compile 'com.jakewharton:butterknife:8.7.0'
     compile 'com.jakewharton:butterknife-compiler:8.7.0'
     compile 'com.jakewharton:butterknife-annotations:8.7.0'
     //compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile 'com.faendir:acra:4.10.0'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.3'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'com.github.iamironz:binaryprefs:1.0.0-BETA-2'
+    compile 'com.squareup.okhttp3:okhttp:3.9.0'
     compile files('libs/zip4j_1.3.2.jar')
 }
 repositories {
     mavenCentral()
+    google()
 }

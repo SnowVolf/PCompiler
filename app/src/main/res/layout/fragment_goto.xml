@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_comment">
-        <android.support.design.widget.TextInputEditText
+        <ru.SnowVolf.girl.ui.GirlEditText
             android:id="@+id/field_comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_next_rule">
-        <android.support.design.widget.TextInputEditText
+        <ru.SnowVolf.girl.ui.GirlEditText
             android:id="@+id/field_next_rule"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

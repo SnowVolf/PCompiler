@@ -2,8 +2,10 @@ package ru.SnowVolf.pcompiler.ui.fragment.dialog;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.support.annotation.FontRes;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetDialog;
+import android.support.v4.content.res.ResourcesCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -73,6 +75,11 @@ public class SweetContentDialog extends BottomSheetDialog {
 
     public void setTypeface(String assetPath){
         final Typeface typeface = Typeface.createFromAsset(App.getContext().getAssets(), assetPath);
+        mContentView.setTypeface(typeface);
+    }
+
+    public void setTypeface(@FontRes int resId){
+        final Typeface typeface = ResourcesCompat.getFont(mContext, resId);
         mContentView.setTypeface(typeface);
     }
 }

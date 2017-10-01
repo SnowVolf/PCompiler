@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:descendantFocusability="blocksDescendants">
     <TextView
@@ -10,5 +12,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:textSize="16sp"
-        android:textColor="?icon_color"/>
+        style="@style/TextAppearance.AppCompat.Body1"
+        tools:text="@string/tab_dummy"/>
 </LinearLayout>

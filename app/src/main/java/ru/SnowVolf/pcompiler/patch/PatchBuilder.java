@@ -41,6 +41,14 @@ public class PatchBuilder {
         return "";
     }
 
+    public static String insertReplaceTag(EditText editText){
+        if (!editText.getText().toString().isEmpty()){
+            return "REPLACE:" + System.lineSeparator() + editText.getText().toString()
+                    + System.lineSeparator();
+        }
+        return "REPLACE:" + System.lineSeparator();
+    }
+
     public static String regexTrue(boolean zed){
         if (zed){
             return "REGEX:" + System.lineSeparator() + "true" + System.lineSeparator();
@@ -65,16 +73,13 @@ public class PatchBuilder {
 //[  \t]*\\R[  \t]*
     private static String escapeFind(String find){
         if (Preferences.isEscapeFindAllowed()) {
-            String fourSpaces = "    ";
-            if (find.startsWith("    ")){
-                fourSpaces = "";
-            }
-            find = fourSpaces + find
+            find = find
                     .replace("\n", "\\n")
                     .replace("    .", "    \\.")
                     .replaceAll(RegexPattern.REGISTERS, "([pv]\\\\d+)")
                     .replace("{", "\\{")
                     .replace("}", "\\}")
+                    .replace("$", "\\$")
                     .replace(".method", "\\.method")
                     .replace(".end method", "\\.end method")
                     .replace(System.lineSeparator(), "\\n    ")

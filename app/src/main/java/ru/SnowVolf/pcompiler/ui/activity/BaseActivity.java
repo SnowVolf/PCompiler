@@ -9,7 +9,9 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.transition.Explode;
 import android.transition.Fade;
+import android.view.WindowManager;
 
+import ru.SnowVolf.pcompiler.util.LocaleGirl;
 import ru.SnowVolf.pcompiler.util.ThemeWrapper;
 
 /**
@@ -33,6 +35,11 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(LocaleGirl.onAttach(base));
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         LocalBroadcastManager.getInstance(this).registerReceiver(mThemeReceiver, new IntentFilter("org.openintents.action.REFRESH_THEME"));
         ThemeWrapper.applyTheme(this);
@@ -41,6 +48,8 @@ public class BaseActivity extends AppCompatActivity {
         getWindow().setEnterTransition(new Explode());
         getWindow().setExitTransition(new Fade());
         getWindow().setAllowEnterTransitionOverlap(true);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
+                WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
     }
 
     @Override

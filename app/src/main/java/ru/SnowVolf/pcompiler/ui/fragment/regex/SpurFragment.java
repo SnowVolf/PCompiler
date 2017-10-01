@@ -11,6 +11,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.SnowVolf.pcompiler.R;
+import ru.SnowVolf.pcompiler.settings.Preferences;
 import ru.SnowVolf.pcompiler.ui.fragment.NativeContainerFragment;
 import ru.SnowVolf.pcompiler.util.StrF;
 
@@ -34,8 +35,11 @@ public class SpurFragment extends NativeContainerFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Typeface mono = Typeface.createFromAsset(getActivity().getAssets(), "fonts/RobotoMono-Regular.ttf");
-        content.setTypeface(mono);
+        if (Preferences.isMonospaceFontAllowed()) {
+            final Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/RobotoMono-Regular.ttf");
+            content.setTypeface(typeface);
+        }
+        content.setTextSize(Preferences.getFontSize());
         content.setText(StrF.parseText("regex/small_help.txt"));
     }
 }

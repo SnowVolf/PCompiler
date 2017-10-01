@@ -2,6 +2,8 @@
 -dontwarn java.util.**
 -dontwarn java.time.**
 -dontwarn javax.**
+-dontwarn com.squareup.**
+-dontwarn rx.**
 -dontwarn com.sun.tools.**
 -dontwarn com.sun.misc.**
 -dontwarn com.sun.misc.Unsafe
@@ -22,3 +24,12 @@
 -keepclasseswithmembernames class * { @butterknife.* <methods>; }
 -keepclasseswithmembernames class * { @butterknife.* <fields>; }
 -dontwarn net.lingala.zip4j.**
+#okhttp3
+-keepattributes Signature
+-keepattributes *Annotation*
+-keep class okhttp3.** { *; }
+-keep class okio.** { *; }
+-dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
+-keep interface okhttp3.**
+
+

@@ -3,7 +3,7 @@ package ru.SnowVolf.pcompiler.ui.fragment.dialog;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetDialog;
-import android.support.design.widget.TextInputEditText;
+import ru.SnowVolf.girl.ui.GirlEditText;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -19,8 +19,8 @@ import ru.SnowVolf.pcompiler.util.ThemeWrapper;
 public class SweetInputDialog extends BottomSheetDialog {
     private Context mContext;
     private TextView mContentView;
-    private TextInputEditText mEditText;
-    private Button mPositive, mNegative;
+    private GirlEditText mEditText;
+    private Button mPositive;
 
     public SweetInputDialog(@NonNull Context context) {
         super(context, ThemeWrapper.getTheme());
@@ -34,35 +34,31 @@ public class SweetInputDialog extends BottomSheetDialog {
         mContentView = view.findViewById(R.id.title);
         mEditText = view.findViewById(R.id.field_edit);
         mPositive = view.findViewById(R.id.positive);
-        //mNegative = view.findViewById(R.id.negative);
         setContentView(view);
     }
 
-    @Override
-    public void setTitle(CharSequence title){
+    public SweetInputDialog setPrefTitle(CharSequence title){
         mContentView.setText(title);
+        return this;
     }
 
-    public void setPositive(CharSequence text, View.OnClickListener listener){
+    public SweetInputDialog setPositive(CharSequence text, View.OnClickListener listener){
         mPositive.setText(text);
         mPositive.setOnClickListener(listener);
+        return this;
     }
-
-//    public void setNegative(CharSequence text, View.OnClickListener listener){
-//        mNegative.setText(text);
-//        mNegative.setOnClickListener(listener);
-//    }
 
     public String getInputString(){
         return mEditText.getText().toString();
     }
 
-    public TextInputEditText getInputField(){
+    public GirlEditText getInputField(){
         return mEditText;
     }
 
-    public void setInputString(String inputString){
+    public SweetInputDialog setInputString(String inputString){
         mEditText.setText(inputString);
         mEditText.setSelection(mEditText.getText().length());
+        return this;
     }
 }

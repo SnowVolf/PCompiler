@@ -12,7 +12,8 @@ import ru.SnowVolf.pcompiler.R;
 public abstract class ThemeWrapper {
     public enum Theme{
         LIGHT,
-        DARK
+        DARK,
+        DARK_GLASS
     }
 
     public static void applyTheme(Activity ctx){
@@ -24,6 +25,9 @@ public abstract class ThemeWrapper {
             case DARK:
                 theme = R.style.AppTheme_Dark;
                 break;
+            case DARK_GLASS:
+                theme = R.style.AppTheme_Dark_Glass;
+                break;
             default:
                 theme = R.style.AppTheme;
                 break;
@@ -31,7 +35,7 @@ public abstract class ThemeWrapper {
         ctx.setTheme(theme);
     }
 
-    private static int getThemeIndex() {
+    public static int getThemeIndex() {
         return Integer.parseInt(App.ctx().getPreferences().getString("ui.theme", String.valueOf(ThemeWrapper.Theme.LIGHT.ordinal())));
     }
 
@@ -43,6 +47,9 @@ public abstract class ThemeWrapper {
                 break;
             case DARK:
                 theme = R.style.DialogDark;
+                break;
+            case DARK_GLASS:
+                theme = R.style.DialogDark_Glass;
                 break;
             default:
                 theme = R.style.DialogLight;

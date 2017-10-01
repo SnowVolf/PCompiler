@@ -1,17 +1,23 @@
 package ru.SnowVolf.pcompiler.ui.fragment.settings;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.PreferenceFragment;
 import android.support.annotation.Nullable;
+import android.app.FragmentManager;
 import android.support.v4.content.LocalBroadcastManager;
-import android.text.InputType;
+import android.support.v7.app.AlertDialog;
+import android.view.View;
+import android.widget.SeekBar;
+import android.widget.TextView;
+
 
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.settings.Preferences;
-import ru.SnowVolf.pcompiler.ui.fragment.dialog.SweetInputDialog;
+import ru.SnowVolf.pcompiler.ui.fragment.dialog.SweetInputDialogFragment;
 
 /**
  * Created by Snow Volf on 18.08.2017, 21:55
@@ -26,11 +32,6 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
         setCurrentValue((ListPreference) findPreference("ui.theme"));
         getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
         init();
-
-        findPreference("preset.engine_ver").setSummary(Preferences.getPatchEngineVer());
-        findPreference("preset.author").setSummary(Preferences.getPatchAuthor());
-        findPreference("preset.path").setSummary(Preferences.getPatchOutput());
-        findPreference("preset.archive_comment").setSummary(Preferences.getArchiveComment());
     }
 
     @Override
@@ -59,60 +60,77 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
     }
 
     private void init(){
-        findPreference("preset.engine_ver").setOnPreferenceClickListener(preference -> {
-            final SweetInputDialog dialog = new SweetInputDialog(getActivity());
-            dialog.getInputField().setInputType(InputType.TYPE_CLASS_PHONE);
-            dialog.setTitle(preference.getTitle());
-            dialog.setInputString(Preferences.getPatchEngineVer());
-            dialog.setPositive(getString(android.R.string.ok), view -> {
-                Preferences.setPatchEngineVer(dialog.getInputString());
-                preference.setSummary(Preferences.getPatchEngineVer());
-                dialog.dismiss();
+        findPreference("ui.font_size").setOnPreferenceClickListener(preference -> {
+            View v = getActivity().getLayoutInflater().inflate(R.layout.dialog_font_size, null);
+
+            assert v != null;
+            final SeekBar seekBar = v.findViewById(R.id.value_seekbar);
+            seekBar.setProgress(Preferences.getFontSize() - 1 - 7);
+            final TextView textView = v.findViewById(R.id.value_textview);
+            textView.setText(Integer.toString(seekBar.getProgress() + 1 + 7));
+            textView.setTextSize(seekBar.getProgress() + 1 + 7);
+            seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                @Override
+                public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                    textView.setText(Integer.toString(i + 1 + 7));
+                    textView.setTextSize(i + 1 + 7);
+                }
+
+                @Override
+                public void onStartTrackingTouch(SeekBar seekBar) {
+
+                }
+
+                @Override
+                public void onStopTrackingTouch(SeekBar seekBar) {
+
+                }
             });
-            //dialog.setNegative(getString(android.R.string.cancel), view -> dialog.dismiss());
-            dialog.show();
+            AlertDialog dialog = new AlertDialog.Builder(getActivity())
+                    .setTitle(preference.getTitle())
+                    .setView(v)
+                    .setPositiveButton(android.R.string.ok, (dialog1, which) -> Preferences.setFontSize(seekBar.getProgress() + 1 + 7))
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .setNeutralButton(R.string.menu_reset, null)
+                    .show();
+            dialog.getButton(DialogInterface.BUTTON_NEUTRAL).setOnClickListener(v1 -> {
+                seekBar.setProgress(16 - 1 - 7);
+                Preferences.setFontSize(16);
+            });
+            return false;
+        });
+        findPreference("preset.engine_ver").setOnPreferenceClickListener(preference -> {
+            FragmentManager manager = getActivity().getFragmentManager();
+            SweetInputDialogFragment dialogFragment = SweetInputDialogFragment.newInstance(preference, Preferences.getPatchEngineVer());
+            dialogFragment.show(manager, null);
             return true;
         });
 
         findPreference("preset.author").setOnPreferenceClickListener(preference -> {
-            final SweetInputDialog dialog = new SweetInputDialog(getActivity());
-            dialog.setTitle(preference.getTitle());
-            dialog.setInputString(Preferences.getPatchAuthor());
-            dialog.setPositive(getString(android.R.string.ok), view -> {
-                Preferences.setPatchAuthor(dialog.getInputString());
-                preference.setSummary(Preferences.getPatchAuthor());
-                dialog.dismiss();
-            });
-            //dialog.setNegative(getString(android.R.string.cancel), view -> dialog.dismiss());
-            dialog.show();
+            FragmentManager manager = getActivity().getFragmentManager();
+            SweetInputDialogFragment dialogFragment = SweetInputDialogFragment.newInstance(preference, Preferences.getPatchAuthor());
+            dialogFragment.show(manager, null);
             return true;
         });
 
         findPreference("preset.path").setOnPreferenceClickListener(preference -> {
-            final SweetInputDialog dialog = new SweetInputDialog(getActivity());
-            dialog.setTitle(preference.getTitle());
-            dialog.setInputString(Preferences.getPatchOutput());
-            dialog.setPositive(getString(android.R.string.ok), view -> {
-                Preferences.setPatchOutput(dialog.getInputString());
-                preference.setSummary(Preferences.getPatchOutput());
-                dialog.dismiss();
-            });
-            //dialog.setNegative(getString(android.R.string.cancel), view -> dialog.dismiss());
-            dialog.show();
+            FragmentManager manager = getActivity().getFragmentManager();
+            SweetInputDialogFragment dialogFragment = SweetInputDialogFragment.newInstance(preference, Preferences.getPatchOutput());
+            dialogFragment.show(manager, null);
             return true;
         });
 
         findPreference("preset.archive_comment").setOnPreferenceClickListener(preference -> {
-            final SweetInputDialog dialog = new SweetInputDialog(getActivity());
-            dialog.setTitle(preference.getTitle());
-            dialog.setInputString(Preferences.getArchiveComment());
-            dialog.setPositive(getString(android.R.string.ok), view -> {
-                Preferences.setArchiveComment(dialog.getInputString());
-                preference.setSummary(Preferences.getArchiveComment());
-                dialog.dismiss();
-            });
-            //dialog.setNegative(getString(android.R.string.cancel), view -> dialog.dismiss());
-            dialog.show();
+            FragmentManager manager = getActivity().getFragmentManager();
+            SweetInputDialogFragment dialogFragment = SweetInputDialogFragment.newInstance(preference, null);
+            dialogFragment.show(manager, null);
+            return true;
+        });
+
+        findPreference("preset.mime_type").setOnPreferenceClickListener(preference -> {
+            FragmentManager manager = getActivity().getFragmentManager();
+            SweetInputDialogFragment dialogFragment = SweetInputDialogFragment.newInstance(preference, Preferences.getMimeType());
+            dialogFragment.show(manager, null);
             return true;
         });
     }

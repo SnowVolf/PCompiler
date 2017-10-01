@@ -3,7 +3,7 @@ package ru.SnowVolf.pcompiler.ui.fragment.patch;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
-import android.support.design.widget.TextInputEditText;
+import ru.SnowVolf.girl.ui.GirlEditText;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,9 +24,9 @@ import ru.SnowVolf.pcompiler.util.StringWrapper;
  */
 
 public class AboutPatchFragment extends NativeContainerFragment {
-    @BindView(R.id.field_engine_ver) TextInputEditText mFieldEnige;
-    @BindView(R.id.field_author) TextInputEditText mFieldAuthor;
-    @BindView(R.id.field_package_name) TextInputEditText mFieldPackage;
+    @BindView(R.id.field_engine_ver) GirlEditText mFieldEnige;
+    @BindView(R.id.field_author) GirlEditText mFieldAuthor;
+    @BindView(R.id.field_package_name) GirlEditText mFieldPackage;
     @BindView(R.id.button_save) Button buttonSave;
     @BindView(R.id.all_packages) Button mButtonAll;
     @BindView(R.id.button_clear) Button buttonClear;

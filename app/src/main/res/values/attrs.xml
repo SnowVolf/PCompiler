@@ -2,6 +2,9 @@
 <resources>
     <declare-styleable name="main">
         <attr name="icon_color" format="color"/>
+        <attr name="settings_icon_color" format="color"/>
+        <attr name="cardStyle" format="reference"/>
+        <attr name="backgroundPrefs" format="color"/>
     </declare-styleable>
     <declare-styleable name="CircleImageView">
         <attr name="civ_border_width" format="dimension"/>

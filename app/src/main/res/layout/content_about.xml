@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scroll1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="ru.SnowVolf.pcompiler.ui.activity.AboutActivity"
+    tools:showIn="@layout/activity_about">
+
+    <RelativeLayout
+        android:id="@+id/about_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/card_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
+            <!--ABOUT APP REDESIGN-->
+            <android.support.v7.widget.CardView
+                android:id="@+id/about_app_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                app:cardCornerRadius="2dp"
+                app:cardElevation="2dp"
+                android:foreground="@drawable/ripple"
+                android:clickable="true"
+                style="?attr/cardStyle">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <RelativeLayout
+                        android:layout_width="64dp"
+                        android:layout_height="115dp"
+                        android:background="@color/grey_overlay"
+                        android:id="@+id/relativeLayout">
+                        <ImageView
+                            android:id="@+id/app_status"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true" />
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_toEndOf="@+id/relativeLayout"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView"
+                            style="@style/TextAppearance.AppCompat.Title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/app_name"
+                            android:textColor="?colorAccent"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/about_version_item_sub"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:textSize="14sp"
+                            android:textStyle="italic"
+                            android:text="@string/version_sub"/>
+                        <TextView
+                            android:id="@+id/about_code_item_sub"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:textSize="14sp"
+                            android:textStyle="italic"
+                            android:text="@string/id_sub"/>
+                        <TextView
+                            android:id="@+id/about_time_item_sub"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:textSize="14sp"
+                            android:textStyle="italic"
+                            android:text="@string/date_sub"/>
+                    </LinearLayout>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                style="?attr/cardStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="2dp"
+                app:cardElevation="2dp">
+                <include layout="@layout/about_bar"/>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/about_artem_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="2dp"
+                app:cardElevation="2dp"
+                android:foreground="@drawable/ripple"
+                android:clickable="true"
+                style="?attr/cardStyle">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/artem_header_img"
+                            android:layout_width="match_parent"
+                            android:layout_height="180dp"
+                            android:scaleType="centerCrop"
+                            android:clickable="true"
+                            android:src="@drawable/splashscreen2"/>
+                        <ru.SnowVolf.pcompiler.ui.widget.CircleImageView
+                            android:src="@drawable/circle_girl"
+                            android:id="@+id/artem_profile_img"
+                            android:layout_width="108dp"
+                            android:layout_height="108dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="125dp"
+                            app:civ_border_color="?colorAccent"
+                            app:civ_border_width="2dp" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_toRightOf="@id/artem_profile_img"
+                            android:layout_marginTop="185dp">
+
+                            <TextView
+                                android:id="@+id/artem_zhiganov"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/about_author_name"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/atrem_zhiganov_role"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/about_author_role"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/artem_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/role_descr"
+                        android:textSize="14sp" />
+                    <!--ATREM LINKS  -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="10sp">
+                        <Button
+                            android:id="@+id/about_author_artem_mail_item"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="EMAIL"
+                            android:textStyle="bold"
+                            style="@style/Base.Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
+                        <Button
+                            android:id="@+id/about_author_artem_pda_item"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4PDA"
+                            style="@style/Base.Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
+                        <Button
+                            android:id="@+id/about_author_artem_github_item"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="GITHUB"
+                            style="@style/Base.Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/about_htc_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="2dp"
+                app:cardElevation="2dp"
+                android:foreground="@drawable/ripple"
+                android:clickable="true"
+                style="?attr/cardStyle">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/artem_htc_img"
+                            android:layout_width="match_parent"
+                            android:layout_height="180dp"
+                            android:scaleType="centerCrop"
+                            android:clickable="true"
+                            android:src="@drawable/htc_wallp"/>
+                        <ru.SnowVolf.pcompiler.ui.widget.CircleImageView
+                            android:src="@drawable/htc600"
+                            android:id="@+id/htc_profile_img"
+                            android:layout_width="108dp"
+                            android:layout_height="108dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="125dp"
+                            app:civ_border_color="?colorAccent"
+                            app:civ_border_width="2dp" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_toRightOf="@id/htc_profile_img"
+                            android:layout_marginTop="185dp">
+                            <TextView
+                                android:id="@+id/alexey_samsonov"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/about_main_contributor_name"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/alexey_samsonov_role"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/about_main_contributor_role"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/htc_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16sp"
+                        android:text="@string/htc_role_descr"
+                        android:textSize="14sp" />
+                    <!--ATREM LINKS  -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="10sp">
+                        <Button
+                            android:id="@+id/about_htc_pda_item"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4PDA"
+                            style="@style/Base.Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>

@@ -14,7 +14,8 @@
     <item
         android:id="@+id/action_reset"
         android:title="@string/menu_reset"
-        android:icon="@drawable/ic_reset"/>
+        android:icon="@drawable/ic_reset"
+        app:showAsAction="always"/>
     <item
         android:id="@+id/action_regex_help"
         android:title="@string/menu_regexp"
