@@ -12,6 +12,7 @@
         <item name="cardStyle">@style/CardStyle.Light</item>
         <item name="settings_icon_color">@color/light_settings_icon</item>
         <item name="backgroundPrefs">?colorPrimary</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
     <style name="AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">
@@ -26,6 +27,7 @@
         <item name="cardStyle">@style/CardStyle.Dark</item>
         <item name="settings_icon_color">@color/dark_settings_icon</item>
         <item name="backgroundPrefs">?colorPrimary</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
     <style name="AppTheme.Dark.Glass" parent="Theme.AppCompat.NoActionBar">
@@ -40,6 +42,7 @@
         <item name="cardStyle">@style/CardStyle.Dark.Glass</item>
         <item name="settings_icon_color">@color/glass_settings_icon</item>
         <item name="backgroundPrefs">?colorPrimary</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
     
     <style name="CardStyle.Light" parent="CardView.Light">
