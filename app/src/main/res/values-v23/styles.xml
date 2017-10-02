@@ -15,7 +15,7 @@
         <item name="settings_icon_color">@color/light_settings_icon</item>
         <item name="backgroundPrefs">@color/dark_icon</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="preferenceTheme">@style/PreferenceFixTheme.Light</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
     </style>
     <style name="AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">
         <!-- Customize your theme here. -->
@@ -32,7 +32,7 @@
         <item name="settings_icon_color">@color/dark_settings_icon</item>
         <item name="backgroundPrefs">?colorPrimary</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="preferenceTheme">@style/PreferenceFixTheme</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
     </style>
 
     <style name="AppTheme.Dark.Glass" parent="Theme.AppCompat.NoActionBar">
@@ -49,6 +49,6 @@
         <item name="settings_icon_color">@color/glass_settings_icon</item>
         <item name="backgroundPrefs">?colorPrimary</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="preferenceTheme">@style/PreferenceFixTheme</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
     </style>
 </resources>

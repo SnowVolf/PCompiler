@@ -9,19 +9,20 @@
             android:title="@string/pref_interface_theme"
             android:entries="@array/theme_names"
             android:entryValues="@array/theme_values"/>
-        <SwitchPreference
+        <ru.SnowVolf.girl.preference.SwitchGirl
             android:icon="@drawable/ic_settings_arta"
             android:key="ui.arta"
-            android:title="@string/pref_interface_arta"/>
+            android:title="@string/pref_interface_arta" />
         <Preference
             android:icon="@drawable/ic_settings_font_size"
             android:key="ui.font_size"
             android:title="@string/pref_interface_font_size"/>
-        <SwitchPreference
+        <ru.SnowVolf.girl.preference.SwitchGirl
             android:icon="@drawable/ic_settings_typeface"
             android:key="ui.font_monospace"
             android:title="@string/pref_interface_typeface"
-            android:defaultValue="true"/>
+            android:defaultValue="true"
+            android:clickable="true"/>
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/pref_system_language">
@@ -46,7 +47,8 @@
             android:icon="@drawable/ic_settings_back"
             android:key="interaction.back"
             android:title="@string/pref_interaction_back"
-            android:defaultValue="true"/>
+            android:defaultValue="true"
+            android:clickable="true"/>
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/pref_presets">
@@ -73,17 +75,19 @@
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/pref_tweaks">
-    <SwitchPreference
+    <ru.SnowVolf.girl.preference.SwitchGirl
         android:icon="@drawable/ic_settings_escape"
         android:key="other.escape_find"
         android:title="@string/pref_tweaks_escape_find"
         android:summary="@string/pref_tweaks_escape_find_summary"
-        android:defaultValue="false"/>
-    <SwitchPreference
+        android:defaultValue="false"
+        android:clickable="true"/>
+    <ru.SnowVolf.girl.preference.SwitchGirl
         android:icon="@drawable/ic_settings_forceregex"
         android:key="other.regexp"
         android:title="@string/pref_tweaks_force_regexp"
         android:summary="@string/pref_tweaks_force_regexp_summary"
-        android:defaultValue="true"/>
+        android:defaultValue="true"
+        android:clickable="true" />
     </PreferenceCategory>
 </PreferenceScreen>
