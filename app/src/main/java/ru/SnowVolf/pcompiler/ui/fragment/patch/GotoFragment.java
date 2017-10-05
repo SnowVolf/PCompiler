@@ -14,9 +14,9 @@ import butterknife.ButterKnife;
 import ru.SnowVolf.girl.ui.GirlEditText;
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.patch.PatchBuilder;
+import ru.SnowVolf.pcompiler.settings.Preferences;
 import ru.SnowVolf.pcompiler.ui.fragment.NativeContainerFragment;
 import ru.SnowVolf.pcompiler.util.Constants;
-import ru.SnowVolf.pcompiler.util.StringWrapper;
 
 /**
  * Created by Snow Volf on 17.08.2017, 15:27
@@ -46,7 +46,7 @@ public class GotoFragment extends NativeContainerFragment {
                     + PatchBuilder.insertStartTag("goto")
                     + PatchBuilder.insertTag(mFieldNextRule, "goto")
                     + PatchBuilder.insertEndTag("goto");
-            StringWrapper.saveToPrefs(Constants.KEY_GOTO, gotoPart);
+            Preferences.saveString(Constants.KEY_GOTO, gotoPart);
             Log.i(Constants.TAG, gotoPart);
             Snackbar.make(mFieldComment, R.string.message_saved, Snackbar.LENGTH_SHORT).show();
         });
@@ -54,7 +54,7 @@ public class GotoFragment extends NativeContainerFragment {
         buttonClear.setOnClickListener(view -> {
             mFieldComment.setText("");
             mFieldNextRule.setText("");
-            StringWrapper.saveToPrefs(Constants.KEY_GOTO, "");
+            Preferences.saveString(Constants.KEY_GOTO, "");
         });
     }
 }

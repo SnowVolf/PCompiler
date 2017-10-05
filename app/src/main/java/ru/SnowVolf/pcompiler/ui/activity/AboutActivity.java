@@ -1,5 +1,9 @@
 package ru.SnowVolf.pcompiler.ui.activity;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.os.AsyncTask;
 import android.support.v4.app.FragmentManager;
 import android.content.Intent;
 import android.net.Uri;
@@ -21,6 +25,7 @@ import java.util.zip.CRC32;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import ru.SnowVolf.girl.utils.RenderUtils;
 import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.BuildConfig;
 import ru.SnowVolf.pcompiler.R;
@@ -49,6 +54,7 @@ public class AboutActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         ButterKnife.bind(this);
+        new CreateBitMap().execute();
         Toolbar toolbar = findViewById(R.id.toolbar);
         if (Build.VERSION.SDK_INT >= 23) {
             toolbar.setTitleTextColor(App.getColorFromAttr(this, R.attr.colorAccent));
@@ -141,5 +147,20 @@ public class AboutActivity extends BaseActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         App.ctx().onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    private class CreateBitMap extends AsyncTask<Void, BitmapDrawable, BitmapDrawable>{
+        @Override
+        protected BitmapDrawable doInBackground(Void... voids) {
+            final Bitmap f = BitmapFactory.decodeResource(getResources(), R.drawable.censorship);
+            return new BitmapDrawable(getResources(),
+                    RenderUtils.fastBlur(f, 90, false));
+        }
+
+        @Override
+        protected void onPostExecute(BitmapDrawable bitmapDrawable) {
+            super.onPostExecute(bitmapDrawable);
+            melissaDebling.setBackground(bitmapDrawable);
+        }
     }
 }

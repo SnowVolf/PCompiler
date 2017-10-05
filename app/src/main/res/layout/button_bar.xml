@@ -8,11 +8,12 @@
         android:layout_height="wrap_content"
         android:id="@+id/button_clear"
         android:text="@string/button_clear"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"/>
+        android:textColor="?colorAccent"
+        android:background="@drawable/corners_outline"/>
     <Button xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button_save"
         android:text="@string/button_save"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"/>
+        style="@style/Widget.AppCompat.Button.Colored"/>
 </LinearLayout>

@@ -14,8 +14,8 @@ android {
         applicationId "ru.SnowVolf.pcompiler"
         minSdkVersion 21
         targetSdkVersion 26
-        versionCode 17
-        versionName "1.1.4"
+        versionCode 18
+        versionName "1.1.5"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -46,6 +46,8 @@ dependencies {
     compile 'com.android.support:support-v4:26.1.0'
     compile 'com.android.support:cardview-v7:26.1.0'
     compile 'com.android.support:recyclerview-v7:26.1.0'
+    compile 'com.android.support:preference-v7:26.1.0'
+    compile 'com.android.support:preference-v14:26.1.0'
     testCompile 'junit:junit:4.12'
     compile 'com.jakewharton:butterknife:8.7.0'
     compile 'com.jakewharton:butterknife-compiler:8.7.0'
@@ -56,7 +58,7 @@ dependencies {
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     compile 'com.github.iamironz:binaryprefs:1.0.0-BETA-2'
     compile 'com.squareup.okhttp3:okhttp:3.9.0'
-    compile 'com.takisoft.fix:preference-v7:26.1.0.2'
+    compile 'com.yandex.android:mobmetricalib:2.76'
     compile files('libs/zip4j_1.3.2.jar')
 }
 repositories {

@@ -20,6 +20,7 @@ import android.util.TypedValue;
 
 import com.ironz.binaryprefs.BinaryPreferencesBuilder;
 import com.ironz.binaryprefs.Preferences;
+import com.yandex.metrica.YandexMetrica;
 
 import org.acra.ACRA;
 import org.acra.ReportField;
@@ -95,13 +96,17 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         RxJavaPlugins.setErrorHandler(throwable -> {
-            Log.d("SUKA", "RxJavaPlugins errorHandler " + throwable);
+            Log.d(Constants.TAG, "RxJavaPlugins errorHandler " + throwable);
             throwable.printStackTrace();
         });
         if (StringWrapper.b("8zuv+ap22YnX6ohcFCYktA")) {
             ACRA.init(this);
         }
         PreferenceManager.setDefaultValues(this, R.xml.settings, false);
+        // Инициализация AppMetrica SDK
+        YandexMetrica.activate(getApplicationContext(), "16a6ee34-5d01-47bf-80db-f891ec82be42");
+        // Отслеживание активности пользователей
+        YandexMetrica.enableActivityAutoTracking(this);
     }
 
     @Override

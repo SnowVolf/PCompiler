@@ -27,7 +27,6 @@ import ru.SnowVolf.pcompiler.settings.Preferences;
 import ru.SnowVolf.pcompiler.ui.activity.TabbedActivity;
 import ru.SnowVolf.pcompiler.ui.fragment.NativeContainerFragment;
 import ru.SnowVolf.pcompiler.util.Constants;
-import ru.SnowVolf.pcompiler.util.StringWrapper;
 
 /**
  * Created by Snow Volf on 17.08.2017, 15:28
@@ -67,7 +66,7 @@ public class AddFilesFragment extends NativeContainerFragment {
                     + PatchBuilder.rootFolderTrue(mCheckBox.isChecked())
                     + PatchBuilder.insertTag(mFieldSource, "source")
                     + PatchBuilder.insertEndTag("add_files");
-            StringWrapper.saveToPrefs(Constants.KEY_ADD_FILES, addFilesPart);
+            Preferences.saveString(Constants.KEY_ADD_FILES, addFilesPart);
             Log.i(Constants.TAG, addFilesPart);
             Snackbar.make(mFieldComment, R.string.message_saved, Snackbar.LENGTH_SHORT).show();
         });
@@ -79,8 +78,8 @@ public class AddFilesFragment extends NativeContainerFragment {
             mFieldTarget.setText("");
             mCheckBox.setChecked(false);
             TabbedActivity.extra.clear();
-            StringWrapper.saveToPrefs(Constants.KEY_ADD_FILES, "");
-            StringWrapper.saveToPrefs(Constants.KEY_EXTRA_FILES, "");
+            Preferences.saveString(Constants.KEY_ADD_FILES, "");
+            Preferences.saveString(Constants.KEY_EXTRA_FILES, "");
         });
         mButtonVariants.setOnClickListener(view -> {
             PopupMenu menu = new PopupMenu(getActivity(), mButtonVariants);
@@ -105,10 +104,10 @@ public class AddFilesFragment extends NativeContainerFragment {
         if(resultCode == Activity.RESULT_OK) {
             switch (requestCode) {
                 case REQUEST_ADD:{
-                    String mLastSelectedFile = StringWrapper.readFromPrefs(Constants.KEY_EXTRA_FILES);
+                    String mLastSelectedFile = Preferences.readString(Constants.KEY_EXTRA_FILES);
                     if (!mLastSelectedFile.equals(data.getData().getPath())) {
-                        StringWrapper.saveToPrefs(Constants.KEY_EXTRA_FILES, data.getData().getPath());
-                        TabbedActivity.extra.add(new File(StringWrapper.readFromPrefs(Constants.KEY_EXTRA_FILES)));
+                        Preferences.saveString(Constants.KEY_EXTRA_FILES, data.getData().getPath());
+                        TabbedActivity.extra.add(new File(Preferences.readString(Constants.KEY_EXTRA_FILES)));
                         mFileCaption.setText(String.format(getString(R.string.title_list_of_files), TabbedActivity.extra.size()));
                         Toast.makeText(getActivity(), data.getData().getPath(), Toast.LENGTH_LONG).show();
                         break;

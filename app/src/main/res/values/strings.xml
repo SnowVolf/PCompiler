@@ -79,15 +79,15 @@
     <string name="message_saved">Saved</string>
     <string name="message_name_reserved">This name is reversed. Please enter another one</string>
     <!--Tabs NOT TRANSLATABLE-->
-    <string name="tab_about" translatable="false">About</string>
-    <string name="tab_match_replace" translatable="false">Match Replace</string>
-    <string name="tab_match_goto" translatable="false">Match GoTo</string>
-    <string name="tab_match_assign" translatable="false">Match Assign</string>
-    <string name="tab_goto" translatable="false">GoTo</string>
-    <string name="tab_add_files" translatable="false">Add files</string>
-    <string name="tab_remove_files" translatable="false">Remove files</string>
-    <string name="tab_merge" translatable="false">Merge</string>
-    <string name="tab_dummy" translatable="false">Dummy</string>
+    <string name="tab_about" translatable="false">about</string>
+    <string name="tab_match_replace" translatable="false">match replace</string>
+    <string name="tab_match_goto" translatable="false">match goto</string>
+    <string name="tab_match_assign" translatable="false">match assign</string>
+    <string name="tab_goto" translatable="false">goto</string>
+    <string name="tab_add_files" translatable="false">add files</string>
+    <string name="tab_remove_files" translatable="false">remove files</string>
+    <string name="tab_merge" translatable="false">merge</string>
+    <string name="tab_dummy" translatable="false">dummy</string>
     <!--Tabs TRANSLATABLE-->
     <string name="tab_help">Quick help</string>
     <string name="tab_regex">REGEXP</string>
@@ -213,5 +213,8 @@
     <string name="perform_request_link">Getting download link for %s</string>
     <string name="update_sys">System downloader</string>
     <string name="update_ext">External downloader</string>
+    <string name="match_tags">Match tags</string>
+    <string name="tags">Tags</string>
+    <string name="other">Other</string>
 
 </resources>

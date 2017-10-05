@@ -20,7 +20,6 @@ import ru.SnowVolf.pcompiler.patch.PatchBuilder;
 import ru.SnowVolf.pcompiler.settings.Preferences;
 import ru.SnowVolf.pcompiler.ui.fragment.NativeContainerFragment;
 import ru.SnowVolf.pcompiler.util.Constants;
-import ru.SnowVolf.pcompiler.util.StringWrapper;
 
 /**
  * Created by Snow Volf on 17.08.2017, 15:30
@@ -61,7 +60,7 @@ public class AssignFragment extends NativeContainerFragment {
             + PatchBuilder.insertTag(mFieldAssign, "assign")
             + PatchBuilder.insertEndTag("match_assign");
 
-            StringWrapper.saveToPrefs(Constants.KEY_MATCH_ASSIGN, matchAssignPart);
+            Preferences.saveString(Constants.KEY_MATCH_ASSIGN, matchAssignPart);
             Log.i(Constants.TAG, matchAssignPart);
 
             Snackbar.make(mFieldComment, R.string.message_saved, Snackbar.LENGTH_SHORT).show();
@@ -73,7 +72,7 @@ public class AssignFragment extends NativeContainerFragment {
             mFieldFind.setText("");
             mFieldAssign.setText("");
             mCheckBox.setChecked(Preferences.isForceRegexpAllowed());
-            StringWrapper.saveToPrefs(Constants.KEY_MATCH_ASSIGN, "");
+            Preferences.saveString(Constants.KEY_MATCH_ASSIGN, "");
         });
         mButtonVariants.setOnClickListener(view -> {
             PopupMenu menu = new PopupMenu(getActivity(), mButtonVariants);

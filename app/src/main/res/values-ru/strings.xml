@@ -196,4 +196,7 @@
     <string name="about_author_role">Автор и разработчик</string>
     <string name="about_main_contributor_role">Моддер</string>
     <string name="role_descr">Мне 18. Я программирую на Java с фреймворком Android. Сейчас я пытаюсь начать учить Kotlin, и попутно расширять свои знания по  Java.</string>
+    <string name="match_tags">Match тэги</string>
+    <string name="other">Прочее</string>
+    <string name="tags">Тэги</string>
 </resources>

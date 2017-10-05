@@ -24,20 +24,13 @@ import ru.SnowVolf.pcompiler.App;
 
 public class StringWrapper {
 
-    public static void saveToPrefs(String key, String value){
-        App.ctx().getPatchPreferences().edit().putString(key, value).apply();
-    }
-
-    public static String readFromPrefs(String key){
-        return App.ctx().getPatchPreferences().getString(key, "");
-    }
-
     //Копирование текста в буфер обмена
     public static void copyToClipboard(String s){
         ClipboardManager clipboard = (ClipboardManager) App.ctx().getSystemService(Context.CLIPBOARD_SERVICE);
         ClipData clip = ClipData.newPlainText("JavaGirl", s);
         clipboard.setPrimaryClip(clip);
     }
+
 
     private static PackageManager pm;
     private static String name;

@@ -67,4 +67,12 @@ public class Preferences {
     public static void setFontSize(int size){
         App.ctx().getPreferences().edit().putInt("ui.font_size", size).apply();
     }
+
+    public static void saveString(String key, String value){
+        App.ctx().getPatchPreferences().edit().putString(key, value).apply();
+    }
+
+    public static String readString(String key){
+        return App.ctx().getPatchPreferences().getString(key, "");
+    }
 }

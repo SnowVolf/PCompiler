@@ -127,9 +127,9 @@
                             android:id="@+id/artem_header_img"
                             android:layout_width="match_parent"
                             android:layout_height="180dp"
-                            android:scaleType="centerCrop"
+                            android:scaleType="centerInside"
                             android:clickable="true"
-                            android:src="@drawable/splashscreen2"/>
+                            android:src="@drawable/censorship"/>
                         <ru.SnowVolf.pcompiler.ui.widget.CircleImageView
                             android:src="@drawable/circle_girl"
                             android:id="@+id/artem_profile_img"

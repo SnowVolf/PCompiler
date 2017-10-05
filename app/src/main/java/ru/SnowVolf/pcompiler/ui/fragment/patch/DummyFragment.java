@@ -13,9 +13,9 @@ import butterknife.ButterKnife;
 import ru.SnowVolf.girl.ui.GirlEditText;
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.patch.PatchBuilder;
+import ru.SnowVolf.pcompiler.settings.Preferences;
 import ru.SnowVolf.pcompiler.ui.fragment.NativeContainerFragment;
 import ru.SnowVolf.pcompiler.util.Constants;
-import ru.SnowVolf.pcompiler.util.StringWrapper;
 
 /**
  * Created by Snow Volf on 17.08.2017, 15:29
@@ -46,13 +46,13 @@ public class DummyFragment extends NativeContainerFragment {
                    + PatchBuilder.insertStartTag("dummy")
                     + PatchBuilder.insertTag(mFieldName, "name")
                     + PatchBuilder.insertEndTag("dummy");
-            StringWrapper.saveToPrefs(Constants.KEY_DUMMY, dummyPart);
+            Preferences.saveString(Constants.KEY_DUMMY, dummyPart);
             Snackbar.make(mFieldComment, R.string.message_saved, Snackbar.LENGTH_SHORT).show();
         });
         buttonClear.setOnClickListener(view -> {
             mFieldComment.setText("");
             mFieldName.setText("");
-            StringWrapper.saveToPrefs(Constants.KEY_DUMMY, "");
+            Preferences.saveString(Constants.KEY_DUMMY, "");
         });
     }
 }

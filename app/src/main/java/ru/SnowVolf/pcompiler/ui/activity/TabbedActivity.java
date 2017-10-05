@@ -14,10 +14,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetDialog;
-import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -32,6 +32,8 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -106,7 +108,28 @@ public class TabbedActivity extends BaseActivity {
                 App.getColorFromAttr(this, R.attr.icon_color) :
                 App.getColorFromAttr(this, R.attr.colorAccent));
         NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setPadding(0, App.ctx().getStatusBarHeight(), 0, 0);
+        //navigationView.setPadding(0, App.ctx().getStatusBarHeight(), 0, 0);
+        navigationView.setNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()){
+                case R.id.action_settings:{
+                    startActivity(new Intent(this, SettingsActivity.class), ActivityOptions
+                            .makeSceneTransitionAnimation(this).toBundle());
+                    return false;
+                }
+                case R.id.action_regex_help:{
+                    startActivity(new Intent(this, RegexpActivity.class), ActivityOptions
+                            .makeSceneTransitionAnimation(this).toBundle());
+                    return false;
+                }
+                case R.id.action_about:{
+                    startActivity(new Intent(this, AboutActivity.class), ActivityOptions
+                            .makeSceneTransitionAnimation(this).toBundle());
+                    return false;
+                }
+            }
+            drawer.closeDrawer(GravityCompat.START);
+            return true;
+        });
         extra = new ArrayList<>();
     }
 
@@ -124,33 +147,8 @@ public class TabbedActivity extends BaseActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.action_settings:{
-                startActivity(new Intent(this, SettingsActivity.class), ActivityOptions
-                        .makeSceneTransitionAnimation(this).toBundle());
-                return true;
-            }
-            case R.id.action_reset:{
-                App.ctx().getPatchPreferences().edit().clear().apply();
-                extra.clear();
-                Toast.makeText(this, R.string.message_patch_cleared, Toast.LENGTH_SHORT).show();
-                return true;
-            }
-            case R.id.action_save:{
-                showSaveDialog();
-                return true;
-            }
             case R.id.action_view:{
                 showFullViewDialog();
-                return true;
-            }
-            case R.id.action_regex_help:{
-                startActivity(new Intent(this, RegexpActivity.class), ActivityOptions
-                        .makeSceneTransitionAnimation(this).toBundle());
-                return true;
-            }
-            case R.id.action_about:{
-                startActivity(new Intent(this, AboutActivity.class), ActivityOptions
-                        .makeSceneTransitionAnimation(this).toBundle());
                 return true;
             }
         }
@@ -229,15 +227,15 @@ public class TabbedActivity extends BaseActivity {
 
     private void showSaveDialog() {
         patch = new ArrayList<>();
-        patch.add(StringWrapper.readFromPrefs(Constants.KEY_ABOUT_PATCH));
-        patch.add(StringWrapper.readFromPrefs(Constants.KEY_MATCH_REPLACE));
-        patch.add(StringWrapper.readFromPrefs(Constants.KEY_MATCH_GOTO));
-        patch.add(StringWrapper.readFromPrefs(Constants.KEY_MATCH_ASSIGN));
-        patch.add(StringWrapper.readFromPrefs(Constants.KEY_GOTO));
-        patch.add(StringWrapper.readFromPrefs(Constants.KEY_ADD_FILES));
-        patch.add(StringWrapper.readFromPrefs(Constants.KEY_REMOVE_FILES));
-        patch.add(StringWrapper.readFromPrefs(Constants.KEY_MERGE));
-        patch.add(StringWrapper.readFromPrefs(Constants.KEY_DUMMY));
+        patch.add(Preferences.readString(Constants.KEY_ABOUT_PATCH));
+        patch.add(Preferences.readString(Constants.KEY_MATCH_REPLACE));
+        patch.add(Preferences.readString(Constants.KEY_MATCH_GOTO));
+        patch.add(Preferences.readString(Constants.KEY_MATCH_ASSIGN));
+        patch.add(Preferences.readString(Constants.KEY_GOTO));
+        patch.add(Preferences.readString(Constants.KEY_ADD_FILES));
+        patch.add(Preferences.readString(Constants.KEY_REMOVE_FILES));
+        patch.add(Preferences.readString(Constants.KEY_MERGE));
+        patch.add(Preferences.readString(Constants.KEY_DUMMY));
 
         SweetListDialog saveDialog = new SweetListDialog(this);
         saveDialog.setTitle(getString(R.string.title_save));
@@ -280,18 +278,26 @@ public class TabbedActivity extends BaseActivity {
     }
     private void showFullViewDialog(){
         patch = new ArrayList<>();
-        patch.add(StringWrapper.readFromPrefs(Constants.KEY_ABOUT_PATCH));
-        patch.add(StringWrapper.readFromPrefs(Constants.KEY_MATCH_REPLACE));
-        patch.add(StringWrapper.readFromPrefs(Constants.KEY_MATCH_GOTO));
-        patch.add(StringWrapper.readFromPrefs(Constants.KEY_MATCH_ASSIGN));
-        patch.add(StringWrapper.readFromPrefs(Constants.KEY_GOTO));
-        patch.add(StringWrapper.readFromPrefs(Constants.KEY_ADD_FILES));
-        patch.add(StringWrapper.readFromPrefs(Constants.KEY_REMOVE_FILES));
-        patch.add(StringWrapper.readFromPrefs(Constants.KEY_MERGE));
-        patch.add(StringWrapper.readFromPrefs(Constants.KEY_DUMMY));
+        patch.add(Preferences.readString(Constants.KEY_ABOUT_PATCH));
+        patch.add(Preferences.readString(Constants.KEY_MATCH_REPLACE));
+        patch.add(Preferences.readString(Constants.KEY_MATCH_GOTO));
+        patch.add(Preferences.readString(Constants.KEY_MATCH_ASSIGN));
+        patch.add(Preferences.readString(Constants.KEY_GOTO));
+        patch.add(Preferences.readString(Constants.KEY_ADD_FILES));
+        patch.add(Preferences.readString(Constants.KEY_REMOVE_FILES));
+        patch.add(Preferences.readString(Constants.KEY_MERGE));
+        patch.add(Preferences.readString(Constants.KEY_DUMMY));
         @SuppressLint("InflateParams") final View view = LayoutInflater.from(this).inflate(R.layout.dialog_full_view, null);
         final TextView content = view.findViewById(R.id.content);
-
+        final ImageButton clear = view.findViewById(R.id.imageButton);
+        final Button save = view.findViewById(R.id.button_save_patch);
+        save.setOnClickListener(v -> showSaveDialog());
+        clear.setOnClickListener(v -> {
+            content.setText("");
+            App.ctx().getPatchPreferences().edit().clear().apply();
+            extra.clear();
+            Toast.makeText(this, R.string.message_patch_cleared, Toast.LENGTH_SHORT).show();
+        });
         Spannable spannable;
         if (Preferences.isMonospaceFontAllowed()) {
             final Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/RobotoMono-Regular.ttf");
@@ -459,7 +465,7 @@ public class TabbedActivity extends BaseActivity {
             parameters.setCompressionMethod(Zip4jConstants.COMP_DEFLATE);
             parameters.setCompressionLevel(0);
             zipFile.addFile(temp, parameters);
-            if (!StringWrapper.readFromPrefs(Constants.KEY_EXTRA_FILES).isEmpty()) {
+            if (!Preferences.readString(Constants.KEY_EXTRA_FILES).isEmpty()) {
                 try {
                     zipFile.addFiles(extra, parameters);
                 } catch (Exception e){

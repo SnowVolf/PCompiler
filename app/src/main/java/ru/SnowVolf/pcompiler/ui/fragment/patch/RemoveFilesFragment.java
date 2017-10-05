@@ -16,9 +16,9 @@ import butterknife.ButterKnife;
 import ru.SnowVolf.girl.ui.GirlEditText;
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.patch.PatchBuilder;
+import ru.SnowVolf.pcompiler.settings.Preferences;
 import ru.SnowVolf.pcompiler.ui.fragment.NativeContainerFragment;
 import ru.SnowVolf.pcompiler.util.Constants;
-import ru.SnowVolf.pcompiler.util.StringWrapper;
 
 /**
  * Created by Snow Volf on 17.08.2017, 15:28
@@ -51,7 +51,7 @@ public class RemoveFilesFragment extends NativeContainerFragment {
                     + PatchBuilder.insertTag(mFieldName, "name")
                     + PatchBuilder.insertTag(mFieldTarget, "target")
                     + PatchBuilder.insertEndTag("remove_files");
-            StringWrapper.saveToPrefs(Constants.KEY_REMOVE_FILES, removeFilesPart);
+            Preferences.saveString(Constants.KEY_REMOVE_FILES, removeFilesPart);
             Log.i(Constants.TAG, removeFilesPart);
             Snackbar.make(mFieldComment, R.string.message_saved, Snackbar.LENGTH_SHORT).show();
         });
@@ -59,7 +59,7 @@ public class RemoveFilesFragment extends NativeContainerFragment {
             mFieldComment.setText("");
             mFieldName.setText("");
             mFieldTarget.setText("");
-            StringWrapper.saveToPrefs(Constants.KEY_REMOVE_FILES, "");
+            Preferences.saveString(Constants.KEY_REMOVE_FILES, "");
         });
         mButtonVariants.setOnClickListener(view -> {
             PopupMenu menu = new PopupMenu(getActivity(), mButtonVariants);

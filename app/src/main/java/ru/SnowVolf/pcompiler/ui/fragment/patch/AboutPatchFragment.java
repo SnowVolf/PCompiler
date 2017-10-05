@@ -17,7 +17,6 @@ import ru.SnowVolf.pcompiler.patch.PatchBuilder;
 import ru.SnowVolf.pcompiler.settings.Preferences;
 import ru.SnowVolf.pcompiler.ui.fragment.NativeContainerFragment;
 import ru.SnowVolf.pcompiler.util.Constants;
-import ru.SnowVolf.pcompiler.util.StringWrapper;
 
 /**
  * Created by Snow Volf on 17.08.2017, 15:48
@@ -56,7 +55,7 @@ public class AboutPatchFragment extends NativeContainerFragment {
                     + PatchBuilder.insertAboutTag(mFieldAuthor, "author")
                     + PatchBuilder.insertAboutTag(mFieldPackage, "package");
 
-            StringWrapper.saveToPrefs(Constants.KEY_ABOUT_PATCH, aboutPart);
+            Preferences.saveString(Constants.KEY_ABOUT_PATCH, aboutPart);
             Log.i(Constants.TAG, aboutPart);
             Snackbar.make(mFieldEnige, R.string.message_saved, Snackbar.LENGTH_SHORT).show();
         });
@@ -64,7 +63,7 @@ public class AboutPatchFragment extends NativeContainerFragment {
             mFieldEnige.setText("");
             mFieldAuthor.setText("");
             mFieldPackage.setText("");
-            StringWrapper.saveToPrefs(Constants.KEY_ABOUT_PATCH, "");
+            Preferences.saveString(Constants.KEY_ABOUT_PATCH, "");
         });
     }
 }

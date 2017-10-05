@@ -15,10 +15,5 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/tab_drawer_header">
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </android.support.design.widget.NavigationView>
-
+        app:menu="@menu/menu_tabbed_drawer"/>
 </android.support.v4.widget.DrawerLayout>

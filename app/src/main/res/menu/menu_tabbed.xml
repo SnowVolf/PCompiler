@@ -6,26 +6,4 @@
         android:title="@string/menu_fullview"
         android:icon="@drawable/ic_full_view"
         app:showAsAction="always"/>
-    <item
-        android:id="@+id/action_save"
-        android:title="@string/menu_savepatch"
-        android:icon="@drawable/ic_save"
-        app:showAsAction="always"/>
-    <item
-        android:id="@+id/action_reset"
-        android:title="@string/menu_reset"
-        android:icon="@drawable/ic_reset"
-        app:showAsAction="always"/>
-    <item
-        android:id="@+id/action_regex_help"
-        android:title="@string/menu_regexp"
-        android:icon="@drawable/ic_regexp"/>
-    <item
-        android:id="@+id/action_settings"
-        android:title="@string/menu_settings"
-        android:icon="@drawable/ic_settings"/>
-    <item
-        android:id="@+id/action_about"
-        android:title="@string/menu_about"
-        android:icon="@drawable/ic_info"/>
 </menu>

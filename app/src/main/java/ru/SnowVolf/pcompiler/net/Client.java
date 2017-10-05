@@ -13,7 +13,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Observer;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cookie;
@@ -21,7 +20,6 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import ru.SnowVolf.girl.reactive.SimpleObservable;
 import ru.SnowVolf.pcompiler.App;
 
 /**
@@ -29,14 +27,13 @@ import ru.SnowVolf.pcompiler.App;
  */
 
 public class Client {
-    public static final String USER_AGENT = "Mozilla/5.0 (Linux; Android 4.4; Nexus 5 Build/_BuildID_) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36";
+    public static final String USER_AGENT = "Mozilla/5.0 (Linux; Android 5.0; Nexus 5 Build/_BuildID_) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/61.0.0.0 Mobile Safari/537.36";
     //    private final static String userAgent = WebSettings.getDefaultUserAgent(App.getContext());
     private final static String LOG_TAG = Client.class.getSimpleName();
     private static Client INSTANCE = null;
     private static Map<String, Cookie> cookies;
     private static List<Cookie> listCookies;
     private String userAgent;
-    private SimpleObservable networkObservables = new SimpleObservable();
     private ArrayList<String> privateHeaders = new ArrayList<>(Arrays.asList("pass_hash", "session_id", "auth_key", "password"));
     private final Cookie mobileCookie = Cookie.parse(HttpUrl.parse("https://4pda.ru/"), "ngx_mb=1;");
 
@@ -118,18 +115,6 @@ public class Client {
 
     public NetworkResponse request(NetworkRequest request) throws Exception {
         return request(request, this.client, null);
-    }
-
-    public void removeNetworkObserver(Observer observer) {
-        networkObservables.deleteObserver(observer);
-    }
-
-    public void addNetworkObserver(Observer observer) {
-        networkObservables.addObserver(observer);
-    }
-
-    public void notifyNetworkObservers(Boolean b) {
-        networkObservables.notifyObservers(b);
     }
 
     public boolean getNetworkState() {

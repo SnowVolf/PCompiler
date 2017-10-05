@@ -17,7 +17,6 @@
         <meta-data
             android:name="android.max_aspect"
             android:value="2.1" />
-
         <activity android:name=".ui.activity.TabbedActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,17 +29,20 @@
             android:label="@string/activity_settings" />
         <activity
             android:name=".ui.activity.RegexpActivity"
-            android:label="Regexp" />
+            android:label="Regexp"
+            android:parentActivityName=".ui.activity.TabbedActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ru.SnowVolf.pcompiler.ui.activity.TabbedActivity" />
+        </activity>
         <activity android:name=".ui.activity.BaseActivity" />
         <activity
             android:name=".ui.activity.AboutActivity"
             android:label="@string/title_activity_about"
-            android:parentActivityName=".ui.activity.TabbedActivity"
-            android:theme="@style/AppTheme">
+            android:parentActivityName=".ui.activity.TabbedActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ru.SnowVolf.pcompiler.ui.activity.TabbedActivity" />
         </activity>
     </application>
-
 </manifest>
