@@ -14,8 +14,8 @@ android {
         applicationId "ru.SnowVolf.pcompiler"
         minSdkVersion 21
         targetSdkVersion 26
-        versionCode 18
-        versionName "1.1.5"
+        versionCode 20
+        versionName "2.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -59,6 +59,9 @@ dependencies {
     compile 'com.github.iamironz:binaryprefs:1.0.0-BETA-2'
     compile 'com.squareup.okhttp3:okhttp:3.9.0'
     compile 'com.yandex.android:mobmetricalib:2.76'
+    compile "com.trello.rxlifecycle2:rxlifecycle:2.2.0"
+    compile "com.trello.rxlifecycle2:rxlifecycle-components:2.2.0"
+    compile "com.trello.rxlifecycle2:rxlifecycle-android:2.2.0"
     compile files('libs/zip4j_1.3.2.jar')
 }
 repositories {

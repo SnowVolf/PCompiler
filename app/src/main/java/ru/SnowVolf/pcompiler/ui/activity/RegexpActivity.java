@@ -23,7 +23,7 @@ public class RegexpActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tabbed);
+        setContentView(R.layout.activity_regexp);
         toolbar = findViewById(R.id.toolbar);
         toolbar.setPadding(0, App.ctx().getStatusBarHeight(), 0, 0);
         if (Build.VERSION.SDK_INT >= 23) {

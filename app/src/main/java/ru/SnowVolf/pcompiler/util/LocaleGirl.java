@@ -19,8 +19,15 @@ public class LocaleGirl {
 
     private static final String SELECTED_LANGUAGE = "sys.language";
 
+    private static Locale getDefaultLocale(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+            return Locale.getDefault(Locale.Category.DISPLAY);
+        }
+        return Locale.getDefault();
+    }
+
     public static Context onAttach(Context context) {
-        String lang = getPersistedData(context, Locale.getDefault().getLanguage());
+        String lang = getPersistedData(context, getDefaultLocale().getLanguage());
         return setLocale(context, lang);
     }
 
@@ -30,7 +37,7 @@ public class LocaleGirl {
     }
 
     public static String getLanguage(Context context) {
-        return getPersistedData(context, Locale.getDefault().getLanguage());
+        return getPersistedData(context, getDefaultLocale().getLanguage());
     }
 
     public static Context setLocale(Context context, String language) {

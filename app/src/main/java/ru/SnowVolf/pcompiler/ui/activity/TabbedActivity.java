@@ -2,6 +2,7 @@ package ru.SnowVolf.pcompiler.ui.activity;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.ActivityOptions;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -32,6 +33,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -56,6 +58,8 @@ import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.adapter.ViewPagerAdapter;
 import ru.SnowVolf.pcompiler.patch.RegexPattern;
 import ru.SnowVolf.pcompiler.settings.Preferences;
+import ru.SnowVolf.pcompiler.tabs.TabFragment;
+import ru.SnowVolf.pcompiler.tabs.TabManager;
 import ru.SnowVolf.pcompiler.ui.fragment.dialog.SweetContentDialog;
 import ru.SnowVolf.pcompiler.ui.fragment.dialog.SweetInputDialog;
 import ru.SnowVolf.pcompiler.ui.fragment.dialog.SweetListDialog;
@@ -67,23 +71,39 @@ import ru.SnowVolf.pcompiler.ui.fragment.patch.RemoveFilesFragment;
 import ru.SnowVolf.pcompiler.ui.fragment.patch.match.AssignFragment;
 import ru.SnowVolf.pcompiler.ui.fragment.patch.match.GotoFragment;
 import ru.SnowVolf.pcompiler.ui.fragment.patch.match.ReplaceFragment;
+import ru.SnowVolf.pcompiler.ui.widget.drawers.Drawers;
 import ru.SnowVolf.pcompiler.util.Constants;
 import ru.SnowVolf.pcompiler.util.LocaleGirl;
 import ru.SnowVolf.pcompiler.util.RuntimeUtil;
 import ru.SnowVolf.pcompiler.util.StringWrapper;
 import ru.SnowVolf.pcompiler.util.ThemeWrapper;
 
-public class TabbedActivity extends BaseActivity {
+public class TabbedActivity extends BaseActivity implements TabManager.TabListener {
     ArrayList<String> patch;
     String fileName = "patch.txt";
     private String lang = null;
-    ViewPagerAdapter adapter;
+    private ViewPagerAdapter adapter;
     public static ArrayList<File> extra;
+    private Drawers drawers;
+    private final View.OnClickListener toggleListener = view -> drawers.toggleMenu();
+    private final View.OnClickListener removeTabListener = view -> backHandler(true);
+
+    public View.OnClickListener getToggleListener() {
+        return toggleListener;
+    }
+
+    public View.OnClickListener getRemoveTabListener() {
+        return removeTabListener;
+    }
+
+    public TabbedActivity() {
+        TabManager.init(this, this);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tab_drawer);
+        setContentView(R.layout.activity_tabbed);
         Toolbar toolbar = findViewById(R.id.toolbar);
         if (Build.VERSION.SDK_INT >= 23) {
             toolbar.setTitleTextColor(App.getColorFromAttr(this, R.attr.colorAccent));
@@ -91,45 +111,24 @@ public class TabbedActivity extends BaseActivity {
         setSupportActionBar(toolbar);
         final Drawable overflow = AppCompatResources.getDrawable(this, R.drawable.ic_more_vert);
         toolbar.setOverflowIcon(overflow);
-        ViewPager viewPager = findViewById(R.id.tab_pager);
-        setViewPager(viewPager);
-        TabLayout tabLayout = findViewById(R.id.tab_layout);
-        tabLayout.setupWithViewPager(viewPager);
-        tabLayout.setScrollPosition(Preferences.getTabIndex(), 0f, true);
-        viewPager.setCurrentItem(Preferences.getTabIndex());
+//        ViewPager viewPager = findViewById(R.id.tab_pager);
+//        setViewPager(viewPager);
+//        TabLayout tabLayout = findViewById(R.id.tab_layout);
+//        tabLayout.setupWithViewPager(viewPager);
+//        tabLayout.setScrollPosition(Preferences.getTabIndex(), 0f, true);
+//        viewPager.setCurrentItem(Preferences.getTabIndex());
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.app_name, R.string.app_name);
+        drawers = new Drawers(this, drawer);
+        drawers.init(savedInstanceState);
 
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         toggle.getDrawerArrowDrawable().setColor(Build.VERSION.SDK_INT < 23 ?
                 App.getColorFromAttr(this, R.attr.icon_color) :
                 App.getColorFromAttr(this, R.attr.colorAccent));
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        //navigationView.setPadding(0, App.ctx().getStatusBarHeight(), 0, 0);
-        navigationView.setNavigationItemSelectedListener(item -> {
-            switch (item.getItemId()){
-                case R.id.action_settings:{
-                    startActivity(new Intent(this, SettingsActivity.class), ActivityOptions
-                            .makeSceneTransitionAnimation(this).toBundle());
-                    return false;
-                }
-                case R.id.action_regex_help:{
-                    startActivity(new Intent(this, RegexpActivity.class), ActivityOptions
-                            .makeSceneTransitionAnimation(this).toBundle());
-                    return false;
-                }
-                case R.id.action_about:{
-                    startActivity(new Intent(this, AboutActivity.class), ActivityOptions
-                            .makeSceneTransitionAnimation(this).toBundle());
-                    return false;
-                }
-            }
-            drawer.closeDrawer(GravityCompat.START);
-            return true;
-        });
         extra = new ArrayList<>();
     }
 
@@ -188,7 +187,7 @@ public class TabbedActivity extends BaseActivity {
     @Override
     public void onResume() {
         super.onResume();
-
+        drawers.setStatusBarHeight(App.ctx().getStatusBarHeight());
         // Языковые настройки
         if (lang == null){
             lang = LocaleGirl.getLanguage(this);
@@ -211,19 +210,25 @@ public class TabbedActivity extends BaseActivity {
         }
     }
 
-    private void setViewPager(ViewPager viewPager){
-        adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new AboutPatchFragment(), getString(R.string.tab_about));
-        adapter.addFragment(new ReplaceFragment(), getString(R.string.tab_match_replace));
-        adapter.addFragment(new GotoFragment(), getString(R.string.tab_match_goto));
-        adapter.addFragment(new AssignFragment(), getString(R.string.tab_match_assign));
-        adapter.addFragment(new ru.SnowVolf.pcompiler.ui.fragment.patch.GotoFragment(), getString(R.string.tab_goto));
-        adapter.addFragment(new AddFilesFragment(), getString(R.string.tab_add_files));
-        adapter.addFragment(new RemoveFilesFragment(), getString(R.string.tab_remove_files));
-        adapter.addFragment(new MergeFragment(), getString(R.string.tab_merge));
-        adapter.addFragment(new DummyFragment(), getString(R.string.tab_dummy));
-        viewPager.setAdapter(adapter);
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        drawers.destroy();
     }
+
+//    private void setViewPager(ViewPager viewPager){
+//        adapter = new ViewPagerAdapter(getSupportFragmentManager());
+//        adapter.addFragment(new AboutPatchFragment(), getString(R.string.tab_about));
+//        adapter.addFragment(new ReplaceFragment(), getString(R.string.tab_match_replace));
+//        adapter.addFragment(new GotoFragment(), getString(R.string.tab_match_goto));
+//        adapter.addFragment(new AssignFragment(), getString(R.string.tab_match_assign));
+//        adapter.addFragment(new ru.SnowVolf.pcompiler.ui.fragment.patch.GotoFragment(), getString(R.string.tab_goto));
+//        adapter.addFragment(new AddFilesFragment(), getString(R.string.tab_add_files));
+//        adapter.addFragment(new RemoveFilesFragment(), getString(R.string.tab_remove_files));
+//        adapter.addFragment(new MergeFragment(), getString(R.string.tab_merge));
+//        adapter.addFragment(new DummyFragment(), getString(R.string.tab_dummy));
+//        viewPager.setAdapter(adapter);
+//    }
 
     private void showSaveDialog() {
         patch = new ArrayList<>();
@@ -443,7 +448,6 @@ public class TabbedActivity extends BaseActivity {
                 Toast.makeText(App.getContext(), R.string.message_name_reserved, Toast.LENGTH_LONG).show();
             }
         });
-        //dialog.setNegative(getString(android.R.string.cancel), view -> dialog.dismiss());
         dialog.show();
     }
 
@@ -479,5 +483,55 @@ public class TabbedActivity extends BaseActivity {
             Log.e(Constants.TAG, e.getMessage());
             ACRA.getErrorReporter().handleException(e);
         }
+    }
+
+    public Drawers getDrawers() {
+        return drawers;
+    }
+
+    public void updateTabList() {
+        drawers.notifyTabsChanged();
+    }
+
+    public void hideKeyboard() {
+        if (getCurrentFocus() != null)
+            ((InputMethodManager) this.getSystemService(Activity.INPUT_METHOD_SERVICE))
+                    .hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+    }
+
+    public void showKeyboard(View view) {
+        if (getCurrentFocus() != null)
+            ((InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE))
+                    .showSoftInput(view, 0);
+    }
+
+    public void backHandler(boolean fromToolbar) {
+        if (fromToolbar || !TabManager.getInstance().getActive().onBackPressed()) {
+            hideKeyboard();
+            TabManager.getInstance().remove(TabManager.getInstance().getActive());
+            if (TabManager.getInstance().getSize() < 1) {
+                finish();
+            }
+        }
+    }
+
+    @Override
+    public void onAddTab(TabFragment fragment) {
+        Log.d(Constants.TAG, "onAdd : " + fragment);
+    }
+
+    @Override
+    public void onRemoveTab(TabFragment fragment) {
+        Log.d(Constants.TAG, "onRemove : " + fragment);
+    }
+
+    @Override
+    public void onSelectTab(TabFragment fragment) {
+        Log.d(Constants.TAG, "onSelect : " + fragment);
+    }
+
+    @Override
+    public void onChange() {
+        updateTabList();
     }
 }

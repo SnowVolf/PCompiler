@@ -15,6 +15,7 @@ import ru.SnowVolf.girl.ui.GirlEditText;
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.patch.PatchBuilder;
 import ru.SnowVolf.pcompiler.settings.Preferences;
+import ru.SnowVolf.pcompiler.tabs.TabFragment;
 import ru.SnowVolf.pcompiler.ui.fragment.NativeContainerFragment;
 import ru.SnowVolf.pcompiler.util.Constants;
 
@@ -22,7 +23,7 @@ import ru.SnowVolf.pcompiler.util.Constants;
  * Created by Snow Volf on 17.08.2017, 15:27
  */
 
-public class GotoFragment extends NativeContainerFragment {
+public class GotoFragment extends TabFragment {
     @BindView(R.id.field_comment) GirlEditText mFieldComment;
     @BindView(R.id.field_next_rule) GirlEditText mFieldNextRule;
     @BindView(R.id.button_save) Button buttonSave;
