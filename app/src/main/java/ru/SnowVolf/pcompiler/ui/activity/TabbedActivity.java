@@ -104,31 +104,9 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tabbed);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        if (Build.VERSION.SDK_INT >= 23) {
-            toolbar.setTitleTextColor(App.getColorFromAttr(this, R.attr.colorAccent));
-        }
-        setSupportActionBar(toolbar);
-        final Drawable overflow = AppCompatResources.getDrawable(this, R.drawable.ic_more_vert);
-        toolbar.setOverflowIcon(overflow);
-//        ViewPager viewPager = findViewById(R.id.tab_pager);
-//        setViewPager(viewPager);
-//        TabLayout tabLayout = findViewById(R.id.tab_layout);
-//        tabLayout.setupWithViewPager(viewPager);
-//        tabLayout.setScrollPosition(Preferences.getTabIndex(), 0f, true);
-//        viewPager.setCurrentItem(Preferences.getTabIndex());
-
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.app_name, R.string.app_name);
         drawers = new Drawers(this, drawer);
         drawers.init(savedInstanceState);
-
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-        toggle.getDrawerArrowDrawable().setColor(Build.VERSION.SDK_INT < 23 ?
-                App.getColorFromAttr(this, R.attr.icon_color) :
-                App.getColorFromAttr(this, R.attr.colorAccent));
         extra = new ArrayList<>();
     }
 

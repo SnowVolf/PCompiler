@@ -21,6 +21,7 @@ import java.io.File;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.SnowVolf.girl.ui.GirlEditText;
+import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.patch.PatchBuilder;
 import ru.SnowVolf.pcompiler.settings.Preferences;
@@ -52,6 +53,13 @@ public class AddFilesFragment extends TabFragment {
         rootView = inflater.inflate(R.layout.fragment_add_files, container, false);
         ButterKnife.bind(this, rootView);
         return rootView;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        setTabTitle(App.injectString(R.string.tab_add_files));
+        //setTitle(App.injectString(R.string.tab_add_files));
     }
 
     @Override

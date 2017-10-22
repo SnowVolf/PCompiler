@@ -12,6 +12,7 @@ import android.widget.Button;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.SnowVolf.girl.ui.GirlEditText;
+import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.patch.PatchBuilder;
 import ru.SnowVolf.pcompiler.settings.Preferences;
@@ -36,6 +37,13 @@ public class MergeFragment extends TabFragment {
         rootView = inflater.inflate(R.layout.fragment_merge, container, false);
         ButterKnife.bind(this, rootView);
         return rootView;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        setTabTitle(App.injectString(R.string.tab_merge));
+        //setTitle(App.injectString(R.string.tab_merge));
     }
 
     @Override
