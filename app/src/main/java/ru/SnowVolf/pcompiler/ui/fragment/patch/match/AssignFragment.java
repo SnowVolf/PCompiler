@@ -18,8 +18,10 @@ import ru.SnowVolf.girl.ui.GirlEditText;
 import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.patch.PatchBuilder;
+import ru.SnowVolf.pcompiler.patch.PatchCollection;
 import ru.SnowVolf.pcompiler.settings.Preferences;
 import ru.SnowVolf.pcompiler.tabs.TabFragment;
+import ru.SnowVolf.pcompiler.tabs.TabManager;
 import ru.SnowVolf.pcompiler.util.Constants;
 
 /**
@@ -68,7 +70,8 @@ public class AssignFragment extends TabFragment {
             + PatchBuilder.insertTag(mFieldAssign, "assign")
             + PatchBuilder.insertEndTag("match_assign");
 
-            Preferences.saveString(Constants.KEY_MATCH_ASSIGN, matchAssignPart);
+            PatchCollection.getCollection().add(TabManager.getActiveIndex(), matchAssignPart);
+            //Preferences.saveString(Constants.KEY_MATCH_ASSIGN, matchAssignPart);
             Log.i(Constants.TAG, matchAssignPart);
 
             Snackbar.make(mFieldComment, R.string.message_saved, Snackbar.LENGTH_SHORT).show();

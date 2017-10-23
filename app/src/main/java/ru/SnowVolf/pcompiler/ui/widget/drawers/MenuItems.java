@@ -21,7 +21,7 @@ import ru.SnowVolf.pcompiler.ui.fragment.patch.match.ReplaceFragment;
  */
 
 public class MenuItems {
-    public final static int ACTION_APP_REGXP = 0;
+    public final static int ACTION_APP_REGEXP = 0;
     public final static int ACTION_APP_SETTINGS = 1;
     public final static int ACTION_APP_INFO = 2;
 
@@ -37,7 +37,7 @@ public class MenuItems {
         createdMenuItems.add(new MenuItem(App.injectString(R.string.tab_remove_files), R.drawable.ic_delete_files, RemoveFilesFragment.class));
         createdMenuItems.add(new MenuItem(App.injectString(R.string.tab_merge), R.drawable.ic_merge, MergeFragment.class));
         createdMenuItems.add(new MenuItem(App.injectString(R.string.tab_dummy), R.drawable.ic_dummy, DummyFragment.class));
-        createdMenuItems.add(new MenuItem(App.injectString(R.string.menu_regexp), R.drawable.ic_regexp, ACTION_APP_REGXP));
+        createdMenuItems.add(new MenuItem(App.injectString(R.string.menu_regexp), R.drawable.ic_regexp, ACTION_APP_REGEXP));
         createdMenuItems.add(new MenuItem(App.injectString(R.string.menu_settings), R.drawable.ic_settings, ACTION_APP_SETTINGS));
         createdMenuItems.add(new MenuItem(App.injectString(R.string.menu_about), R.drawable.ic_info, ACTION_APP_INFO));
     }

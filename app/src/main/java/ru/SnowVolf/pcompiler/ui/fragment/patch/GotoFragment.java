@@ -15,9 +15,10 @@ import ru.SnowVolf.girl.ui.GirlEditText;
 import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.patch.PatchBuilder;
+import ru.SnowVolf.pcompiler.patch.PatchCollection;
 import ru.SnowVolf.pcompiler.settings.Preferences;
 import ru.SnowVolf.pcompiler.tabs.TabFragment;
-import ru.SnowVolf.pcompiler.ui.fragment.NativeContainerFragment;
+import ru.SnowVolf.pcompiler.tabs.TabManager;
 import ru.SnowVolf.pcompiler.util.Constants;
 
 /**
@@ -55,7 +56,9 @@ public class GotoFragment extends TabFragment {
                     + PatchBuilder.insertStartTag("goto")
                     + PatchBuilder.insertTag(mFieldNextRule, "goto")
                     + PatchBuilder.insertEndTag("goto");
-            Preferences.saveString(Constants.KEY_GOTO, gotoPart);
+
+            PatchCollection.getCollection().add(TabManager.getActiveIndex(), gotoPart);
+            //Preferences.saveString(Constants.KEY_GOTO, gotoPart);
             Log.i(Constants.TAG, gotoPart);
             Snackbar.make(mFieldComment, R.string.message_saved, Snackbar.LENGTH_SHORT).show();
         });

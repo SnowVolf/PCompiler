@@ -3,28 +3,19 @@ package ru.SnowVolf.pcompiler.ui.activity;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.ActivityOptions;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetDialog;
-import android.support.design.widget.NavigationView;
-import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.view.menu.MenuBuilder;
-import android.support.v7.widget.Toolbar;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
@@ -55,7 +46,7 @@ import java.util.regex.Matcher;
 
 import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
-import ru.SnowVolf.pcompiler.adapter.ViewPagerAdapter;
+import ru.SnowVolf.pcompiler.patch.PatchCollection;
 import ru.SnowVolf.pcompiler.patch.RegexPattern;
 import ru.SnowVolf.pcompiler.settings.Preferences;
 import ru.SnowVolf.pcompiler.tabs.TabFragment;
@@ -63,14 +54,6 @@ import ru.SnowVolf.pcompiler.tabs.TabManager;
 import ru.SnowVolf.pcompiler.ui.fragment.dialog.SweetContentDialog;
 import ru.SnowVolf.pcompiler.ui.fragment.dialog.SweetInputDialog;
 import ru.SnowVolf.pcompiler.ui.fragment.dialog.SweetListDialog;
-import ru.SnowVolf.pcompiler.ui.fragment.patch.AboutPatchFragment;
-import ru.SnowVolf.pcompiler.ui.fragment.patch.AddFilesFragment;
-import ru.SnowVolf.pcompiler.ui.fragment.patch.DummyFragment;
-import ru.SnowVolf.pcompiler.ui.fragment.patch.MergeFragment;
-import ru.SnowVolf.pcompiler.ui.fragment.patch.RemoveFilesFragment;
-import ru.SnowVolf.pcompiler.ui.fragment.patch.match.AssignFragment;
-import ru.SnowVolf.pcompiler.ui.fragment.patch.match.GotoFragment;
-import ru.SnowVolf.pcompiler.ui.fragment.patch.match.ReplaceFragment;
 import ru.SnowVolf.pcompiler.ui.widget.drawers.Drawers;
 import ru.SnowVolf.pcompiler.util.Constants;
 import ru.SnowVolf.pcompiler.util.LocaleGirl;
@@ -79,10 +62,8 @@ import ru.SnowVolf.pcompiler.util.StringWrapper;
 import ru.SnowVolf.pcompiler.util.ThemeWrapper;
 
 public class TabbedActivity extends BaseActivity implements TabManager.TabListener {
-    ArrayList<String> patch;
     String fileName = "patch.txt";
     private String lang = null;
-    private ViewPagerAdapter adapter;
     public static ArrayList<File> extra;
     private Drawers drawers;
     private final View.OnClickListener toggleListener = view -> drawers.toggleMenu();
@@ -194,32 +175,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
         drawers.destroy();
     }
 
-//    private void setViewPager(ViewPager viewPager){
-//        adapter = new ViewPagerAdapter(getSupportFragmentManager());
-//        adapter.addFragment(new AboutPatchFragment(), getString(R.string.tab_about));
-//        adapter.addFragment(new ReplaceFragment(), getString(R.string.tab_match_replace));
-//        adapter.addFragment(new GotoFragment(), getString(R.string.tab_match_goto));
-//        adapter.addFragment(new AssignFragment(), getString(R.string.tab_match_assign));
-//        adapter.addFragment(new ru.SnowVolf.pcompiler.ui.fragment.patch.GotoFragment(), getString(R.string.tab_goto));
-//        adapter.addFragment(new AddFilesFragment(), getString(R.string.tab_add_files));
-//        adapter.addFragment(new RemoveFilesFragment(), getString(R.string.tab_remove_files));
-//        adapter.addFragment(new MergeFragment(), getString(R.string.tab_merge));
-//        adapter.addFragment(new DummyFragment(), getString(R.string.tab_dummy));
-//        viewPager.setAdapter(adapter);
-//    }
-
     private void showSaveDialog() {
-        patch = new ArrayList<>();
-        patch.add(Preferences.readString(Constants.KEY_ABOUT_PATCH));
-        patch.add(Preferences.readString(Constants.KEY_MATCH_REPLACE));
-        patch.add(Preferences.readString(Constants.KEY_MATCH_GOTO));
-        patch.add(Preferences.readString(Constants.KEY_MATCH_ASSIGN));
-        patch.add(Preferences.readString(Constants.KEY_GOTO));
-        patch.add(Preferences.readString(Constants.KEY_ADD_FILES));
-        patch.add(Preferences.readString(Constants.KEY_REMOVE_FILES));
-        patch.add(Preferences.readString(Constants.KEY_MERGE));
-        patch.add(Preferences.readString(Constants.KEY_DUMMY));
-
         SweetListDialog saveDialog = new SweetListDialog(this);
         saveDialog.setTitle(getString(R.string.title_save));
         saveDialog.setItems(R.array.save_items);
@@ -228,7 +184,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
             switch (i) {
                 case 0: {
                     StringBuilder str = new StringBuilder();
-                    for (String s: patch) {
+                    for (String s: PatchCollection.getCollection()) {
                         str.append(s);
                     }
                     StringWrapper.copyToClipboard(str.toString());
@@ -247,7 +203,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
                     final Intent send = new Intent(Intent.ACTION_SEND);
                     send.setType("text/plain");
                     StringBuilder str = new StringBuilder();
-                    for (String s: patch) {
+                    for (String s: PatchCollection.getCollection()) {
                         str.append(s);
                     }
                     send.putExtra(Intent.EXTRA_TEXT, str.toString());
@@ -260,16 +216,6 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
         saveDialog.show();
     }
     private void showFullViewDialog(){
-        patch = new ArrayList<>();
-        patch.add(Preferences.readString(Constants.KEY_ABOUT_PATCH));
-        patch.add(Preferences.readString(Constants.KEY_MATCH_REPLACE));
-        patch.add(Preferences.readString(Constants.KEY_MATCH_GOTO));
-        patch.add(Preferences.readString(Constants.KEY_MATCH_ASSIGN));
-        patch.add(Preferences.readString(Constants.KEY_GOTO));
-        patch.add(Preferences.readString(Constants.KEY_ADD_FILES));
-        patch.add(Preferences.readString(Constants.KEY_REMOVE_FILES));
-        patch.add(Preferences.readString(Constants.KEY_MERGE));
-        patch.add(Preferences.readString(Constants.KEY_DUMMY));
         @SuppressLint("InflateParams") final View view = LayoutInflater.from(this).inflate(R.layout.dialog_full_view, null);
         final TextView content = view.findViewById(R.id.content);
         final ImageButton clear = view.findViewById(R.id.imageButton);
@@ -277,7 +223,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
         save.setOnClickListener(v -> showSaveDialog());
         clear.setOnClickListener(v -> {
             content.setText("");
-            App.ctx().getPatchPreferences().edit().clear().apply();
+            PatchCollection.getCollection().clear();
             extra.clear();
             Toast.makeText(this, R.string.message_patch_cleared, Toast.LENGTH_SHORT).show();
         });
@@ -288,7 +234,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
         }
         content.setTextSize(Preferences.getFontSize());
         StringBuilder str = new StringBuilder();
-        for (String s: patch) {
+        for (String s: PatchCollection.getCollection()) {
             str.append(s);
         }
         content.setText(str);
@@ -334,7 +280,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
             RuntimeUtil.storage(this, RuntimeUtil.REQUEST_EXTERNAL_STORAGE_TEXT);
         } else {
             StringBuilder str = new StringBuilder();
-            for (String s: patch) {
+            for (String s: PatchCollection.getCollection()) {
                 str.append(s);
             }
             writeToFile(str.toString());
@@ -436,7 +382,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
             dir.mkdirs();
         }
         StringBuilder str = new StringBuilder();
-        for (String s: patch) {
+        for (String s: PatchCollection.getCollection()) {
             str.append(s);
         }
         File temp = writeToTempFile(str.toString());

@@ -17,9 +17,10 @@ import ru.SnowVolf.girl.ui.GirlEditText;
 import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.patch.PatchBuilder;
+import ru.SnowVolf.pcompiler.patch.PatchCollection;
 import ru.SnowVolf.pcompiler.settings.Preferences;
 import ru.SnowVolf.pcompiler.tabs.TabFragment;
-import ru.SnowVolf.pcompiler.ui.fragment.NativeContainerFragment;
+import ru.SnowVolf.pcompiler.tabs.TabManager;
 import ru.SnowVolf.pcompiler.util.Constants;
 
 /**
@@ -60,7 +61,9 @@ public class RemoveFilesFragment extends TabFragment {
                     + PatchBuilder.insertTag(mFieldName, "name")
                     + PatchBuilder.insertTag(mFieldTarget, "target")
                     + PatchBuilder.insertEndTag("remove_files");
-            Preferences.saveString(Constants.KEY_REMOVE_FILES, removeFilesPart);
+
+            PatchCollection.getCollection().add(TabManager.getActiveIndex(), removeFilesPart);
+            //Preferences.saveString(Constants.KEY_REMOVE_FILES, removeFilesPart);
             Log.i(Constants.TAG, removeFilesPart);
             Snackbar.make(mFieldComment, R.string.message_saved, Snackbar.LENGTH_SHORT).show();
         });

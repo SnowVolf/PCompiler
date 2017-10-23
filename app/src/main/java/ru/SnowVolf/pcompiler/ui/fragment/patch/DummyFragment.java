@@ -14,9 +14,10 @@ import ru.SnowVolf.girl.ui.GirlEditText;
 import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.patch.PatchBuilder;
+import ru.SnowVolf.pcompiler.patch.PatchCollection;
 import ru.SnowVolf.pcompiler.settings.Preferences;
 import ru.SnowVolf.pcompiler.tabs.TabFragment;
-import ru.SnowVolf.pcompiler.ui.fragment.NativeContainerFragment;
+import ru.SnowVolf.pcompiler.tabs.TabManager;
 import ru.SnowVolf.pcompiler.util.Constants;
 
 /**
@@ -55,7 +56,9 @@ public class DummyFragment extends TabFragment {
                    + PatchBuilder.insertStartTag("dummy")
                     + PatchBuilder.insertTag(mFieldName, "name")
                     + PatchBuilder.insertEndTag("dummy");
-            Preferences.saveString(Constants.KEY_DUMMY, dummyPart);
+
+            PatchCollection.getCollection().add(TabManager.getActiveIndex(), dummyPart);
+            //Preferences.saveString(Constants.KEY_DUMMY, dummyPart);
             Snackbar.make(mFieldComment, R.string.message_saved, Snackbar.LENGTH_SHORT).show();
         });
         buttonClear.setOnClickListener(view -> {

@@ -11,6 +11,7 @@ import android.util.Log;
 import java.util.ArrayList;
 
 import ru.SnowVolf.pcompiler.R;
+import ru.SnowVolf.pcompiler.patch.PatchCollection;
 import ru.SnowVolf.pcompiler.tabs.TabFragment;
 import ru.SnowVolf.pcompiler.tabs.TabManager;
 import ru.SnowVolf.pcompiler.ui.activity.AboutActivity;
@@ -19,6 +20,7 @@ import ru.SnowVolf.pcompiler.ui.activity.SettingsActivity;
 import ru.SnowVolf.pcompiler.ui.activity.TabbedActivity;
 import ru.SnowVolf.pcompiler.ui.widget.drawers.adapters.MenuAdapter;
 import ru.SnowVolf.pcompiler.ui.widget.drawers.adapters.TabAdapter;
+import ru.SnowVolf.pcompiler.util.Constants;
 
 /**
  * Created by radiationx on 02.05.17.
@@ -68,7 +70,7 @@ public class Drawers {
     }
 
     public void init(Bundle savedInstanceState) {
-        initMenu(savedInstanceState);
+        initMenu();
         initTabs(savedInstanceState);
 
         MenuItems.MenuItem item = null;
@@ -78,14 +80,14 @@ public class Drawers {
                 item = findMenuItem(tabFragment.getClass());
             }
 
-            Log.e("FORPDA_LOG", "AAAA " + tabFragment + " : " + item);
+            Log.e(Constants.TAG, "AAAA " + tabFragment + " : " + item);
             if (item != null) {
                 item.setAttachedTabTag(tabFragment.getTag());
                 item.setActive(true);
                 lastActive = item;
             }
         }
-        Log.e("FORPDA_LOG", "FINAL ITEM " + item);
+        Log.e(Constants.TAG, "FINAL ITEM " + item);
         selectMenuItem(item);
     }
 
@@ -97,7 +99,7 @@ public class Drawers {
         tabDrawer.setPadding(0, height, 0, 0);
     }
 
-    private void initMenu(Bundle savedInstanceState) {
+    private void initMenu() {
         fillMenuItems();
         menuAdapter.setItemClickListener((menuItem, position) -> {
             selectMenuItem(menuItem);
@@ -107,18 +109,16 @@ public class Drawers {
 
     private void fillMenuItems() {
         menuItems.clear();
-        for (MenuItems.MenuItem item : allMenuItems.getCreatedMenuItems()) {
-            menuItems.add(item);
-        }
+        menuItems.addAll(allMenuItems.getCreatedMenuItems());
     }
 
     private void selectMenuItem(MenuItems.MenuItem item) {
-        Log.e("FORPDA_LOG", "selectMenuItem " + item);
+        Log.e(Constants.TAG, "selectMenuItem " + item);
         if (item == null) return;
         try {
             if (item.getTabClass() == null) {
                 switch (item.getAction()) {
-                    case MenuItems.ACTION_APP_REGXP: {
+                    case MenuItems.ACTION_APP_REGEXP: {
                         activity.startActivity(new Intent(activity, RegexpActivity.class));
                         break;
                     }
@@ -214,6 +214,9 @@ public class Drawers {
             closeTabs();
         });
         tabAdapter.setCloseClickListener((tabFragment, position) -> {
+            try {
+                PatchCollection.getCollection().remove(position);
+            } catch (IndexOutOfBoundsException ignored){}
             TabManager.getInstance().remove(tabFragment);
             if (TabManager.getInstance().getSize() < 1) {
                 activity.finish();

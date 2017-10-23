@@ -15,9 +15,10 @@ import ru.SnowVolf.girl.ui.GirlEditText;
 import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.patch.PatchBuilder;
+import ru.SnowVolf.pcompiler.patch.PatchCollection;
 import ru.SnowVolf.pcompiler.settings.Preferences;
 import ru.SnowVolf.pcompiler.tabs.TabFragment;
-import ru.SnowVolf.pcompiler.ui.fragment.NativeContainerFragment;
+import ru.SnowVolf.pcompiler.tabs.TabManager;
 import ru.SnowVolf.pcompiler.util.Constants;
 
 /**
@@ -57,7 +58,9 @@ public class MergeFragment extends TabFragment {
                     + PatchBuilder.insertTag(mFieldName, "name")
                     + PatchBuilder.insertTag(mFieldSource, "source")
                     + PatchBuilder.insertEndTag("merge");
-            Preferences.saveString(Constants.KEY_MERGE, mergePart);
+
+            PatchCollection.getCollection().add(TabManager.getActiveIndex(), mergePart);
+            //Preferences.saveString(Constants.KEY_MERGE, mergePart);
             Log.i(Constants.TAG, mergePart);
             Snackbar.make(mFieldComment, R.string.message_saved, Snackbar.LENGTH_SHORT).show();
         });

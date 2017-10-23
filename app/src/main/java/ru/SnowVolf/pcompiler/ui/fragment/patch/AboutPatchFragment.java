@@ -15,9 +15,10 @@ import ru.SnowVolf.girl.ui.GirlEditText;
 import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.patch.PatchBuilder;
+import ru.SnowVolf.pcompiler.patch.PatchCollection;
 import ru.SnowVolf.pcompiler.settings.Preferences;
 import ru.SnowVolf.pcompiler.tabs.TabFragment;
-import ru.SnowVolf.pcompiler.ui.fragment.NativeContainerFragment;
+import ru.SnowVolf.pcompiler.tabs.TabManager;
 import ru.SnowVolf.pcompiler.util.Constants;
 
 /**
@@ -64,7 +65,8 @@ public class AboutPatchFragment extends TabFragment {
                     + PatchBuilder.insertAboutTag(mFieldAuthor, "author")
                     + PatchBuilder.insertAboutTag(mFieldPackage, "package");
 
-            Preferences.saveString(Constants.KEY_ABOUT_PATCH, aboutPart);
+            PatchCollection.getCollection().add(TabManager.getActiveIndex(), aboutPart);
+            //Preferences.saveString(Constants.KEY_ABOUT_PATCH, aboutPart);
             Log.i(Constants.TAG, aboutPart);
             Snackbar.make(mFieldEnige, R.string.message_saved, Snackbar.LENGTH_SHORT).show();
         });

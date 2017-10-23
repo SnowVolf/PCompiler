@@ -18,9 +18,10 @@ import ru.SnowVolf.girl.ui.GirlEditText;
 import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.patch.PatchBuilder;
+import ru.SnowVolf.pcompiler.patch.PatchCollection;
 import ru.SnowVolf.pcompiler.settings.Preferences;
 import ru.SnowVolf.pcompiler.tabs.TabFragment;
-import ru.SnowVolf.pcompiler.ui.fragment.NativeContainerFragment;
+import ru.SnowVolf.pcompiler.tabs.TabManager;
 import ru.SnowVolf.pcompiler.util.Constants;
 
 /**
@@ -68,7 +69,9 @@ public class ReplaceFragment extends TabFragment {
                     + PatchBuilder.regexTrue(mCheckBox.isChecked())
                     + PatchBuilder.insertReplaceTag(mFieldReplace)
                     + PatchBuilder.insertEndTag("match_replace");
-            Preferences.saveString(Constants.KEY_MATCH_REPLACE, matchReplacePart);
+
+            PatchCollection.getCollection().add(TabManager.getActiveIndex(), matchReplacePart);
+            //Preferences.saveString(Constants.KEY_MATCH_REPLACE, matchReplacePart);
             Log.i(Constants.TAG, matchReplacePart);
             Snackbar.make(mFieldComment, R.string.message_saved, Snackbar.LENGTH_SHORT).show();
         });

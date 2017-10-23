@@ -18,8 +18,10 @@ import ru.SnowVolf.girl.ui.GirlEditText;
 import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.patch.PatchBuilder;
+import ru.SnowVolf.pcompiler.patch.PatchCollection;
 import ru.SnowVolf.pcompiler.settings.Preferences;
 import ru.SnowVolf.pcompiler.tabs.TabFragment;
+import ru.SnowVolf.pcompiler.tabs.TabManager;
 import ru.SnowVolf.pcompiler.util.Constants;
 
 /**
@@ -67,7 +69,9 @@ public class GotoFragment extends TabFragment {
                     + PatchBuilder.regexTrue(mCheckBox.isChecked())
                     + PatchBuilder.insertTag(mFieldNextRule, "goto")
                     + PatchBuilder.insertEndTag("match_goto");
-            Preferences.saveString(Constants.KEY_MATCH_GOTO, matchGotoPart);
+
+            PatchCollection.getCollection().add(TabManager.getActiveIndex(), matchGotoPart);
+            //Preferences.saveString(Constants.KEY_MATCH_GOTO, matchGotoPart);
             Log.i(Constants.TAG, matchGotoPart);
             Snackbar.make(mFieldComment, R.string.message_saved, Snackbar.LENGTH_SHORT).show();
         });
