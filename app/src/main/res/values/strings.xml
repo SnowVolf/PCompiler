@@ -217,5 +217,6 @@
     <string name="tags">Tags</string>
     <string name="other">Other</string>
     <string name="expand">Expand</string>
+    <string name="i_read">I read</string>
 
 </resources>

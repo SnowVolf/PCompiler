@@ -75,4 +75,12 @@ public class Preferences {
     public static String readString(String key){
         return App.ctx().getPatchPreferences().getString(key, "");
     }
+
+    public static boolean isHelpShowed(){
+        return App.ctx().getPreferences().getBoolean("help_first_run", false);
+    }
+
+    public static void setHelpShowed(){
+        App.ctx().getPreferences().edit().putBoolean("help_first_run", true).apply();
+    }
 }

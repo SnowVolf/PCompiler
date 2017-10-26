@@ -3,6 +3,7 @@ package ru.SnowVolf.pcompiler.ui.activity;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -97,6 +98,9 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
             }
             return false;
         });
+        if (!Preferences.isHelpShowed()){
+            startActivity(new Intent(this, HelpActivity.class), ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+        }
     }
 
     private static long press_time = System.currentTimeMillis();

@@ -44,5 +44,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ru.SnowVolf.pcompiler.ui.activity.TabbedActivity" />
         </activity>
+        <activity android:name=".ui.activity.HelpActivity"/>
     </application>
 </manifest>

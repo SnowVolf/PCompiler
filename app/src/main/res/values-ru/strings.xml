@@ -200,4 +200,5 @@
     <string name="other">Прочее</string>
     <string name="tags">Тэги</string>
     <string name="expand">Развернуть</string>
+    <string name="i_read">Я прочитал(-a)</string>
 </resources>

@@ -89,7 +89,6 @@ public class Drawers {
         menuListView.setLayoutManager(new LinearLayoutManager(activity));
         tabListView.setLayoutManager(new LinearLayoutManager(activity));
 
-
         menuAdapter = new MenuAdapter(menuItems);
         tabAdapter = new TabAdapter();
 
