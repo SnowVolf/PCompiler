@@ -90,7 +90,9 @@ public class AddFilesFragment extends TabFragment {
             mFieldTarget.setText("");
             mCheckBox.setChecked(false);
             TabbedActivity.extra.clear();
-            Preferences.saveString(Constants.KEY_ADD_FILES, "");
+            try {
+                PatchCollection.getCollection().removeItemAt(TabManager.getActiveIndex());
+            } catch (Exception ignored){}
             Preferences.saveString(Constants.KEY_EXTRA_FILES, "");
         });
         mButtonVariants.setOnClickListener(view -> {

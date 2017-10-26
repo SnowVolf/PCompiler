@@ -64,7 +64,9 @@ public class DummyFragment extends TabFragment {
         buttonClear.setOnClickListener(view -> {
             mFieldComment.setText("");
             mFieldName.setText("");
-            Preferences.saveString(Constants.KEY_DUMMY, "");
+            try {
+                PatchCollection.getCollection().removeItemAt(TabManager.getActiveIndex());
+            } catch (Exception ignored){}
         });
     }
 }

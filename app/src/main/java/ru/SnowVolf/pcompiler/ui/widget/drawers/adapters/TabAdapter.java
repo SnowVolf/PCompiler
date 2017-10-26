@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.tabs.TabFragment;
 import ru.SnowVolf.pcompiler.tabs.TabManager;
@@ -48,10 +49,14 @@ public class TabAdapter extends RecyclerView.Adapter<TabAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         TabFragment fragment = TabManager.getInstance().get(position);
-        if (position == TabManager.getActiveIndex())
+        if (position == TabManager.getActiveIndex()) {
             holder.itemView.setBackgroundColor(color);
-        else
+//            holder.text.setTextColor(App.getColorFromAttr(App.getContext(), R.attr.colorAccent));
+//            holder.close.setColorFilter(App.getColorFromAttr(App.getContext(), R.attr.colorAccent));
+        } else {
             holder.itemView.setBackgroundColor(Color.TRANSPARENT);
+//            holder.close.clearColorFilter();
+        }
 
         holder.text.setText(fragment.getTabTitle());
     }

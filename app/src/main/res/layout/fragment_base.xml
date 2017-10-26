@@ -10,7 +10,8 @@
         android:id="@+id/coordinator_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="true"
+        android:layout_above="@+id/bottom_bar">
 
         <android.support.design.widget.AppBarLayout
             android:id="@+id/appbar_layout"
@@ -80,7 +81,12 @@
         <FrameLayout
             android:id="@+id/fragment_content"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-
+            android:layout_height="match_parent" />
     </android.support.design.widget.CoordinatorLayout>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:layout_alignParentBottom="true"
+        app:title="@string/title_fullview" />
 </RelativeLayout>

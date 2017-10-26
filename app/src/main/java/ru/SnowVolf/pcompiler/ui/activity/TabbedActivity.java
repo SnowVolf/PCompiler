@@ -15,18 +15,15 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.view.menu.MenuBuilder;
+import android.support.v7.widget.Toolbar;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -86,31 +83,20 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tabbed);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        Toolbar bottomBar = findViewById(R.id.bottom_bar);
         drawers = new Drawers(this, drawer);
         drawers.init(savedInstanceState);
         extra = new ArrayList<>();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_tabbed, menu);
-        // Set overflow menu icons visible
-        if (menu instanceof MenuBuilder){
-            MenuBuilder m = (MenuBuilder) menu;
-            m.setOptionalIconsVisible(true);
-        }
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.action_view:{
-                showFullViewDialog();
-                return true;
+        bottomBar.inflateMenu(R.menu.menu_chevron);
+        bottomBar.setOnMenuItemClickListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.action_open_full: {
+                    showFullViewDialog();
+                    return true;
+                }
             }
-        }
-        return super.onOptionsItemSelected(item);
+            return false;
+        });
     }
 
     private static long press_time = System.currentTimeMillis();
@@ -175,7 +161,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
         drawers.destroy();
     }
 
-    private void showSaveDialog() {
+    public void showSaveDialog() {
         SweetListDialog saveDialog = new SweetListDialog(this);
         saveDialog.setTitle(getString(R.string.title_save));
         saveDialog.setItems(R.array.save_items);
@@ -215,65 +201,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
         });
         saveDialog.show();
     }
-    private void showFullViewDialog(){
-        @SuppressLint("InflateParams") final View view = LayoutInflater.from(this).inflate(R.layout.dialog_full_view, null);
-        final TextView content = view.findViewById(R.id.content);
-        final ImageButton clear = view.findViewById(R.id.imageButton);
-        final Button save = view.findViewById(R.id.button_save_patch);
-        save.setOnClickListener(v -> showSaveDialog());
-        clear.setOnClickListener(v -> {
-            content.setText("");
-            PatchCollection.getCollection().clear();
-            extra.clear();
-            Toast.makeText(this, R.string.message_patch_cleared, Toast.LENGTH_SHORT).show();
-        });
-        Spannable spannable;
-        if (Preferences.isMonospaceFontAllowed()) {
-            final Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/RobotoMono-Regular.ttf");
-            content.setTypeface(typeface);
-        }
-        content.setTextSize(Preferences.getFontSize());
-        StringBuilder str = new StringBuilder();
-        for (String s: PatchCollection.getCollection()) {
-            str.append(s);
-        }
-        content.setText(str);
-        spannable = new SpannableString(content.getText());
-        Matcher matcherAttr = RegexPattern.ATTRIBUTE.matcher(content.getText());
-        Matcher matcherSubAttr = RegexPattern.SUB_ATTRIBUTE.matcher(content.getText());
-        Matcher matcherBraces = RegexPattern.COMMON_SYMBOLS.matcher(content.getText());
-        Matcher matcherNumAttr = RegexPattern.OPERATOR.matcher(content.getText());
-        Matcher matcherNum = RegexPattern.NUMBERS.matcher(content.getText());
-        Matcher matcherString = RegexPattern.STRING.matcher(content.getText());
 
-        while (matcherAttr.find()){
-            spannable.setSpan(new ForegroundColorSpan(Preferences.isArtaSyntaxAllowed() ? ContextCompat.getColor(App.getContext(), R.color.syntax_arta_element) : ContextCompat.getColor(App.getContext(), R.color.syntax_element)), matcherAttr.start(), matcherAttr.end(), 33);
-        }
-
-        while (matcherSubAttr.find()){
-            spannable.setSpan(new ForegroundColorSpan(Preferences.isArtaSyntaxAllowed() ? ContextCompat.getColor(App.getContext(), R.color.syntax_sub_element) : ContextCompat.getColor(App.getContext(), R.color.syntax_sub_element)), matcherSubAttr.start(), matcherSubAttr.end(), 33);
-        }
-
-        while (matcherBraces.find()){
-            spannable.setSpan(new ForegroundColorSpan(Preferences.isArtaSyntaxAllowed() ? ContextCompat.getColor(App.getContext(), R.color.syntax_arta_keyword) : ContextCompat.getColor(App.getContext(), R.color.syntax_keyword)), matcherBraces.start(), matcherBraces.end(), 33);
-        }
-
-        while (matcherNumAttr.find()){
-            spannable.setSpan(new ForegroundColorSpan(Preferences.isArtaSyntaxAllowed() ? ContextCompat.getColor(App.getContext(), R.color.syntax_arta_num_attribute) : ContextCompat.getColor(App.getContext(), R.color.syntax_num_attribute)), matcherNumAttr.start(), matcherNumAttr.end(), 33);
-        }
-
-        while (matcherNum.find()){
-            spannable.setSpan(new ForegroundColorSpan(Preferences.isArtaSyntaxAllowed() ? ContextCompat.getColor(App.getContext(), R.color.syntax_arta_num) : ContextCompat.getColor(App.getContext(), R.color.syntax_num)), matcherNum.start(), matcherNum.end(), 33);
-        }
-
-        while (matcherString.find()){
-            spannable.setSpan(new ForegroundColorSpan(Preferences.isArtaSyntaxAllowed() ? ContextCompat.getColor(App.getContext(), R.color.syntax_arta_string) : ContextCompat.getColor(App.getContext(), R.color.syntax_string)), matcherString.start(), matcherString.end(), 33);
-        }
-        content.setText(spannable);
-        BottomSheetDialog dialog = new BottomSheetDialog(this, ThemeWrapper.getTheme());
-        dialog.setContentView(view);
-        dialog.show();
-    }
 
     private void checkPermissionsText(){
         if (Build.VERSION.SDK_INT >= 23 && !RuntimeUtil.isGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE)){
@@ -360,6 +288,77 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
         dialog.show();
     }
 
+    private void showFullViewDialog(){
+        final BottomSheetDialog dialog = new BottomSheetDialog(this, ThemeWrapper.getTheme());
+        @SuppressLint("InflateParams") final View view = LayoutInflater.from(this).inflate(R.layout.dialog_full_view, null);
+        final Toolbar captionBar = view.findViewById(R.id.caption_bar);
+        final TextView content = view.findViewById(R.id.content);
+        final Button save = view.findViewById(R.id.button_save_patch);
+        captionBar.inflateMenu(R.menu.menu_view_dialog);
+        captionBar.setOnMenuItemClickListener(item -> {
+            switch (item.getItemId()){
+                case R.id.action_reset:{
+                    content.setText("");
+                    PatchCollection.getCollection().clear();
+                    extra.clear();
+                    Toast.makeText(this, R.string.message_patch_cleared, Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+                case R.id.action_full_view:{
+                    dialog.dismiss();
+                    return true;
+                }
+            }
+            return false;
+        });
+        save.setOnClickListener(v -> showSaveDialog());
+        Spannable spannable;
+        if (Preferences.isMonospaceFontAllowed()) {
+            final Typeface typeface = Typeface.createFromAsset(this.getAssets(), "fonts/RobotoMono-Regular.ttf");
+            content.setTypeface(typeface);
+        }
+        content.setTextSize(Preferences.getFontSize());
+        StringBuilder str = new StringBuilder();
+        for (String s: PatchCollection.getCollection()) {
+            str.append(s);
+        }
+        content.setText(str);
+        spannable = new SpannableString(content.getText());
+        Matcher matcherAttr = RegexPattern.ATTRIBUTE.matcher(content.getText());
+        Matcher matcherSubAttr = RegexPattern.SUB_ATTRIBUTE.matcher(content.getText());
+        Matcher matcherBraces = RegexPattern.COMMON_SYMBOLS.matcher(content.getText());
+        Matcher matcherNumAttr = RegexPattern.OPERATOR.matcher(content.getText());
+        Matcher matcherNum = RegexPattern.NUMBERS.matcher(content.getText());
+        Matcher matcherString = RegexPattern.STRING.matcher(content.getText());
+
+        while (matcherAttr.find()){
+            spannable.setSpan(new ForegroundColorSpan(Preferences.isArtaSyntaxAllowed() ? ContextCompat.getColor(App.getContext(), R.color.syntax_arta_element) : ContextCompat.getColor(App.getContext(), R.color.syntax_element)), matcherAttr.start(), matcherAttr.end(), 33);
+        }
+
+        while (matcherSubAttr.find()){
+            spannable.setSpan(new ForegroundColorSpan(Preferences.isArtaSyntaxAllowed() ? ContextCompat.getColor(App.getContext(), R.color.syntax_sub_element) : ContextCompat.getColor(App.getContext(), R.color.syntax_sub_element)), matcherSubAttr.start(), matcherSubAttr.end(), 33);
+        }
+
+        while (matcherBraces.find()){
+            spannable.setSpan(new ForegroundColorSpan(Preferences.isArtaSyntaxAllowed() ? ContextCompat.getColor(App.getContext(), R.color.syntax_arta_keyword) : ContextCompat.getColor(App.getContext(), R.color.syntax_keyword)), matcherBraces.start(), matcherBraces.end(), 33);
+        }
+
+        while (matcherNumAttr.find()){
+            spannable.setSpan(new ForegroundColorSpan(Preferences.isArtaSyntaxAllowed() ? ContextCompat.getColor(App.getContext(), R.color.syntax_arta_num_attribute) : ContextCompat.getColor(App.getContext(), R.color.syntax_num_attribute)), matcherNumAttr.start(), matcherNumAttr.end(), 33);
+        }
+
+        while (matcherNum.find()){
+            spannable.setSpan(new ForegroundColorSpan(Preferences.isArtaSyntaxAllowed() ? ContextCompat.getColor(App.getContext(), R.color.syntax_arta_num) : ContextCompat.getColor(App.getContext(), R.color.syntax_num)), matcherNum.start(), matcherNum.end(), 33);
+        }
+
+        while (matcherString.find()){
+            spannable.setSpan(new ForegroundColorSpan(Preferences.isArtaSyntaxAllowed() ? ContextCompat.getColor(App.getContext(), R.color.syntax_arta_string) : ContextCompat.getColor(App.getContext(), R.color.syntax_string)), matcherString.start(), matcherString.end(), 33);
+        }
+        content.setText(spannable);
+        dialog.setContentView(view);
+        dialog.show();
+    }
+    
     private void showSaveZipDialog(){
         final SweetInputDialog dialog = new SweetInputDialog(this);
         dialog.setPrefTitle(getString(R.string.title_zip_filename));

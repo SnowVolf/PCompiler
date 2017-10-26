@@ -1,7 +1,6 @@
 package ru.SnowVolf.pcompiler.tabs;
 
 import android.os.Bundle;
-import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
@@ -14,13 +13,13 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.ui.activity.TabbedActivity;
 import ru.SnowVolf.pcompiler.ui.fragment.NativeContainerFragment;
+import ru.SnowVolf.pcompiler.util.Constants;
 
 /**
  * Created by Snow Volf on 21.10.2017, 13:03
@@ -45,9 +44,9 @@ public class TabFragment extends NativeContainerFragment {
     protected CoordinatorLayout coordinatorLayout;
     protected AppBarLayout appBarLayout;
     protected CollapsingToolbarLayout toolbarLayout;
-    protected Toolbar toolbar;
-    protected ImageView toolbarBackground;
+    private Toolbar toolbar;
     protected TextView toolbarTitleView, toolbarSubtitleView;
+    protected View view;
 
     public TabFragment() {
         parentTag = TabManager.getActiveTag();
@@ -106,7 +105,7 @@ public class TabFragment extends NativeContainerFragment {
     //False - можно закрывать
     //True - еще нужно что-то сделать, не закрывать
     public boolean onBackPressed() {
-        Log.d("FORPDA_LOG", "onbackpressed tab");
+        Log.d(Constants.TAG, "onbackpressed tab");
         return false;
     }
 
@@ -138,25 +137,24 @@ public class TabFragment extends NativeContainerFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_base, container, false);
+        view = inflater.inflate(R.layout.fragment_base, container, false);
         //Осторожно! Чувствительно к структуре разметки! (по идеи так должно работать чуть быстрее)
         fragmentContainer = rootView.findViewById(R.id.fragment_container);
         coordinatorLayout = fragmentContainer.findViewById(R.id.coordinator_layout);
         appBarLayout = coordinatorLayout.findViewById(R.id.appbar_layout);
         toolbarLayout = appBarLayout.findViewById(R.id.toolbar_layout);
-        toolbarBackground = toolbarLayout.findViewById(R.id.toolbar_image_background);
         toolbar = toolbarLayout.findViewById(R.id.toolbar);
         toolbarTitleView = toolbar.findViewById(R.id.toolbar_title);
         toolbarSubtitleView = toolbar.findViewById(R.id.toolbar_subtitle);
         fragmentContent = coordinatorLayout.findViewById(R.id.fragment_content);
-
+        //bottomBar = rootView.findViewById(R.id.bottom_bar);
         toolbar.setNavigationOnClickListener(configuration.isAlone() || configuration.isMenu() ? getTabActivity().getToggleListener() : getTabActivity().getRemoveTabListener());
         toolbar.setNavigationIcon(configuration.isAlone() || configuration.isMenu() ? R.drawable.ic_menu_hamburger : R.drawable.ic_arrow_back);
 
         //Для обновления вьюх
         setTitle(title);
         setSubtitle(subtitle);
-        return rootView;
+        return view;
     }
 
     protected void baseInflateFragment(LayoutInflater inflater, @LayoutRes int res) {
@@ -174,7 +172,7 @@ public class TabFragment extends NativeContainerFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Log.d("FORPDA_LOG", "onactivitycreated " + getArguments() + " : " + savedInstanceState + " : " + title);
+        Log.d(Constants.TAG, "onactivitycreated args = " + getArguments() + " : savedInstance = " + savedInstanceState + " : title = " + title);
     }
 
     @Override
@@ -187,10 +185,6 @@ public class TabFragment extends NativeContainerFragment {
     }
 
 
-    public final View findViewById(@IdRes int id) {
-        return rootView.findViewById(id);
-    }
-
     public final TabbedActivity getTabActivity() {
         return (TabbedActivity) getActivity();
     }
@@ -198,14 +192,14 @@ public class TabFragment extends NativeContainerFragment {
     @Override
     public void onResume() {
         super.onResume();
-        Log.d("FORPDA_LOG", this + " : onresume");
+        Log.d(Constants.TAG, this + " : onresume");
     }
 
     @Override
     public void onPause() {
         super.onPause();
         hidePopupWindows();
-        Log.d("FORPDA_LOG", this + " : onpause");
+        Log.d(Constants.TAG, this + " : onpause");
     }
 
     @Override
@@ -213,6 +207,8 @@ public class TabFragment extends NativeContainerFragment {
         super.onDestroy();
         hidePopupWindows();
     }
+
+
 
     /* Experiment */
     public static class Builder<T extends TabFragment> {

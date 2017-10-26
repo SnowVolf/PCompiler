@@ -4,14 +4,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.view.menu.MenuBuilder;
+import android.support.v7.view.menu.MenuPopupHelper;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.patch.PatchCollection;
+import ru.SnowVolf.pcompiler.settings.Preferences;
 import ru.SnowVolf.pcompiler.tabs.TabFragment;
 import ru.SnowVolf.pcompiler.tabs.TabManager;
 import ru.SnowVolf.pcompiler.ui.activity.AboutActivity;
@@ -41,11 +50,38 @@ public class Drawers {
     private RecyclerView tabListView;
     private TabAdapter tabAdapter;
 
+    private DrawerLayout.DrawerListener l;
+
     public Drawers(TabbedActivity activity, DrawerLayout drawerLayout) {
         this.activity = activity;
         this.drawerLayout = drawerLayout;
+
+        l = new DrawerLayout.DrawerListener() {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                if (slideOffset >= 0.4f){
+                    activity.hideKeyboard();
+                }
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+
+            }
+        };
+
         menuDrawer = activity.findViewById(R.id.menu_drawer);
         tabDrawer = activity.findViewById(R.id.tab_drawer);
+        drawerLayout.addDrawerListener(l);
 
         menuListView = activity.findViewById(R.id.menu_list);
         tabListView = activity.findViewById(R.id.tab_list);
@@ -59,6 +95,37 @@ public class Drawers {
 
         menuListView.setAdapter(menuAdapter);
         tabListView.setAdapter(tabAdapter);
+
+        menuListView.setHasFixedSize(true);
+
+        final TextView nick = activity.findViewById(R.id.nick);
+        nick.setText(Preferences.getPatchAuthor());
+
+        final ImageButton popup = activity.findViewById(R.id.popup_menu);
+        popup.setOnClickListener(v -> {
+            final PopupMenu popupMenu = new PopupMenu(activity, v);
+            popupMenu.inflate(R.menu.menu_popup_extra);
+            popupMenu.setOnMenuItemClickListener(item -> {
+                switch (item.getItemId()){
+                    case R.id.action_regex_help: {
+                        activity.startActivity(new Intent(activity, RegexpActivity.class));
+                        return true;
+                    }
+                    case R.id.action_settings: {
+                        activity.startActivity(new Intent(activity, SettingsActivity.class));
+                        return true;
+                    }
+                    case R.id.action_about: {
+                        activity.startActivity(new Intent(activity, AboutActivity.class));
+                        return true;
+                    }
+                }
+                return false;
+            });
+            MenuPopupHelper helper = new MenuPopupHelper(activity, (MenuBuilder) popupMenu.getMenu(), v);
+            helper.setForceShowIcon(true);
+            helper.show();
+        });
     }
 
     public NavigationView getMenuDrawer() {
@@ -80,7 +147,7 @@ public class Drawers {
                 item = findMenuItem(tabFragment.getClass());
             }
 
-            Log.e(Constants.TAG, "AAAA " + tabFragment + " : " + item);
+            Log.e(Constants.TAG, "INIT : TabFragment = " + tabFragment + ", MenuItem = " + item);
             if (item != null) {
                 item.setAttachedTabTag(tabFragment.getTag());
                 item.setActive(true);
@@ -92,10 +159,11 @@ public class Drawers {
     }
 
     public void destroy() {
+        drawerLayout.removeDrawerListener(l);
     }
 
     public void setStatusBarHeight(int height) {
-        menuDrawer.setPadding(0, height, 0, 0);
+        //menuDrawer.setPadding(0, height, 0, 0);
         tabDrawer.setPadding(0, height, 0, 0);
     }
 
@@ -105,6 +173,7 @@ public class Drawers {
             selectMenuItem(menuItem);
             closeMenu();
         });
+
     }
 
     private void fillMenuItems() {
@@ -114,51 +183,47 @@ public class Drawers {
 
     private void selectMenuItem(MenuItems.MenuItem item) {
         Log.e(Constants.TAG, "selectMenuItem " + item);
-        if (item == null) return;
+        //Toast.makeText(activity, "EBANA V ROT: ITEM = " + item, Toast.LENGTH_SHORT).show();
+        if (item == null) {
+            //Toast.makeText(activity, "PIZDA RULYI", Toast.LENGTH_SHORT).show();
+            return;
+        }
         try {
-            if (item.getTabClass() == null) {
-                switch (item.getAction()) {
-                    case MenuItems.ACTION_APP_REGEXP: {
-                        activity.startActivity(new Intent(activity, RegexpActivity.class));
-                        break;
-                    }
-                    case MenuItems.ACTION_APP_SETTINGS: {
-                        activity.startActivity(new Intent(activity, SettingsActivity.class));
-                        break;
-                    }
-                    case MenuItems.ACTION_APP_INFO: {
-                        activity.startActivity(new Intent(activity, AboutActivity.class));
-                        break;
-                    }
-                }
-
-            } else {
-                TabFragment tabFragment = TabManager.getInstance().get(item.getAttachedTabTag());
-                if (tabFragment == null) {
-                    for (TabFragment fragment : TabManager.getInstance().getFragments()) {
-                        if (fragment.getClass() == item.getTabClass() && fragment.getConfiguration().isMenu()) {
-                            tabFragment = fragment;
-                            break;
-                        }
-                    }
-                }
-
-                if (tabFragment == null) {
-                    tabFragment = item.getTabClass().newInstance();
-                    tabFragment.getConfiguration().setMenu(true);
-                    TabManager.getInstance().add(tabFragment);
-                    item.setAttachedTabTag(tabFragment.getTag());
-                } else {
-                    TabManager.getInstance().select(tabFragment);
-                }
-
-                if (lastActive != null)
-                    lastActive.setActive(false);
-                item.setActive(true);
-                lastActive = item;
-                menuAdapter.notifyDataSetChanged();
-            }
+//            if (item.getTabClass() == null) {
+//                Toast.makeText(activity, "SUKA SOSI HUI = " + item.getAction(), Toast.LENGTH_SHORT).show();
+//            } else {
+//                TabFragment tabFragment = TabManager.getInstance().get(item.getAttachedTabTag());
+//                if (tabFragment == null) {
+//                    for (TabFragment fragment : TabManager.getInstance().getFragments()) {
+//                        if (fragment.getClass() == item.getTabClass() && fragment.getConfiguration().isMenu()) {
+//                            tabFragment = fragment;
+//                            break;
+//                        }
+//                    }
+//                }
+//
+//                if (tabFragment == null) {
+//                    tabFragment = item.getTabClass().newInstance();
+//                    tabFragment.getConfiguration().setMenu(true);
+//                    TabManager.getInstance().add(tabFragment);
+//                    item.setAttachedTabTag(tabFragment.getTag());
+//                } else {
+//                    TabManager.getInstance().select(tabFragment);
+//                }
+//
+//                if (lastActive != null)
+//                    lastActive.setActive(false);
+//                item.setActive(true);
+//                lastActive = item;
+//                menuAdapter.notifyDataSetChanged();
+//            }
+            TabFragment newTab = item.getTabClass().newInstance();
+            newTab.getConfiguration().setMenu(true);
+            //newTab.getConfiguration().setDefaultTitle(item.getTitle());
+            TabManager.getInstance().add(newTab);
+            notifyTabsChanged();
         } catch (Exception e) {
+            Toast.makeText(activity, "An error occurred while executing for task : addTabFragment\n\n" + e.getMessage(), Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
     }

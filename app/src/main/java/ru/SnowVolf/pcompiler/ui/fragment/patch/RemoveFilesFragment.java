@@ -69,9 +69,11 @@ public class RemoveFilesFragment extends TabFragment {
         });
         buttonClear.setOnClickListener(view -> {
             mFieldComment.setText("");
-            mFieldName.setText("");
             mFieldTarget.setText("");
-            Preferences.saveString(Constants.KEY_REMOVE_FILES, "");
+            mFieldName.setText("");
+            try {
+                PatchCollection.getCollection().removeItemAt(TabManager.getActiveIndex());
+            } catch (Exception ignored){}
         });
         mButtonVariants.setOnClickListener(view -> {
             PopupMenu menu = new PopupMenu(getActivity(), mButtonVariants);

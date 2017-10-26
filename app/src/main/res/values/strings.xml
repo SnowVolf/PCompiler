@@ -216,5 +216,6 @@
     <string name="match_tags">Match tags</string>
     <string name="tags">Tags</string>
     <string name="other">Other</string>
+    <string name="expand">Expand</string>
 
 </resources>

@@ -199,4 +199,5 @@
     <string name="match_tags">Match тэги</string>
     <string name="other">Прочее</string>
     <string name="tags">Тэги</string>
+    <string name="expand">Развернуть</string>
 </resources>

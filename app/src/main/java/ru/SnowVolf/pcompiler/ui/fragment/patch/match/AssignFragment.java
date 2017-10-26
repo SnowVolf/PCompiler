@@ -83,7 +83,9 @@ public class AssignFragment extends TabFragment {
             mFieldFind.setText("");
             mFieldAssign.setText("");
             mCheckBox.setChecked(Preferences.isForceRegexpAllowed());
-            Preferences.saveString(Constants.KEY_MATCH_ASSIGN, "");
+            try {
+                PatchCollection.getCollection().removeItemAt(TabManager.getActiveIndex());
+            } catch (Exception ignored){}
         });
         mButtonVariants.setOnClickListener(view -> {
             PopupMenu menu = new PopupMenu(getActivity(), mButtonVariants);

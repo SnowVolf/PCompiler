@@ -66,7 +66,9 @@ public class GotoFragment extends TabFragment {
         buttonClear.setOnClickListener(view -> {
             mFieldComment.setText("");
             mFieldNextRule.setText("");
-            Preferences.saveString(Constants.KEY_GOTO, "");
+            try {
+                PatchCollection.getCollection().removeItemAt(TabManager.getActiveIndex());
+            } catch (Exception ignored){}
         });
     }
 }

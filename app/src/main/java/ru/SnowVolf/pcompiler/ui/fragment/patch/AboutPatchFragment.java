@@ -74,7 +74,9 @@ public class AboutPatchFragment extends TabFragment {
             mFieldEnige.setText("");
             mFieldAuthor.setText("");
             mFieldPackage.setText("");
-            Preferences.saveString(Constants.KEY_ABOUT_PATCH, "");
+            try {
+                PatchCollection.getCollection().removeItemAt(TabManager.getActiveIndex());
+            } catch (Exception ignored){}
         });
     }
 }

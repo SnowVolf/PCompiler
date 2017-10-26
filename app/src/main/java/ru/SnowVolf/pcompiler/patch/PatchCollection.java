@@ -1,17 +1,16 @@
 package ru.SnowVolf.pcompiler.patch;
 
-import java.util.ArrayList;
 
 /**
  * Created by Snow Volf on 23.10.2017, 21:20
  */
 
 public class PatchCollection {
-    private static ArrayList<String> collection = null;
+    private static PatchArray collection = null;
 
-    public static ArrayList<String> getCollection(){
+    public static PatchArray getCollection(){
         if (collection == null){
-            collection = new ArrayList<>();
+            collection = new PatchArray();
         }
         return collection;
     }

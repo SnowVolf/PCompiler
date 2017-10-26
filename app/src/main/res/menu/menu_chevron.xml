@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_open_full"
+        android:title="@string/expand"
+        android:icon="@drawable/ic_chevron_up"
+        app:showAsAction="always"/>
+</menu>

@@ -68,7 +68,9 @@ public class MergeFragment extends TabFragment {
             mFieldComment.setText("");
             mFieldName.setText("");
             mFieldSource.setText("");
-            Preferences.saveString(Constants.KEY_MERGE, "");
+            try {
+                PatchCollection.getCollection().removeItemAt(TabManager.getActiveIndex());
+            } catch (Exception ignored){}
         });
     }
 }

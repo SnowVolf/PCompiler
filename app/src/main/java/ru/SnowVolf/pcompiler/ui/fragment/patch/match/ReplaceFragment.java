@@ -82,7 +82,9 @@ public class ReplaceFragment extends TabFragment {
             mFieldFind.setText("");
             mFieldReplace.setText("");
             mCheckBox.setChecked(Preferences.isForceRegexpAllowed());
-            Preferences.saveString(Constants.KEY_MATCH_REPLACE, "");
+            try {
+                PatchCollection.getCollection().removeItemAt(TabManager.getActiveIndex());
+            } catch (Exception ignored){}
         });
         mButtonVariants.setOnClickListener(view -> {
             PopupMenu menu = new PopupMenu(getActivity(), mButtonVariants);
