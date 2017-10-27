@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.tabs.TabFragment;
 import ru.SnowVolf.pcompiler.tabs.TabManager;

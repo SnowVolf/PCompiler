@@ -2,7 +2,6 @@ package ru.SnowVolf.pcompiler.ui.fragment.patch.match;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.PopupMenu;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -70,10 +69,9 @@ public class MGotoFragment extends TabFragment {
                     + PatchBuilder.insertTag(mFieldNextRule, "goto")
                     + PatchBuilder.insertEndTag("match_goto");
 
-            PatchCollection.getCollection().add(TabManager.getActiveIndex(), matchGotoPart);
+            PatchCollection.getCollection().addItemAt(TabManager.getActiveIndex(), matchGotoPart);
             //Preferences.saveString(Constants.KEY_MATCH_GOTO, matchGotoPart);
             Log.i(Constants.TAG, matchGotoPart);
-            Snackbar.make(mFieldComment, R.string.message_saved, Snackbar.LENGTH_SHORT).show();
         });
         buttonClear.setOnClickListener(view -> {
             mFieldComment.setText("");
@@ -82,9 +80,7 @@ public class MGotoFragment extends TabFragment {
             mFieldFind.setText("");
             mFieldNextRule.setText("");
             mCheckBox.setChecked(Preferences.isForceRegexpAllowed());
-            try {
-                PatchCollection.getCollection().removeItemAt(TabManager.getActiveIndex());
-            } catch (Exception ignored){}
+            PatchCollection.getCollection().removeItemAt(TabManager.getActiveIndex());
         });
         mButtonVariants.setOnClickListener(view -> {
             PopupMenu menu = new PopupMenu(getActivity(), mButtonVariants);

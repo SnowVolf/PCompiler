@@ -2,7 +2,6 @@ package ru.SnowVolf.pcompiler.ui.fragment.patch;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +15,6 @@ import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.patch.PatchBuilder;
 import ru.SnowVolf.pcompiler.patch.PatchCollection;
-import ru.SnowVolf.pcompiler.settings.Preferences;
 import ru.SnowVolf.pcompiler.tabs.TabFragment;
 import ru.SnowVolf.pcompiler.tabs.TabManager;
 import ru.SnowVolf.pcompiler.util.Constants;
@@ -59,18 +57,14 @@ public class MergeFragment extends TabFragment {
                     + PatchBuilder.insertTag(mFieldSource, "source")
                     + PatchBuilder.insertEndTag("merge");
 
-            PatchCollection.getCollection().add(TabManager.getActiveIndex(), mergePart);
-            //Preferences.saveString(Constants.KEY_MERGE, mergePart);
+            PatchCollection.getCollection().addItemAt(TabManager.getActiveIndex(), mergePart);
             Log.i(Constants.TAG, mergePart);
-            Snackbar.make(mFieldComment, R.string.message_saved, Snackbar.LENGTH_SHORT).show();
         });
         buttonClear.setOnClickListener(view -> {
             mFieldComment.setText("");
             mFieldName.setText("");
             mFieldSource.setText("");
-            try {
-                PatchCollection.getCollection().removeItemAt(TabManager.getActiveIndex());
-            } catch (Exception ignored){}
+            PatchCollection.getCollection().removeItemAt(TabManager.getActiveIndex());
         });
     }
 }

@@ -201,4 +201,7 @@
     <string name="tags">Тэги</string>
     <string name="expand">Развернуть</string>
     <string name="i_read">Я прочитал(-a)</string>
+    <string name="title_activity_help">Помощь</string>
+    <string name="index_of_bounds_error" formatted="false"><![CDATA[Нельзя добавить правило с индексом %d, размер равен %d.
+Подробнее: О программе -> Помощь]]></string>
 </resources>

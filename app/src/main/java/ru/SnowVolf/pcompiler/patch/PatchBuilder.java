@@ -9,6 +9,12 @@ import ru.SnowVolf.pcompiler.settings.Preferences;
  */
 
 public class PatchBuilder {
+
+    public interface OnBuildListener{
+        void onSuccess();
+        void onError(int index);
+    }
+
     public static String insertAboutTag(EditText editText, String tag){
         if (!editText.getText().toString().isEmpty()) {
             return "[" + tag.toUpperCase() + "]" + System.lineSeparator() + editText.getText().toString()

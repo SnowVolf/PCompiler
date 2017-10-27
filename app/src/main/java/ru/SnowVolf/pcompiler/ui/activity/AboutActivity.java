@@ -1,5 +1,6 @@
 package ru.SnowVolf.pcompiler.ui.activity;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -133,6 +134,10 @@ public class AboutActivity extends BaseActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
+            case R.id.action_help:{
+                startActivity(new Intent(this, HelpActivity.class), ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+                return true;
+            }
             case R.id.action_schedule_update:{
                 FragmentManager manager = getSupportFragmentManager();
                 UpdateDialogFragment dialogFragment = UpdateDialogFragment.newInstance(JSON_LINK);

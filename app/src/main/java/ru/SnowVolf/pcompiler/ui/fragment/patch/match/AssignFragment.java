@@ -2,7 +2,6 @@ package ru.SnowVolf.pcompiler.ui.fragment.patch.match;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.PopupMenu;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -70,11 +69,8 @@ public class AssignFragment extends TabFragment {
             + PatchBuilder.insertTag(mFieldAssign, "assign")
             + PatchBuilder.insertEndTag("match_assign");
 
-            PatchCollection.getCollection().add(TabManager.getActiveIndex(), matchAssignPart);
-            //Preferences.saveString(Constants.KEY_MATCH_ASSIGN, matchAssignPart);
+            PatchCollection.getCollection().addItemAt(TabManager.getActiveIndex(), matchAssignPart);
             Log.i(Constants.TAG, matchAssignPart);
-
-            Snackbar.make(mFieldComment, R.string.message_saved, Snackbar.LENGTH_SHORT).show();
         });
         buttonClear.setOnClickListener(view -> {
             mFieldComment.setText("");
@@ -83,9 +79,7 @@ public class AssignFragment extends TabFragment {
             mFieldFind.setText("");
             mFieldAssign.setText("");
             mCheckBox.setChecked(Preferences.isForceRegexpAllowed());
-            try {
-                PatchCollection.getCollection().removeItemAt(TabManager.getActiveIndex());
-            } catch (Exception ignored){}
+            PatchCollection.getCollection().removeItemAt(TabManager.getActiveIndex());
         });
         mButtonVariants.setOnClickListener(view -> {
             PopupMenu menu = new PopupMenu(getActivity(), mButtonVariants);

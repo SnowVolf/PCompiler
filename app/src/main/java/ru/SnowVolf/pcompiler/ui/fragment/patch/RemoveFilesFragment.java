@@ -2,7 +2,6 @@ package ru.SnowVolf.pcompiler.ui.fragment.patch;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.PopupMenu;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,7 +17,6 @@ import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.patch.PatchBuilder;
 import ru.SnowVolf.pcompiler.patch.PatchCollection;
-import ru.SnowVolf.pcompiler.settings.Preferences;
 import ru.SnowVolf.pcompiler.tabs.TabFragment;
 import ru.SnowVolf.pcompiler.tabs.TabManager;
 import ru.SnowVolf.pcompiler.util.Constants;
@@ -62,18 +60,14 @@ public class RemoveFilesFragment extends TabFragment {
                     + PatchBuilder.insertTag(mFieldTarget, "target")
                     + PatchBuilder.insertEndTag("remove_files");
 
-            PatchCollection.getCollection().add(TabManager.getActiveIndex(), removeFilesPart);
-            //Preferences.saveString(Constants.KEY_REMOVE_FILES, removeFilesPart);
+            PatchCollection.getCollection().addItemAt(TabManager.getActiveIndex(), removeFilesPart);
             Log.i(Constants.TAG, removeFilesPart);
-            Snackbar.make(mFieldComment, R.string.message_saved, Snackbar.LENGTH_SHORT).show();
         });
         buttonClear.setOnClickListener(view -> {
             mFieldComment.setText("");
             mFieldTarget.setText("");
             mFieldName.setText("");
-            try {
-                PatchCollection.getCollection().removeItemAt(TabManager.getActiveIndex());
-            } catch (Exception ignored){}
+            PatchCollection.getCollection().removeItemAt(TabManager.getActiveIndex());
         });
         mButtonVariants.setOnClickListener(view -> {
             PopupMenu menu = new PopupMenu(getActivity(), mButtonVariants);

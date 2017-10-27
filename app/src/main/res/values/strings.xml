@@ -218,5 +218,7 @@
     <string name="other">Other</string>
     <string name="expand">Expand</string>
     <string name="i_read">I read</string>
+    <string name="title_activity_help">Please read!</string>
+    <string name="index_of_bounds_error" formatted="false"><![CDATA[Cannot add rule with index %d, size is %d. More info: About -> Help]]></string>
 
 </resources>

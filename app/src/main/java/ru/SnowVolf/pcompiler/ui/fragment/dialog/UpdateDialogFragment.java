@@ -12,6 +12,7 @@ import android.support.annotation.StringRes;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.util.Patterns;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -54,7 +55,7 @@ public class UpdateDialogFragment extends BottomSheetDialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        rootView = getActivity().getLayoutInflater().inflate(R.layout.content_updater, null);
+        rootView = LayoutInflater.from(getContext()).inflate(R.layout.content_updater, null);
         if (Build.VERSION.SDK_INT >= 23) {
             if (!RuntimeUtil.isGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
                 RuntimeUtil.storage(getActivity(), RuntimeUtil.REQUEST_EXTERNAL_STORAGE_ZIP);
@@ -171,11 +172,11 @@ public class UpdateDialogFragment extends BottomSheetDialogFragment {
         if (array == null || array.length() == 0) {
             return;
         }
-        LinearLayout root = new LinearLayout(getActivity());
+        LinearLayout root = new LinearLayout(getContext());
         root.setOrientation(LinearLayout.VERTICAL);
         root.setPadding(0, 0, 0, App.dpToPx(24));
 
-        TextView sectionTitle = new TextView(getActivity());
+        TextView sectionTitle = new TextView(getContext());
         //sectionTitle.setTextColor(App.getColorFromAttr(getActivity(), android.R.attr.textColorAlertDialogListItem));
         sectionTitle.setText(title);
         sectionTitle.setPadding(0, 0, 0, App.dpToPx(8));
@@ -195,13 +196,14 @@ public class UpdateDialogFragment extends BottomSheetDialogFragment {
             }
         }
 
-        TextView sectionText = new TextView(getActivity());
+        TextView sectionText = new TextView(getContext());
         sectionText.setText(Html.htmlCompat(stringBuilder.toString()));
         //sectionText.setTextColor(App.getColorFromAttr(getActivity(), android.R.attr.textColorAlertDialogListItem));
         sectionText.setPadding(App.dpToPx(8), 0, 0, 0);
         root.addView(sectionText);
 
-        ((LinearLayout) rootView.findViewById(R.id.update_content)).addView(root, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        ((LinearLayout) rootView.findViewById(R.id.update_content)).addView(root,
+                new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
     }
 
     private String generateCurrentInfo(String name, String build, String date) {

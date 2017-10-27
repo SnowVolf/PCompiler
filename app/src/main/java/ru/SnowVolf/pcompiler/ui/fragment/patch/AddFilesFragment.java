@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.PopupMenu;
 import android.util.Log;
@@ -78,9 +77,7 @@ public class AddFilesFragment extends TabFragment {
 
                     + PatchBuilder.insertEndTag("add_files");
             PatchCollection.getCollection().add(TabManager.getActiveIndex(), addFilesPart);
-            //Preferences.saveString(Constants.KEY_ADD_FILES, addFilesPart);
             Log.i(Constants.TAG, addFilesPart);
-            Snackbar.make(mFieldComment, R.string.message_saved, Snackbar.LENGTH_SHORT).show();
         });
         mButtonAdd.setOnClickListener(view -> add());
         buttonClear.setOnClickListener(view -> {
@@ -90,9 +87,7 @@ public class AddFilesFragment extends TabFragment {
             mFieldTarget.setText("");
             mCheckBox.setChecked(false);
             TabbedActivity.extra.clear();
-            try {
-                PatchCollection.getCollection().removeItemAt(TabManager.getActiveIndex());
-            } catch (Exception ignored){}
+            PatchCollection.getCollection().removeItemAt(TabManager.getActiveIndex());
             Preferences.saveString(Constants.KEY_EXTRA_FILES, "");
         });
         mButtonVariants.setOnClickListener(view -> {

@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.ui.widget.drawers.MenuItems;
 

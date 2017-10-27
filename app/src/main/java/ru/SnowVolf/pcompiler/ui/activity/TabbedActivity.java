@@ -422,7 +422,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
 
     public void hideKeyboard() {
         if (getCurrentFocus() != null)
-            ((InputMethodManager) this.getSystemService(Activity.INPUT_METHOD_SERVICE))
+            ((InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE))
                     .hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
     }
 

@@ -2,7 +2,6 @@ package ru.SnowVolf.pcompiler.ui.fragment.patch;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -66,17 +65,13 @@ public class AboutPatchFragment extends TabFragment {
                     + PatchBuilder.insertAboutTag(mFieldPackage, "package");
 
             PatchCollection.getCollection().add(TabManager.getActiveIndex(), aboutPart);
-            //Preferences.saveString(Constants.KEY_ABOUT_PATCH, aboutPart);
             Log.i(Constants.TAG, aboutPart);
-            Snackbar.make(mFieldEnige, R.string.message_saved, Snackbar.LENGTH_SHORT).show();
         });
         buttonClear.setOnClickListener(view -> {
             mFieldEnige.setText("");
             mFieldAuthor.setText("");
             mFieldPackage.setText("");
-            try {
-                PatchCollection.getCollection().removeItemAt(TabManager.getActiveIndex());
-            } catch (Exception ignored){}
+            PatchCollection.getCollection().removeItemAt(TabManager.getActiveIndex());
         });
     }
 }
