@@ -299,9 +299,7 @@ public class Drawers {
             closeTabs();
         });
         tabAdapter.setCloseClickListener((tabFragment, position) -> {
-            try {
-                PatchCollection.getCollection().remove(position);
-            } catch (IndexOutOfBoundsException ignored){}
+            PatchCollection.getCollection().remove(tabFragment.getTag());
             TabManager.getInstance().remove(tabFragment);
             if (TabManager.getInstance().getSize() < 1) {
                 activity.finish();

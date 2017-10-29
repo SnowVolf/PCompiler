@@ -60,14 +60,14 @@ public class RemoveFilesFragment extends TabFragment {
                     + PatchBuilder.insertTag(mFieldTarget, "target")
                     + PatchBuilder.insertEndTag("remove_files");
 
-            PatchCollection.getCollection().setItemAt(TabManager.getActiveIndex(), removeFilesPart);
+            PatchCollection.getCollection().setItemAt(getTag(), removeFilesPart);
             Log.i(Constants.TAG, removeFilesPart);
         });
         buttonClear.setOnClickListener(view -> {
             mFieldComment.setText("");
             mFieldTarget.setText("");
             mFieldName.setText("");
-            PatchCollection.getCollection().removeItemAt(TabManager.getActiveIndex());
+            PatchCollection.getCollection().removeItemAt(getTag());
         });
         mButtonVariants.setOnClickListener(view -> {
             PopupMenu menu = new PopupMenu(getActivity(), mButtonVariants);

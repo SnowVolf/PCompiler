@@ -57,14 +57,14 @@ public class MergeFragment extends TabFragment {
                     + PatchBuilder.insertTag(mFieldSource, "source")
                     + PatchBuilder.insertEndTag("merge");
 
-            PatchCollection.getCollection().setItemAt(TabManager.getActiveIndex(), mergePart);
+            PatchCollection.getCollection().setItemAt(getTag(), mergePart);
             Log.i(Constants.TAG, mergePart);
         });
         buttonClear.setOnClickListener(view -> {
             mFieldComment.setText("");
             mFieldName.setText("");
             mFieldSource.setText("");
-            PatchCollection.getCollection().removeItemAt(TabManager.getActiveIndex());
+            PatchCollection.getCollection().removeItemAt(getTag());
         });
     }
 }

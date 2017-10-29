@@ -1,3 +1,4 @@
+
 package ru.SnowVolf.pcompiler.ui.activity;
 
 import android.Manifest;
@@ -151,13 +152,13 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
             SweetContentDialog dialog = new SweetContentDialog(this);
             dialog.setContentText(R.string.app_lang_changed);
             dialog.setPositive(android.R.string.ok, v -> {
-                        Intent mStartActivity = new Intent(this, TabbedActivity.class);
-                        int mIntentPendingId = 6;
-                        PendingIntent mPendingIntent = PendingIntent.getActivity(TabbedActivity.this, mIntentPendingId, mStartActivity, PendingIntent.FLAG_CANCEL_CURRENT);
-                        AlarmManager manager = (AlarmManager) TabbedActivity.this.getSystemService(Context.ALARM_SERVICE);
-                        manager.set(AlarmManager.RTC, System.currentTimeMillis() + 100, mPendingIntent);
-                        System.exit(0);
-                    });
+                Intent mStartActivity = new Intent(this, TabbedActivity.class);
+                int mIntentPendingId = 6;
+                PendingIntent mPendingIntent = PendingIntent.getActivity(TabbedActivity.this, mIntentPendingId, mStartActivity, PendingIntent.FLAG_CANCEL_CURRENT);
+                AlarmManager manager = (AlarmManager) TabbedActivity.this.getSystemService(Context.ALARM_SERVICE);
+                manager.set(AlarmManager.RTC, System.currentTimeMillis() + 100, mPendingIntent);
+                System.exit(0);
+            });
             dialog.setNegative(android.R.string.cancel, v -> dialog.dismiss());
             dialog.show();
         }
@@ -178,7 +179,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
             switch (i) {
                 case 0: {
                     StringBuilder str = new StringBuilder();
-                    for (String s: PatchCollection.getCollection()) {
+                    for (String s: PatchCollection.getCollection().values()) {
                         str.append(s);
                     }
                     StringWrapper.copyToClipboard(str.toString());
@@ -197,7 +198,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
                     final Intent send = new Intent(Intent.ACTION_SEND);
                     send.setType("text/plain");
                     StringBuilder str = new StringBuilder();
-                    for (String s: PatchCollection.getCollection()) {
+                    for (String s: PatchCollection.getCollection().values()) {
                         str.append(s);
                     }
                     send.putExtra(Intent.EXTRA_TEXT, str.toString());
@@ -216,7 +217,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
             RuntimeUtil.storage(this, RuntimeUtil.REQUEST_EXTERNAL_STORAGE_TEXT);
         } else {
             StringBuilder str = new StringBuilder();
-            for (String s: PatchCollection.getCollection()) {
+            for (String s: PatchCollection.getCollection().values()) {
                 str.append(s);
             }
             writeToFile(str.toString());
@@ -245,15 +246,15 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
                 patchFile.createNewFile();
                 Toast.makeText(this, R.string.message_file_overwrite, Toast.LENGTH_SHORT).show();
             }
-                FileOutputStream outputStream = new FileOutputStream(patchFile);
-                if (data != null && !data.isEmpty()){
-                    outputStream.write(data.getBytes());
-                } else {
-                    Toast.makeText(this, R.string.message_patch_cannot_empty, Toast.LENGTH_SHORT).show();
-                    return null;
-                }
-                outputStream.close();
-                Toast.makeText(this, String.format(getString(R.string.message_saved_in_path), Preferences.getPatchOutput(), fileName + ".txt"), Toast.LENGTH_LONG).show();
+            FileOutputStream outputStream = new FileOutputStream(patchFile);
+            if (data != null && !data.isEmpty()){
+                outputStream.write(data.getBytes());
+            } else {
+                Toast.makeText(this, R.string.message_patch_cannot_empty, Toast.LENGTH_SHORT).show();
+                return null;
+            }
+            outputStream.close();
+            Toast.makeText(this, String.format(getString(R.string.message_saved_in_path), Preferences.getPatchOutput(), fileName + ".txt"), Toast.LENGTH_LONG).show();
         } catch (IOException e){
             e.printStackTrace();
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
@@ -326,7 +327,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
         }
         content.setTextSize(Preferences.getFontSize());
         StringBuilder str = new StringBuilder();
-        for (String s: PatchCollection.getCollection()) {
+        for (String s: PatchCollection.getCollection().values()) {
             str.append(s);
         }
         content.setText(str);
@@ -365,7 +366,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
         dialog.setContentView(view);
         dialog.show();
     }
-    
+
     private void showSaveZipDialog(){
         final SweetInputDialog dialog = new SweetInputDialog(this);
         dialog.setPrefTitle(getString(R.string.title_zip_filename));
@@ -388,7 +389,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
             dir.mkdirs();
         }
         StringBuilder str = new StringBuilder();
-        for (String s: PatchCollection.getCollection()) {
+        for (String s: PatchCollection.getCollection().values()) {
             str.append(s);
         }
         File temp = writeToTempFile(str.toString());

@@ -68,7 +68,7 @@ public class ReplaceFragment extends TabFragment {
                     + PatchBuilder.regexTrue(mCheckBox.isChecked())
                     + PatchBuilder.insertReplaceTag(mFieldReplace)
                     + PatchBuilder.insertEndTag("match_replace");
-            PatchCollection.getCollection().setItemAt(TabManager.getActiveIndex(), matchReplacePart);
+            PatchCollection.getCollection().setItemAt(getTag(), matchReplacePart);
             Log.i(Constants.TAG, matchReplacePart);
         });
         buttonClear.setOnClickListener(view -> {
@@ -78,7 +78,7 @@ public class ReplaceFragment extends TabFragment {
             mFieldFind.setText("");
             mFieldReplace.setText("");
             mCheckBox.setChecked(Preferences.isForceRegexpAllowed());
-            PatchCollection.getCollection().removeItemAt(TabManager.getActiveIndex());
+            PatchCollection.getCollection().removeItemAt(getTag());
         });
         mButtonVariants.setOnClickListener(view -> {
             PopupMenu menu = new PopupMenu(getActivity(), mButtonVariants);
