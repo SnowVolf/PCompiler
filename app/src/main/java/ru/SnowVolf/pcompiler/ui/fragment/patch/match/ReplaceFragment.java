@@ -68,7 +68,7 @@ public class ReplaceFragment extends TabFragment {
                     + PatchBuilder.regexTrue(mCheckBox.isChecked())
                     + PatchBuilder.insertReplaceTag(mFieldReplace)
                     + PatchBuilder.insertEndTag("match_replace");
-            PatchCollection.getCollection().addItemAt(TabManager.getActiveIndex(), matchReplacePart);
+            PatchCollection.getCollection().setItemAt(TabManager.getActiveIndex(), matchReplacePart);
             Log.i(Constants.TAG, matchReplacePart);
         });
         buttonClear.setOnClickListener(view -> {

@@ -165,6 +165,7 @@ public class UpdateDialogFragment extends BottomSheetDialogFragment {
         } else {
             rootView.findViewById(R.id.update_button).setOnClickListener(null);
             Toast.makeText(getActivity(), R.string.message_no_updates, Toast.LENGTH_LONG).show();
+            dismiss();
         }
     }
 
@@ -177,7 +178,6 @@ public class UpdateDialogFragment extends BottomSheetDialogFragment {
         root.setPadding(0, 0, 0, App.dpToPx(24));
 
         TextView sectionTitle = new TextView(getContext());
-        //sectionTitle.setTextColor(App.getColorFromAttr(getActivity(), android.R.attr.textColorAlertDialogListItem));
         sectionTitle.setText(title);
         sectionTitle.setPadding(0, 0, 0, App.dpToPx(8));
         sectionTitle.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
@@ -198,7 +198,6 @@ public class UpdateDialogFragment extends BottomSheetDialogFragment {
 
         TextView sectionText = new TextView(getContext());
         sectionText.setText(Html.htmlCompat(stringBuilder.toString()));
-        //sectionText.setTextColor(App.getColorFromAttr(getActivity(), android.R.attr.textColorAlertDialogListItem));
         sectionText.setPadding(App.dpToPx(8), 0, 0, 0);
         root.addView(sectionText);
 

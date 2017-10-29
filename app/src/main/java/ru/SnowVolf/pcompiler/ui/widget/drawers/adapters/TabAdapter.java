@@ -50,11 +50,8 @@ public class TabAdapter extends RecyclerView.Adapter<TabAdapter.ViewHolder> {
         TabFragment fragment = TabManager.getInstance().get(position);
         if (position == TabManager.getActiveIndex()) {
             holder.itemView.setBackgroundColor(color);
-//            holder.text.setTextColor(App.getColorFromAttr(App.getContext(), R.attr.colorAccent));
-//            holder.close.setColorFilter(App.getColorFromAttr(App.getContext(), R.attr.colorAccent));
         } else {
             holder.itemView.setBackgroundColor(Color.TRANSPARENT);
-//            holder.close.clearColorFilter();
         }
 
         holder.text.setText(fragment.getTabTitle());

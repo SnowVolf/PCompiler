@@ -60,7 +60,7 @@ import ru.SnowVolf.pcompiler.util.StringWrapper;
 import ru.SnowVolf.pcompiler.util.ThemeWrapper;
 
 public class TabbedActivity extends BaseActivity implements TabManager.TabListener {
-    String fileName = "patch.txt";
+    private String fileName = "patch.txt";
     private String lang = null;
     public static ArrayList<File> extra;
     private Drawers drawers;
@@ -99,7 +99,11 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
             return false;
         });
         if (!Preferences.isHelpShowed()){
-            startActivity(new Intent(this, HelpActivity.class), ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+            try {
+                startActivity(new Intent(this, HelpActivity.class), ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+            } catch (Exception ex){
+                ex.printStackTrace();
+            }
         }
     }
 
@@ -288,7 +292,6 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
             checkPermissionsText();
             dialog.dismiss();
         });
-        //dialog.setNegative(getString(android.R.string.cancel), view -> dialog.dismiss());
         dialog.show();
     }
 

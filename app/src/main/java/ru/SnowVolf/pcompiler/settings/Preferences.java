@@ -3,6 +3,15 @@ package ru.SnowVolf.pcompiler.settings;
 import android.os.Environment;
 
 import ru.SnowVolf.pcompiler.App;
+import ru.SnowVolf.pcompiler.tabs.TabFragment;
+import ru.SnowVolf.pcompiler.ui.fragment.patch.AddFilesFragment;
+import ru.SnowVolf.pcompiler.ui.fragment.patch.DummyFragment;
+import ru.SnowVolf.pcompiler.ui.fragment.patch.GotoFragment;
+import ru.SnowVolf.pcompiler.ui.fragment.patch.MergeFragment;
+import ru.SnowVolf.pcompiler.ui.fragment.patch.RemoveFilesFragment;
+import ru.SnowVolf.pcompiler.ui.fragment.patch.match.AssignFragment;
+import ru.SnowVolf.pcompiler.ui.fragment.patch.match.MGotoFragment;
+import ru.SnowVolf.pcompiler.ui.fragment.patch.match.ReplaceFragment;
 
 /**
  * Created by Snow Volf on 20.08.2017, 1:21
@@ -14,7 +23,7 @@ public class Preferences {
     }
 
     public static int getTabIndex() {
-        return Integer.parseInt(App.ctx().getPreferences().getString("tab.sort", String.valueOf("1")));
+        return Integer.parseInt(App.ctx().getPreferences().getString("tab.sort", String.valueOf("0")));
     }
 
     public static boolean isTwiceBackAllowed(){
@@ -82,5 +91,36 @@ public class Preferences {
 
     public static void setHelpShowed(){
         App.ctx().getPreferences().edit().putBoolean("help_first_run", true).apply();
+    }
+
+    public static TabFragment getStartupTab(){
+        switch (getTabIndex()){
+            case 0: {
+                return new ReplaceFragment();
+            }
+            case 1: {
+                return new MGotoFragment();
+            }
+            case 2: {
+                return new AssignFragment();
+            }
+            case 3: {
+                return new GotoFragment();
+            }
+            case 4: {
+                return new AddFilesFragment();
+            }
+            case 5: {
+                return new RemoveFilesFragment();
+            }
+            case 6: {
+                return new MergeFragment();
+            }
+            case 7: {
+                return new DummyFragment();
+            }
+            default:
+                return new ReplaceFragment();
+        }
     }
 }

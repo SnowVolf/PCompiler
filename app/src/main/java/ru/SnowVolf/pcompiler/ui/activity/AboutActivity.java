@@ -135,7 +135,11 @@ public class AboutActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_help:{
-                startActivity(new Intent(this, HelpActivity.class), ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+                try {
+                    startActivity(new Intent(this, HelpActivity.class), ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+                } catch (Exception ex){
+                    ex.printStackTrace();
+                }
                 return true;
             }
             case R.id.action_schedule_update:{

@@ -34,19 +34,19 @@ public class PatchArray extends ArrayList<String>{
     public void removeItemAt(int index){
         try {
             if (size() >= index) {
-                Log.i(Constants.TAG, "Trying to remove item at index: " + index);
+                Log.i(Constants.TAG, String.format("Trying to remove item at index: %d", index));
                 remove(index);
             }
         } catch (PatchException ignored){}
     }
 
-    public void addItemAt(int index, String s){
+    public void setItemAt(int index, String s){
         try {
             if (size() >= index) {
-                Log.i(Constants.TAG, "Trying add item at index: " + index);
-                add(index, s);
+                Log.i(Constants.TAG, String.format("Trying to update item at index: %d", index));
+                set(index, s);
                 mBuildListener.onSuccess();
-            } else mBuildListener.onError(index);
+            } //else mBuildListener.onError(index);
         } catch (Exception e){
             Toast.makeText(App.getContext(), e.getMessage(), Toast.LENGTH_LONG).show();
             e.printStackTrace();

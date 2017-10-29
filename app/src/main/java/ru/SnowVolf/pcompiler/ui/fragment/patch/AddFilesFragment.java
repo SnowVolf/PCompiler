@@ -76,7 +76,7 @@ public class AddFilesFragment extends TabFragment {
                     + PatchBuilder.insertTag(mFieldSource, "source")
 
                     + PatchBuilder.insertEndTag("add_files");
-            PatchCollection.getCollection().add(TabManager.getActiveIndex(), addFilesPart);
+            PatchCollection.getCollection().setItemAt(TabManager.getActiveIndex(), addFilesPart);
             Log.i(Constants.TAG, addFilesPart);
         });
         mButtonAdd.setOnClickListener(view -> add());

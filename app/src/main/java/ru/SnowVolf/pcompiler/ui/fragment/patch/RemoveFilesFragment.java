@@ -60,7 +60,7 @@ public class RemoveFilesFragment extends TabFragment {
                     + PatchBuilder.insertTag(mFieldTarget, "target")
                     + PatchBuilder.insertEndTag("remove_files");
 
-            PatchCollection.getCollection().addItemAt(TabManager.getActiveIndex(), removeFilesPart);
+            PatchCollection.getCollection().setItemAt(TabManager.getActiveIndex(), removeFilesPart);
             Log.i(Constants.TAG, removeFilesPart);
         });
         buttonClear.setOnClickListener(view -> {

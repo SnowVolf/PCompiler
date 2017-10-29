@@ -69,7 +69,7 @@ public class AssignFragment extends TabFragment {
             + PatchBuilder.insertTag(mFieldAssign, "assign")
             + PatchBuilder.insertEndTag("match_assign");
 
-            PatchCollection.getCollection().addItemAt(TabManager.getActiveIndex(), matchAssignPart);
+            PatchCollection.getCollection().setItemAt(TabManager.getActiveIndex(), matchAssignPart);
             Log.i(Constants.TAG, matchAssignPart);
         });
         buttonClear.setOnClickListener(view -> {

@@ -69,7 +69,7 @@ public class MGotoFragment extends TabFragment {
                     + PatchBuilder.insertTag(mFieldNextRule, "goto")
                     + PatchBuilder.insertEndTag("match_goto");
 
-            PatchCollection.getCollection().addItemAt(TabManager.getActiveIndex(), matchGotoPart);
+            PatchCollection.getCollection().setItemAt(TabManager.getActiveIndex(), matchGotoPart);
             //Preferences.saveString(Constants.KEY_MATCH_GOTO, matchGotoPart);
             Log.i(Constants.TAG, matchGotoPart);
         });

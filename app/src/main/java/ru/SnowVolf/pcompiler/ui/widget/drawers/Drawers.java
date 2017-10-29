@@ -26,6 +26,8 @@ import ru.SnowVolf.pcompiler.ui.activity.AboutActivity;
 import ru.SnowVolf.pcompiler.ui.activity.RegexpActivity;
 import ru.SnowVolf.pcompiler.ui.activity.SettingsActivity;
 import ru.SnowVolf.pcompiler.ui.activity.TabbedActivity;
+import ru.SnowVolf.pcompiler.ui.fragment.patch.AboutPatchFragment;
+import ru.SnowVolf.pcompiler.ui.fragment.patch.DummyFragment;
 import ru.SnowVolf.pcompiler.ui.widget.drawers.adapters.MenuAdapter;
 import ru.SnowVolf.pcompiler.ui.widget.drawers.adapters.TabAdapter;
 import ru.SnowVolf.pcompiler.util.Constants;
@@ -181,9 +183,7 @@ public class Drawers {
 
     private void selectMenuItem(MenuItems.MenuItem item) {
         Log.e(Constants.TAG, "selectMenuItem " + item);
-        //Toast.makeText(activity, "EBANA V ROT: ITEM = " + item, Toast.LENGTH_SHORT).show();
         if (item == null) {
-            //Toast.makeText(activity, "PIZDA RULYI", Toast.LENGTH_SHORT).show();
             return;
         }
         try {
@@ -215,10 +215,42 @@ public class Drawers {
 //                lastActive = item;
 //                menuAdapter.notifyDataSetChanged();
 //            }
-            TabFragment newTab = item.getTabClass().newInstance();
-            newTab.getConfiguration().setMenu(true);
-            //newTab.getConfiguration().setDefaultTitle(item.getTitle());
-            TabManager.getInstance().add(newTab);
+            // About & Dummy section cannot be used more than once
+           if (item.getTabClass() == AboutPatchFragment.class || item.getTabClass() == DummyFragment.class){
+               TabFragment tabFragment = TabManager.getInstance().get(item.getAttachedTabTag());
+                if (tabFragment == null) {
+                    for (TabFragment fragment : TabManager.getInstance().getFragments()) {
+                        if (fragment.getClass() == item.getTabClass() && fragment.getConfiguration().isMenu()) {
+                            tabFragment = fragment;
+                            break;
+                        }
+                    }
+                }
+
+                if (tabFragment == null) {
+                    tabFragment = item.getTabClass().newInstance();
+                    tabFragment.getConfiguration().setMenu(true);
+                    TabManager.getInstance().add(tabFragment);
+                    item.setAttachedTabTag(tabFragment.getTag());
+                    try {
+                        PatchCollection.getCollection().add(TabManager.getActiveIndex(), " ");
+                    } catch (IndexOutOfBoundsException e){
+                        Log.e(Constants.TAG, "error adding item", e);
+                    }
+                } else {
+                    TabManager.getInstance().select(tabFragment);
+                }
+           } else {
+               // Adding another fragments
+               TabFragment newTab = item.getTabClass().newInstance();
+               newTab.getConfiguration().setMenu(true);
+               TabManager.getInstance().add(newTab);
+               try {
+                   PatchCollection.getCollection().add(TabManager.getActiveIndex(), " ");
+               } catch (IndexOutOfBoundsException e){
+                   Log.e(Constants.TAG, "error adding item +", e);
+               }
+           }
             notifyTabsChanged();
         } catch (Exception e) {
             Toast.makeText(activity, "An error occurred while executing for task : addTabFragment\n\n" + e.getMessage(), Toast.LENGTH_LONG).show();
@@ -285,7 +317,22 @@ public class Drawers {
                 activity.finish();
             }
         });
-        TabManager.getInstance().loadState(savedInstanceState);
+        if (savedInstanceState != null) {
+            TabManager.getInstance().loadState(savedInstanceState);
+        } else {
+            try {
+                final TabFragment newTab = new AboutPatchFragment();
+                newTab.getConfiguration().setMenu(true);
+                TabManager.getInstance().add(newTab);
+
+                // Adding a new (default tab)
+                final TabFragment defTab = Preferences.getStartupTab();
+                defTab.getConfiguration().setMenu(true);
+                TabManager.getInstance().add(defTab);
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+            }
+        }
         TabManager.getInstance().updateFragmentList();
     }
 

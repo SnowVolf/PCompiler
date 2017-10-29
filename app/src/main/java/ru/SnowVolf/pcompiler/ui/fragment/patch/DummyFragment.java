@@ -54,7 +54,7 @@ public class DummyFragment extends TabFragment {
                     + PatchBuilder.insertTag(mFieldName, "name")
                     + PatchBuilder.insertEndTag("dummy");
 
-            PatchCollection.getCollection().addItemAt(TabManager.getActiveIndex(), dummyPart);
+            PatchCollection.getCollection().setItemAt(TabManager.getActiveIndex(), dummyPart);
         });
         buttonClear.setOnClickListener(view -> {
             mFieldComment.setText("");

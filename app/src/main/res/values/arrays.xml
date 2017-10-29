@@ -20,10 +20,8 @@
         <item>5</item>
         <item>6</item>
         <item>7</item>
-        <item>8</item>
     </string-array>
     <string-array name="tab_names" translatable="false">
-        <item>ABOUT</item>
         <item>MATCH_REPLACE</item>
         <item>MATCH_GOTO</item>
         <item>MATCH_ASSIGN</item>

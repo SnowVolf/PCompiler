@@ -64,7 +64,7 @@ public class AboutPatchFragment extends TabFragment {
                     + PatchBuilder.insertAboutTag(mFieldAuthor, "author")
                     + PatchBuilder.insertAboutTag(mFieldPackage, "package");
 
-            PatchCollection.getCollection().add(TabManager.getActiveIndex(), aboutPart);
+            PatchCollection.getCollection().setItemAt(TabManager.getActiveIndex(), aboutPart);
             Log.i(Constants.TAG, aboutPart);
         });
         buttonClear.setOnClickListener(view -> {

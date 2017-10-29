@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.patch.PatchBuilder;
+import ru.SnowVolf.pcompiler.patch.PatchCollection;
 import ru.SnowVolf.pcompiler.ui.activity.TabbedActivity;
 import ru.SnowVolf.pcompiler.ui.fragment.NativeContainerFragment;
 import ru.SnowVolf.pcompiler.util.Constants;
