@@ -55,14 +55,14 @@ public class GotoFragment extends TabFragment {
                     + PatchBuilder.insertTag(mFieldNextRule, "goto")
                     + PatchBuilder.insertEndTag("goto");
 
-            PatchCollection.getCollection().setItemAt(TabManager.getActiveIndex(), gotoPart);
+            PatchCollection.getCollection().setItemAt(getTag(), gotoPart);
             Log.i(Constants.TAG, gotoPart);
         });
 
         buttonClear.setOnClickListener(view -> {
             mFieldComment.setText("");
             mFieldNextRule.setText("");
-            PatchCollection.getCollection().removeItemAt(TabManager.getActiveIndex());
+            PatchCollection.getCollection().removeItemAt(getTag());
         });
     }
 }

@@ -178,7 +178,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
             switch (i) {
                 case 0: {
                     StringBuilder str = new StringBuilder();
-                    for (String s: PatchCollection.getCollection()) {
+                    for (String s: PatchCollection.getCollection().values()) {
                         str.append(s);
                     }
                     StringWrapper.copyToClipboard(str.toString());
@@ -197,7 +197,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
                     final Intent send = new Intent(Intent.ACTION_SEND);
                     send.setType("text/plain");
                     StringBuilder str = new StringBuilder();
-                    for (String s: PatchCollection.getCollection()) {
+                    for (String s: PatchCollection.getCollection().values()) {
                         str.append(s);
                     }
                     send.putExtra(Intent.EXTRA_TEXT, str.toString());
@@ -216,7 +216,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
             RuntimeUtil.storage(this, RuntimeUtil.REQUEST_EXTERNAL_STORAGE_TEXT);
         } else {
             StringBuilder str = new StringBuilder();
-            for (String s: PatchCollection.getCollection()) {
+            for (String s: PatchCollection.getCollection().values()) {
                 str.append(s);
             }
             writeToFile(str.toString());
@@ -326,7 +326,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
         }
         content.setTextSize(Preferences.getFontSize());
         StringBuilder str = new StringBuilder();
-        for (String s: PatchCollection.getCollection()) {
+        for (String s: PatchCollection.getCollection().values()) {
             str.append(s);
         }
         content.setText(str);
@@ -388,7 +388,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
             dir.mkdirs();
         }
         StringBuilder str = new StringBuilder();
-        for (String s: PatchCollection.getCollection()) {
+        for (String s: PatchCollection.getCollection().values()) {
             str.append(s);
         }
         File temp = writeToTempFile(str.toString());

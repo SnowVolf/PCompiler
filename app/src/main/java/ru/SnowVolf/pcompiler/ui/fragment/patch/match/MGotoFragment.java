@@ -69,7 +69,7 @@ public class MGotoFragment extends TabFragment {
                     + PatchBuilder.insertTag(mFieldNextRule, "goto")
                     + PatchBuilder.insertEndTag("match_goto");
 
-            PatchCollection.getCollection().setItemAt(TabManager.getActiveIndex(), matchGotoPart);
+            PatchCollection.getCollection().setItemAt(getTag(), matchGotoPart);
             //Preferences.saveString(Constants.KEY_MATCH_GOTO, matchGotoPart);
             Log.i(Constants.TAG, matchGotoPart);
         });
@@ -80,7 +80,7 @@ public class MGotoFragment extends TabFragment {
             mFieldFind.setText("");
             mFieldNextRule.setText("");
             mCheckBox.setChecked(Preferences.isForceRegexpAllowed());
-            PatchCollection.getCollection().removeItemAt(TabManager.getActiveIndex());
+            PatchCollection.getCollection().removeItemAt(getTag());
         });
         mButtonVariants.setOnClickListener(view -> {
             PopupMenu menu = new PopupMenu(getActivity(), mButtonVariants);

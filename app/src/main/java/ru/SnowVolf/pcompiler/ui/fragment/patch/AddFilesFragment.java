@@ -76,7 +76,7 @@ public class AddFilesFragment extends TabFragment {
                     + PatchBuilder.insertTag(mFieldSource, "source")
 
                     + PatchBuilder.insertEndTag("add_files");
-            PatchCollection.getCollection().setItemAt(TabManager.getActiveIndex(), addFilesPart);
+            PatchCollection.getCollection().setItemAt(getTag(), addFilesPart);
             Log.i(Constants.TAG, addFilesPart);
         });
         mButtonAdd.setOnClickListener(view -> add());
@@ -87,7 +87,7 @@ public class AddFilesFragment extends TabFragment {
             mFieldTarget.setText("");
             mCheckBox.setChecked(false);
             TabbedActivity.extra.clear();
-            PatchCollection.getCollection().removeItemAt(TabManager.getActiveIndex());
+            PatchCollection.getCollection().removeItemAt(getTag());
             Preferences.saveString(Constants.KEY_EXTRA_FILES, "");
         });
         mButtonVariants.setOnClickListener(view -> {

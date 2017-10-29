@@ -54,12 +54,12 @@ public class DummyFragment extends TabFragment {
                     + PatchBuilder.insertTag(mFieldName, "name")
                     + PatchBuilder.insertEndTag("dummy");
 
-            PatchCollection.getCollection().setItemAt(TabManager.getActiveIndex(), dummyPart);
+            PatchCollection.getCollection().setItemAt(getTag(), dummyPart);
         });
         buttonClear.setOnClickListener(view -> {
             mFieldComment.setText("");
             mFieldName.setText("");
-            PatchCollection.getCollection().removeItemAt(TabManager.getActiveIndex());
+            PatchCollection.getCollection().removeItemAt(getTag());
         });
     }
 }
