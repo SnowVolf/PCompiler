@@ -8,6 +8,7 @@ import java.util.Locale;
 
 import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
+import ru.SnowVolf.pcompiler.tabs.TabManager;
 import ru.SnowVolf.pcompiler.util.Constants;
 
 /**
@@ -43,10 +44,14 @@ public class PatchArray extends ArrayList<String>{
     public void setItemAt(int index, String s){
         try {
             if (size() >= index) {
-                Log.i(Constants.TAG, String.format("Trying to update item at index: %d", index));
-                set(index, s);
-                mBuildListener.onSuccess();
-            } //else mBuildListener.onError(index);
+                if (get(index).contains(s)) {
+                    Log.i(Constants.TAG, String.format("Trying to update item at index: %d", index));
+                    set(index, s);
+                    mBuildListener.onSuccess();
+                } else {
+                    add(index, s);
+                }
+            }
         } catch (Exception e){
             Toast.makeText(App.getContext(), e.getMessage(), Toast.LENGTH_LONG).show();
             e.printStackTrace();

@@ -232,11 +232,6 @@ public class Drawers {
                     tabFragment.getConfiguration().setMenu(true);
                     TabManager.getInstance().add(tabFragment);
                     item.setAttachedTabTag(tabFragment.getTag());
-                    try {
-                        PatchCollection.getCollection().add(TabManager.getActiveIndex(), " ");
-                    } catch (IndexOutOfBoundsException e){
-                        Log.e(Constants.TAG, "error adding item", e);
-                    }
                 } else {
                     TabManager.getInstance().select(tabFragment);
                 }
@@ -245,11 +240,6 @@ public class Drawers {
                TabFragment newTab = item.getTabClass().newInstance();
                newTab.getConfiguration().setMenu(true);
                TabManager.getInstance().add(newTab);
-               try {
-                   PatchCollection.getCollection().add(TabManager.getActiveIndex(), " ");
-               } catch (IndexOutOfBoundsException e){
-                   Log.e(Constants.TAG, "error adding item +", e);
-               }
            }
             notifyTabsChanged();
         } catch (Exception e) {
