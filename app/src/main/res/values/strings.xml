@@ -220,5 +220,8 @@
     <string name="i_read">I read</string>
     <string name="title_activity_help">Please read!</string>
     <string name="index_of_bounds_error" formatted="false"><![CDATA[Cannot add rule with index %d, size is %d. More info: About -> Help]]></string>
+    <string name="radiationx_name" translatable="false">Евгений Низамиев</string>
+    <string name="radiationx_role">Android developer</string>
+    <string name="radiationx_role_description">Developer for Android. Thanks to him, the app now has tabs and bugs were duplicating rules, and settings items were fixed;</string>
 
 </resources>

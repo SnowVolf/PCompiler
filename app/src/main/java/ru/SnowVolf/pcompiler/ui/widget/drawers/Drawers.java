@@ -187,34 +187,6 @@ public class Drawers {
             return;
         }
         try {
-//            if (item.getTabClass() == null) {
-//                Toast.makeText(activity, "SUKA SOSI HUI = " + item.getAction(), Toast.LENGTH_SHORT).show();
-//            } else {
-//                TabFragment tabFragment = TabManager.getInstance().get(item.getAttachedTabTag());
-//                if (tabFragment == null) {
-//                    for (TabFragment fragment : TabManager.getInstance().getFragments()) {
-//                        if (fragment.getClass() == item.getTabClass() && fragment.getConfiguration().isMenu()) {
-//                            tabFragment = fragment;
-//                            break;
-//                        }
-//                    }
-//                }
-//
-//                if (tabFragment == null) {
-//                    tabFragment = item.getTabClass().newInstance();
-//                    tabFragment.getConfiguration().setMenu(true);
-//                    TabManager.getInstance().add(tabFragment);
-//                    item.setAttachedTabTag(tabFragment.getTag());
-//                } else {
-//                    TabManager.getInstance().select(tabFragment);
-//                }
-//
-//                if (lastActive != null)
-//                    lastActive.setActive(false);
-//                item.setActive(true);
-//                lastActive = item;
-//                menuAdapter.notifyDataSetChanged();
-//            }
             // About & Dummy section cannot be used more than once
            if (item.getTabClass() == AboutPatchFragment.class || item.getTabClass() == DummyFragment.class){
                TabFragment tabFragment = TabManager.getInstance().get(item.getAttachedTabTag());

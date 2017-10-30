@@ -45,6 +45,7 @@ import java.util.regex.Matcher;
 
 import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
+import ru.SnowVolf.pcompiler.patch.PatchBuilder;
 import ru.SnowVolf.pcompiler.patch.PatchCollection;
 import ru.SnowVolf.pcompiler.patch.RegexPattern;
 import ru.SnowVolf.pcompiler.settings.Preferences;
@@ -178,11 +179,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
         saveDialog.setOnItemClickListener((adapterView, view, i, l) -> {
             switch (i) {
                 case 0: {
-                    StringBuilder str = new StringBuilder();
-                    for (String s: PatchCollection.getCollection().values()) {
-                        str.append(s);
-                    }
-                    StringWrapper.copyToClipboard(str.toString());
+                    StringWrapper.copyToClipboard(PatchBuilder.build());
                     Toast.makeText(TabbedActivity.this, R.string.message_copied_to_clipboard, Toast.LENGTH_SHORT).show();
                     break;
                 }
@@ -197,12 +194,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
                 case 3:{
                     final Intent send = new Intent(Intent.ACTION_SEND);
                     send.setType("text/plain");
-                    StringBuilder str = new StringBuilder();
-                    for (String s: PatchCollection.getCollection().values()) {
-                        str.append(s);
-                    }
-                    send.putExtra(Intent.EXTRA_TEXT, str.toString());
-
+                    send.putExtra(Intent.EXTRA_TEXT, PatchBuilder.build());
                     startActivity(send);
                     break;
                 }
@@ -216,11 +208,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
         if (Build.VERSION.SDK_INT >= 23 && !RuntimeUtil.isGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE)){
             RuntimeUtil.storage(this, RuntimeUtil.REQUEST_EXTERNAL_STORAGE_TEXT);
         } else {
-            StringBuilder str = new StringBuilder();
-            for (String s: PatchCollection.getCollection().values()) {
-                str.append(s);
-            }
-            writeToFile(str.toString());
+            writeToFile(PatchBuilder.build());
         }
     }
 
@@ -326,11 +314,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
             content.setTypeface(typeface);
         }
         content.setTextSize(Preferences.getFontSize());
-        StringBuilder str = new StringBuilder();
-        for (String s: PatchCollection.getCollection().values()) {
-            str.append(s);
-        }
-        content.setText(str);
+        content.setText(PatchBuilder.build());
         spannable = new SpannableString(content.getText());
         Matcher matcherAttr = RegexPattern.ATTRIBUTE.matcher(content.getText());
         Matcher matcherSubAttr = RegexPattern.SUB_ATTRIBUTE.matcher(content.getText());
@@ -388,11 +372,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
             //noinspection ResultOfMethodCallIgnored
             dir.mkdirs();
         }
-        StringBuilder str = new StringBuilder();
-        for (String s: PatchCollection.getCollection().values()) {
-            str.append(s);
-        }
-        File temp = writeToTempFile(str.toString());
+        File temp = writeToTempFile(PatchBuilder.build());
 
         try {
             ZipFile zipFile = new ZipFile(Preferences.getPatchOutput() + fileName + ".zip");

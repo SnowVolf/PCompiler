@@ -93,4 +93,12 @@ public class PatchBuilder {
         }
         return find;
     }
+
+    public static String build(){
+        StringBuilder str = new StringBuilder();
+        for (String s: PatchCollection.getCollection().values()) {
+            str.append(s);
+        }
+        return str.toString();
+    }
 }

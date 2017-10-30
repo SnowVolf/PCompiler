@@ -31,5 +31,6 @@
 -keep class okio.** { *; }
 -dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
 -keep interface okhttp3.**
+-dontwarn b.a.a.h.**
 
 

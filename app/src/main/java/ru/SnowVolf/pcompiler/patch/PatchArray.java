@@ -1,16 +1,14 @@
 
 package ru.SnowVolf.pcompiler.patch;
 
-import android.util.Log;
+
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Locale;
 
 import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
-import ru.SnowVolf.pcompiler.util.Constants;
 
 /**
  * Created by Snow Volf on 24.10.2017, 19:18
@@ -33,15 +31,6 @@ public class PatchArray extends LinkedHashMap<String, String> {
         };
     }
 
-    /*public void removeItemAt(int index) {
-        try {
-            if (size() >= index) {
-                Log.i(Constants.TAG, String.format("Trying to remove item at index: %d", index));
-                remove(index);
-            }
-        } catch (PatchException ignored) {
-        }
-    }*/
 
     public void removeItemAt(String tabTag) {
         try {
@@ -49,19 +38,6 @@ public class PatchArray extends LinkedHashMap<String, String> {
         } catch (PatchException ignored) {
         }
     }
-
-   /* public void setItemAt(int index, String s) {
-        try {
-            if (size() >= index) {
-                Log.i(Constants.TAG, String.format("Trying to update item at index: %d", index));
-                set(index, s);
-                mBuildListener.onSuccess();
-            } else mBuildListener.onError(index);
-        } catch (Exception e) {
-            Toast.makeText(App.getContext(), e.getMessage(), Toast.LENGTH_LONG).show();
-            e.printStackTrace();
-        }
-    }*/
 
     public void setItemAt(String tabTag, String s) {
         try {

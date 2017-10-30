@@ -204,4 +204,6 @@
     <string name="title_activity_help">Помощь</string>
     <string name="index_of_bounds_error" formatted="false"><![CDATA[Нельзя добавить правило с индексом %d, размер равен %d.
 Подробнее: О программе -> Помощь]]></string>
+    <string name="radiationx_role">Android разработчик</string>
+    <string name="radiationx_role_description">Разработчик под Android. Благодаря ему в приложении появились вкладки, а также были исправлены баги дублирования правил патча; кликабельности пунктов настроек.</string>
 </resources>

@@ -47,6 +47,8 @@ public class AboutActivity extends BaseActivity {
     @BindView(R.id.about_author_artem_github_item) Button volfGitContact;
     @BindView(R.id.relativeLayout) RelativeLayout appStatusBackground;
     @BindView(R.id.scroll1) NestedScrollView contentLayout;
+    @BindView(R.id.about_radiationx_github_item) Button rxGitContact;
+    @BindView(R.id.about_radiationx_pda_item) Button rxPdaContact;
 
     public final static String JSON_LINK = "https://raw.githubusercontent.com/SnowVolf/GirlUpdater/master/pcompiler_check.json";
 
@@ -98,8 +100,9 @@ public class AboutActivity extends BaseActivity {
         });
         volfPdaContact.setOnClickListener(__ -> startActivity(Intent.createChooser(new Intent(Intent.ACTION_VIEW, Uri.parse("http://4pda.ru/index.php?showuser=4324432")), null)));
         htcPdaContact.setOnClickListener(__ -> startActivity(Intent.createChooser(new Intent(Intent.ACTION_VIEW, Uri.parse("http://4pda.ru/index.php?showuser=4857164")), null)));
+        rxPdaContact.setOnClickListener(__ -> startActivity(Intent.createChooser(new Intent(Intent.ACTION_VIEW, Uri.parse("http://4pda.ru/index.php?showuser=2556269")), null)));
         volfGitContact.setOnClickListener(__ -> startActivity(Intent.createChooser(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/SnowVolf/")), null)));
-
+        rxGitContact.setOnClickListener(__ -> startActivity(Intent.createChooser(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/RadiationX/")), null)));
         initAdditionalSheet();
     }
 
