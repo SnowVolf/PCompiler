@@ -57,7 +57,7 @@ public class StringWrapper {
                 return Objects.equals(st, s) && Build.VERSION.SDK_INT > 21;
             }
         } catch (Exception e){
-            ACRA.getErrorReporter().handleException(e);
+            return false;
         }
         return false;
     }

@@ -17,6 +17,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -86,6 +87,23 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tabbed);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.inflateMenu(R.menu.menu_tab_indicator);
+        toolbar.setNavigationOnClickListener(v -> getDrawers().openMenu());
+        toolbar.setOnMenuItemClickListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.action_tabs: {
+                    getDrawers().openTabs();
+                    return true;
+                }
+            }
+            return false;
+        });
+//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.app_name, R.string.app_name);
+//        toggle.getDrawerArrowDrawable().setColor(App.getColorFromAttr(this, R.attr.icon_color));
+//        drawer.addDrawerListener(toggle);
+
         Toolbar bottomBar = findViewById(R.id.bottom_bar);
         drawers = new Drawers(this, drawer);
         drawers.init(savedInstanceState);
@@ -100,6 +118,9 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
             }
             return false;
         });
+
+        //setSupportActionBar(toolbar);
+
         if (!Preferences.isHelpShowed()){
             try {
                 startActivity(new Intent(this, HelpActivity.class), ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
@@ -380,7 +401,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
             parameters.setCompressionMethod(Zip4jConstants.COMP_DEFLATE);
             parameters.setCompressionLevel(0);
             zipFile.addFile(temp, parameters);
-            if (!Preferences.readString(Constants.KEY_EXTRA_FILES).isEmpty()) {
+            if (!App.ctx().getPreferences().getString(Constants.KEY_EXTRA_FILES, "").isEmpty()) {
                 try {
                     zipFile.addFiles(extra, parameters);
                 } catch (Exception e){

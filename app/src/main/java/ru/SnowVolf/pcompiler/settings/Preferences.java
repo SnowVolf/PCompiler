@@ -18,9 +18,6 @@ import ru.SnowVolf.pcompiler.ui.fragment.patch.match.ReplaceFragment;
  */
 
 public class Preferences {
-    public static String getDefaultLanguage(){
-        return App.ctx().getPreferences().getString("sys.language", "default");
-    }
 
     public static int getTabIndex() {
         return Integer.parseInt(App.ctx().getPreferences().getString("tab.sort", String.valueOf("0")));
@@ -75,14 +72,6 @@ public class Preferences {
 
     public static void setFontSize(int size){
         App.ctx().getPreferences().edit().putInt("ui.font_size", size).apply();
-    }
-
-    public static void saveString(String key, String value){
-        App.ctx().getPatchPreferences().edit().putString(key, value).apply();
-    }
-
-    public static String readString(String key){
-        return App.ctx().getPatchPreferences().getString(key, "");
     }
 
     public static boolean isHelpShowed(){

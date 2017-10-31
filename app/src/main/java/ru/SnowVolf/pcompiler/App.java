@@ -18,8 +18,6 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 
-import com.ironz.binaryprefs.BinaryPreferencesBuilder;
-import com.ironz.binaryprefs.Preferences;
 import com.yandex.metrica.YandexMetrica;
 
 import org.acra.ACRA;
@@ -68,7 +66,6 @@ import ru.SnowVolf.pcompiler.util.StringWrapper;
 public class App extends Application {
     private static App INSTANCE = null;
     private SharedPreferences preferences;
-    private Preferences preferencesPatch;
 
     private SimpleObservable preferenceChangeObservables = new SimpleObservable();
     private SharedPreferences.OnSharedPreferenceChangeListener preferenceChangeListener = (sharedPreferences, key) -> {
@@ -111,7 +108,7 @@ public class App extends Application {
 
     @Override
     protected void attachBaseContext(Context base) {
-        super.attachBaseContext(LocaleGirl.onAttach(base, "default"));
+        super.attachBaseContext(LocaleGirl.onAttach(base, LocaleGirl.getDefaultLocale().getLanguage()));
     }
 
     public SharedPreferences getPreferences() {
@@ -119,15 +116,6 @@ public class App extends Application {
             preferences = PreferenceManager.getDefaultSharedPreferences(this);
         }
         return preferences;
-    }
-
-    public Preferences getPatchPreferences() {
-        if (preferencesPatch == null) {
-            preferencesPatch = new BinaryPreferencesBuilder(this)
-                    .name("patch_prefs")
-                    .build();
-        }
-        return preferencesPatch;
     }
 
     public void addPreferenceChangeObserver(Observer observer) {

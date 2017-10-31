@@ -42,7 +42,7 @@
         <item name="colorAccent">@color/glass_colorAccent</item>
         <item name="android:windowBackground">@color/glass_windowBackground</item>
         <item name="icon_color">?colorAccent</item>
-        <item name="android:colorControlHighlight">@color/control_hl</item>
+        <item name="android:colorControlHighlight">@color/black_control_hl</item>
         <item name="android:listDivider">@null</item>
         <item name="cardStyle">@style/CardStyle.Dark.Glass</item>
         <item name="android:windowLightStatusBar">false</item>

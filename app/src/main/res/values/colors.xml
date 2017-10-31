@@ -3,6 +3,7 @@
     <color name="common_status_bar">#aa757575</color>
     <color name="common_status_bar_dark">#aa181818</color>
     <color name="control_hl">#88448aff</color>
+    <color name="black_control_hl">#88e62117</color>
 
     <color name="light_colorPrimary">#ffffff</color>
     <color name="light_colorPrimaryDark">#bdbdbd</color>
@@ -45,4 +46,5 @@
 
     <color name="md_amber_500">#ffab40</color>
     <color name="grey_overlay">#c7757575</color>
+    <color name="tab_colorIndicator">#e62117</color>
 </resources>

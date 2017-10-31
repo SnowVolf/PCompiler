@@ -88,7 +88,7 @@ public class AddFilesFragment extends TabFragment {
             mCheckBox.setChecked(false);
             TabbedActivity.extra.clear();
             PatchCollection.getCollection().removeItemAt(getTag());
-            Preferences.saveString(Constants.KEY_EXTRA_FILES, "");
+            App.ctx().getPreferences().edit().putString(Constants.KEY_EXTRA_FILES, "").apply();
         });
         mButtonVariants.setOnClickListener(view -> {
             PopupMenu menu = new PopupMenu(getActivity(), mButtonVariants);
@@ -113,10 +113,10 @@ public class AddFilesFragment extends TabFragment {
         if(resultCode == Activity.RESULT_OK) {
             switch (requestCode) {
                 case REQUEST_ADD:{
-                    String mLastSelectedFile = Preferences.readString(Constants.KEY_EXTRA_FILES);
+                    String mLastSelectedFile = App.ctx().getPreferences().getString(Constants.KEY_EXTRA_FILES, "");
                     if (!mLastSelectedFile.equals(data.getData().getPath())) {
-                        Preferences.saveString(Constants.KEY_EXTRA_FILES, data.getData().getPath());
-                        TabbedActivity.extra.add(new File(Preferences.readString(Constants.KEY_EXTRA_FILES)));
+                        App.ctx().getPreferences().edit().putString(Constants.KEY_EXTRA_FILES, data.getData().getPath()).apply();
+                        TabbedActivity.extra.add(new File(App.ctx().getPreferences().getString(Constants.KEY_EXTRA_FILES, "")));
                         mFileCaption.setText(String.format(getString(R.string.title_list_of_files), TabbedActivity.extra.size()));
                         Toast.makeText(getActivity(), data.getData().getPath(), Toast.LENGTH_LONG).show();
                         break;

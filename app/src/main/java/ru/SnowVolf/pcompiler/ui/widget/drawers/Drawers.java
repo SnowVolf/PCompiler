@@ -188,8 +188,8 @@ public class Drawers {
         }
         try {
             // About & Dummy section cannot be used more than once
-           if (item.getTabClass() == AboutPatchFragment.class || item.getTabClass() == DummyFragment.class){
-               TabFragment tabFragment = TabManager.getInstance().get(item.getAttachedTabTag());
+            if (item.getTabClass() == AboutPatchFragment.class || item.getTabClass() == DummyFragment.class){
+                TabFragment tabFragment = TabManager.getInstance().get(item.getAttachedTabTag());
                 if (tabFragment == null) {
                     for (TabFragment fragment : TabManager.getInstance().getFragments()) {
                         if (fragment.getClass() == item.getTabClass() && fragment.getConfiguration().isMenu()) {
@@ -207,12 +207,12 @@ public class Drawers {
                 } else {
                     TabManager.getInstance().select(tabFragment);
                 }
-           } else {
-               // Adding another fragments
-               TabFragment newTab = item.getTabClass().newInstance();
-               newTab.getConfiguration().setMenu(true);
-               TabManager.getInstance().add(newTab);
-           }
+            } else {
+                // Adding another fragments
+                TabFragment newTab = item.getTabClass().newInstance();
+                newTab.getConfiguration().setMenu(true);
+                TabManager.getInstance().add(newTab);
+            }
             notifyTabsChanged();
         } catch (Exception e) {
             Toast.makeText(activity, "An error occurred while executing for task : addTabFragment\n\n" + e.getMessage(), Toast.LENGTH_LONG).show();

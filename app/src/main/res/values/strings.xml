@@ -223,5 +223,6 @@
     <string name="radiationx_name" translatable="false">Евгений Низамиев</string>
     <string name="radiationx_role">Android developer</string>
     <string name="radiationx_role_description">Developer for Android. Thanks to him, the app now has tabs and bugs were duplicating rules, and settings items were fixed;</string>
+    <string name="tabs" translatable="false">Tabs</string>
 
 </resources>

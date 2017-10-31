@@ -19,7 +19,7 @@ public class LocaleGirl {
 
     private static final String SELECTED_LANGUAGE = "sys.language";
 
-    private static Locale getDefaultLocale(){
+    public static Locale getDefaultLocale(){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
             return Locale.getDefault(Locale.Category.DISPLAY);
         }
