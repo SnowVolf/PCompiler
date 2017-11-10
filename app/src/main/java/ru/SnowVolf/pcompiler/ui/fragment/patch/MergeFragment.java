@@ -2,7 +2,6 @@ package ru.SnowVolf.pcompiler.ui.fragment.patch;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,13 +10,10 @@ import android.widget.Button;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.SnowVolf.girl.ui.GirlEditText;
-import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
-import ru.SnowVolf.pcompiler.patch.PatchBuilder;
 import ru.SnowVolf.pcompiler.patch.PatchCollection;
+import ru.SnowVolf.pcompiler.patch.ReactiveBuilder;
 import ru.SnowVolf.pcompiler.tabs.TabFragment;
-import ru.SnowVolf.pcompiler.tabs.TabManager;
-import ru.SnowVolf.pcompiler.util.Constants;
 
 /**
  * Created by Snow Volf on 17.08.2017, 15:29
@@ -33,7 +29,8 @@ public class MergeFragment extends TabFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_merge, container, false);
+        super.onCreateView(inflater, container, savedInstanceState);
+        baseInflateFragment(inflater, R.layout.fragment_merge);
         ButterKnife.bind(this, rootView);
         return rootView;
     }
@@ -41,24 +38,25 @@ public class MergeFragment extends TabFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setTabTitle(App.injectString(R.string.tab_merge));
-        //setTitle(App.injectString(R.string.tab_merge));
+        setTabTitle(getString(R.string.tab_merge));
+        setTitle(getString(R.string.tab_merge));
+        setSubtitle(getString(R.string.subtitle_tab_merge));
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         buttonSave.setOnClickListener(view -> {
-            final String mergePart;
+            final ReactiveBuilder mergePart;
 
-            mergePart = PatchBuilder.escapeComment(mFieldComment.getText().toString())
-                    + PatchBuilder.insertStartTag("merge")
-                    + PatchBuilder.insertTag(mFieldName, "name")
-                    + PatchBuilder.insertTag(mFieldSource, "source")
-                    + PatchBuilder.insertEndTag("merge");
+            mergePart = new ReactiveBuilder()
+                    .escapeComment(mFieldComment.getText().toString())
+                    .insertStartTag("merge")
+                    .insertTag(mFieldName, "name")
+                    .insertTag(mFieldSource, "source")
+                    .insertEndTag("merge");
 
             PatchCollection.getCollection().setItemAt(getTag(), mergePart);
-            Log.i(Constants.TAG, mergePart);
         });
         buttonClear.setOnClickListener(view -> {
             mFieldComment.setText("");

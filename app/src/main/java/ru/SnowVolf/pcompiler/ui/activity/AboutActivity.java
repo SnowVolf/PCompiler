@@ -39,7 +39,7 @@ public class AboutActivity extends BaseActivity {
     @BindView(R.id.about_version_item_sub) TextView version;
     @BindView(R.id.about_code_item_sub) TextView id;
     @BindView(R.id.about_time_item_sub) TextView time;
-    @BindView(R.id.artem_header_img) ImageView melissaDebling;
+    @BindView(R.id.artem_header_img) ImageView mDiva;
     @BindView(R.id.app_status) ImageView appStatus;
     @BindView(R.id.about_author_artem_mail_item) Button volfMailContact;
     @BindView(R.id.about_author_artem_pda_item) Button volfPdaContact;
@@ -85,11 +85,10 @@ public class AboutActivity extends BaseActivity {
         time.setText(String.format(Locale.ENGLISH, getString(R.string.date_sub), BuildConfig.BUILD_TIME));
         volfMailContact.setOnClickListener(view -> {
             Intent intent = new Intent(Intent.ACTION_SENDTO);
-            // Только программы для отправки Email смогут это перехватить
+            // Only email apps can handle this
             intent.setData(Uri.parse("mailto:svolf15@yandex.ru"));
-            //intent.putExtra(Intent.EXTRA_EMAIL, "svolf15@yandex.ru");
             intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
-            // Базовая информация об устройстве и приложении
+            // Base information about app and device
             intent.putExtra(Intent.EXTRA_TEXT,
                     "App version: " + BuildConfig.VERSION_NAME + " (" + BuildConfig.VERSION_CODE + ")\n"+
                             "Android/SDK: " + Build.VERSION.RELEASE + "/" + Build.VERSION.SDK_INT +
@@ -161,6 +160,7 @@ public class AboutActivity extends BaseActivity {
         App.ctx().onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
+    // Create naked girl Bitmap & set it as background drawable
     private class CreateBitMap extends AsyncTask<Void, BitmapDrawable, BitmapDrawable>{
         @Override
         protected BitmapDrawable doInBackground(Void... voids) {
@@ -172,7 +172,7 @@ public class AboutActivity extends BaseActivity {
         @Override
         protected void onPostExecute(BitmapDrawable bitmapDrawable) {
             super.onPostExecute(bitmapDrawable);
-            melissaDebling.setBackground(bitmapDrawable);
+            mDiva.setBackground(bitmapDrawable);
         }
     }
 }

@@ -1,6 +1,7 @@
 package ru.SnowVolf.pcompiler.ui.fragment.regex;
 
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 /**
  * Created by Snow Volf on 21.08.2017, 13:12
@@ -53,25 +54,25 @@ public class Flags {
     int getFlags(){
         int data = 0;
         if (mData.get(0)){
-            data = 2;
+            data = Pattern.CASE_INSENSITIVE;
         }
         if (mData.get(1)){
-            return data | 8;
+            return data | Pattern.MULTILINE;
         }
         if (mData.get(2)){
-            return data | 4;
+            return data | Pattern.COMMENTS;
         }
         if (mData.get(3)){
-            return data | 32;
+            return data | Pattern.DOTALL;
         }
         if (mData.get(4)){
-            return data | 16;
+            return data | Pattern.LITERAL;
         }
         if (mData.get(5)){
-            return data | 64;
+            return data | Pattern.UNICODE_CASE;
         }
         if (mData.get(6)){
-            return data | 1;
+            return data | Pattern.UNIX_LINES;
         }
         return data;
     }

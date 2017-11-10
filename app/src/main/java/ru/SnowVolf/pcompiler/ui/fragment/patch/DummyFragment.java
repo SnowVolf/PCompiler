@@ -10,12 +10,10 @@ import android.widget.Button;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.SnowVolf.girl.ui.GirlEditText;
-import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
-import ru.SnowVolf.pcompiler.patch.PatchBuilder;
 import ru.SnowVolf.pcompiler.patch.PatchCollection;
+import ru.SnowVolf.pcompiler.patch.ReactiveBuilder;
 import ru.SnowVolf.pcompiler.tabs.TabFragment;
-import ru.SnowVolf.pcompiler.tabs.TabManager;
 
 /**
  * Created by Snow Volf on 17.08.2017, 15:29
@@ -30,7 +28,8 @@ public class DummyFragment extends TabFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_dummy, container, false);
+        super.onCreateView(inflater, container, savedInstanceState);
+        baseInflateFragment(inflater, R.layout.fragment_dummy);
         ButterKnife.bind(this, rootView);
         return rootView;
     }
@@ -38,8 +37,11 @@ public class DummyFragment extends TabFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setTabTitle(App.injectString(R.string.tab_dummy));
-        //setTitle(App.injectString(R.string.tab_dummy));
+        setTabTitle(getString(R.string.tab_dummy));
+        setTitle(getString(R.string.tab_dummy));
+        setSubtitle(getString(R.string.subtitle_tab_dummy));
+        // About & Dummy section cannot be used more than once
+        getConfiguration().setAlone(true);
     }
 
     @Override
@@ -47,12 +49,13 @@ public class DummyFragment extends TabFragment {
         super.onActivityCreated(savedInstanceState);
 
         buttonSave.setOnClickListener(view -> {
-            final String dummyPart;
+            final ReactiveBuilder dummyPart;
 
-            dummyPart = PatchBuilder.escapeComment(mFieldComment.getText().toString())
-                   + PatchBuilder.insertStartTag("dummy")
-                    + PatchBuilder.insertTag(mFieldName, "name")
-                    + PatchBuilder.insertEndTag("dummy");
+            dummyPart = new ReactiveBuilder()
+                    .escapeComment(mFieldComment.getText().toString())
+                   .insertStartTag("dummy")
+                   .insertTag(mFieldName, "name")
+                   .insertEndTag("dummy");
 
             PatchCollection.getCollection().setItemAt(getTag(), dummyPart);
         });

@@ -9,8 +9,6 @@ import android.content.pm.Signature;
 import android.os.Build;
 import android.util.Base64;
 
-import org.acra.ACRA;
-
 import java.io.ByteArrayInputStream;
 import java.security.MessageDigest;
 import java.security.cert.CertificateFactory;
@@ -25,7 +23,7 @@ import ru.SnowVolf.pcompiler.App;
 public class StringWrapper {
 
     //Копирование текста в буфер обмена
-    public static void copyToClipboard(String s){
+    public static void copyToClipboard(StringBuilder s){
         ClipboardManager clipboard = (ClipboardManager) App.ctx().getSystemService(Context.CLIPBOARD_SERVICE);
         ClipData clip = ClipData.newPlainText("JavaGirl", s);
         clipboard.setPrimaryClip(clip);

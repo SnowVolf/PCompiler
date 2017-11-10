@@ -7,9 +7,9 @@ import java.util.regex.Pattern;
  */
 
 public class RegexPattern {
-    public static Pattern COMMON_SYMBOLS = Pattern.compile("\\[|\\]|\\[/|\\.|\\{|\\}|true|false");
+    public static Pattern COMMON_SYMBOLS = Pattern.compile("\\[|\\]|\\[/|\\*|\\{|\\}|true|false");
     public static Pattern ATTRIBUTE = Pattern.compile("MIN_ENGINE_VER|AUTHOR|PACKAGE|MATCH_GOTO|MATCH_ASSIGN|MATCH_REPLACE|GOTO|ADD_FILES|" +
-            "ADD_FILES|REMOVE_FILES|MERGE|DUMMY");
+            "ADD_FILES|REMOVE_FILES|MERGE|DUMMY|APPLICATION|LAUNCHER_ACTIVTIES|ACTIVTIES|GROUP\\d+");
     public static Pattern SUB_ATTRIBUTE = Pattern.compile("REGEX:|MATCH:|REPLACE:|GOTO:|TARGET:|ASSIGN:|MERGE:|SOURCE:|EXTRACT:|NAME:");
     public static Pattern STRING = Pattern.compile("(?:'[^'\\\\\\n]*(?:\\\\.[^'\\\\\\n]*)*')|(?:\"[^\"\\\\\\n]*(?:\\\\.[^\"\\\\\\n]*)*\")");
     public static Pattern OPERATOR = Pattern.compile("\\([^)]+\\)|\\$", Pattern.CASE_INSENSITIVE);

@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.PopupMenu;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,11 +21,10 @@ import butterknife.ButterKnife;
 import ru.SnowVolf.girl.ui.GirlEditText;
 import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
-import ru.SnowVolf.pcompiler.patch.PatchBuilder;
 import ru.SnowVolf.pcompiler.patch.PatchCollection;
+import ru.SnowVolf.pcompiler.patch.ReactiveBuilder;
 import ru.SnowVolf.pcompiler.settings.Preferences;
 import ru.SnowVolf.pcompiler.tabs.TabFragment;
-import ru.SnowVolf.pcompiler.tabs.TabManager;
 import ru.SnowVolf.pcompiler.ui.activity.TabbedActivity;
 import ru.SnowVolf.pcompiler.util.Constants;
 
@@ -50,7 +48,8 @@ public class AddFilesFragment extends TabFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_add_files, container, false);
+        super.onCreateView(inflater, container, savedInstanceState);
+        baseInflateFragment(inflater, R.layout.fragment_add_files);
         ButterKnife.bind(this, rootView);
         return rootView;
     }
@@ -58,26 +57,27 @@ public class AddFilesFragment extends TabFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setTabTitle(App.injectString(R.string.tab_add_files));
-        //setTitle(App.injectString(R.string.tab_add_files));
+        setTabTitle(getString(R.string.tab_add_files));
+        setTitle(getString(R.string.tab_add_files));
+        setSubtitle(getString(R.string.subtitle_tab_add_files));
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         buttonSave.setOnClickListener(view -> {
-            final String addFilesPart;
+            final ReactiveBuilder addFilesPart;
             mFileCaption.setText(String.format(getString(R.string.title_list_of_files), TabbedActivity.extra.size()));
-            addFilesPart = PatchBuilder.escapeComment(mFieldComment.getText().toString())
-                    + PatchBuilder.insertStartTag("add_files")
-                    + PatchBuilder.insertTag(mFieldName, "name")
-                    + PatchBuilder.insertTag(mFieldTarget, "target")
-                    + PatchBuilder.rootFolderTrue(mCheckBox.isChecked())
-                    + PatchBuilder.insertTag(mFieldSource, "source")
+            addFilesPart = new ReactiveBuilder()
+                    .escapeComment(mFieldComment.getText().toString())
+                    .insertStartTag("add_files")
+                    .insertTag(mFieldName, "name")
+                    .insertTag(mFieldTarget, "target")
+                    .rootFolderTrue(mCheckBox.isChecked())
+                    .insertTag(mFieldSource, "source")
+                    .insertEndTag("add_files");
 
-                    + PatchBuilder.insertEndTag("add_files");
             PatchCollection.getCollection().setItemAt(getTag(), addFilesPart);
-            Log.i(Constants.TAG, addFilesPart);
         });
         mButtonAdd.setOnClickListener(view -> add());
         buttonClear.setOnClickListener(view -> {

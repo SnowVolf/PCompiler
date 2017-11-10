@@ -2,7 +2,6 @@ package ru.SnowVolf.pcompiler.ui.fragment.patch;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,13 +10,10 @@ import android.widget.Button;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.SnowVolf.girl.ui.GirlEditText;
-import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
-import ru.SnowVolf.pcompiler.patch.PatchBuilder;
 import ru.SnowVolf.pcompiler.patch.PatchCollection;
+import ru.SnowVolf.pcompiler.patch.ReactiveBuilder;
 import ru.SnowVolf.pcompiler.tabs.TabFragment;
-import ru.SnowVolf.pcompiler.tabs.TabManager;
-import ru.SnowVolf.pcompiler.util.Constants;
 
 /**
  * Created by Snow Volf on 17.08.2017, 15:27
@@ -32,7 +28,8 @@ public class GotoFragment extends TabFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_goto, container, false);
+        super.onCreateView(inflater, container, savedInstanceState);
+        baseInflateFragment(inflater, R.layout.fragment_goto);
         ButterKnife.bind(this, rootView);
         return rootView;
     }
@@ -40,23 +37,24 @@ public class GotoFragment extends TabFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setTabTitle(App.injectString(R.string.tab_goto));
-        //setTitle(App.injectString(R.string.tab_goto));
+        setTabTitle(getString(R.string.tab_goto));
+        setTitle(getString(R.string.tab_goto));
+        setSubtitle(getString(R.string.subtitle_tab_goto));
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         buttonSave.setOnClickListener(view -> {
-            final String gotoPart;
+            final ReactiveBuilder gotoPart;
 
-            gotoPart = PatchBuilder.escapeComment(mFieldComment.getText().toString())
-                    + PatchBuilder.insertStartTag("goto")
-                    + PatchBuilder.insertTag(mFieldNextRule, "goto")
-                    + PatchBuilder.insertEndTag("goto");
+            gotoPart = new ReactiveBuilder()
+                    .escapeComment(mFieldComment.getText().toString())
+                    .insertStartTag("goto")
+                    .insertTag(mFieldNextRule, "goto")
+                    .insertEndTag("goto");
 
             PatchCollection.getCollection().setItemAt(getTag(), gotoPart);
-            Log.i(Constants.TAG, gotoPart);
         });
 
         buttonClear.setOnClickListener(view -> {

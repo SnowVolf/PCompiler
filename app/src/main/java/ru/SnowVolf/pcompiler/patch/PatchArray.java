@@ -15,10 +15,10 @@ import ru.SnowVolf.pcompiler.R;
  */
 
 public class PatchArray extends LinkedHashMap<String, String> {
-    private PatchBuilder.OnBuildListener mBuildListener;
+    private ReactiveBuilder.OnBuildListener mBuildListener;
 
     PatchArray() {
-        mBuildListener = new PatchBuilder.OnBuildListener() {
+        mBuildListener = new ReactiveBuilder.OnBuildListener() {
             @Override
             public void onSuccess() {
                 Toast.makeText(App.getContext(), R.string.message_saved, Toast.LENGTH_SHORT).show();
@@ -39,9 +39,25 @@ public class PatchArray extends LinkedHashMap<String, String> {
         }
     }
 
+    /**
+     * Set item at the {@link LinkedHashMap#put(Object, Object)}
+     * @deprecated use {@link #setItemAt(String, ReactiveBuilder)} instead.
+     */
+    @Deprecated
     public void setItemAt(String tabTag, String s) {
         try {
             put(tabTag, s);
+            mBuildListener.onSuccess();
+        } catch (Exception e) {
+            mBuildListener.onError(-1);
+            Toast.makeText(App.getContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
+    }
+
+    public void setItemAt(String tabTag, ReactiveBuilder builder) {
+        try {
+            put(tabTag, builder.toString());
             mBuildListener.onSuccess();
         } catch (Exception e) {
             mBuildListener.onError(-1);

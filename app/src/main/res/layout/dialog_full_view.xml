@@ -19,14 +19,13 @@
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         android:layout_weight="1">
-        <TextView
+        <ru.SnowVolf.girl.ui.CodeText
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:id="@+id/content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textIsSelectable="true"
-            android:textSize="16sp"
             style="@style/Base.TextAppearance.AppCompat.Subhead"
             tools:text="@string/large_text"/>
     </android.support.v4.widget.NestedScrollView>

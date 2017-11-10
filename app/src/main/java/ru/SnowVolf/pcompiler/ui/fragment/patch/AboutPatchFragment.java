@@ -2,7 +2,6 @@ package ru.SnowVolf.pcompiler.ui.fragment.patch;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,14 +10,11 @@ import android.widget.Button;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.SnowVolf.girl.ui.GirlEditText;
-import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
-import ru.SnowVolf.pcompiler.patch.PatchBuilder;
 import ru.SnowVolf.pcompiler.patch.PatchCollection;
+import ru.SnowVolf.pcompiler.patch.ReactiveBuilder;
 import ru.SnowVolf.pcompiler.settings.Preferences;
 import ru.SnowVolf.pcompiler.tabs.TabFragment;
-import ru.SnowVolf.pcompiler.tabs.TabManager;
-import ru.SnowVolf.pcompiler.util.Constants;
 
 /**
  * Created by Snow Volf on 17.08.2017, 15:48
@@ -36,7 +32,8 @@ public class AboutPatchFragment extends TabFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_about_patch, container, false);
+        super.onCreateView(inflater, container, savedInstanceState);
+        baseInflateFragment(inflater, R.layout.fragment_about_patch);
         ButterKnife.bind(this, rootView);
         return rootView;
     }
@@ -44,8 +41,11 @@ public class AboutPatchFragment extends TabFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setTabTitle(App.injectString(R.string.tab_about));
-        //setTitle(App.injectString(R.string.tab_about));
+        setTabTitle(getString(R.string.tab_about));
+        setTitle(getString(R.string.tab_about));
+        setSubtitle(getString(R.string.subtitle_tab_about));
+        // About & Dummy section cannot be used more than once
+        getConfiguration().setAlone(true);
     }
 
     @Override
@@ -58,14 +58,14 @@ public class AboutPatchFragment extends TabFragment {
             mFieldPackage.setSelection(mFieldPackage.getText().length());
         });
         buttonSave.setOnClickListener(view -> {
-            final String aboutPart;
+            final ReactiveBuilder aboutPart;
             aboutPart =
-                    PatchBuilder.insertAboutTag(mFieldEnige, "min_engine_ver")
-                    + PatchBuilder.insertAboutTag(mFieldAuthor, "author")
-                    + PatchBuilder.insertAboutTag(mFieldPackage, "package");
+                    new ReactiveBuilder()
+                    .insertAboutTag(mFieldEnige, "min_engine_ver")
+                            .insertAboutTag(mFieldAuthor, "author")
+                            .insertAboutTag(mFieldPackage, "package");
 
             PatchCollection.getCollection().setItemAt(getTag(), aboutPart);
-            Log.i(Constants.TAG, aboutPart);
         });
         buttonClear.setOnClickListener(view -> {
             mFieldEnige.setText("");

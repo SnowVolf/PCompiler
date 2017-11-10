@@ -3,7 +3,6 @@ package ru.SnowVolf.pcompiler.ui.fragment.patch.match;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.PopupMenu;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,14 +13,11 @@ import android.widget.ImageButton;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.SnowVolf.girl.ui.GirlEditText;
-import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
-import ru.SnowVolf.pcompiler.patch.PatchBuilder;
 import ru.SnowVolf.pcompiler.patch.PatchCollection;
+import ru.SnowVolf.pcompiler.patch.ReactiveBuilder;
 import ru.SnowVolf.pcompiler.settings.Preferences;
 import ru.SnowVolf.pcompiler.tabs.TabFragment;
-import ru.SnowVolf.pcompiler.tabs.TabManager;
-import ru.SnowVolf.pcompiler.util.Constants;
 
 /**
  * Created by Snow Volf on 17.08.2017, 15:30
@@ -41,7 +37,8 @@ public class AssignFragment extends TabFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_match_assign, container, false);
+        super.onCreateView(inflater, container, savedInstanceState);
+        baseInflateFragment(inflater, R.layout.fragment_match_assign);
         ButterKnife.bind(this, rootView);
         return rootView;
     }
@@ -49,8 +46,9 @@ public class AssignFragment extends TabFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setTabTitle(App.injectString(R.string.tab_match_assign));
-        //setTitle(App.injectString(R.string.tab_match_assign));
+        setTabTitle(getString(R.string.tab_match_assign));
+        setTitle(getString(R.string.tab_match_assign));
+        setSubtitle(getString(R.string.subtitle_tab_assign));
     }
 
     @Override
@@ -58,19 +56,19 @@ public class AssignFragment extends TabFragment {
         super.onActivityCreated(savedInstanceState);
         mCheckBox.setChecked(Preferences.isForceRegexpAllowed());
         buttonSave.setOnClickListener(view -> {
-            final String matchAssignPart;
+            final ReactiveBuilder matchAssignPart;
 
-            matchAssignPart = PatchBuilder.escapeComment(mFieldComment.getText().toString())
-            + PatchBuilder.insertStartTag("match_assign")
-            + PatchBuilder.insertTag(mFieldName, "name")
-            + PatchBuilder.insertTag(mFieldTarget, "target")
-            + PatchBuilder.insertMatchTag(mFieldFind)
-            + PatchBuilder.regexTrue(mCheckBox.isChecked())
-            + PatchBuilder.insertTag(mFieldAssign, "assign")
-            + PatchBuilder.insertEndTag("match_assign");
+            matchAssignPart = new ReactiveBuilder()
+                    .escapeComment(mFieldComment.getText().toString())
+                    .insertStartTag("match_assign")
+                    .insertTag(mFieldName, "name")
+                    .insertTag(mFieldTarget, "target")
+                    .insertMatchTag(mFieldFind)
+                    .regexTrue(mCheckBox.isChecked())
+                    .insertTag(mFieldAssign, "assign")
+                    .insertEndTag("match_assign");
 
             PatchCollection.getCollection().setItemAt(getTag(), matchAssignPart);
-            Log.i(Constants.TAG, matchAssignPart);
         });
         buttonClear.setOnClickListener(view -> {
             mFieldComment.setText("");
@@ -82,7 +80,7 @@ public class AssignFragment extends TabFragment {
             PatchCollection.getCollection().removeItemAt(getTag());
         });
         mButtonVariants.setOnClickListener(view -> {
-            PopupMenu menu = new PopupMenu(getActivity(), mButtonVariants);
+            PopupMenu menu = new PopupMenu(getActivity(), view);
             menu.inflate(R.menu.menu_popup_variants);
             menu.setOnMenuItemClickListener(item -> {
                 mFieldTarget.setText(item.getTitle());

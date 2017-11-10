@@ -1,12 +1,14 @@
 package ru.SnowVolf.pcompiler.tabs;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.CallSuper;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.Snackbar;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,9 +19,11 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.util.Locale;
+
+import ru.SnowVolf.girl.ui.GirlToolbar;
+import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
-import ru.SnowVolf.pcompiler.patch.PatchBuilder;
-import ru.SnowVolf.pcompiler.patch.PatchCollection;
 import ru.SnowVolf.pcompiler.ui.activity.TabbedActivity;
 import ru.SnowVolf.pcompiler.ui.fragment.NativeContainerFragment;
 import ru.SnowVolf.pcompiler.util.Constants;
@@ -37,7 +41,6 @@ public class TabFragment extends NativeContainerFragment {
     private final static String BUNDLE_SUBTITLE = "subtitle";
     private final static String BUNDLE_PARENT_TAG = "parent_tag";
 
-
     protected TabConfiguration configuration = new TabConfiguration();
 
     private String title = null, tabTitle = null, subtitle = null, parentTag = null;
@@ -47,9 +50,8 @@ public class TabFragment extends NativeContainerFragment {
     protected CoordinatorLayout coordinatorLayout;
     protected AppBarLayout appBarLayout;
     protected CollapsingToolbarLayout toolbarLayout;
-    private Toolbar toolbar;
+    public static GirlToolbar toolbar;
     protected TextView toolbarTitleView, toolbarSubtitleView;
-    protected View view;
 
     public TabFragment() {
         parentTag = TabManager.getActiveTag();
@@ -136,11 +138,11 @@ public class TabFragment extends NativeContainerFragment {
         }
         setHasOptionsMenu(true);
     }
-
+    @CallSuper
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_base, container, false);
+        rootView = inflater.inflate(R.layout.fragment_base, container, false);
         //Осторожно! Чувствительно к структуре разметки! (по идеи так должно работать чуть быстрее)
         fragmentContainer = rootView.findViewById(R.id.fragment_container);
         coordinatorLayout = fragmentContainer.findViewById(R.id.coordinator_layout);
@@ -150,14 +152,27 @@ public class TabFragment extends NativeContainerFragment {
         toolbarTitleView = toolbar.findViewById(R.id.toolbar_title);
         toolbarSubtitleView = toolbar.findViewById(R.id.toolbar_subtitle);
         fragmentContent = coordinatorLayout.findViewById(R.id.fragment_content);
-        //bottomBar = rootView.findViewById(R.id.bottom_bar);
-        toolbar.setNavigationOnClickListener(configuration.isAlone() || configuration.isMenu() ? getTabActivity().getToggleListener() : getTabActivity().getRemoveTabListener());
-        toolbar.setNavigationIcon(configuration.isAlone() || configuration.isMenu() ? R.drawable.ic_menu_hamburger : R.drawable.ic_arrow_back);
 
         //Для обновления вьюх
         setTitle(title);
         setSubtitle(subtitle);
-        return view;
+        return rootView;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        toolbar = view.findViewById(R.id.toolbar);
+        toolbar.inflateMenu(R.menu.menu_tab_indicator);
+        toolbar.setNavigationOnClickListener(v -> getTabActivity().getDrawers().openMenu());
+        toolbar.getTabIndicator().setOnClickListener(v -> getTabActivity().getDrawers().openTabs());
+        ActionBarDrawerToggle toggle =
+                new ActionBarDrawerToggle(getActivity(), getTabActivity().getDrawer(), toolbar,
+                        R.string.app_name, R.string.app_name);
+        toggle.getDrawerArrowDrawable().setColor(Build.VERSION.SDK_INT >= 23 ? App.getColorFromAttr(getContext(), R.attr.colorAccent) :
+                App.getColorFromAttr(getContext(), R.attr.icon_color));
+        getTabActivity().getDrawer().addDrawerListener(toggle);
+        toggle.syncState();
     }
 
     protected void baseInflateFragment(LayoutInflater inflater, @LayoutRes int res) {
@@ -211,7 +226,6 @@ public class TabFragment extends NativeContainerFragment {
         hidePopupWindows();
     }
 
-
     /* Experiment */
     public static class Builder<T extends TabFragment> {
         private T tClass;
@@ -219,7 +233,7 @@ public class TabFragment extends NativeContainerFragment {
         public Builder(Class<T> tClass) {
             try {
                 this.tClass = tClass.newInstance();
-            } catch (Exception e) {
+            } catch (java.lang.InstantiationException | IllegalAccessException e) {
                 e.printStackTrace();
             }
         }

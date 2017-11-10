@@ -32,6 +32,11 @@
             android:title="@string/pref_sys_lang"
             android:entries="@array/entries_lang"
             android:entryValues="@array/values_lang"/>
+        <EditTextPreference
+            android:icon="@drawable/ic_settings_update_delay"
+            android:key="sys.delay"
+            android:title="@string/pref_sys_delay"
+            android:defaultValue="2000"/>
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/pref_interaction">

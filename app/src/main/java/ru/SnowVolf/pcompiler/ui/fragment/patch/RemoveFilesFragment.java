@@ -3,7 +3,6 @@ package ru.SnowVolf.pcompiler.ui.fragment.patch;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.PopupMenu;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,13 +12,10 @@ import android.widget.ImageButton;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.SnowVolf.girl.ui.GirlEditText;
-import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
-import ru.SnowVolf.pcompiler.patch.PatchBuilder;
 import ru.SnowVolf.pcompiler.patch.PatchCollection;
+import ru.SnowVolf.pcompiler.patch.ReactiveBuilder;
 import ru.SnowVolf.pcompiler.tabs.TabFragment;
-import ru.SnowVolf.pcompiler.tabs.TabManager;
-import ru.SnowVolf.pcompiler.util.Constants;
 
 /**
  * Created by Snow Volf on 17.08.2017, 15:28
@@ -36,7 +32,8 @@ public class RemoveFilesFragment extends TabFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_remove_files, container, false);
+        super.onCreateView(inflater, container, savedInstanceState);
+        baseInflateFragment(inflater, R.layout.fragment_remove_files);
         ButterKnife.bind(this, rootView);
         return rootView;
     }
@@ -44,24 +41,25 @@ public class RemoveFilesFragment extends TabFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setTabTitle(App.injectString(R.string.tab_remove_files));
-        //setTitle(App.injectString(R.string.tab_remove_files));
+        setTabTitle(getString(R.string.tab_remove_files));
+        setTitle(getString(R.string.tab_remove_files));
+        setSubtitle(getString(R.string.subtitle_tab_remove_files));
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         buttonSave.setOnClickListener(view -> {
-            final String removeFilesPart;
+            final ReactiveBuilder removeFilesPart;
 
-            removeFilesPart = PatchBuilder.escapeComment(mFieldComment.getText().toString())
-                    + PatchBuilder.insertStartTag("remove_files")
-                    + PatchBuilder.insertTag(mFieldName, "name")
-                    + PatchBuilder.insertTag(mFieldTarget, "target")
-                    + PatchBuilder.insertEndTag("remove_files");
+            removeFilesPart = new ReactiveBuilder()
+                    .escapeComment(mFieldComment.getText().toString())
+                    .insertStartTag("remove_files")
+                    .insertTag(mFieldName, "name")
+                    .insertTag(mFieldTarget, "target")
+                    .insertEndTag("remove_files");
 
             PatchCollection.getCollection().setItemAt(getTag(), removeFilesPart);
-            Log.i(Constants.TAG, removeFilesPart);
         });
         buttonClear.setOnClickListener(view -> {
             mFieldComment.setText("");

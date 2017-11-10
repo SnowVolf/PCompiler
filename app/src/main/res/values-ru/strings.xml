@@ -206,4 +206,18 @@
 Подробнее: О программе -> Помощь]]></string>
     <string name="radiationx_role">Android разработчик</string>
     <string name="radiationx_role_description">Разработчик под Android. Благодаря ему в приложении появились вкладки, а также были исправлены баги дублирования правил патча; кликабельности пунктов настроек.</string>
+    <string name="pref_sys_delay">Частота обновления синтаксиса (в мс)</string>
+    <string name="hint_enter_patch_body">Вводите тело патча</string>
+    <string name="menu_edit">Редактор патча</string>
+    <string name="subtitle_tab_assign">Объявление переменных</string>
+    <string name="subtitle_tab_mgoto">Поиск (c regexp)</string>
+    <string name="subtitle_tab_mreplace">Поиск и замена</string>
+    <string name="subtitle_tab_about">Информация о патче</string>
+    <string name="subtitle_tab_add_files">Добавление файлов</string>
+    <string name="subtitle_tab_dummy">Заверщающая метка</string>
+    <string name="subtitle_tab_goto">Поиск</string>
+    <string name="subtitle_tab_merge">Объединение ресурсов</string>
+    <string name="subtitle_tab_remove_files">Удаление файлов</string>
+    <string name="undo">Отменить</string>
+    <string name="redo">Вернуть</string>
 </resources>

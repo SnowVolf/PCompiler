@@ -1,35 +1,12 @@
 package ru.SnowVolf.girl.utils;
 
-import android.annotation.TargetApi;
-import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Build;
-import android.renderscript.Allocation;
-import android.renderscript.RenderScript;
-import android.renderscript.ScriptIntrinsicBlur;
-import android.support.annotation.DrawableRes;
 
 /**
  * Created by Snow Volf on 03.10.2017, 18:13
  */
 
 public class RenderUtils {
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
-    public static Bitmap rsBlur(Context context, @DrawableRes int bitmap, int radius) {
-        Bitmap res = BitmapFactory.decodeResource(Resources.getSystem(), bitmap);
-        Bitmap overlay = Bitmap.createBitmap(res.getWidth(), res.getHeight(), Bitmap.Config.ARGB_8888);
-        RenderScript rs = RenderScript.create(context);
-        Allocation overlayAlloc = Allocation.createFromBitmap(rs, res);
-        ScriptIntrinsicBlur blur = ScriptIntrinsicBlur.create(rs, overlayAlloc.getElement());
-        blur.setInput(overlayAlloc);
-        blur.setRadius(radius);
-        blur.forEach(overlayAlloc);
-        overlayAlloc.copyTo(overlay);
-        rs.destroy();
-        return overlay;
-    }
 
     public static Bitmap fastBlur(Bitmap sentBitmap, int radius, boolean canReuseInBitmap) {
 

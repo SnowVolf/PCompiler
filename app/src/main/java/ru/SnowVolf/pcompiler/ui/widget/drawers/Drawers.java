@@ -67,11 +67,12 @@ public class Drawers {
 
             @Override
             public void onDrawerOpened(View drawerView) {
+                //activity.getToolbar().setNavigationIcon(R.drawable.ic_arrow_back);
             }
 
             @Override
             public void onDrawerClosed(View drawerView) {
-
+                //activity.getToolbar().setNavigationIcon(R.drawable.ic_menu_hamburger);
             }
 
             @Override
@@ -83,7 +84,6 @@ public class Drawers {
         menuDrawer = activity.findViewById(R.id.menu_drawer);
         tabDrawer = activity.findViewById(R.id.tab_drawer);
         drawerLayout.addDrawerListener(l);
-
         menuListView = activity.findViewById(R.id.menu_list);
         tabListView = activity.findViewById(R.id.tab_list);
 
@@ -187,7 +187,7 @@ public class Drawers {
             return;
         }
         try {
-            // About & Dummy section cannot be used more than once
+             //About & Dummy section cannot be used more than once
             if (item.getTabClass() == AboutPatchFragment.class || item.getTabClass() == DummyFragment.class){
                 TabFragment tabFragment = TabManager.getInstance().get(item.getAttachedTabTag());
                 if (tabFragment == null) {
@@ -215,7 +215,7 @@ public class Drawers {
             }
             notifyTabsChanged();
         } catch (Exception e) {
-            Toast.makeText(activity, "An error occurred while executing for task : addTabFragment\n\n" + e.getMessage(), Toast.LENGTH_LONG).show();
+            Toast.makeText(activity, "An error occurred while executing for task : selectMenuItem\n\n" + e.getMessage(), Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
     }

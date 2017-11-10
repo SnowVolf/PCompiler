@@ -3,7 +3,6 @@ package ru.SnowVolf.pcompiler.ui.fragment.patch.match;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.PopupMenu;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,14 +13,11 @@ import android.widget.ImageButton;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.SnowVolf.girl.ui.GirlEditText;
-import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
-import ru.SnowVolf.pcompiler.patch.PatchBuilder;
 import ru.SnowVolf.pcompiler.patch.PatchCollection;
+import ru.SnowVolf.pcompiler.patch.ReactiveBuilder;
 import ru.SnowVolf.pcompiler.settings.Preferences;
 import ru.SnowVolf.pcompiler.tabs.TabFragment;
-import ru.SnowVolf.pcompiler.tabs.TabManager;
-import ru.SnowVolf.pcompiler.util.Constants;
 
 /**
  * Created by Snow Volf on 17.08.2017, 15:30
@@ -41,7 +37,8 @@ public class ReplaceFragment extends TabFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_match_replace, container, false);
+        super.onCreateView(inflater, container, savedInstanceState);
+        baseInflateFragment(inflater, R.layout.fragment_match_replace);
         ButterKnife.bind(this, rootView);
         return rootView;
     }
@@ -49,8 +46,9 @@ public class ReplaceFragment extends TabFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setTabTitle(App.injectString(R.string.tab_match_replace));
-        //setTitle(App.injectString(R.string.tab_match_replace));
+        setTabTitle(getString(R.string.tab_match_replace));
+        setTitle(getString(R.string.tab_match_replace));
+        setSubtitle(getString(R.string.subtitle_tab_mreplace));
     }
 
     @Override
@@ -58,18 +56,18 @@ public class ReplaceFragment extends TabFragment {
         super.onActivityCreated(savedInstanceState);
         mCheckBox.setChecked(Preferences.isForceRegexpAllowed());
         buttonSave.setOnClickListener(view -> {
-            final String matchReplacePart;
+            final ReactiveBuilder matchReplacePart;
 
-            matchReplacePart = PatchBuilder.escapeComment(mFieldComment.getText().toString())
-                    + PatchBuilder.insertStartTag("match_replace")
-                    + PatchBuilder.insertTag(mFieldName, "name")
-                    + PatchBuilder.insertTag(mFieldTarget, "target")
-                    + PatchBuilder.insertMatchTag(mFieldFind)
-                    + PatchBuilder.regexTrue(mCheckBox.isChecked())
-                    + PatchBuilder.insertReplaceTag(mFieldReplace)
-                    + PatchBuilder.insertEndTag("match_replace");
+            matchReplacePart = new ReactiveBuilder()
+                    .escapeComment(mFieldComment.getText().toString())
+                    .insertStartTag("match_replace")
+                    .insertTag(mFieldName, "name")
+                    .insertTag(mFieldTarget, "target")
+                    .insertMatchTag(mFieldFind)
+                    .regexTrue(mCheckBox.isChecked())
+                    .insertReplaceTag(mFieldReplace)
+                    .insertEndTag("match_replace");
             PatchCollection.getCollection().setItemAt(getTag(), matchReplacePart);
-            Log.i(Constants.TAG, matchReplacePart);
         });
         buttonClear.setOnClickListener(view -> {
             mFieldComment.setText("");

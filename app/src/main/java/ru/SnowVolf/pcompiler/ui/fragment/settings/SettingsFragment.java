@@ -17,6 +17,9 @@ import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import java.util.Locale;
+
+import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.settings.Preferences;
 import ru.SnowVolf.pcompiler.ui.fragment.dialog.SweetInputDialogFragment;
@@ -41,6 +44,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         setHasOptionsMenu(true);
         addPreferencesFromResource(R.xml.settings);
         setCurrentValue((ListPreference) findPreference("sys.language"));
+        findPreference("sys.delay").setSummary(App.ctx().getPreferences().getString("sys.delay", "2000"));
         setCurrentValue((ListPreference) findPreference("ui.theme"));
         getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
         init();
@@ -57,6 +61,9 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
             case "sys.language": {
                 setCurrentValue((ListPreference) findPreference(key));
                 break;
+            }
+            case "sys.delay":{
+                findPreference(key).setSummary(sharedPreferences.getString(key, "2000"));
             }
         }
     }
@@ -79,12 +86,12 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
             final SeekBar seekBar = v.findViewById(R.id.value_seekbar);
             seekBar.setProgress(Preferences.getFontSize() - 1 - 7);
             final TextView textView = v.findViewById(R.id.value_textview);
-            textView.setText(Integer.toString(seekBar.getProgress() + 1 + 7));
+            textView.setText(String.format(Locale.ENGLISH, "%d", seekBar.getProgress() + 1 + 7));
             textView.setTextSize(seekBar.getProgress() + 1 + 7);
             seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                    textView.setText(Integer.toString(i + 1 + 7));
+                    textView.setText(String.format(Locale.ENGLISH, "%d", i + 1 + 7));
                     textView.setTextSize(i + 1 + 7);
                 }
 

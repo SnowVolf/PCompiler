@@ -12,6 +12,7 @@ import android.os.Build;
 import android.support.annotation.AttrRes;
 import android.support.annotation.ColorInt;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.StringRes;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.preference.PreferenceManager;
 import android.util.DisplayMetrics;
@@ -69,7 +70,7 @@ public class App extends Application {
 
     private SimpleObservable preferenceChangeObservables = new SimpleObservable();
     private SharedPreferences.OnSharedPreferenceChangeListener preferenceChangeListener = (sharedPreferences, key) -> {
-        Log.e(Constants.TAG, "PREFERENCE CHANGED: " + key);
+        Log.e(Constants.TAG, String.format("PREFERENCE CHANGED: %s", key));
         if (key == null) return;
         preferenceChangeObservables.notifyObservers(key);
     };
@@ -93,7 +94,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         RxJavaPlugins.setErrorHandler(throwable -> {
-            Log.d(Constants.TAG, "RxJavaPlugins errorHandler " + throwable);
+            Log.d(Constants.TAG, String.format("RxJavaPlugins errorHandler %s", throwable));
             throwable.printStackTrace();
         });
         if (StringWrapper.b("8zuv+ap22YnX6ohcFCYktA")) {
@@ -159,12 +160,12 @@ public class App extends Application {
     }
 
     @ColorInt
-    public static int getColorFromAttr(Context context, @AttrRes int attr) {
+    public static int getColorFromAttr(@NonNull Context context, @AttrRes int attr) {
         TypedValue typedValue = new TypedValue();
         if (context != null && context.getTheme().resolveAttribute(attr, typedValue, true))
             return typedValue.data;
         else
-            return Color.RED;
+            return Color.WHITE;
     }
 
     @DrawableRes
@@ -210,11 +211,10 @@ public class App extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return null;
     }
 
-    public static String injectString(int resId){
+    public static String injectString(@StringRes int resId){
         return getContext().getString(resId);
     }
 }

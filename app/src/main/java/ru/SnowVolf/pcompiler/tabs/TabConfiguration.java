@@ -44,7 +44,7 @@ public class TabConfiguration {
 
     @Override
     public String toString() {
-        return "TabConfiguration{ isAlone = " + isAlone() + ", isMenu = " + isMenu() + ", isUseCache = " + isUseCache() + ", defaultTitle = " + getDefaultTitle() + "}";
+        return "TabConfiguration {isAlone = " + isAlone() + ", isMenu = " + isMenu() + ", isUseCache = " + isUseCache() + ", defaultTitle = " + getDefaultTitle() + "}";
     }
 }
 

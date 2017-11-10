@@ -224,5 +224,20 @@
     <string name="radiationx_role">Android developer</string>
     <string name="radiationx_role_description">Developer for Android. Thanks to him, the app now has tabs and bugs were duplicating rules, and settings items were fixed;</string>
     <string name="tabs" translatable="false">Tabs</string>
+    <string name="pref_sys_delay">Syntax update delay (in ms)</string>
+    <string name="hint_enter_patch_body">Enter patch body</string>
+    <string name="menu_edit">Patch Editor</string>
+
+    <string name="subtitle_tab_assign">Variables assignment</string>
+    <string name="subtitle_tab_mgoto">Regex search</string>
+    <string name="subtitle_tab_mreplace">Search &amp; Replace</string>
+    <string name="subtitle_tab_about">Common patch information</string>
+    <string name="subtitle_tab_add_files">Adding files</string>
+    <string name="subtitle_tab_dummy">The end of the patch</string>
+    <string name="subtitle_tab_goto">Search</string>
+    <string name="subtitle_tab_merge">Merge resources</string>
+    <string name="subtitle_tab_remove_files">Removing files</string>
+    <string name="undo">Undo</string>
+    <string name="redo">Redo</string>
 
 </resources>
