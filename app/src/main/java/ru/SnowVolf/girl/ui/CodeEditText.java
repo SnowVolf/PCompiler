@@ -7,11 +7,13 @@ import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.Typeface;
+import android.support.v4.content.res.ResourcesCompat;
 import android.util.AttributeSet;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.settings.Preferences;
 import ru.SnowVolf.pcompiler.util.ThemeWrapper;
 
@@ -48,7 +50,7 @@ public class CodeEditText extends ShaderEditor {
         setTextSize(Preferences.getFontSize());
         mPaintNumbers = new Paint();
         setTypeface(Preferences.isMonospaceFontAllowed() ?
-                Typeface.createFromAsset(getContext().getAssets(), "fonts/RobotoMono-Regular.ttf") :
+                ResourcesCompat.getFont(getContext(), R.font.RobotoMono_Regular) :
         Typeface.DEFAULT);
         mPaintNumbers.setAntiAlias(true);
         mPaintNumbers.setColor(ThemeWrapper.isLightTheme() ? Color.BLACK : Color.WHITE);

@@ -239,5 +239,7 @@
     <string name="subtitle_tab_remove_files">Removing files</string>
     <string name="undo">Undo</string>
     <string name="redo">Redo</string>
+    <string name="tab_executor" translatable="false">execute script</string>
+    <string name="smali_needed" translatable="false">SMALI\nNEEDED</string>
 
 </resources>

@@ -147,7 +147,7 @@ public class Drawers {
                 item = findMenuItem(tabFragment.getClass());
             }
 
-            Log.e(Constants.TAG, "INIT : TabFragment = " + tabFragment + ", MenuItem = " + item);
+            Log.e(Constants.TAG, String.format("INIT : TabFragment = %s, MenuItem = %s", tabFragment, item));
             if (item != null) {
                 item.setAttachedTabTag(tabFragment.getTag());
                 item.setActive(true);

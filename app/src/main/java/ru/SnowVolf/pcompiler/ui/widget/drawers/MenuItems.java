@@ -13,6 +13,7 @@ import ru.SnowVolf.pcompiler.ui.fragment.patch.DummyFragment;
 import ru.SnowVolf.pcompiler.ui.fragment.patch.GotoFragment;
 import ru.SnowVolf.pcompiler.ui.fragment.patch.MergeFragment;
 import ru.SnowVolf.pcompiler.ui.fragment.patch.RemoveFilesFragment;
+import ru.SnowVolf.pcompiler.ui.fragment.patch.ScriptExecutorFragment;
 import ru.SnowVolf.pcompiler.ui.fragment.patch.match.AssignFragment;
 import ru.SnowVolf.pcompiler.ui.fragment.patch.match.MGotoFragment;
 import ru.SnowVolf.pcompiler.ui.fragment.patch.match.ReplaceFragment;
@@ -30,6 +31,7 @@ public class MenuItems {
         createdMenuItems.add(new MenuItem(App.injectString(R.string.tab_match_replace), R.drawable.ic_find_replace, ReplaceFragment.class));
         createdMenuItems.add(new MenuItem(App.injectString(R.string.tab_match_goto), R.drawable.ic_chevron_double_right, MGotoFragment.class));
         createdMenuItems.add(new MenuItem(App.injectString(R.string.tab_match_assign), R.drawable.ic_find_replace, AssignFragment.class));
+        createdMenuItems.add(new MenuItem(App.injectString(R.string.tab_executor), R.drawable.ic_script_exec, ScriptExecutorFragment.class));
         createdMenuItems.add(new MenuItem(App.injectString(R.string.tab_goto), R.drawable.ic_goto, GotoFragment.class));
         createdMenuItems.add(new MenuItem(App.injectString(R.string.tab_add_files), R.drawable.ic_add_files, AddFilesFragment.class));
         createdMenuItems.add(new MenuItem(App.injectString(R.string.tab_remove_files), R.drawable.ic_delete_files, RemoveFilesFragment.class));

@@ -3,8 +3,10 @@ package ru.SnowVolf.girl.ui;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.support.design.widget.TextInputEditText;
+import android.support.v4.content.res.ResourcesCompat;
 import android.util.AttributeSet;
 
+import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.settings.Preferences;
 
 /**
@@ -30,8 +32,7 @@ public class GirlEditText extends TextInputEditText {
 
     private void init(){
         if (Preferences.isMonospaceFontAllowed()){
-            final Typeface mono = Typeface.createFromAsset(getContext().getAssets(), "fonts/RobotoMono-Regular.ttf");
-            setTypeface(mono);
+            setTypeface(ResourcesCompat.getFont(getContext(), R.font.RobotoMono_Regular));
         }
         setTextSize(Preferences.getFontSize());
     }

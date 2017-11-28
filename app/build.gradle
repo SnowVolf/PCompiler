@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 //apply plugin: 'kotlin-android'
-apply plugin: 'me.tatarka.retrolambda'
+//apply plugin: 'me.tatarka.retrolambda'
 
 static def buildTime(){
     def date = new Date().format("dd.MM.yyyy, HH:mm:ss")
@@ -9,14 +9,15 @@ static def buildTime(){
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "ru.SnowVolf.pcompiler"
         minSdkVersion 21
         targetSdkVersion 26
-        versionCode 21
-        versionName "2.0.1"
+        versionCode 22
+        versionName "2.1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
     buildTypes {
         release {

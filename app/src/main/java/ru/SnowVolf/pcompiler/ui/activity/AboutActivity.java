@@ -11,6 +11,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.widget.Toolbar;
@@ -122,7 +123,7 @@ public class AboutActivity extends BaseActivity {
     private void showChangelog(){
         SweetContentDialog dialog = new SweetContentDialog(this);
         dialog.setContentText(StrF.parseText("changelog.txt"));
-        dialog.setTypeface("fonts/RobotoMono-Regular.ttf");
+        dialog.setTypeface(R.font.RobotoMono_Regular);
         dialog.setPositive(android.R.string.ok, view -> dialog.dismiss());
         dialog.show();
     }

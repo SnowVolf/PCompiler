@@ -65,7 +65,7 @@ public class DocumentationFragment extends NativeContainerFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         if (Preferences.isMonospaceFontAllowed()) {
-            final Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/RobotoMono-Regular.ttf");
+            final Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "font/RobotoMono-Regular.ttf");
             content.setTypeface(typeface);
         }
         content.setTextSize(Preferences.getFontSize());

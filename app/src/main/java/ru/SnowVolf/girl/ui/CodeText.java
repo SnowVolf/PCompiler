@@ -5,11 +5,13 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.support.v4.content.res.ResourcesCompat;
 import android.text.Layout;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 
 import ru.SnowVolf.pcompiler.App;
+import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.settings.Preferences;
 import ru.SnowVolf.pcompiler.util.ThemeWrapper;
 
@@ -33,8 +35,7 @@ public class CodeText extends ShaderText {
         paint.setStyle(Paint.Style.FILL);
         paint.setAntiAlias(true);
         if (Preferences.isMonospaceFontAllowed()){
-            final Typeface mono = Typeface.createFromAsset(getContext().getAssets(), "fonts/RobotoMono-Regular.ttf");
-            setTypeface(mono);
+            setTypeface(ResourcesCompat.getFont(getContext(), R.font.RobotoMono_Regular));
         }
         setTextSize(Preferences.getFontSize());
         paint.setColor(Color.parseColor(ThemeWrapper.isLightTheme() ? "#000000" : "#fafafa"));

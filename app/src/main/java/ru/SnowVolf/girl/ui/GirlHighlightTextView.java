@@ -3,6 +3,7 @@ package ru.SnowVolf.girl.ui;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.AppCompatTextView;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -40,8 +41,7 @@ public class GirlHighlightTextView extends AppCompatTextView {
     private void init(){
         Spannable spannable;
         if (Preferences.isMonospaceFontAllowed()) {
-            final Typeface typeface = Typeface.createFromAsset(getContext().getAssets(), "fonts/RobotoMono-Regular.ttf");
-            setTypeface(typeface);
+            setTypeface(ResourcesCompat.getFont(getContext(), R.font.RobotoMono_Regular));
         }
         setTextSize(Preferences.getFontSize());
         setText(ReactiveBuilder.build());
