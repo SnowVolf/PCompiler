@@ -60,7 +60,7 @@ public class RegexValidator extends NativeContainerFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         if (Preferences.isMonospaceFontAllowed()) {
-            final Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "font/RobotoMono-Regular.ttf");
+            final Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "font/mono.ttf");
             regexVal.setTypeface(typeface);
             sourceSoup.setTypeface(typeface);
             counter.setTypeface(typeface);

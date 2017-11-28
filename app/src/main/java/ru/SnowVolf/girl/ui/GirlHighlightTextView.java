@@ -41,7 +41,7 @@ public class GirlHighlightTextView extends AppCompatTextView {
     private void init(){
         Spannable spannable;
         if (Preferences.isMonospaceFontAllowed()) {
-            setTypeface(ResourcesCompat.getFont(getContext(), R.font.RobotoMono_Regular));
+            setTypeface(ResourcesCompat.getFont(getContext(), R.font.mono));
         }
         setTextSize(Preferences.getFontSize());
         setText(ReactiveBuilder.build());

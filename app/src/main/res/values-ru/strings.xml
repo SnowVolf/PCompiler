@@ -178,6 +178,7 @@
     <string name="regex_def_match_one">%d совпадение</string>
     <string name="regex_def_match_few">Совпадений: %d</string>
     <string name="title_list_of_files">Список файлов (%d)</string>
+    <string name="title_list_of_dex">Список скриптов (%d)</string>
     <string name="version_sub">Версия: %s</string>
     <string name="id_sub">ID сборки: %x</string>
     <string name="date_sub">Дата сборки: %s</string>
@@ -220,4 +221,9 @@
     <string name="subtitle_tab_remove_files">Удаление файлов</string>
     <string name="undo">Отменить</string>
     <string name="redo">Вернуть</string>
+    <string name="hint_script">Имя Dex скрипта</string>
+    <string name="hint_main_class">Главный класс</string>
+    <string name="hint_param">Параметры</string>
+    <string name="hint_entrance">Главный метод</string>
+    <string name="subtitle_tab_executor">Выполнение скриптов</string>
 </resources>

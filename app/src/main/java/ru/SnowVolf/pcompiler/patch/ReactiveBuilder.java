@@ -118,6 +118,19 @@ public class ReactiveBuilder {
         return this;
     }
 
+    // If true, insert an
+    // SMALI_NEEDED:
+    // true
+    public ReactiveBuilder smaliTrue(boolean zed){
+        if (zed){
+            mBuilder.append("SMALI_NEEDED:")
+                    .append(System.lineSeparator())
+                    .append("true")
+                    .append(System.lineSeparator());
+        }
+        return this;
+    }
+
     // Escape all comment strings with '# '
     public ReactiveBuilder escapeComment(String comment){
         if (!comment.isEmpty()) {

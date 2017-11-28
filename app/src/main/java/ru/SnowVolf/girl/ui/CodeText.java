@@ -35,7 +35,7 @@ public class CodeText extends ShaderText {
         paint.setStyle(Paint.Style.FILL);
         paint.setAntiAlias(true);
         if (Preferences.isMonospaceFontAllowed()){
-            setTypeface(ResourcesCompat.getFont(getContext(), R.font.RobotoMono_Regular));
+            setTypeface(ResourcesCompat.getFont(getContext(), R.font.mono));
         }
         setTextSize(Preferences.getFontSize());
         paint.setColor(Color.parseColor(ThemeWrapper.isLightTheme() ? "#000000" : "#fafafa"));

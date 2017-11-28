@@ -59,7 +59,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
     private String mFileName = "patch.txt";
     private String mLanguage = null;
     private DrawerLayout drawer;
-    public static ArrayList<File> extra;
+    public static ArrayList<File> extra, extraDex;
     private Drawers mDrawers;
     private final View.OnClickListener toggleListener = view -> mDrawers.toggleMenu();
     private final View.OnClickListener removeTabListener = view -> backHandler(true);
@@ -86,6 +86,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
         mDrawers = new Drawers(this, drawer);
         mDrawers.init(savedInstanceState);
         extra = new ArrayList<>();
+        extraDex = new ArrayList<>();
         bottomBar.inflateMenu(R.menu.menu_chevron);
         bottomBar.setOnMenuItemClickListener(item -> {
             switch (item.getItemId()) {

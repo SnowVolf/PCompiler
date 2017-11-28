@@ -50,7 +50,7 @@ public class CodeEditText extends ShaderEditor {
         setTextSize(Preferences.getFontSize());
         mPaintNumbers = new Paint();
         setTypeface(Preferences.isMonospaceFontAllowed() ?
-                ResourcesCompat.getFont(getContext(), R.font.RobotoMono_Regular) :
+                ResourcesCompat.getFont(getContext(), R.font.mono) :
         Typeface.DEFAULT);
         mPaintNumbers.setAntiAlias(true);
         mPaintNumbers.setColor(ThemeWrapper.isLightTheme() ? Color.BLACK : Color.WHITE);

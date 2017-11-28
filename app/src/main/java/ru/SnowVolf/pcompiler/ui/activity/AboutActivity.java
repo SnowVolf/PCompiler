@@ -123,7 +123,7 @@ public class AboutActivity extends BaseActivity {
     private void showChangelog(){
         SweetContentDialog dialog = new SweetContentDialog(this);
         dialog.setContentText(StrF.parseText("changelog.txt"));
-        dialog.setTypeface(R.font.RobotoMono_Regular);
+        dialog.setTypeface(R.font.mono);
         dialog.setPositive(android.R.string.ok, view -> dialog.dismiss());
         dialog.show();
     }

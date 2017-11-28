@@ -102,6 +102,7 @@
     <string name="regex_def_match_one">%d match</string>
     <string name="regex_def_match_few">%d matches</string>
     <string name="title_list_of_files">File list (%d)</string>
+    <string name="title_list_of_dex">Dex list (%d)</string>
     <string name="title_activity_about">@string/menu_about</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
@@ -241,5 +242,10 @@
     <string name="redo">Redo</string>
     <string name="tab_executor" translatable="false">execute script</string>
     <string name="smali_needed" translatable="false">SMALI\nNEEDED</string>
+    <string name="hint_script">Dex script name</string>
+    <string name="hint_main_class">Main class</string>
+    <string name="hint_param">Parameters</string>
+    <string name="hint_entrance">Entrance method</string>
+    <string name="subtitle_tab_executor">Execute a custom scripts</string>
 
 </resources>
