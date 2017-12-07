@@ -54,7 +54,7 @@ public class ReplaceFragment extends TabFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mCheckBox.setChecked(Preferences.isForceRegexpAllowed());
+        mCheckBox.setChecked(Preferences.INSTANCE.isForceRegexpAllowed());
         buttonSave.setOnClickListener(view -> {
             final ReactiveBuilder matchReplacePart;
 
@@ -67,7 +67,7 @@ public class ReplaceFragment extends TabFragment {
                     .regexTrue(mCheckBox.isChecked())
                     .insertReplaceTag(mFieldReplace)
                     .insertEndTag("match_replace");
-            PatchCollection.getCollection().setItemAt(getTag(), matchReplacePart);
+            PatchCollection.INSTANCE.getCollection().setItemAt(getTag(), matchReplacePart);
         });
         buttonClear.setOnClickListener(view -> {
             mFieldComment.setText("");
@@ -75,8 +75,8 @@ public class ReplaceFragment extends TabFragment {
             mFieldTarget.setText("");
             mFieldFind.setText("");
             mFieldReplace.setText("");
-            mCheckBox.setChecked(Preferences.isForceRegexpAllowed());
-            PatchCollection.getCollection().removeItemAt(getTag());
+            mCheckBox.setChecked(Preferences.INSTANCE.isForceRegexpAllowed());
+            PatchCollection.INSTANCE.getCollection().removeItemAt(getTag());
         });
         mButtonVariants.setOnClickListener(view -> {
             PopupMenu menu = new PopupMenu(getActivity(), mButtonVariants);

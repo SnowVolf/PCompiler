@@ -21,7 +21,7 @@ public class HelpActivity extends BaseActivity {
         content.setText(StrF.parseText("help/help.txt"));
         Button read = findViewById(R.id.buttonPanel);
         read.setOnClickListener(v -> {
-            Preferences.setHelpShowed();
+            Preferences.INSTANCE.setHelpShowed();
             finishAfterTransition();
         });
     }

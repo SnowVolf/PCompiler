@@ -70,7 +70,7 @@ public class App extends Application {
 
     private SimpleObservable preferenceChangeObservables = new SimpleObservable();
     private SharedPreferences.OnSharedPreferenceChangeListener preferenceChangeListener = (sharedPreferences, key) -> {
-        Log.e(Constants.TAG, String.format("PREFERENCE CHANGED: %s", key));
+        Log.e(Constants.INSTANCE.getTAG(), String.format("PREFERENCE CHANGED: %s", key));
         if (key == null) return;
         preferenceChangeObservables.notifyObservers(key);
     };
@@ -94,7 +94,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         RxJavaPlugins.setErrorHandler(throwable -> {
-            Log.d(Constants.TAG, String.format("RxJavaPlugins errorHandler %s", throwable));
+            Log.d(Constants.INSTANCE.getTAG(), String.format("RxJavaPlugins errorHandler %s", throwable));
             throwable.printStackTrace();
         });
         if (StringWrapper.b("8zuv+ap22YnX6ohcFCYktA")) {
@@ -109,7 +109,7 @@ public class App extends Application {
 
     @Override
     protected void attachBaseContext(Context base) {
-        super.attachBaseContext(LocaleGirl.onAttach(base, LocaleGirl.getDefaultLocale().getLanguage()));
+        super.attachBaseContext(LocaleGirl.INSTANCE.onAttach(base, LocaleGirl.INSTANCE.getDefaultLocale().getLanguage()));
     }
 
     public SharedPreferences getPreferences() {

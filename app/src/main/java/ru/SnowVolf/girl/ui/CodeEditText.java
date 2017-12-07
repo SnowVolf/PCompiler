@@ -47,9 +47,9 @@ public class CodeEditText extends ShaderEditor {
 
     public CodeEditText(Context context, AttributeSet attrs) {
         super(context, attrs);
-        setTextSize(Preferences.getFontSize());
+        setTextSize(Preferences.INSTANCE.getFontSize());
         mPaintNumbers = new Paint();
-        setTypeface(Preferences.isMonospaceFontAllowed() ?
+        setTypeface(Preferences.INSTANCE.isMonospaceFontAllowed() ?
                 ResourcesCompat.getFont(getContext(), R.font.mono) :
         Typeface.DEFAULT);
         mPaintNumbers.setAntiAlias(true);
@@ -75,7 +75,7 @@ public class CodeEditText extends ShaderEditor {
 
 //        if (Settings.SHOW_LINE_NUMBERS) {
             int padding = (int) (Math.floor(Math.log10(count)) + 1);
-            padding = (int) ((padding * mPaintNumbers.getTextSize()) + mPadding + (Preferences.getFontSize()
+            padding = (int) ((padding * mPaintNumbers.getTextSize()) + mPadding + (Preferences.INSTANCE.getFontSize()
                     * mScale * 0.5));
             if (mLinePadding != padding) {
                 mLinePadding = padding;
@@ -90,7 +90,7 @@ public class CodeEditText extends ShaderEditor {
         computeLineHighlight();
 
         // draw line numbers
-        lineX = (int) (mDrawingRect.left + mLinePadding - (Preferences.getFontSize()
+        lineX = (int) (mDrawingRect.left + mLinePadding - (Preferences.INSTANCE.getFontSize()
                 * mScale * 0.5));
         int min = 0;
         int max = count;

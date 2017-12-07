@@ -98,7 +98,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
             return false;
         });
 
-        if (!Preferences.isHelpShowed()){
+        if (!Preferences.INSTANCE.isHelpShowed()){
             try {
                 startActivity(new Intent(this, HelpActivity.class), ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
             } catch (Exception ex){
@@ -109,7 +109,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
 
     private static long press_time = System.currentTimeMillis();
     public void onBackPressed() {
-        if (Preferences.isTwiceBackAllowed()) {
+        if (Preferences.INSTANCE.isTwiceBackAllowed()) {
             if (press_time + 2000 > System.currentTimeMillis()) {
                 finish();
             } else {
@@ -143,10 +143,10 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
         mDrawers.setStatusBarHeight(App.ctx().getStatusBarHeight());
         // Языковые настройки
         if (mLanguage == null){
-            mLanguage = LocaleGirl.getLanguage(this);
+            mLanguage = LocaleGirl.INSTANCE.getLanguage(this);
         }
         // Проверка не изменися ли язык
-        if (!LocaleGirl.getLanguage(this).equals(mLanguage)){
+        if (!LocaleGirl.INSTANCE.getLanguage(this).equals(mLanguage)){
             //Context newContext = LocaleGirl.onAttach(this);
             SweetContentDialog dialog = new SweetContentDialog(this);
             dialog.setContentText(R.string.app_lang_changed);
@@ -221,7 +221,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
     private File writeToFile(StringBuilder data){
         File patchFile = null;
         try {
-            File dir = new File(Preferences.getPatchOutput());
+            File dir = new File(Preferences.INSTANCE.getPatchOutput());
             if (!dir.exists() && !dir.isDirectory()){
                 //noinspection ResultOfMethodCallIgnored
                 dir.mkdirs();
@@ -240,7 +240,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
                 return null;
             }
             outputStream.close();
-            Toast.makeText(this, String.format(getString(R.string.message_saved_in_path), Preferences.getPatchOutput(), mFileName + ".txt"), Toast.LENGTH_LONG).show();
+            Toast.makeText(this, String.format(getString(R.string.message_saved_in_path), Preferences.INSTANCE.getPatchOutput(), mFileName + ".txt"), Toast.LENGTH_LONG).show();
         } catch (IOException e){
             e.printStackTrace();
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
@@ -302,7 +302,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
                 }
                 case R.id.action_reset:{
                     content.setText("");
-                    PatchCollection.getCollection().clear();
+                    PatchCollection.INSTANCE.getCollection().clear();
                     extra.clear();
                     dialog.dismiss();
                     Toast.makeText(this, R.string.message_patch_cleared, Toast.LENGTH_SHORT).show();
@@ -336,7 +336,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
     }
 
     private void zipIo(){
-        File dir = new File(Preferences.getPatchOutput());
+        File dir = new File(Preferences.INSTANCE.getPatchOutput());
         if (!dir.exists() && !dir.isDirectory()){
             //noinspection ResultOfMethodCallIgnored
             dir.mkdirs();
@@ -344,12 +344,12 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
         File temp = writeToTempFile(ReactiveBuilder.build());
 
         try {
-            ZipFile zipFile = new ZipFile(Preferences.getPatchOutput() + mFileName + ".zip");
+            ZipFile zipFile = new ZipFile(Preferences.INSTANCE.getPatchOutput() + mFileName + ".zip");
             ZipParameters parameters = new ZipParameters();
             parameters.setCompressionMethod(Zip4jConstants.COMP_DEFLATE);
             parameters.setCompressionLevel(0);
             zipFile.addFile(temp, parameters);
-            if (!App.ctx().getPreferences().getString(Constants.KEY_EXTRA_FILES, "").isEmpty()) {
+            if (!App.ctx().getPreferences().getString(Constants.INSTANCE.getKEY_EXTRA_FILES(), "").isEmpty()) {
                 try {
                     zipFile.addFiles(extra, parameters);
                 } catch (Exception e){
@@ -357,10 +357,10 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
                     Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
                 }
             }
-            zipFile.setComment(Preferences.getArchiveComment());
+            zipFile.setComment(Preferences.INSTANCE.getArchiveComment());
             Toast.makeText(this, String.format(getString(R.string.message_saved_in_path_zip), zipFile.getFile().getAbsolutePath()), Toast.LENGTH_LONG).show();
         } catch (ZipException e){
-            Log.e(Constants.TAG, e.getMessage());
+            Log.e(Constants.INSTANCE.getTAG(), e.getMessage());
             ACRA.getErrorReporter().handleException(e);
         }
     }
@@ -401,19 +401,19 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
 
     @Override
     public void onAddTab(TabFragment fragment) {
-        Log.d(Constants.TAG, "onAdd : " + fragment);
+        Log.d(Constants.INSTANCE.getTAG(), "onAdd : " + fragment);
         TabFragment.toolbar.setTabIndicatorValue(TabManager.getInstance().getSize());
     }
 
     @Override
     public void onRemoveTab(TabFragment fragment) {
-        Log.d(Constants.TAG, "onRemove : " + fragment);
+        Log.d(Constants.INSTANCE.getTAG(), "onRemove : " + fragment);
         TabFragment.toolbar.setTabIndicatorValue(TabManager.getInstance().getSize());
     }
 
     @Override
     public void onSelectTab(TabFragment fragment) {
-        Log.d(Constants.TAG, "onSelect : " + fragment);
+        Log.d(Constants.INSTANCE.getTAG(), "onSelect : " + fragment);
     }
 
     @Override

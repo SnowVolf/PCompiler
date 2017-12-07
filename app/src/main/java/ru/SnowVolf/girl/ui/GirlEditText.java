@@ -31,9 +31,9 @@ public class GirlEditText extends TextInputEditText {
     }
 
     private void init(){
-        if (Preferences.isMonospaceFontAllowed()){
+        if (Preferences.INSTANCE.isMonospaceFontAllowed()){
             setTypeface(ResourcesCompat.getFont(getContext(), R.font.mono));
         }
-        setTextSize(Preferences.getFontSize());
+        setTextSize(Preferences.INSTANCE.getFontSize());
     }
 }

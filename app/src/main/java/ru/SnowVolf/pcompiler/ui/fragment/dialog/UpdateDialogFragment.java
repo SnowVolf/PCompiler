@@ -197,7 +197,7 @@ public class UpdateDialogFragment extends BottomSheetDialogFragment {
         }
 
         TextView sectionText = new TextView(getContext());
-        sectionText.setText(Html.htmlCompat(stringBuilder.toString()));
+        sectionText.setText(Html.INSTANCE.htmlCompat(stringBuilder.toString()));
         sectionText.setPadding(App.dpToPx(8), 0, 0, 0);
         root.addView(sectionText);
 

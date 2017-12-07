@@ -51,8 +51,8 @@ public class AboutPatchFragment extends TabFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mFieldEnige.setText(Preferences.getPatchEngineVer());
-        mFieldAuthor.setText(Preferences.getPatchAuthor());
+        mFieldEnige.setText(Preferences.INSTANCE.getPatchEngineVer());
+        mFieldAuthor.setText(Preferences.INSTANCE.getPatchAuthor());
         mButtonAll.setOnClickListener(view -> {
             mFieldPackage.setText("*");
             mFieldPackage.setSelection(mFieldPackage.getText().length());
@@ -65,13 +65,13 @@ public class AboutPatchFragment extends TabFragment {
                             .insertAboutTag(mFieldAuthor, "author")
                             .insertAboutTag(mFieldPackage, "package");
 
-            PatchCollection.getCollection().setItemAt(getTag(), aboutPart);
+            PatchCollection.INSTANCE.getCollection().setItemAt(getTag(), aboutPart);
         });
         buttonClear.setOnClickListener(view -> {
             mFieldEnige.setText("");
             mFieldAuthor.setText("");
             mFieldPackage.setText("");
-            PatchCollection.getCollection().removeItemAt(getTag());
+            PatchCollection.INSTANCE.getCollection().removeItemAt(getTag());
         });
     }
 }

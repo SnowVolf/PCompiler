@@ -27,13 +27,13 @@ public class IOUtils {
         try {
             return saveTemporaryZipFileAndThrow(filename, files);
         } catch (IOException e) {
-            Log.e(Constants.TAG, e.getMessage());
+            Log.e(Constants.INSTANCE.getTAG(), e.getMessage());
         }
         return null;
     }
 
     private static File saveTemporaryZipFileAndThrow(String filename, List<File> files) throws IOException {
-        File zipFile = new File(Preferences.getPatchOutput(), filename);
+        File zipFile = new File(Preferences.INSTANCE.getPatchOutput(), filename);
 
         ZipOutputStream output = null;
         try {

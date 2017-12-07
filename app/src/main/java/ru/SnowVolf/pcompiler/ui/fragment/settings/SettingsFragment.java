@@ -84,7 +84,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
 
             assert v != null;
             final SeekBar seekBar = v.findViewById(R.id.value_seekbar);
-            seekBar.setProgress(Preferences.getFontSize() - 1 - 7);
+            seekBar.setProgress(Preferences.INSTANCE.getFontSize() - 1 - 7);
             final TextView textView = v.findViewById(R.id.value_textview);
             textView.setText(String.format(Locale.ENGLISH, "%d", seekBar.getProgress() + 1 + 7));
             textView.setTextSize(seekBar.getProgress() + 1 + 7);
@@ -108,33 +108,33 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
             AlertDialog dialog = new AlertDialog.Builder(getActivity())
                     .setTitle(preference.getTitle())
                     .setView(v)
-                    .setPositiveButton(android.R.string.ok, (dialog1, which) -> Preferences.setFontSize(seekBar.getProgress() + 1 + 7))
+                    .setPositiveButton(android.R.string.ok, (dialog1, which) -> Preferences.INSTANCE.setFontSize(seekBar.getProgress() + 1 + 7))
                     .setNegativeButton(android.R.string.cancel, null)
                     .setNeutralButton(R.string.menu_reset, null)
                     .show();
             dialog.getButton(DialogInterface.BUTTON_NEUTRAL).setOnClickListener(v1 -> {
                 seekBar.setProgress(16 - 1 - 7);
-                Preferences.setFontSize(16);
+                Preferences.INSTANCE.setFontSize(16);
             });
             return false;
         });
         findPreference("preset.engine_ver").setOnPreferenceClickListener(preference -> {
             FragmentManager manager = getActivity().getSupportFragmentManager();
-            SweetInputDialogFragment dialogFragment = SweetInputDialogFragment.newInstance(preference, Preferences.getPatchEngineVer());
+            SweetInputDialogFragment dialogFragment = SweetInputDialogFragment.newInstance(preference, Preferences.INSTANCE.getPatchEngineVer());
             dialogFragment.show(manager, null);
             return true;
         });
 
         findPreference("preset.author").setOnPreferenceClickListener(preference -> {
             FragmentManager manager = getActivity().getSupportFragmentManager();
-            SweetInputDialogFragment dialogFragment = SweetInputDialogFragment.newInstance(preference, Preferences.getPatchAuthor());
+            SweetInputDialogFragment dialogFragment = SweetInputDialogFragment.newInstance(preference, Preferences.INSTANCE.getPatchAuthor());
             dialogFragment.show(manager, null);
             return true;
         });
 
         findPreference("preset.path").setOnPreferenceClickListener(preference -> {
             FragmentManager manager = getActivity().getSupportFragmentManager();
-            SweetInputDialogFragment dialogFragment = SweetInputDialogFragment.newInstance(preference, Preferences.getPatchOutput());
+            SweetInputDialogFragment dialogFragment = SweetInputDialogFragment.newInstance(preference, Preferences.INSTANCE.getPatchOutput());
             dialogFragment.show(manager, null);
             return true;
         });
@@ -148,7 +148,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
 
         findPreference("preset.mime_type").setOnPreferenceClickListener(preference -> {
             FragmentManager manager = getActivity().getSupportFragmentManager();
-            SweetInputDialogFragment dialogFragment = SweetInputDialogFragment.newInstance(preference, Preferences.getMimeType());
+            SweetInputDialogFragment dialogFragment = SweetInputDialogFragment.newInstance(preference, Preferences.INSTANCE.getMimeType());
             dialogFragment.show(manager, null);
             return true;
         });

@@ -54,7 +54,7 @@ public class AssignFragment extends TabFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mCheckBox.setChecked(Preferences.isForceRegexpAllowed());
+        mCheckBox.setChecked(Preferences.INSTANCE.isForceRegexpAllowed());
         buttonSave.setOnClickListener(view -> {
             final ReactiveBuilder matchAssignPart;
 
@@ -68,7 +68,7 @@ public class AssignFragment extends TabFragment {
                     .insertTag(mFieldAssign, "assign")
                     .insertEndTag("match_assign");
 
-            PatchCollection.getCollection().setItemAt(getTag(), matchAssignPart);
+            PatchCollection.INSTANCE.getCollection().setItemAt(getTag(), matchAssignPart);
         });
         buttonClear.setOnClickListener(view -> {
             mFieldComment.setText("");
@@ -76,8 +76,8 @@ public class AssignFragment extends TabFragment {
             mFieldTarget.setText("");
             mFieldFind.setText("");
             mFieldAssign.setText("");
-            mCheckBox.setChecked(Preferences.isForceRegexpAllowed());
-            PatchCollection.getCollection().removeItemAt(getTag());
+            mCheckBox.setChecked(Preferences.INSTANCE.isForceRegexpAllowed());
+            PatchCollection.INSTANCE.getCollection().removeItemAt(getTag());
         });
         mButtonVariants.setOnClickListener(view -> {
             PopupMenu menu = new PopupMenu(getActivity(), view);

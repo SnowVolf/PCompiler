@@ -99,7 +99,7 @@ public class Drawers {
         menuListView.setHasFixedSize(true);
 
         final TextView nick = activity.findViewById(R.id.nick);
-        nick.setText(Preferences.getPatchAuthor());
+        nick.setText(Preferences.INSTANCE.getPatchAuthor());
 
         final ImageButton popup = activity.findViewById(R.id.popup_menu);
         popup.setOnClickListener(v -> {
@@ -147,14 +147,14 @@ public class Drawers {
                 item = findMenuItem(tabFragment.getClass());
             }
 
-            Log.e(Constants.TAG, String.format("INIT : TabFragment = %s, MenuItem = %s", tabFragment, item));
+            Log.e(Constants.INSTANCE.getTAG(), String.format("INIT : TabFragment = %s, MenuItem = %s", tabFragment, item));
             if (item != null) {
                 item.setAttachedTabTag(tabFragment.getTag());
                 item.setActive(true);
                 lastActive = item;
             }
         }
-        Log.e(Constants.TAG, "FINAL ITEM " + item);
+        Log.e(Constants.INSTANCE.getTAG(), "FINAL ITEM " + item);
         selectMenuItem(item);
     }
 
@@ -182,7 +182,7 @@ public class Drawers {
     }
 
     private void selectMenuItem(MenuItems.MenuItem item) {
-        Log.e(Constants.TAG, "selectMenuItem " + item);
+        Log.e(Constants.INSTANCE.getTAG(), "selectMenuItem " + item);
         if (item == null) {
             return;
         }
@@ -271,7 +271,7 @@ public class Drawers {
             closeTabs();
         });
         tabAdapter.setCloseClickListener((tabFragment, position) -> {
-            PatchCollection.getCollection().remove(tabFragment.getTag());
+            PatchCollection.INSTANCE.getCollection().remove(tabFragment.getTag());
             TabManager.getInstance().remove(tabFragment);
             if (TabManager.getInstance().getSize() < 1) {
                 activity.finish();
@@ -286,7 +286,7 @@ public class Drawers {
                 TabManager.getInstance().add(newTab);
 
                 // Adding a new (default tab)
-                final TabFragment defTab = Preferences.getStartupTab();
+                final TabFragment defTab = Preferences.INSTANCE.getStartupTab();
                 defTab.getConfiguration().setMenu(true);
                 TabManager.getInstance().add(defTab);
             } catch (NullPointerException e) {

@@ -28,7 +28,7 @@ import ru.SnowVolf.pcompiler.util.Constants;
 
 public class IntentHandler {
     public static void handleDownload(String url) {
-        Log.d(Constants.TAG, "handleDownload " + url);
+        Log.d(Constants.INSTANCE.getTAG(), "handleDownload " + url);
         String fileName = url;
         try {
             fileName = URLDecoder.decode(url, "UTF-8");
@@ -43,7 +43,7 @@ public class IntentHandler {
     }
 
     public static void handleDownload(Context context, String fileName, String url) {
-        Log.d(Constants.TAG, "handleDownload " + fileName + " : " + url);
+        Log.d(Constants.INSTANCE.getTAG(), "handleDownload " + fileName + " : " + url);
             new AlertDialog.Builder(context)
                     .setItems(new CharSequence[]{context.getString(R.string.update_sys), context.getString(R.string.update_ext)}, (dialogInterface, i) -> {
                         switch (i){

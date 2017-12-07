@@ -167,7 +167,7 @@ public class AboutActivity extends BaseActivity {
         protected BitmapDrawable doInBackground(Void... voids) {
             final Bitmap f = BitmapFactory.decodeResource(getResources(), R.drawable.censorship);
             return new BitmapDrawable(getResources(),
-                    RenderUtils.fastBlur(f, 90, false));
+                    RenderUtils.INSTANCE.fastBlur(f, 90, false));
         }
 
         @Override

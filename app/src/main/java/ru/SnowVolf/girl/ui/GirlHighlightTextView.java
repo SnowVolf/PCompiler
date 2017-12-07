@@ -40,41 +40,41 @@ public class GirlHighlightTextView extends AppCompatTextView {
     
     private void init(){
         Spannable spannable;
-        if (Preferences.isMonospaceFontAllowed()) {
+        if (Preferences.INSTANCE.isMonospaceFontAllowed()) {
             setTypeface(ResourcesCompat.getFont(getContext(), R.font.mono));
         }
-        setTextSize(Preferences.getFontSize());
+        setTextSize(Preferences.INSTANCE.getFontSize());
         setText(ReactiveBuilder.build());
         spannable = new SpannableString(getText());
-        Matcher matcherAttr = RegexPattern.ATTRIBUTE.matcher(getText());
-        Matcher matcherSubAttr = RegexPattern.SUB_ATTRIBUTE.matcher(getText());
-        Matcher matcherBraces = RegexPattern.COMMON_SYMBOLS.matcher(getText());
-        Matcher matcherNumAttr = RegexPattern.OPERATOR.matcher(getText());
-        Matcher matcherNum = RegexPattern.NUMBERS.matcher(getText());
-        Matcher matcherString = RegexPattern.STRING.matcher(getText());
+        Matcher matcherAttr = RegexPattern.INSTANCE.getATTRIBUTE().matcher(getText());
+        Matcher matcherSubAttr = RegexPattern.INSTANCE.getSUB_ATTRIBUTE().matcher(getText());
+        Matcher matcherBraces = RegexPattern.INSTANCE.getCOMMON_SYMBOLS().matcher(getText());
+        Matcher matcherNumAttr = RegexPattern.INSTANCE.getOPERATOR().matcher(getText());
+        Matcher matcherNum = RegexPattern.INSTANCE.getNUMBERS().matcher(getText());
+        Matcher matcherString = RegexPattern.INSTANCE.getSTRING().matcher(getText());
 
         while (matcherAttr.find()){
-            spannable.setSpan(new ForegroundColorSpan(Preferences.isArtaSyntaxAllowed() ? ContextCompat.getColor(App.getContext(), R.color.syntax_arta_element) : ContextCompat.getColor(App.getContext(), R.color.syntax_element)), matcherAttr.start(), matcherAttr.end(), 33);
+            spannable.setSpan(new ForegroundColorSpan(Preferences.INSTANCE.isArtaSyntaxAllowed() ? ContextCompat.getColor(App.getContext(), R.color.syntax_arta_element) : ContextCompat.getColor(App.getContext(), R.color.syntax_element)), matcherAttr.start(), matcherAttr.end(), 33);
         }
 
         while (matcherSubAttr.find()){
-            spannable.setSpan(new ForegroundColorSpan(Preferences.isArtaSyntaxAllowed() ? ContextCompat.getColor(App.getContext(), R.color.syntax_sub_element) : ContextCompat.getColor(App.getContext(), R.color.syntax_sub_element)), matcherSubAttr.start(), matcherSubAttr.end(), 33);
+            spannable.setSpan(new ForegroundColorSpan(Preferences.INSTANCE.isArtaSyntaxAllowed() ? ContextCompat.getColor(App.getContext(), R.color.syntax_sub_element) : ContextCompat.getColor(App.getContext(), R.color.syntax_sub_element)), matcherSubAttr.start(), matcherSubAttr.end(), 33);
         }
 
         while (matcherBraces.find()){
-            spannable.setSpan(new ForegroundColorSpan(Preferences.isArtaSyntaxAllowed() ? ContextCompat.getColor(App.getContext(), R.color.syntax_arta_keyword) : ContextCompat.getColor(App.getContext(), R.color.syntax_keyword)), matcherBraces.start(), matcherBraces.end(), 33);
+            spannable.setSpan(new ForegroundColorSpan(Preferences.INSTANCE.isArtaSyntaxAllowed() ? ContextCompat.getColor(App.getContext(), R.color.syntax_arta_keyword) : ContextCompat.getColor(App.getContext(), R.color.syntax_keyword)), matcherBraces.start(), matcherBraces.end(), 33);
         }
 
         while (matcherNumAttr.find()){
-            spannable.setSpan(new ForegroundColorSpan(Preferences.isArtaSyntaxAllowed() ? ContextCompat.getColor(App.getContext(), R.color.syntax_arta_num_attribute) : ContextCompat.getColor(App.getContext(), R.color.syntax_num_attribute)), matcherNumAttr.start(), matcherNumAttr.end(), 33);
+            spannable.setSpan(new ForegroundColorSpan(Preferences.INSTANCE.isArtaSyntaxAllowed() ? ContextCompat.getColor(App.getContext(), R.color.syntax_arta_num_attribute) : ContextCompat.getColor(App.getContext(), R.color.syntax_num_attribute)), matcherNumAttr.start(), matcherNumAttr.end(), 33);
         }
 
         while (matcherNum.find()){
-            spannable.setSpan(new ForegroundColorSpan(Preferences.isArtaSyntaxAllowed() ? ContextCompat.getColor(App.getContext(), R.color.syntax_arta_num) : ContextCompat.getColor(App.getContext(), R.color.syntax_num)), matcherNum.start(), matcherNum.end(), 33);
+            spannable.setSpan(new ForegroundColorSpan(Preferences.INSTANCE.isArtaSyntaxAllowed() ? ContextCompat.getColor(App.getContext(), R.color.syntax_arta_num) : ContextCompat.getColor(App.getContext(), R.color.syntax_num)), matcherNum.start(), matcherNum.end(), 33);
         }
 
         while (matcherString.find()){
-            spannable.setSpan(new ForegroundColorSpan(Preferences.isArtaSyntaxAllowed() ? ContextCompat.getColor(App.getContext(), R.color.syntax_arta_string) : ContextCompat.getColor(App.getContext(), R.color.syntax_string)), matcherString.start(), matcherString.end(), 33);
+            spannable.setSpan(new ForegroundColorSpan(Preferences.INSTANCE.isArtaSyntaxAllowed() ? ContextCompat.getColor(App.getContext(), R.color.syntax_arta_string) : ContextCompat.getColor(App.getContext(), R.color.syntax_string)), matcherString.start(), matcherString.end(), 33);
         }
         setText(spannable);
     }

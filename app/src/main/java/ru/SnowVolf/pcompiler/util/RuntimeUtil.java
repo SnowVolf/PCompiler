@@ -27,13 +27,13 @@ public class RuntimeUtil {
     }
     @RequiresApi(value = 23)
     public static void storage(Activity activity, int request) {
-        Log.i(Constants.TAG, "RuntimePermission");
+        Log.i(Constants.INSTANCE.getTAG(), "RuntimePermission");
         // Check if we have write permission
 
-        Log.i(Constants.TAG, "Check : RuntimePermission");
+        Log.i(Constants.INSTANCE.getTAG(), "Check : RuntimePermission");
         if (!isGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
             // We don't have permission so prompt the user
-            Log.i(Constants.TAG, "RequestPermissions : RuntimePermission");
+            Log.i(Constants.INSTANCE.getTAG(), "RequestPermissions : RuntimePermission");
             ActivityCompat.requestPermissions(activity, PERMISSIONS_STORAGE, request);
         }
     }

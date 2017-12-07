@@ -76,7 +76,7 @@ public class ScriptExecutorFragment extends TabFragment {
                     .insertTag(mFieldParam, "param")
                     .insertEndTag("execute_dex");
 
-            PatchCollection.getCollection().setItemAt(getTag(), execPart);
+            PatchCollection.INSTANCE.getCollection().setItemAt(getTag(), execPart);
         });
         buttonClear.setOnClickListener(view -> {
             mFieldComment.setText("");
@@ -85,8 +85,8 @@ public class ScriptExecutorFragment extends TabFragment {
             mFieldEntrance.setText("");
             mFieldParam.setText("");
             TabbedActivity.extra.clear();
-            PatchCollection.getCollection().removeItemAt(getTag());
-            App.ctx().getPreferences().edit().putString(Constants.KEY_EXTRA_FILES, "").apply();
+            PatchCollection.INSTANCE.getCollection().removeItemAt(getTag());
+            App.ctx().getPreferences().edit().putString(Constants.INSTANCE.getKEY_EXTRA_FILES(), "").apply();
         });
         mButtonAdd.setOnClickListener(view -> add());
     }
@@ -97,10 +97,10 @@ public class ScriptExecutorFragment extends TabFragment {
         if(resultCode == Activity.RESULT_OK) {
             switch (requestCode) {
                 case REQUEST_ADD:{
-                    String mLastSelectedFile = App.ctx().getPreferences().getString(Constants.KEY_EXTRA_FILES, "");
+                    String mLastSelectedFile = App.ctx().getPreferences().getString(Constants.INSTANCE.getKEY_EXTRA_FILES(), "");
                     if (!mLastSelectedFile.equals(data.getData().getPath())) {
-                        App.ctx().getPreferences().edit().putString(Constants.KEY_EXTRA_DEXES, data.getData().getPath()).apply();
-                        TabbedActivity.extraDex.add(new File(App.ctx().getPreferences().getString(Constants.KEY_EXTRA_DEXES, "")));
+                        App.ctx().getPreferences().edit().putString(Constants.INSTANCE.getKEY_EXTRA_DEXES(), data.getData().getPath()).apply();
+                        TabbedActivity.extraDex.add(new File(App.ctx().getPreferences().getString(Constants.INSTANCE.getKEY_EXTRA_DEXES(), "")));
                         mFileCaption.setText(String.format(getString(R.string.title_list_of_dex), TabbedActivity.extraDex.size()));
                         Toast.makeText(getActivity(), data.getData().getPath(), Toast.LENGTH_LONG).show();
                         break;

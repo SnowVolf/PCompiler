@@ -64,11 +64,11 @@ public class DocumentationFragment extends NativeContainerFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        if (Preferences.isMonospaceFontAllowed()) {
+        if (Preferences.INSTANCE.isMonospaceFontAllowed()) {
             final Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "font/mono.ttf");
             content.setTypeface(typeface);
         }
-        content.setTextSize(Preferences.getFontSize());
+        content.setTextSize(Preferences.INSTANCE.getFontSize());
         content.setText(StrF.parseText("regex/documentation.txt"));
     }
 }

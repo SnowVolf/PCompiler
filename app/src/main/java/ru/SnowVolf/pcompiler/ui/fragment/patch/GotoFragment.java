@@ -54,13 +54,13 @@ public class GotoFragment extends TabFragment {
                     .insertTag(mFieldNextRule, "goto")
                     .insertEndTag("goto");
 
-            PatchCollection.getCollection().setItemAt(getTag(), gotoPart);
+            PatchCollection.INSTANCE.getCollection().setItemAt(getTag(), gotoPart);
         });
 
         buttonClear.setOnClickListener(view -> {
             mFieldComment.setText("");
             mFieldNextRule.setText("");
-            PatchCollection.getCollection().removeItemAt(getTag());
+            PatchCollection.INSTANCE.getCollection().removeItemAt(getTag());
         });
     }
 }

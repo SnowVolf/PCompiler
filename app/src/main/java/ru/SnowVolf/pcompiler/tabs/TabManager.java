@@ -78,7 +78,7 @@ public class TabManager {
         if (state == null) return;
         activeTag = state.getString(BUNDLE_PREFIX.concat(BUNDLE_ACTIVE_TAG), "");
         activeIndex = state.getInt(BUNDLE_PREFIX.concat(BUNDLE_ACTIVE_INDEX), 0);
-        Log.d(Constants.TAG, String.format("LOAD STATE %s : %d", activeTag, activeIndex));
+        Log.d(Constants.INSTANCE.getTAG(), String.format("LOAD STATE %s : %d", activeTag, activeIndex));
     }
 
     public int getSize() {
@@ -105,9 +105,9 @@ public class TabManager {
                 existingFragments.add((TabFragment) fragmentManager.getFragments().get(i));
         }
         Collections.sort(existingFragments, (o1, o2) -> o1.getTag().compareTo(o2.getTag()));
-        Log.e(Constants.TAG, "UPDATE");
+        Log.e(Constants.INSTANCE.getTAG(), "UPDATE");
         for (TabFragment fragment : existingFragments) {
-            Log.e(Constants.TAG, String.format("RECOVERY FRAGMENT %s", fragment));
+            Log.e(Constants.INSTANCE.getTAG(), String.format("RECOVERY FRAGMENT %s", fragment));
         }
     }
 

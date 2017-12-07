@@ -18,7 +18,7 @@ public class ReactiveBuilder {
     // Generate a full patch string
     public static StringBuilder build(){
         StringBuilder str = new StringBuilder();
-        for (String s: PatchCollection.getCollection().values()) {
+        for (String s: PatchCollection.INSTANCE.getCollection().values()) {
             str.append(s);
         }
         return str;
@@ -147,11 +147,11 @@ public class ReactiveBuilder {
 
     // Escape most common sub sequences with its escaped equivalents
     private ReactiveBuilder escapeFind(String find){
-        if (Preferences.isEscapeFindAllowed()) {
+        if (Preferences.INSTANCE.isEscapeFindAllowed()) {
             find = find
                     .replace("\n", "\\n")
                     .replace("    .", "    \\.")
-                    .replaceAll(RegexPattern.REGISTERS, "([pv]\\\\d+)")
+                    .replaceAll(RegexPattern.INSTANCE.getREGISTERS(), "([pv]\\\\d+)")
                     .replace("{", "\\{")
                     .replace("}", "\\}")
                     .replace("$", "\\$")
@@ -160,7 +160,7 @@ public class ReactiveBuilder {
                     .replace(".prologue", "\\.prologue")
                     .replace(".line ", "\\.line ")
                     .replace(System.lineSeparator(), "\\n    ")
-                    .replaceAll(RegexPattern.EIGHT_SPACES, "    ");
+                    .replaceAll(RegexPattern.INSTANCE.getEIGHT_SPACES(), "    ");
         }
         mBuilder.append(find);
         return this;

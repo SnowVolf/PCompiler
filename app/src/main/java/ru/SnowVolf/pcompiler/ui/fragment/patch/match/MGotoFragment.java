@@ -54,7 +54,7 @@ public class MGotoFragment extends TabFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mCheckBox.setChecked(Preferences.isForceRegexpAllowed());
+        mCheckBox.setChecked(Preferences.INSTANCE.isForceRegexpAllowed());
         buttonSave.setOnClickListener(view -> {
             final ReactiveBuilder matchGotoPart;
 
@@ -68,7 +68,7 @@ public class MGotoFragment extends TabFragment {
                     .insertTag(mFieldNextRule, "goto")
                     .insertEndTag("match_goto");
 
-            PatchCollection.getCollection().setItemAt(getTag(), matchGotoPart);
+            PatchCollection.INSTANCE.getCollection().setItemAt(getTag(), matchGotoPart);
         });
         buttonClear.setOnClickListener(view -> {
             mFieldComment.setText("");
@@ -76,8 +76,8 @@ public class MGotoFragment extends TabFragment {
             mFieldTarget.setText("");
             mFieldFind.setText("");
             mFieldNextRule.setText("");
-            mCheckBox.setChecked(Preferences.isForceRegexpAllowed());
-            PatchCollection.getCollection().removeItemAt(getTag());
+            mCheckBox.setChecked(Preferences.INSTANCE.isForceRegexpAllowed());
+            PatchCollection.INSTANCE.getCollection().removeItemAt(getTag());
         });
         mButtonVariants.setOnClickListener(view -> {
             PopupMenu menu = new PopupMenu(getActivity(), mButtonVariants);

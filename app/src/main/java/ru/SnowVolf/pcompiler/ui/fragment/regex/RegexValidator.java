@@ -59,7 +59,7 @@ public class RegexValidator extends NativeContainerFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        if (Preferences.isMonospaceFontAllowed()) {
+        if (Preferences.INSTANCE.isMonospaceFontAllowed()) {
             final Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "font/mono.ttf");
             regexVal.setTypeface(typeface);
             sourceSoup.setTypeface(typeface);
@@ -67,11 +67,11 @@ public class RegexValidator extends NativeContainerFragment {
             getCounterResult.setTypeface(typeface);
             currentFlag.setTypeface(typeface);
         }
-        regexVal.setTextSize(Preferences.getFontSize());
-        sourceSoup.setTextSize(Preferences.getFontSize());
-        counter.setTextSize(Preferences.getFontSize());
-        getCounterResult.setTextSize(Preferences.getFontSize());
-        currentFlag.setTextSize(Preferences.getFontSize());
+        regexVal.setTextSize(Preferences.INSTANCE.getFontSize());
+        sourceSoup.setTextSize(Preferences.INSTANCE.getFontSize());
+        counter.setTextSize(Preferences.INSTANCE.getFontSize());
+        getCounterResult.setTextSize(Preferences.INSTANCE.getFontSize());
+        currentFlag.setTextSize(Preferences.INSTANCE.getFontSize());
     }
 
     @Override

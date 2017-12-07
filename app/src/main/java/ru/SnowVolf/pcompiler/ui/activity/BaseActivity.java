@@ -36,7 +36,7 @@ public class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void attachBaseContext(Context base) {
-        super.attachBaseContext(LocaleGirl.onAttach(base));
+        super.attachBaseContext(LocaleGirl.INSTANCE.onAttach(base));
     }
 
     @Override

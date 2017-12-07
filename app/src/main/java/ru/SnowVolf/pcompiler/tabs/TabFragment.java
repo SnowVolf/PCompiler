@@ -110,7 +110,7 @@ public class TabFragment extends NativeContainerFragment {
     //False - можно закрывать
     //True - еще нужно что-то сделать, не закрывать
     public boolean onBackPressed() {
-        Log.d(Constants.TAG, "onbackpressed tab");
+        Log.d(Constants.INSTANCE.getTAG(), "onbackpressed tab");
         return false;
     }
 
@@ -190,7 +190,7 @@ public class TabFragment extends NativeContainerFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Log.d(Constants.TAG, "onactivitycreated args = " + getArguments() + " : savedInstance = " + savedInstanceState + " : title = " + title);
+        Log.d(Constants.INSTANCE.getTAG(), "onactivitycreated args = " + getArguments() + " : savedInstance = " + savedInstanceState + " : title = " + title);
     }
 
     @Override
@@ -210,14 +210,14 @@ public class TabFragment extends NativeContainerFragment {
     @Override
     public void onResume() {
         super.onResume();
-        Log.d(Constants.TAG, this + " : onresume");
+        Log.d(Constants.INSTANCE.getTAG(), this + " : onresume");
     }
 
     @Override
     public void onPause() {
         super.onPause();
         hidePopupWindows();
-        Log.d(Constants.TAG, this + " : onpause");
+        Log.d(Constants.INSTANCE.getTAG(), this + " : onpause");
     }
 
     @Override

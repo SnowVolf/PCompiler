@@ -30,12 +30,12 @@ import ru.SnowVolf.pcompiler.settings.Preferences;
  */
 
 public class ShaderEditor extends TextInputEditText {
-    private static final Pattern PATTERN_NUMBERS = RegexPattern.NUMBERS;
-    private static final Pattern PATTERN_NUMBER_ATTRIBUTE = RegexPattern.OPERATOR;
-    private static final Pattern PATTERN_ATTRIBUTE = RegexPattern.ATTRIBUTE;
-    private static final Pattern PATTERN_KEYWORDS = RegexPattern.COMMON_SYMBOLS;
-    private static final Pattern PATTERN_SUB_ATTRIBUTE = RegexPattern.SUB_ATTRIBUTE;
-    private static final Pattern PATTERN_COMMENTS_STRING = RegexPattern.STRING;
+    private static final Pattern PATTERN_NUMBERS = RegexPattern.INSTANCE.getNUMBERS();
+    private static final Pattern PATTERN_NUMBER_ATTRIBUTE = RegexPattern.INSTANCE.getOPERATOR();
+    private static final Pattern PATTERN_ATTRIBUTE = RegexPattern.INSTANCE.getATTRIBUTE();
+    private static final Pattern PATTERN_KEYWORDS = RegexPattern.INSTANCE.getCOMMON_SYMBOLS();
+    private static final Pattern PATTERN_SUB_ATTRIBUTE = RegexPattern.INSTANCE.getSUB_ATTRIBUTE();
+    private static final Pattern PATTERN_COMMENTS_STRING = RegexPattern.INSTANCE.getSTRING();
     private static final Pattern PATTERN_TRAILING_WHITE_SPACE = Pattern.compile(
             "[\\t ]+$",
             Pattern.MULTILINE);
@@ -236,16 +236,16 @@ public class ShaderEditor extends TextInputEditText {
     }
 
     private void setSyntaxColors() {
-        colorNumber = Preferences.isArtaSyntaxAllowed() ? ContextCompat.getColor(getContext(),
+        colorNumber = Preferences.INSTANCE.isArtaSyntaxAllowed() ? ContextCompat.getColor(getContext(),
                 R.color.syntax_arta_num) : ContextCompat.getColor(getContext(), R.color.syntax_num);
-        colorKeyword = Preferences.isArtaSyntaxAllowed() ? ContextCompat.getColor(getContext(),
+        colorKeyword = Preferences.INSTANCE.isArtaSyntaxAllowed() ? ContextCompat.getColor(getContext(),
                 R.color.syntax_arta_keyword) : ContextCompat.getColor(getContext(), R.color.syntax_keyword);
         colorBuiltin = ContextCompat.getColor(getContext(), R.color.syntax_sub_element);
-        colorComment = Preferences.isArtaSyntaxAllowed() ? ContextCompat.getColor(getContext(),
+        colorComment = Preferences.INSTANCE.isArtaSyntaxAllowed() ? ContextCompat.getColor(getContext(),
                 R.color.syntax_arta_string) : ContextCompat.getColor(getContext(), R.color.syntax_string);
-        colorAttr = Preferences.isArtaSyntaxAllowed() ? ContextCompat.getColor(getContext(),
+        colorAttr = Preferences.INSTANCE.isArtaSyntaxAllowed() ? ContextCompat.getColor(getContext(),
                 R.color.syntax_arta_element) : ContextCompat.getColor(getContext(), R.color.syntax_element);
-        colorOperator = Preferences.isArtaSyntaxAllowed() ? ContextCompat.getColor(getContext(),
+        colorOperator = Preferences.INSTANCE.isArtaSyntaxAllowed() ? ContextCompat.getColor(getContext(),
                 R.color.syntax_arta_num_attribute) : ContextCompat.getColor(getContext(), R.color.syntax_num_attribute);
 
     }

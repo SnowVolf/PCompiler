@@ -34,10 +34,10 @@ public class CodeText extends ShaderText {
 
         paint.setStyle(Paint.Style.FILL);
         paint.setAntiAlias(true);
-        if (Preferences.isMonospaceFontAllowed()){
+        if (Preferences.INSTANCE.isMonospaceFontAllowed()){
             setTypeface(ResourcesCompat.getFont(getContext(), R.font.mono));
         }
-        setTextSize(Preferences.getFontSize());
+        setTextSize(Preferences.INSTANCE.getFontSize());
         paint.setColor(Color.parseColor(ThemeWrapper.isLightTheme() ? "#000000" : "#fafafa"));
         paint.setTextSize(getPixels(14));
         getViewTreeObserver().addOnGlobalLayoutListener(() -> layout = getLayout());

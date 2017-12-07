@@ -16,7 +16,7 @@ import ru.SnowVolf.pcompiler.util.Constants;
 
 public class ViewUtils {
     public static void getViewState(View v){
-        Log.i(Constants.TAG, "[" + getNormalDate(System.currentTimeMillis()) + "] " + v.getClass().getSimpleName() + " with id " + v.getId() + ", " + "is " + status(v));
+        Log.i(Constants.INSTANCE.getTAG(), "[" + getNormalDate(System.currentTimeMillis()) + "] " + v.getClass().getSimpleName() + " with id " + v.getId() + ", " + "is " + status(v));
     }
 
     private static String status(View v){
