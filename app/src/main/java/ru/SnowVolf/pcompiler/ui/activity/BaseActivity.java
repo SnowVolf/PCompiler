@@ -42,7 +42,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         LocalBroadcastManager.getInstance(this).registerReceiver(mThemeReceiver, new IntentFilter("org.openintents.action.REFRESH_THEME"));
-        ThemeWrapper.applyTheme(this);
+        ThemeWrapper.INSTANCE.applyTheme(this);
         super.onCreate(savedInstanceState);
 
         getWindow().setEnterTransition(new Explode());

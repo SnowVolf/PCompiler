@@ -66,7 +66,7 @@ public class UpdateDialogFragment extends BottomSheetDialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        BottomSheetDialog dialog = new BottomSheetDialog(getActivity(), ThemeWrapper.getTheme());
+        BottomSheetDialog dialog = new BottomSheetDialog(getActivity(), ThemeWrapper.INSTANCE.getTheme());
         dialog.setContentView(rootView);
         rootView.findViewById(R.id.update_button).setOnClickListener(null);
         return dialog;

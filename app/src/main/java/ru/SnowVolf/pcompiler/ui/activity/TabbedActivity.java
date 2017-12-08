@@ -283,7 +283,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
     }
 
     private void showFullViewDialog(){
-        final BottomSheetDialog dialog = new BottomSheetDialog(this, ThemeWrapper.getTheme());
+        final BottomSheetDialog dialog = new BottomSheetDialog(this, ThemeWrapper.INSTANCE.getTheme());
         @SuppressLint("InflateParams") final View view = LayoutInflater.from(this).inflate(R.layout.dialog_full_view, null);
         final Toolbar captionBar = view.findViewById(R.id.caption_bar);
         final CodeText content = view.findViewById(R.id.content);

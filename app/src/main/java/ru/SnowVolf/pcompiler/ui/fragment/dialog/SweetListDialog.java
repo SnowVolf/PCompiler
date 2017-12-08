@@ -26,7 +26,7 @@ public class SweetListDialog extends BottomSheetDialog {
     private ArrayAdapter<String> mAdapter;
 
     public SweetListDialog(@NonNull Context context) {
-        super(context, ThemeWrapper.getTheme());
+        super(context, ThemeWrapper.INSTANCE.getTheme());
         mContext = context;
         initContentView();
     }

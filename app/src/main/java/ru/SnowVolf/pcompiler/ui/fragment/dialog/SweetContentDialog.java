@@ -25,7 +25,7 @@ public class SweetContentDialog extends BottomSheetDialog {
     private Button mPositive, mNegative;
 
     public SweetContentDialog(@NonNull Context context) {
-        super(context, ThemeWrapper.getTheme());
+        super(context, ThemeWrapper.INSTANCE.getTheme());
         mContext = context;
         initContentView();
     }

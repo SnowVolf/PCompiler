@@ -5,6 +5,10 @@ import android.text.Spanned
 
 /**
  * Created by Snow Volf on 28.09.2017, 20:37
+ *
+ * Class that brings compat with
+ * {@link android.text.Html.fromHtml}
+ * for an older android versions
  */
 
 object Html {

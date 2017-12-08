@@ -48,13 +48,5 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
         fragmentList.add(fragment);
         fragmentTitleList.add(title);
     }
-
-    public ArrayList<Fragment> getFragmentList(){
-        return fragmentList;
-    }
-
-    public ArrayList<String> getFragmentTitleList(){
-        return fragmentTitleList;
-    }
 }
 

@@ -32,9 +32,7 @@ class PatchArray internal constructor() : LinkedHashMap<String, String>() {
     fun removeItemAt(tabTag: String) {
         try {
             remove(tabTag)
-        } catch (ignored: PatchException) {
-        }
-
+        } catch (ignored: PatchException) {}
     }
 
     /**

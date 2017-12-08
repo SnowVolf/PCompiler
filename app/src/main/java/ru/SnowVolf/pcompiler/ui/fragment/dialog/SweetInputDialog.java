@@ -23,7 +23,7 @@ public class SweetInputDialog extends BottomSheetDialog {
     private Button mPositive;
 
     public SweetInputDialog(@NonNull Context context) {
-        super(context, ThemeWrapper.getTheme());
+        super(context, ThemeWrapper.INSTANCE.getTheme());
         mContext = context;
         initContentView();
     }

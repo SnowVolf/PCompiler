@@ -38,7 +38,7 @@ public class CodeText extends ShaderText {
             setTypeface(ResourcesCompat.getFont(getContext(), R.font.mono));
         }
         setTextSize(Preferences.INSTANCE.getFontSize());
-        paint.setColor(Color.parseColor(ThemeWrapper.isLightTheme() ? "#000000" : "#fafafa"));
+        paint.setColor(Color.parseColor(ThemeWrapper.INSTANCE.isLightTheme() ? "#000000" : "#fafafa"));
         paint.setTextSize(getPixels(14));
         getViewTreeObserver().addOnGlobalLayoutListener(() -> layout = getLayout());
     }
