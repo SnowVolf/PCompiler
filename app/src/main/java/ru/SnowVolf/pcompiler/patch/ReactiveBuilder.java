@@ -18,7 +18,7 @@ public class ReactiveBuilder {
     // Generate a full patch string
     public static StringBuilder build(){
         StringBuilder str = new StringBuilder();
-        for (String s: PatchCollection.INSTANCE.getCollection().values()) {
+        for (String s: PatchCollection.getCollection().values()) {
             str.append(s);
         }
         return str;

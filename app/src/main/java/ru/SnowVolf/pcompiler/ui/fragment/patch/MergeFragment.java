@@ -56,13 +56,13 @@ public class MergeFragment extends TabFragment {
                     .insertTag(mFieldSource, "source")
                     .insertEndTag("merge");
 
-            PatchCollection.INSTANCE.getCollection().setItemAt(getTag(), mergePart);
+            PatchCollection.getCollection().setItemAt(getTag(), mergePart);
         });
         buttonClear.setOnClickListener(view -> {
             mFieldComment.setText("");
             mFieldName.setText("");
             mFieldSource.setText("");
-            PatchCollection.INSTANCE.getCollection().removeItemAt(getTag());
+            PatchCollection.getCollection().removeItemAt(getTag());
         });
     }
 }

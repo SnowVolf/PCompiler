@@ -25,12 +25,13 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.ImageButton
 import android.widget.Toast
+import ru.SnowVolf.girl.annotation.Experimental
 
 import java.io.File
 
 class ScriptExecutorFragment : TabFragment() {
 
-    @BindView(R.id.field_comment) internal var mFieldComment: GirlEditText? = null
+    @BindView(R.id.field_comment) private var mFieldComment: GirlEditText? = null
     @BindView(R.id.field_script) private var mFieldScript: GirlEditText? = null
     @BindView(R.id.checkbox_smali) private var mCheckbox: CheckBox? = null
     @BindView(R.id.field_main_class) private var mFieldMainClass: GirlEditText? = null
@@ -39,7 +40,7 @@ class ScriptExecutorFragment : TabFragment() {
     @BindView(R.id.button_save) internal var buttonSave: Button? = null
     @BindView(R.id.button_clear) internal var buttonClear: Button? = null
     @BindView(R.id.add) private var mButtonAdd: ImageButton? = null
-    @BindView(R.id.drawer_header_nick) internal var mFileCaption: AppCompatTextView? = null
+    @BindView(R.id.drawer_header_nick) private var mFileCaption: AppCompatTextView? = null
     private val REQUEST_ADD = 28
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
@@ -80,9 +81,9 @@ class ScriptExecutorFragment : TabFragment() {
             mFieldMainClass!!.setText("")
             mFieldEntrance!!.setText("")
             mFieldParam!!.setText("")
-            TabbedActivity.extra.clear()
+            TabbedActivity.extraDex.clear()
             PatchCollection.getCollection().removeItemAt(tag)
-            App.ctx().preferences.edit().putString(Constants.KEY_EXTRA_FILES, "").apply()
+            App.ctx().preferences.edit().putString(Constants.KEY_EXTRA_DEXES, "").apply()
         }
         mButtonAdd!!.setOnClickListener { view -> add() }
     }
@@ -92,7 +93,7 @@ class ScriptExecutorFragment : TabFragment() {
         if (resultCode == Activity.RESULT_OK) {
             when (requestCode) {
                 REQUEST_ADD -> {
-                    val mLastSelectedFile = App.ctx().preferences.getString(Constants.KEY_EXTRA_FILES, "")
+                    val mLastSelectedFile = App.ctx().preferences.getString(Constants.KEY_EXTRA_DEXES, "")
                     if (mLastSelectedFile != data!!.data!!.path) {
                         App.ctx().preferences.edit().putString(Constants.KEY_EXTRA_DEXES, data.data!!.path).apply()
                         TabbedActivity.extraDex.add(File(App.ctx().preferences.getString(Constants.KEY_EXTRA_DEXES, "")!!))
@@ -108,5 +109,14 @@ class ScriptExecutorFragment : TabFragment() {
         val intent = Intent(Intent.ACTION_GET_CONTENT)
         intent.type = "file/dex"
         startActivityForResult(intent, REQUEST_ADD)
+    }
+    
+    /**
+     * Experimental feature
+     */
+    @Experimental
+    private fun generateScript() {
+        val runtime = Runtime.getRuntime()
+        runtime.exec("javac -source 1.7 -target 1.7 " + TabbedActivity.extraDex[TabbedActivity.extraDex.size])
     }
 }

@@ -11,12 +11,20 @@ android {
     compileSdkVersion 26
     buildToolsVersion "26.0.2"
     defaultConfig {
-        applicationId "ru.SnowVolf.pimplementationr"
+        applicationId "ru.SnowVolf.pcompiler"
         minSdkVersion 21
         targetSdkVersion 26
         versionCode 22
         versionName "2.1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    signingConfigs {
+        release {
+            storeFile file('app/SVolfDev.key')
+            storePassword KEYSTORE_PASSWORD
+            keyAlias KEY_ALIAS
+            keyPassword KEY_PASSWORD
+        }
     }
     buildTypes {
         release {

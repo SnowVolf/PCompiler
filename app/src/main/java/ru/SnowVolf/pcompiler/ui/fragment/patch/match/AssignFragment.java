@@ -68,7 +68,7 @@ public class AssignFragment extends TabFragment {
                     .insertTag(mFieldAssign, "assign")
                     .insertEndTag("match_assign");
 
-            PatchCollection.INSTANCE.getCollection().setItemAt(getTag(), matchAssignPart);
+            PatchCollection.getCollection().setItemAt(getTag(), matchAssignPart);
         });
         buttonClear.setOnClickListener(view -> {
             mFieldComment.setText("");
@@ -77,7 +77,7 @@ public class AssignFragment extends TabFragment {
             mFieldFind.setText("");
             mFieldAssign.setText("");
             mCheckBox.setChecked(Preferences.INSTANCE.isForceRegexpAllowed());
-            PatchCollection.INSTANCE.getCollection().removeItemAt(getTag());
+            PatchCollection.getCollection().removeItemAt(getTag());
         });
         mButtonVariants.setOnClickListener(view -> {
             PopupMenu menu = new PopupMenu(getActivity(), view);

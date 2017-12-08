@@ -302,8 +302,9 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
                 }
                 case R.id.action_reset:{
                     content.setText("");
-                    PatchCollection.INSTANCE.getCollection().clear();
+                    PatchCollection.getCollection().clear();
                     extra.clear();
+                    extraDex.clear();
                     dialog.dismiss();
                     Toast.makeText(this, R.string.message_patch_cleared, Toast.LENGTH_SHORT).show();
                     return true;
@@ -352,6 +353,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
             if (!App.ctx().getPreferences().getString(Constants.INSTANCE.getKEY_EXTRA_FILES(), "").isEmpty()) {
                 try {
                     zipFile.addFiles(extra, parameters);
+                    zipFile.addFiles(extraDex, parameters);
                 } catch (Exception e){
                     ACRA.getErrorReporter().handleException(e);
                     Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();

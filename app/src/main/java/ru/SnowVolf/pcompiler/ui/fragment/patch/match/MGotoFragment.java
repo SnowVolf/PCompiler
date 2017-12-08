@@ -68,7 +68,7 @@ public class MGotoFragment extends TabFragment {
                     .insertTag(mFieldNextRule, "goto")
                     .insertEndTag("match_goto");
 
-            PatchCollection.INSTANCE.getCollection().setItemAt(getTag(), matchGotoPart);
+            PatchCollection.getCollection().setItemAt(getTag(), matchGotoPart);
         });
         buttonClear.setOnClickListener(view -> {
             mFieldComment.setText("");
@@ -77,7 +77,7 @@ public class MGotoFragment extends TabFragment {
             mFieldFind.setText("");
             mFieldNextRule.setText("");
             mCheckBox.setChecked(Preferences.INSTANCE.isForceRegexpAllowed());
-            PatchCollection.INSTANCE.getCollection().removeItemAt(getTag());
+            PatchCollection.getCollection().removeItemAt(getTag());
         });
         mButtonVariants.setOnClickListener(view -> {
             PopupMenu menu = new PopupMenu(getActivity(), mButtonVariants);

@@ -271,7 +271,7 @@ public class Drawers {
             closeTabs();
         });
         tabAdapter.setCloseClickListener((tabFragment, position) -> {
-            PatchCollection.INSTANCE.getCollection().remove(tabFragment.getTag());
+            PatchCollection.getCollection().remove(tabFragment.getTag());
             TabManager.getInstance().remove(tabFragment);
             if (TabManager.getInstance().getSize() < 1) {
                 activity.finish();

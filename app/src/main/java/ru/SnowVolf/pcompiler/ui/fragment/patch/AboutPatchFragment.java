@@ -65,13 +65,13 @@ public class AboutPatchFragment extends TabFragment {
                             .insertAboutTag(mFieldAuthor, "author")
                             .insertAboutTag(mFieldPackage, "package");
 
-            PatchCollection.INSTANCE.getCollection().setItemAt(getTag(), aboutPart);
+            PatchCollection.getCollection().setItemAt(getTag(), aboutPart);
         });
         buttonClear.setOnClickListener(view -> {
             mFieldEnige.setText("");
             mFieldAuthor.setText("");
             mFieldPackage.setText("");
-            PatchCollection.INSTANCE.getCollection().removeItemAt(getTag());
+            PatchCollection.getCollection().removeItemAt(getTag());
         });
     }
 }
