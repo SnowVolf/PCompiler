@@ -1,6 +1,7 @@
 package ru.SnowVolf.pcompiler.patch
 
 
+import android.util.Log
 import android.widget.Toast
 
 import java.util.LinkedHashMap
@@ -8,6 +9,7 @@ import java.util.Locale
 
 import ru.SnowVolf.pcompiler.App
 import ru.SnowVolf.pcompiler.R
+import ru.SnowVolf.pcompiler.util.Constants
 
 /**
  * Created by Snow Volf on 24.10.2017, 19:18
@@ -32,6 +34,7 @@ class PatchArray internal constructor() : LinkedHashMap<String, String>() {
     fun removeItemAt(tabTag: String) {
         try {
             remove(tabTag)
+            Log.w(Constants.TAG, "Remove item with tag $tabTag")
         } catch (ignored: PatchException) {}
     }
 
@@ -53,6 +56,7 @@ class PatchArray internal constructor() : LinkedHashMap<String, String>() {
     fun setItemAt(tabTag: String, builder: ReactiveBuilder) {
         try {
             put(tabTag, builder.toString())
+            Log.w(Constants.TAG, "Put item with content\n $builder")
             mBuildListener.onSuccess()
         } catch (e: Exception) {
             mBuildListener.onError(-1)
