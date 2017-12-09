@@ -404,13 +404,13 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
     @Override
     public void onAddTab(TabFragment fragment) {
         Log.d(Constants.INSTANCE.getTAG(), "onAdd : " + fragment);
-        TabFragment.toolbar.setTabIndicatorValue(TabManager.getInstance().getSize());
+        TabFragment.toolbar.setTabIndicatorValue(TabManager.getInstance().getSize() == 0 ? 2 : TabManager.getInstance().getSize());
     }
 
     @Override
     public void onRemoveTab(TabFragment fragment) {
         Log.d(Constants.INSTANCE.getTAG(), "onRemove : " + fragment);
-        TabFragment.toolbar.setTabIndicatorValue(TabManager.getInstance().getSize());
+        TabFragment.toolbar.setTabIndicatorValue(TabManager.getInstance().getSize() == 0 ? 2 : TabManager.getInstance().getSize());
     }
 
     @Override

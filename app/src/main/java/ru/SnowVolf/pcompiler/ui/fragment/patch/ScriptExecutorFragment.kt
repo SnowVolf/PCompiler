@@ -117,6 +117,6 @@ class ScriptExecutorFragment : TabFragment() {
     @Experimental
     private fun generateScript() {
         val runtime = Runtime.getRuntime()
-        runtime.exec("javac -source 1.7 -target 1.7 " + TabbedActivity.extraDex[TabbedActivity.extraDex.size])
+        runtime.exec("javac -source 1.7 -target 1.7 " + TabbedActivity.extraDex[0])
     }
 }
