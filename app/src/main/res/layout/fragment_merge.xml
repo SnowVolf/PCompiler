@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:layout_marginStart="8dp"
     android:layout_marginEnd="8dp">
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_comment">
@@ -15,8 +15,8 @@
             android:id="@+id/field_comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-    </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_name">
@@ -24,8 +24,8 @@
             android:id="@+id/field_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-    </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_source">
@@ -33,7 +33,7 @@
             android:id="@+id/field_source"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
     <include layout="@layout/button_bar"/>
 </LinearLayout>
 </androidx.core.widget.NestedScrollView>

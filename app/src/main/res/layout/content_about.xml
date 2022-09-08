@@ -21,7 +21,7 @@
             android:orientation="vertical"
             android:layout_marginTop="10dp">
             <!--ABOUT APP REDESIGN-->
-            <androidx.appcompat.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/about_app_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -93,9 +93,9 @@
                             android:text="@string/date_sub"/>
                     </LinearLayout>
                 </RelativeLayout>
-            </androidx.appcompat.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-            <androidx.appcompat.widget.CardView
+            <androidx.cardview.widget.CardView
                 style="?attr/cardStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -103,9 +103,9 @@
                 app:cardCornerRadius="2dp"
                 app:cardElevation="2dp">
                 <include layout="@layout/about_bar"/>
-            </androidx.appcompat.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-            <androidx.appcompat.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/about_artem_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -200,9 +200,9 @@
                             style="@style/Base.Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
                     </LinearLayout>
                 </LinearLayout>
-            </androidx.appcompat.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-            <androidx.appcompat.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/about_htc_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -281,9 +281,9 @@
                             style="@style/Base.Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
                     </LinearLayout>
                 </LinearLayout>
-            </androidx.appcompat.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-            <androidx.appcompat.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/about_radiationx_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -368,7 +368,7 @@
                             style="@style/Base.Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
                     </LinearLayout>
                 </LinearLayout>
-            </androidx.appcompat.widget.CardView>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
     </RelativeLayout>
 

@@ -42,7 +42,7 @@
                 android:clickable="true"
                 android:src="@drawable/ic_add" />
         </RelativeLayout>
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_comment">
@@ -50,12 +50,12 @@
                 android:id="@+id/field_comment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_script"
@@ -64,7 +64,7 @@
                     android:id="@+id/field_script"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
             <LinearLayout
                 android:layout_marginStart="4dp"
                 android:orientation="vertical"
@@ -86,7 +86,7 @@
                     android:textColor="?colorAccent"/>
             </LinearLayout>
         </RelativeLayout>
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_main_class">
@@ -94,8 +94,8 @@
                     android:id="@+id/field_main_class"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-            </android.support.design.widget.TextInputLayout>
-        <android.support.design.widget.TextInputLayout
+            </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_entrance">
@@ -103,8 +103,8 @@
                 android:id="@+id/field_entrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-        </android.support.design.widget.TextInputLayout>
-        <android.support.design.widget.TextInputLayout
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_param">
@@ -112,7 +112,7 @@
                 android:id="@+id/field_param"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
         <include layout="@layout/button_bar"/>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

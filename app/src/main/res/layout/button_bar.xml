@@ -8,8 +8,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/button_clear"
         android:text="@string/button_clear"
-        android:textColor="?colorAccent"
-        android:background="@drawable/corners_outline"/>
+        android:textColor="?colorAccent" />
     <Button xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

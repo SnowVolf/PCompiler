@@ -1,4 +1,4 @@
-<androidx.core.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
@@ -21,9 +21,9 @@
         app:title="@string/title_fullview" />
     </RelativeLayout>
 
-    <android.support.design.widget.NavigationView
+    <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/menu_drawer"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true">
@@ -38,24 +38,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginBottom="8dp"/>
-            <androidx.appcompat.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/menu_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
         </LinearLayout>
-    </android.support.design.widget.NavigationView>
+    </androidx.drawerlayout.widget.DrawerLayout>
 
-    <android.support.design.widget.NavigationView
+    <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/tab_drawer"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="end"
         android:fitsSystemWindows="true">
 
-        <androidx.appcompat.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/tab_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
-    </android.support.design.widget.NavigationView>
+    </androidx.drawerlayout.widget.DrawerLayout>
 
-</androidx.core.widget.DrawerLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

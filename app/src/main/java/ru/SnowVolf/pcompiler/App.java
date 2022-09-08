@@ -21,8 +21,6 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 
-import com.yandex.metrica.YandexMetrica;
-
 import org.acra.ACRA;
 import org.acra.ReportField;
 import org.acra.ReportingInteractionMode;
@@ -103,10 +101,6 @@ public class App extends Application {
             ACRA.init(this);
         }
         PreferenceManager.setDefaultValues(this, R.xml.settings, false);
-        // Инициализация AppMetrica SDK
-        YandexMetrica.activate(getApplicationContext(), "16a6ee34-5d01-47bf-80db-f891ec82be42");
-        // Отслеживание активности пользователей
-        YandexMetrica.enableActivityAutoTracking(this);
     }
 
     @Override

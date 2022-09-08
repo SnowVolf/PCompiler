@@ -5,7 +5,7 @@
     android:id="@+id/editor_background"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/bottom_tools">
@@ -18,7 +18,7 @@
         android:background="@null"
         android:padding="8dp"
         android:imeOptions="flagNoFullscreen|flagNoExtractUi"/>
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
     <LinearLayout
         android:id="@+id/bottom_tools"
         android:layout_width="match_parent"
@@ -140,7 +140,7 @@
     </HorizontalScrollView>
         <ImageButton
             android:id="@+id/button_menu"
-            android:layout_weight="1"
+            android:layout_weight="0.5"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_more_vert"

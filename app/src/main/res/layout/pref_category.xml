@@ -15,7 +15,7 @@
         android:layout_height="4dp"
         android:background="@drawable/pref_shadow_bottom"/>
     <TextView
-        android:id="@+android:id/title"
+        android:id="@android:id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?colorPrimary"

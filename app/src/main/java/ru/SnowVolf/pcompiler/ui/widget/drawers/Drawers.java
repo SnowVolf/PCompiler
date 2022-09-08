@@ -1,5 +1,6 @@
 package ru.SnowVolf.pcompiler.ui.widget.drawers;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -43,19 +44,20 @@ public class Drawers {
     private TabbedActivity activity;
     private DrawerLayout drawerLayout;
 
-    private NavigationView menuDrawer;
+    private DrawerLayout menuDrawer;
     private RecyclerView menuListView;
     private MenuAdapter menuAdapter;
     private MenuItems allMenuItems = new MenuItems();
     private ArrayList<MenuItems.MenuItem> menuItems = new ArrayList<>();
     private MenuItems.MenuItem lastActive;
 
-    private NavigationView tabDrawer;
+    private DrawerLayout tabDrawer;
     private RecyclerView tabListView;
     private TabAdapter tabAdapter;
 
     private DrawerLayout.DrawerListener l;
 
+    @SuppressLint("RestrictedApi")
     public Drawers(TabbedActivity activity, DrawerLayout drawerLayout) {
         this.activity = activity;
         this.drawerLayout = drawerLayout;
@@ -131,11 +133,11 @@ public class Drawers {
         });
     }
 
-    public NavigationView getMenuDrawer() {
+    public DrawerLayout getMenuDrawer() {
         return menuDrawer;
     }
 
-    public NavigationView getTabDrawer() {
+    public DrawerLayout getTabDrawer() {
         return tabDrawer;
     }
 
