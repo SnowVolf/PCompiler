@@ -1,15 +1,17 @@
 package ru.SnowVolf.pcompiler.ui.fragment.dialog;
 
 import android.content.Context;
-import android.support.annotation.ArrayRes;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomSheetDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import androidx.annotation.ArrayRes;
+import androidx.annotation.NonNull;
+
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.util.ThemeWrapper;

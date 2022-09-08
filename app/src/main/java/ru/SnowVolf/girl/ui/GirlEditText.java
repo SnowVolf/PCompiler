@@ -1,10 +1,10 @@
 package ru.SnowVolf.girl.ui;
 
 import android.content.Context;
-import android.graphics.Typeface;
-import android.support.design.widget.TextInputEditText;
-import android.support.v4.content.res.ResourcesCompat;
+import androidx.core.content.res.ResourcesCompat;
 import android.util.AttributeSet;
+
+import com.google.android.material.textfield.TextInputEditText;
 
 import ru.SnowVolf.pcompiler.R;
 import ru.SnowVolf.pcompiler.settings.Preferences;

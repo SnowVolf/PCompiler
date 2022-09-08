@@ -33,7 +33,7 @@
             tools:ignore="RelativeOverlap"
             style="@style/TextAppearance.AppCompat.Body1"/>
     </RelativeLayout>
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/c"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -86,6 +86,6 @@
                 android:paddingRight="8dp"
                 style="@style/TextAppearance.AppCompat.Body1"/>
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>

@@ -1,6 +1,6 @@
 package ru.SnowVolf.pcompiler.ui.widget.drawers;
 
-import android.support.annotation.DrawableRes;
+import androidx.annotation.DrawableRes;
 
 import java.util.ArrayList;
 

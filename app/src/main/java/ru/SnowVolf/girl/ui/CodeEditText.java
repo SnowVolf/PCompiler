@@ -5,8 +5,9 @@ import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Typeface;
-import android.support.annotation.NonNull;
-import android.support.v4.content.res.ResourcesCompat;
+
+import androidx.annotation.NonNull;
+import androidx.core.content.res.ResourcesCompat;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.Selection;

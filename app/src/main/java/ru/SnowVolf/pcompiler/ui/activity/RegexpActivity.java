@@ -2,9 +2,10 @@ package ru.SnowVolf.pcompiler.ui.activity;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 
 import ru.SnowVolf.pcompiler.App;
 import ru.SnowVolf.pcompiler.R;
@@ -27,7 +28,7 @@ public class RegexpActivity extends BaseActivity {
         toolbar = findViewById(R.id.toolbar);
         toolbar.setPadding(0, App.ctx().getStatusBarHeight(), 0, 0);
         if (Build.VERSION.SDK_INT >= 23) {
-            toolbar.setTitleTextColor(App.getColorFromAttr(this, R.attr.colorAccent));
+            toolbar.setTitleTextColor(App.getColorFromAttr(this, R.attr.icon_color));
         }
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back);

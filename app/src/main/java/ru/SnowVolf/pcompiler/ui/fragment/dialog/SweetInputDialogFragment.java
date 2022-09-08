@@ -2,10 +2,12 @@ package ru.SnowVolf.pcompiler.ui.fragment.dialog;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.BottomSheetDialogFragment;
-import android.support.v7.preference.Preference;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.preference.Preference;
+
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import ru.SnowVolf.pcompiler.App;
 

@@ -2,8 +2,9 @@ package ru.SnowVolf.girl.ui;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.annotation.StringRes;
-import android.support.v7.widget.AppCompatButton;
+
+import androidx.annotation.StringRes;
+import androidx.appcompat.widget.AppCompatButton;
 import android.util.AttributeSet;
 import android.widget.Toast;
 

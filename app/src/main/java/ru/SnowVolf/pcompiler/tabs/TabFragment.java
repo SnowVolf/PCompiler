@@ -2,14 +2,13 @@ package ru.SnowVolf.pcompiler.tabs;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.CallSuper;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.Nullable;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.Toolbar;
+
+import androidx.annotation.CallSuper;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -19,7 +18,8 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.util.Locale;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 import ru.SnowVolf.girl.ui.GirlToolbar;
 import ru.SnowVolf.pcompiler.App;
@@ -169,8 +169,7 @@ public class TabFragment extends NativeContainerFragment {
         ActionBarDrawerToggle toggle =
                 new ActionBarDrawerToggle(getActivity(), getTabActivity().getDrawer(), toolbar,
                         R.string.app_name, R.string.app_name);
-        toggle.getDrawerArrowDrawable().setColor(Build.VERSION.SDK_INT >= 23 ? App.getColorFromAttr(getContext(), R.attr.colorAccent) :
-                App.getColorFromAttr(getContext(), R.attr.icon_color));
+        toggle.getDrawerArrowDrawable().setColor(App.getColorFromAttr(getContext(), R.attr.icon_color));
         getTabActivity().getDrawer().addDrawerListener(toggle);
         toggle.syncState();
     }

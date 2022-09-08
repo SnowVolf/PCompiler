@@ -9,12 +9,13 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.content.res.ResourcesCompat;
-import android.support.v4.widget.NestedScrollView;
-import android.support.v7.content.res.AppCompatResources;
-import android.support.v7.widget.Toolbar;
+
+import androidx.annotation.NonNull;
+import androidx.core.widget.NestedScrollView;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
+
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -61,7 +62,7 @@ public class AboutActivity extends BaseActivity {
         new CreateBitMap().execute();
         Toolbar toolbar = findViewById(R.id.toolbar);
         if (Build.VERSION.SDK_INT >= 23) {
-            toolbar.setTitleTextColor(App.getColorFromAttr(this, R.attr.colorAccent));
+            toolbar.setTitleTextColor(App.getColorFromAttr(this, R.attr.icon_color));
         }
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
         toolbar.setOverflowIcon(AppCompatResources.getDrawable(this, R.drawable.ic_more_vert));
@@ -75,10 +76,10 @@ public class AboutActivity extends BaseActivity {
 
         if (StringWrapper.b("8zuv+ap22YnX6ohcFCYktA")) {
             appStatus.setImageResource(R.drawable.ic_verified);
-            appStatusBackground.setBackgroundColor(App.getColorFromAttr(this, R.attr.colorAccent));
+            appStatusBackground.setBackgroundColor(App.getColorFromAttr(this, R.attr.icon_color));
         } else {
             appStatus.setImageResource(R.drawable.ic_warning);
-            appStatusBackground.setBackgroundColor(App.getColorFromAttr(this, R.attr.colorAccent));
+            appStatusBackground.setBackgroundColor(App.getColorFromAttr(this, R.attr.icon_color));
         }
 
         version.setText(String.format(Locale.ENGLISH, getString(R.string.version_sub), BuildConfig.VERSION_NAME));

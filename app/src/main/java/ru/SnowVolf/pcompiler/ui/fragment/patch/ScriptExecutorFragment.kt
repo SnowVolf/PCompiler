@@ -3,7 +3,6 @@ package ru.SnowVolf.pcompiler.ui.fragment.patch
 
 import android.app.Activity
 import android.content.Intent
-import android.support.v7.widget.AppCompatTextView
 import android.view.View
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -25,6 +24,7 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatTextView
 import ru.SnowVolf.girl.annotation.Experimental
 
 import java.io.File
@@ -43,16 +43,16 @@ class ScriptExecutorFragment : TabFragment() {
     @BindView(R.id.drawer_header_nick) private var mFileCaption: AppCompatTextView? = null
     private val REQUEST_ADD = 28
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         baseInflateFragment(inflater, R.layout.fragment_script_executor)
         return rootView
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        ButterKnife.bind(this, view!!)
+        ButterKnife.bind(this, view)
         tabTitle = getString(R.string.tab_executor)
         title = getString(R.string.tab_executor)
         subtitle = getString(R.string.subtitle_tab_executor)

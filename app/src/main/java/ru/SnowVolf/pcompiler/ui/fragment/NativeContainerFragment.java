@@ -1,8 +1,9 @@
 package ru.SnowVolf.pcompiler.ui.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
+
+import androidx.annotation.Nullable;
 
 import com.trello.rxlifecycle2.components.support.RxFragment;
 

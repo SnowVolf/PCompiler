@@ -1,8 +1,9 @@
 package ru.SnowVolf.pcompiler.ui.widget.drawers.adapters;
 
 import android.graphics.Color;
-import android.support.v7.content.res.AppCompatResources;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

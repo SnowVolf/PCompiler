@@ -2,9 +2,9 @@ package ru.SnowVolf.girl.preference
 
 import android.content.Context
 import android.os.Build
-import android.support.annotation.RequiresApi
-import android.support.v7.preference.SwitchPreferenceCompat
 import android.util.AttributeSet
+import androidx.annotation.RequiresApi
+import androidx.preference.SwitchPreferenceCompat
 
 /*
 * Исправляет самопроизвольные переключения настроек в киткате.

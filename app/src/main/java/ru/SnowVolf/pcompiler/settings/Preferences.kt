@@ -25,17 +25,17 @@ object Preferences {
     val isTwiceBackAllowed: Boolean
         get() = App.ctx().preferences.getBoolean("interaction.back", true)
 
-    val patchEngineVer: String
+    val patchEngineVer: String?
         get() = App.ctx().preferences.getString("preset.engine_ver", "2")
 
-    val patchOutput: String
+    val patchOutput: String?
         get() = App.ctx().preferences.getString("preset.output",
                 Environment.getExternalStorageDirectory().path + "/ApkEditor/PCompiler/")
 
-    val patchAuthor: String
+    val patchAuthor: String?
         get() = App.ctx().preferences.getString("preset.author", "Snow Volf")
 
-    val archiveComment: String
+    val archiveComment: String?
         get() = App.ctx().preferences.getString("preset.archive_comment", "Created by PCompiler")
 
     val isEscapeFindAllowed: Boolean
@@ -47,7 +47,7 @@ object Preferences {
     val isArtaSyntaxAllowed: Boolean
         get() = App.ctx().preferences.getBoolean("ui.arta", false)
 
-    val mimeType: String
+    val mimeType: String?
         get() = App.ctx().preferences.getString("preset.mime_type", "file/*")
 
     val isMonospaceFontAllowed: Boolean

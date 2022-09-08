@@ -3,8 +3,9 @@ package ru.SnowVolf.pcompiler.ui.activity;
 import android.app.AlertDialog;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.Toolbar;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -26,7 +27,7 @@ public class SettingsActivity extends BaseActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setPadding(0, App.ctx().getStatusBarHeight(), 0, 0);
         if (Build.VERSION.SDK_INT >= 23) {
-            toolbar.setTitleTextColor(App.getColorFromAttr(this, R.attr.colorAccent));
+            toolbar.setTitleTextColor(App.getColorFromAttr(this, R.attr.icon_color));
         }
         toolbar.getMenu().add("Debug menu")
                 .setIcon(R.drawable.ic_bug)
