@@ -81,7 +81,7 @@ public class AssignFragment extends TabFragment {
             PatchCollection.getCollection().removeItemAt(getTag());
         });
         mButtonVariants.setOnClickListener(view -> {
-            PopupMenu menu = new PopupMenu(getActivity(), view);
+            PopupMenu menu = new PopupMenu(requireContext(), view);
             menu.inflate(R.menu.menu_popup_variants);
             menu.setOnMenuItemClickListener(item -> {
                 mFieldTarget.setText(item.getTitle());
