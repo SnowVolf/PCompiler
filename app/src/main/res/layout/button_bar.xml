@@ -2,17 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_gravity="bottom|end">
-    <Button xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_gravity="end">
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button_clear"
-        android:text="@string/button_clear"
-        android:textColor="?colorAccent" />
-    <Button xmlns:android="http://schemas.android.com/apk/res/android"
+        android:text="@string/button_clear" />
+    <Space
+        android:layout_width="4dp"
+        android:layout_height="0dp"/>
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button_save"
-        android:text="@string/button_save"
-        style="@style/Widget.AppCompat.Button.Colored"/>
+        android:text="@string/button_save" />
 </LinearLayout>

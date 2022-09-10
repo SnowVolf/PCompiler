@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         android:layout_alignParentBottom="true"
-        android:background="?colorPrimary"
+        android:background="?colorSecondaryContainer"
         app:title="@string/title_fullview" />
     </RelativeLayout>
 
@@ -26,7 +26,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="true"
+        android:background="?colorSurface">
 
         <LinearLayout
             android:id="@+id/menu_drawer_content"
@@ -50,7 +51,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="end"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="true"
+        android:background="?colorSurface">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/tab_list"

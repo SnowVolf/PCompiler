@@ -55,7 +55,6 @@ import ru.svolf.pcompiler.util.Constants;
 import ru.svolf.pcompiler.util.LocaleGirl;
 import ru.svolf.pcompiler.util.RuntimeUtil;
 import ru.svolf.pcompiler.util.StringWrapper;
-import ru.svolf.pcompiler.util.ThemeWrapper;
 
 public class TabbedActivity extends BaseActivity implements TabManager.TabListener {
     private String mFileName = "patch.txt";
@@ -220,7 +219,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
         }
     }
 
-    private File writeToFile(StringBuilder data){
+    private void writeToFile(StringBuilder data){
         File patchFile = null;
         try {
             File dir = new File(Preferences.INSTANCE.getPatchOutput());
@@ -239,7 +238,6 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
                 outputStream.write(data.toString().getBytes());
             } else {
                 Toast.makeText(this, R.string.message_patch_cannot_empty, Toast.LENGTH_SHORT).show();
-                return null;
             }
             outputStream.close();
             Toast.makeText(this, String.format(getString(R.string.message_saved_in_path), Preferences.INSTANCE.getPatchOutput(), mFileName + ".txt"), Toast.LENGTH_LONG).show();
@@ -247,7 +245,6 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
             e.printStackTrace();
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
-        return patchFile;
     }
 
     private File writeToTempFile(StringBuilder data){
@@ -285,7 +282,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
     }
 
     private void showFullViewDialog(){
-        final BottomSheetDialog dialog = new BottomSheetDialog(this, ThemeWrapper.INSTANCE.getTheme());
+        final BottomSheetDialog dialog = new BottomSheetDialog(this);
         @SuppressLint("InflateParams") final View view = LayoutInflater.from(this).inflate(R.layout.dialog_full_view, null);
         final Toolbar captionBar = view.findViewById(R.id.caption_bar);
         final CodeText content = view.findViewById(R.id.content);

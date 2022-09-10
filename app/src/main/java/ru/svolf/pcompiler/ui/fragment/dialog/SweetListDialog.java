@@ -14,7 +14,6 @@ import androidx.annotation.NonNull;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import ru.svolf.pcompiler.R;
-import ru.svolf.pcompiler.util.ThemeWrapper;
 
 /**
  * Created by Snow Volf on 20.08.2017, 19:56
@@ -28,7 +27,7 @@ public class SweetListDialog extends BottomSheetDialog {
     private ArrayAdapter<String> mAdapter;
 
     public SweetListDialog(@NonNull Context context) {
-        super(context, ThemeWrapper.INSTANCE.getTheme());
+        super(context);
         mContext = context;
         initContentView();
     }

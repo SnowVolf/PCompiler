@@ -36,7 +36,6 @@ import ru.svolf.pcompiler.R;
 import ru.svolf.pcompiler.net.Client;
 import ru.svolf.pcompiler.net.NetworkResponse;
 import ru.svolf.pcompiler.util.RuntimeUtil;
-import ru.svolf.pcompiler.util.ThemeWrapper;
 
 /**
  * Created by Snow Volf on 28.09.2017, 22:41
@@ -68,7 +67,7 @@ public class UpdateDialogFragment extends BottomSheetDialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        BottomSheetDialog dialog = new BottomSheetDialog(getActivity(), ThemeWrapper.INSTANCE.getTheme());
+        BottomSheetDialog dialog = new BottomSheetDialog(getActivity());
         dialog.setContentView(rootView);
         rootView.findViewById(R.id.update_button).setOnClickListener(null);
         return dialog;

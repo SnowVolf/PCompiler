@@ -15,7 +15,7 @@
         <TextView
             android:id="@+id/drawer_tabs_count"
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_height="16dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="6dp"
@@ -27,7 +27,7 @@
             android:paddingStart="6dp"
             android:layout_marginBottom="10dp"
             android:maxLines="1"
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:textStyle="bold"
             android:layout_alignParentBottom="true"
             android:textColor="?colorPrimary" />

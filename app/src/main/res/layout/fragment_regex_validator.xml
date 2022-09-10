@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
-        android:layout_marginTop="24dp"
         android:id="@+id/relativeLayout">
         <TextView
             android:fontFamily="sans-serif-condensed"
@@ -55,10 +54,7 @@
                 android:background="@null"
                 android:minHeight="36dp"/>
             </com.google.android.material.textfield.TextInputLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/syntax_keyword"/>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -73,10 +69,7 @@
                 android:minHeight="36dp"
                 android:background="@null"/>
             </com.google.android.material.textfield.TextInputLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/darker_gray"/>
+
             <TextView
                 android:id="@+id/regex_result"
                 android:layout_width="wrap_content"

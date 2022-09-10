@@ -15,7 +15,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import ru.svolf.pcompiler.App;
 import ru.svolf.pcompiler.R;
-import ru.svolf.pcompiler.util.ThemeWrapper;
 
 /**
  * Created by Snow Volf on 26.08.2017, 21:38
@@ -27,7 +26,7 @@ public class SweetContentDialog extends BottomSheetDialog {
     private Button mPositive, mNegative;
 
     public SweetContentDialog(@NonNull Context context) {
-        super(context, ThemeWrapper.INSTANCE.getTheme());
+        super(context);
         mContext = context;
         initContentView();
     }

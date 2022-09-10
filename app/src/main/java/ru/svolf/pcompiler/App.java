@@ -17,8 +17,13 @@ import androidx.annotation.AttrRes;
 import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.app.ActivityCompat;
 import androidx.preference.PreferenceManager;
+
+import com.google.android.material.color.DynamicColors;
+import com.google.android.material.resources.MaterialResources;
 
 import org.acra.ACRA;
 import org.acra.ReportField;
@@ -46,7 +51,6 @@ import ru.svolf.pcompiler.util.StringWrapper;
 @ReportsCrashes(
         mailTo = "svolf15@yandex.ru",
         mode = ReportingInteractionMode.NOTIFICATION,
-        resDialogTheme = R.style.DialogDark,
         resDialogTitle = R.string.error_crashed,
         resDialogText = R.string.error_occurred,
         resNotifTitle = R.string.app_name,
@@ -92,6 +96,7 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
         RxJavaPlugins.setErrorHandler(throwable -> {
             Log.d(Constants.INSTANCE.getTAG(), String.format("RxJavaPlugins errorHandler %s", throwable));
             throwable.printStackTrace();
@@ -100,6 +105,9 @@ public class App extends Application {
             ACRA.init(this);
         }
         PreferenceManager.setDefaultValues(this, R.xml.settings, false);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+        // Support android 12 Monet Engine
+        DynamicColors.applyToActivitiesIfAvailable(this);
     }
 
     @Override

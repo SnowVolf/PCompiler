@@ -138,7 +138,7 @@ public class RegexValidator extends NativeContainerFragment {
             Spannable spannable = new SpannableString(binding.plainText.getText());
             int i = 0;
             while (m.find()){
-                spannable.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getActivity(), R.color.dark_colorAccent)), m.start(), m.end(), 33);
+                spannable.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getActivity(), R.color.md_theme_light_surfaceTint)), m.start(), m.end(), 33);
                 i++;
             }
             binding.regexResult.setText(spannable);

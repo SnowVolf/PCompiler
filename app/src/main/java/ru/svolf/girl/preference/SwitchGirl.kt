@@ -2,6 +2,7 @@ package ru.svolf.girl.preference
 
 import android.content.Context
 import android.os.Build
+import android.preference.SwitchPreference
 import android.util.AttributeSet
 import androidx.annotation.RequiresApi
 import androidx.preference.SwitchPreferenceCompat
@@ -10,7 +11,7 @@ import androidx.preference.SwitchPreferenceCompat
 * Исправляет самопроизвольные переключения настроек в киткате.
 * Пи*дец, да.
 * */
-class SwitchGirl : SwitchPreferenceCompat {
+class SwitchGirl : SwitchPreference {
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes)
 

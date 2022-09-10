@@ -44,9 +44,9 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     public void onCreatePreferences(@Nullable Bundle savedInstanceState, String rootKey) {
         setHasOptionsMenu(true);
         addPreferencesFromResource(R.xml.settings);
-        setCurrentValue((ListPreference) findPreference("sys.language"));
+        setCurrentValue(findPreference("sys.language"));
         findPreference("sys.delay").setSummary(App.ctx().getPreferences().getString("sys.delay", "2000"));
-        setCurrentValue((ListPreference) findPreference("ui.theme"));
+        setCurrentValue(findPreference("ui.theme"));
         getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
         init();
     }

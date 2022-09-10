@@ -2,7 +2,6 @@ package ru.svolf.girl.ui;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.text.Layout;
 import android.util.AttributeSet;
@@ -13,7 +12,6 @@ import androidx.core.content.res.ResourcesCompat;
 import ru.svolf.pcompiler.App;
 import ru.svolf.pcompiler.R;
 import ru.svolf.pcompiler.settings.Preferences;
-import ru.svolf.pcompiler.util.ThemeWrapper;
 
 /**
  * Created by Snow Volf on 03.11.2017, 16:23
@@ -38,7 +36,7 @@ public class CodeText extends ShaderText {
             setTypeface(ResourcesCompat.getFont(getContext(), R.font.mono));
         }
         setTextSize(Preferences.INSTANCE.getFontSize());
-        paint.setColor(Color.parseColor(ThemeWrapper.INSTANCE.isLightTheme() ? "#000000" : "#fafafa"));
+        paint.setColor(App.getColorFromAttr(getContext(), android.R.attr.textColor));
         paint.setTextSize(getPixels(14));
         getViewTreeObserver().addOnGlobalLayoutListener(() -> layout = getLayout());
     }

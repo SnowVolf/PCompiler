@@ -4,14 +4,13 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.annotation.Nullable;
-
-import com.trello.rxlifecycle2.components.support.RxFragment;
+import androidx.fragment.app.Fragment;
 
 /**
  * Created by Snow Volf on 17.08.2017, 15:41
  */
 
-public class NativeContainerFragment extends RxFragment {
+public class NativeContainerFragment extends Fragment {
     public View rootView;
 
     public NativeContainerFragment(){

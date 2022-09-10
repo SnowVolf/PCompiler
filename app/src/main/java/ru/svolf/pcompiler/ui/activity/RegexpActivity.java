@@ -28,9 +28,6 @@ public class RegexpActivity extends BaseActivity {
         setContentView(R.layout.activity_regexp);
         toolbar = findViewById(R.id.toolbar);
         toolbar.setPadding(0, App.ctx().getStatusBarHeight(), 0, 0);
-        if (Build.VERSION.SDK_INT >= 23) {
-            toolbar.setTitleTextColor(App.getColorFromAttr(this, R.attr.icon_color));
-        }
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
         toolbar.setNavigationOnClickListener(v -> finish());

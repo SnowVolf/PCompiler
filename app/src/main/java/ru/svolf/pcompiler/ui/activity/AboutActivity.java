@@ -36,10 +36,7 @@ public class AboutActivity extends BaseActivity {
         binding = ActivityAboutBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         Toolbar toolbar = findViewById(R.id.toolbar);
-        if (Build.VERSION.SDK_INT >= 23) {
-            toolbar.setTitleTextColor(App.getColorFromAttr(this, R.attr.icon_color));
-        }
-        toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
+        toolbar.setPadding(0, App.ctx().getStatusBarHeight(), 0, 0);
         toolbar.setOverflowIcon(AppCompatResources.getDrawable(this, R.drawable.ic_more_vert));
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
