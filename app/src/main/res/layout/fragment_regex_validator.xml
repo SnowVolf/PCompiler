@@ -48,7 +48,7 @@
                 app:counterEnabled="true"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp">
-            <ru.SnowVolf.girl.ui.GirlEditText
+            <ru.svolf.girl.ui.GirlEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/regex_text"
@@ -66,7 +66,7 @@
                 app:counterEnabled="true"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp">
-            <ru.SnowVolf.girl.ui.GirlEditText
+            <ru.svolf.girl.ui.GirlEditText
                 android:id="@+id/plain_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

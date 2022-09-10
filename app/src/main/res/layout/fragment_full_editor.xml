@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/bottom_tools">
-    <ru.SnowVolf.girl.ui.CodeEditText
+    <ru.svolf.girl.ui.CodeEditText
         android:id="@+id/full_editor"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -37,21 +37,21 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal">
-            <ru.SnowVolf.girl.ui.GirlButton
+            <ru.svolf.girl.ui.GirlButton
                 android:id="@+id/ed_tab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TAB"
                 app:insert="    "
                 style="@style/Base.Widget.AppCompat.Button.Small"/>
-            <ru.SnowVolf.girl.ui.GirlButton
+            <ru.svolf.girl.ui.GirlButton
                 android:id="@+id/ed_esc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="\\"
                 app:insert="\\"
                 style="@style/Base.Widget.AppCompat.Button.Small"/>
-            <ru.SnowVolf.girl.ui.GirlButton
+            <ru.svolf.girl.ui.GirlButton
                 android:id="@+id/ed_dot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -59,77 +59,77 @@
                 android:textStyle="bold"
                 app:insert="."
                 style="@style/Base.Widget.AppCompat.Button.Small"/>
-            <ru.SnowVolf.girl.ui.GirlButton
+            <ru.svolf.girl.ui.GirlButton
                 android:id="@+id/ed_plus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="+"
                 app:insert="+"
                 style="@style/Base.Widget.AppCompat.Button.Small"/>
-            <ru.SnowVolf.girl.ui.GirlButton
+            <ru.svolf.girl.ui.GirlButton
                 android:id="@+id/ed_obrace"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="("
                 app:insert="("
                 style="@style/Base.Widget.AppCompat.Button.Small"/>
-            <ru.SnowVolf.girl.ui.GirlButton
+            <ru.svolf.girl.ui.GirlButton
                 android:id="@+id/ed_cobrace"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=")"
                 app:insert=")"
                 style="@style/Base.Widget.AppCompat.Button.Small"/>
-            <ru.SnowVolf.girl.ui.GirlButton
+            <ru.svolf.girl.ui.GirlButton
                 android:id="@+id/ed_dollar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="$"
                 app:insert="$"
                 style="@style/Base.Widget.AppCompat.Button.Small"/>
-            <ru.SnowVolf.girl.ui.GirlButton
+            <ru.svolf.girl.ui.GirlButton
                 android:id="@+id/ed_ofbrace"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="{"
                 app:insert="{"
                 style="@style/Base.Widget.AppCompat.Button.Small"/>
-            <ru.SnowVolf.girl.ui.GirlButton
+            <ru.svolf.girl.ui.GirlButton
                 android:id="@+id/ed_cfbrace"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="}"
                 app:insert="}"
                 style="@style/Base.Widget.AppCompat.Button.Small"/>
-            <ru.SnowVolf.girl.ui.GirlButton
+            <ru.svolf.girl.ui.GirlButton
                 android:id="@+id/ed_obracket"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="["
                 app:insert="["
                 style="@style/Base.Widget.AppCompat.Button.Small"/>
-            <ru.SnowVolf.girl.ui.GirlButton
+            <ru.svolf.girl.ui.GirlButton
                 android:id="@+id/ed_cbracket"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="]"
                 app:insert="]"
                 style="@style/Base.Widget.AppCompat.Button.Small"/>
-            <ru.SnowVolf.girl.ui.GirlButton
+            <ru.svolf.girl.ui.GirlButton
                 android:id="@+id/ed_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="*"
                 app:insert="*"
                 style="@style/Base.Widget.AppCompat.Button.Small"/>
-            <ru.SnowVolf.girl.ui.GirlButton
+            <ru.svolf.girl.ui.GirlButton
                 android:id="@+id/ed_or"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="|"
                 app:insert="|"
                 style="@style/Base.Widget.AppCompat.Button.Small"/>
-            <ru.SnowVolf.girl.ui.GirlButton
+            <ru.svolf.girl.ui.GirlButton
                 android:id="@+id/ed_group"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="ru.SnowVolf.pcompiler">
+    package="ru.svolf.pcompiler">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -11,7 +10,7 @@
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
 
     <application
-        android:name=".App"
+        android:name="ru.svolf.pcompiler.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -21,7 +20,7 @@
         <meta-data
             android:name="android.max_aspect"
             android:value="2.1" />
-        <activity android:name=".ui.activity.TabbedActivity"
+        <activity android:name="ru.svolf.pcompiler.ui.activity.TabbedActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,25 +29,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.SettingsActivity"
+            android:name="ru.svolf.pcompiler.ui.activity.SettingsActivity"
             android:label="@string/activity_settings" />
         <activity
-            android:name=".ui.activity.RegexpActivity"
+            android:name="ru.svolf.pcompiler.ui.activity.RegexpActivity"
             android:label="Regexp"
-            android:parentActivityName=".ui.activity.TabbedActivity">
+            android:parentActivityName="ru.svolf.pcompiler.ui.activity.TabbedActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ru.SnowVolf.pcompiler.ui.activity.TabbedActivity" />
+                android:value="ru.svolf.pcompiler.ui.activity.TabbedActivity" />
         </activity>
-        <activity android:name=".ui.activity.BaseActivity" />
+        <activity android:name="ru.svolf.pcompiler.ui.activity.BaseActivity" />
         <activity
-            android:name=".ui.activity.AboutActivity"
+            android:name="ru.svolf.pcompiler.ui.activity.AboutActivity"
             android:label="@string/title_activity_about"
-            android:parentActivityName=".ui.activity.TabbedActivity">
+            android:parentActivityName="ru.svolf.pcompiler.ui.activity.TabbedActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ru.SnowVolf.pcompiler.ui.activity.TabbedActivity" />
+                android:value="ru.svolf.pcompiler.ui.activity.TabbedActivity" />
         </activity>
-        <activity android:name=".ui.activity.HelpActivity"/>
+        <activity android:name="ru.svolf.pcompiler.ui.activity.HelpActivity"/>
     </application>
 </manifest>

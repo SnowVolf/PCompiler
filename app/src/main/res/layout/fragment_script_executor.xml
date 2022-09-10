@@ -46,7 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_comment">
-            <ru.SnowVolf.girl.ui.GirlEditText
+            <ru.svolf.girl.ui.GirlEditText
                 android:id="@+id/field_comment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_script"
                 android:layout_toStartOf="@id/checkBoxContainer">
-                <ru.SnowVolf.girl.ui.GirlEditText
+                <ru.svolf.girl.ui.GirlEditText
                     android:id="@+id/field_script"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -90,7 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_main_class">
-                <ru.SnowVolf.girl.ui.GirlEditText
+                <ru.svolf.girl.ui.GirlEditText
                     android:id="@+id/field_main_class"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -99,7 +99,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_entrance">
-            <ru.SnowVolf.girl.ui.GirlEditText
+            <ru.svolf.girl.ui.GirlEditText
                 android:id="@+id/field_entrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -108,11 +108,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_param">
-            <ru.SnowVolf.girl.ui.GirlEditText
+            <ru.svolf.girl.ui.GirlEditText
                 android:id="@+id/field_param"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
-        <include layout="@layout/button_bar"/>
+        <include
+            android:id="@+id/button_bar"
+            layout="@layout/button_bar"/>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

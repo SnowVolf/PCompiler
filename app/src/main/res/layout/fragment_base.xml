@@ -27,7 +27,7 @@
                 app:statusBarScrim="@android:color/transparent"
                 app:titleEnabled="false">
 
-                <ru.SnowVolf.girl.ui.GirlToolbar
+                <ru.svolf.girl.ui.GirlToolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
@@ -55,10 +55,11 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:visibility="gone"
+                                android:textSize="12sp"
                                 style="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle"/>
                         </LinearLayout>
 
-                </ru.SnowVolf.girl.ui.GirlToolbar>
+                </ru.svolf.girl.ui.GirlToolbar>
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 

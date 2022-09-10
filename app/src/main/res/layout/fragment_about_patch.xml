@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_min_engine_ver">
-        <ru.SnowVolf.girl.ui.GirlEditText
+        <ru.svolf.girl.ui.GirlEditText
             android:id="@+id/field_engine_ver"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_author">
-        <ru.SnowVolf.girl.ui.GirlEditText
+        <ru.svolf.girl.ui.GirlEditText
             android:id="@+id/field_author"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/hint_package"
             android:layout_toStartOf="@+id/all_packages">
-            <ru.SnowVolf.girl.ui.GirlEditText
+            <ru.svolf.girl.ui.GirlEditText
                 android:id="@+id/field_package_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -50,6 +50,8 @@
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true" />
     </RelativeLayout>
-    <include layout="@layout/button_bar"/>
+    <include
+        android:id="@+id/button_bar"
+        layout="@layout/button_bar"/>
 </LinearLayout>
 </androidx.core.widget.NestedScrollView>

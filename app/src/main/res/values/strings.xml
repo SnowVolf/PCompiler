@@ -7,7 +7,7 @@
     <string name="button_save">Save</string>
     <string name="app_lang_changed">App language has been changed. Please restart the application</string>
     <string name="activity_settings">@string/menu_settings</string>
-    <string name="button_uni">Uni</string>
+    <string name="button_uni">*</string>
     <!--Menu items-->
     <string name="menu_fullview">Full view</string>
     <string name="menu_savepatch">Save patch</string>

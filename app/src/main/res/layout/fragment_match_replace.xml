@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_comment">
-        <ru.SnowVolf.girl.ui.GirlEditText
+        <ru.svolf.girl.ui.GirlEditText
             android:id="@+id/field_comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_name">
-        <ru.SnowVolf.girl.ui.GirlEditText
+        <ru.svolf.girl.ui.GirlEditText
             android:id="@+id/field_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/hint_target"
             android:layout_toStartOf="@+id/variants">
-            <ru.SnowVolf.girl.ui.GirlEditText
+            <ru.svolf.girl.ui.GirlEditText
                 android:id="@+id/field_target"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/hint_find"
             android:layout_toStartOf="@+id/checkBoxContainer">
-            <ru.SnowVolf.girl.ui.GirlEditText
+            <ru.svolf.girl.ui.GirlEditText
                 android:id="@+id/field_find"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -86,11 +86,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_replace">
-        <ru.SnowVolf.girl.ui.GirlEditText
+        <ru.svolf.girl.ui.GirlEditText
             android:id="@+id/field_replace"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
-    <include layout="@layout/button_bar"/>
+    <include
+        android:id="@+id/button_bar"
+        layout="@layout/button_bar"/>
 </LinearLayout>
 </androidx.core.widget.NestedScrollView>

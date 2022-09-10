@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="ru.SnowVolf.pcompiler.ui.activity.AboutActivity"
+    tools:context="ru.svolf.pcompiler.ui.activity.AboutActivity"
     tools:showIn="@layout/activity_about">
 
     <RelativeLayout
@@ -127,10 +127,12 @@
                             android:id="@+id/artem_header_img"
                             android:layout_width="match_parent"
                             android:layout_height="180dp"
-                            android:scaleType="centerInside"
+                            android:scaleType="centerCrop"
                             android:clickable="true"
-                            android:src="@drawable/censorship"/>
-                        <ru.SnowVolf.pcompiler.ui.widget.CircleImageView
+                            android:src="@drawable/melissa2"
+                            app:blk_blurRadius="50"
+                            app:blk_fps="0"/>
+                        <ru.svolf.pcompiler.ui.widget.CircleImageView
                             android:src="@drawable/circle_girl"
                             android:id="@+id/artem_profile_img"
                             android:layout_width="108dp"
@@ -184,7 +186,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="EMAIL"
-                            android:textStyle="bold"
                             style="@style/Base.Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
                         <Button
                             android:id="@+id/about_author_artem_pda_item"
@@ -227,7 +228,7 @@
                             android:scaleType="centerCrop"
                             android:clickable="true"
                             android:src="@drawable/htc_wallp"/>
-                        <ru.SnowVolf.pcompiler.ui.widget.CircleImageView
+                        <ru.svolf.pcompiler.ui.widget.CircleImageView
                             android:src="@drawable/htc600"
                             android:id="@+id/htc_profile_img"
                             android:layout_width="108dp"
@@ -308,7 +309,7 @@
                             android:scaleType="centerCrop"
                             android:clickable="true"
                             android:src="@drawable/htc_wallp"/>
-                        <ru.SnowVolf.pcompiler.ui.widget.CircleImageView
+                        <ru.svolf.pcompiler.ui.widget.CircleImageView
                             android:src="@drawable/radiationx"
                             android:id="@+id/radiationx_profile_img"
                             android:layout_width="108dp"

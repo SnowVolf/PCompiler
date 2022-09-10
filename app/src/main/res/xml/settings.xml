@@ -9,7 +9,7 @@
             android:title="@string/pref_interface_theme"
             android:entries="@array/theme_names"
             android:entryValues="@array/theme_values"/>
-        <ru.SnowVolf.girl.preference.SwitchGirl
+        <ru.svolf.girl.preference.SwitchGirl
             android:icon="@drawable/ic_settings_arta"
             android:key="ui.arta"
             android:title="@string/pref_interface_arta" />
@@ -17,7 +17,7 @@
             android:icon="@drawable/ic_settings_font_size"
             android:key="ui.font_size"
             android:title="@string/pref_interface_font_size"/>
-        <ru.SnowVolf.girl.preference.SwitchGirl
+        <ru.svolf.girl.preference.SwitchGirl
             android:icon="@drawable/ic_settings_typeface"
             android:key="ui.font_monospace"
             android:title="@string/pref_interface_typeface"
@@ -80,14 +80,14 @@
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/pref_tweaks">
-    <ru.SnowVolf.girl.preference.SwitchGirl
+    <ru.svolf.girl.preference.SwitchGirl
         android:icon="@drawable/ic_settings_escape"
         android:key="other.escape_find"
         android:title="@string/pref_tweaks_escape_find"
         android:summary="@string/pref_tweaks_escape_find_summary"
         android:defaultValue="false"
         android:clickable="true"/>
-    <ru.SnowVolf.girl.preference.SwitchGirl
+    <ru.svolf.girl.preference.SwitchGirl
         android:icon="@drawable/ic_settings_forceregex"
         android:key="other.regexp"
         android:title="@string/pref_tweaks_force_regexp"

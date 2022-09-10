@@ -6,7 +6,7 @@
     <string name="button_save">Сохранить</string>
     <string name="app_lang_changed">Язык приложения был изменен. Требуется перезапуск</string>
     <string name="activity_settings">@string/menu_settings</string>
-    <string name="button_uni">Uni</string>
+    <string name="button_uni">*</string>
     <!--Menu items-->
     <string name="menu_fullview">Расширенная форма</string>
     <string name="menu_savepatch">Сохранить патч</string>
