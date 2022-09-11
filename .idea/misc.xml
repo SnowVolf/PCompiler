@@ -22,12 +22,19 @@
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/drawer_header_layout.xml" value="0.22407407407407406" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/drawer_menu_item.xml" value="0.22407407407407406" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/drawer_tab_item.xml" value="0.33" />
+        <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/fragment_about_patch.xml" value="0.3569230769230769" />
+        <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/fragment_add_files.xml" value="0.3569230769230769" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/fragment_base.xml" value="0.22407407407407406" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/fragment_dummy.xml" value="0.22407407407407406" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/fragment_full_editor.xml" value="0.22407407407407406" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/fragment_goto.xml" value="0.22407407407407406" />
+        <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/fragment_match_assign.xml" value="0.3569230769230769" />
+        <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/fragment_match_goto.xml" value="0.3569230769230769" />
+        <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/fragment_match_replace.xml" value="0.3569230769230769" />
+        <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/fragment_merge.xml" value="0.3569230769230769" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/fragment_regex_spur.xml" value="0.3569230769230769" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/fragment_regex_validator.xml" value="0.3569230769230769" />
+        <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/fragment_script_executor.xml" value="0.3569230769230769" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/menu_row.xml" value="0.22407407407407406" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/tab_drawer_header.xml" value="0.3569230769230769" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/tab_indicator.xml" value="0.3569230769230769" />

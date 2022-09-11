@@ -9,7 +9,7 @@ import ru.svolf.pcompiler.settings.Preferences;
  */
 
 public class ReactiveBuilder {
-    private StringBuilder mBuilder;
+    private final StringBuilder mBuilder;
 
     public ReactiveBuilder(){
         mBuilder = new StringBuilder();
@@ -149,7 +149,6 @@ public class ReactiveBuilder {
     private ReactiveBuilder escapeFind(String find){
         if (Preferences.INSTANCE.isEscapeFindAllowed()) {
             find = find
-                    .replace("\n", "\\n")
                     .replace("    .", "    \\.")
                     .replaceAll(RegexPattern.INSTANCE.getREGISTERS(), "([pv]\\\\d+)")
                     .replace("{", "\\{")

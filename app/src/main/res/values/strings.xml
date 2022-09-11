@@ -7,7 +7,7 @@
     <string name="button_save">Save</string>
     <string name="app_lang_changed">App language has been changed. Please restart the application</string>
     <string name="activity_settings">@string/menu_settings</string>
-    <string name="button_uni">*</string>
+    <string name="button_uni">All packages</string>
     <!--Menu items-->
     <string name="menu_fullview">Full view</string>
     <string name="menu_savepatch">Save patch</string>
@@ -42,7 +42,7 @@
     <string name="hint_next_rule">Next rule</string>
     <string name="hint_vars">Variables</string>
     <string name="hint_source">Source</string>
-    <string name="root_f" translatable="false">ROOT F</string>
+    <string name="root_f" translatable="false">ROOT\nFOLDER</string>
     <string name="regex" translatable="false">REGEX</string>
     <string name="hint_regexp">RegExp</string>
     <string name="hint_text">Text</string>
@@ -241,7 +241,7 @@
     <string name="undo">Undo</string>
     <string name="redo">Redo</string>
     <string name="tab_executor" translatable="false">execute script</string>
-    <string name="smali_needed" translatable="false">SMALI\nNEEDED</string>
+    <string name="smali_needed" translatable="false">SMALI</string>
     <string name="hint_script">Dex script name</string>
     <string name="hint_main_class">Main class</string>
     <string name="hint_param">Parameters</string>

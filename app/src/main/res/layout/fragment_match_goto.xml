@@ -62,7 +62,6 @@
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
         <LinearLayout
-            android:layout_marginStart="4dp"
             android:orientation="vertical"
             android:id="@+id/checkBoxContainer"
             android:layout_width="wrap_content"

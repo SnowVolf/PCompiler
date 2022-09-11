@@ -66,13 +66,13 @@
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
             <LinearLayout
-                android:layout_marginStart="4dp"
                 android:orientation="vertical"
                 android:id="@+id/checkBoxContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true">
+                android:layout_centerVertical="true"
+                android:gravity="center">
                 <CheckBox
                     android:id="@+id/checkbox_smali"
                     android:layout_width="wrap_content"
@@ -82,7 +82,6 @@
                     android:layout_height="wrap_content"
                     android:text="@string/smali_needed"
                     android:textSize="10sp"
-                    android:gravity="center"
                     android:textColor="?colorAccent"/>
             </LinearLayout>
         </RelativeLayout>

@@ -41,14 +41,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <Button
             android:id="@+id/all_packages"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/button_uni"
-            style="@style/Base.Widget.AppCompat.Button.Small"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_marginStart="8dp"
+            android:text="@string/button_uni" />
     </RelativeLayout>
     <include
         android:id="@+id/button_bar"

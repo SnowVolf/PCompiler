@@ -57,7 +57,7 @@ public class ReplaceFragment extends TabFragment {
             binding.fieldName.clear();
             binding.fieldTarget.clear();
             binding.fieldFind.clear();
-            binding.fieldTarget.clear();
+            binding.fieldReplace.clear();
             binding.checkboxRegex.setChecked(Preferences.INSTANCE.isForceRegexpAllowed());
             PatchCollection.getCollection().removeItemAt(getTag());
         });
