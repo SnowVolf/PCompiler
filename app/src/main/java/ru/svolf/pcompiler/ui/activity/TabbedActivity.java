@@ -23,6 +23,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import net.lingala.zip4j.core.ZipFile;
@@ -83,7 +84,7 @@ public class TabbedActivity extends BaseActivity implements TabManager.TabListen
         setContentView(R.layout.activity_tabbed);
         drawer = findViewById(R.id.drawer_layout);
 
-        Toolbar bottomBar = findViewById(R.id.bottom_bar);
+        MaterialToolbar bottomBar = findViewById(R.id.bottom_bar);
         mDrawers = new Drawers(this, drawer);
         mDrawers.init(savedInstanceState);
         extra = new ArrayList<>();

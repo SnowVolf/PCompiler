@@ -11,7 +11,7 @@
     <string name="menu_fullview">Расширенная форма</string>
     <string name="menu_savepatch">Сохранить патч</string>
     <string name="menu_reset">Сброс</string>
-    <string name="menu_regexp">REGEXP</string>
+    <string name="menu_regexp">Регулярные выражения</string>
     <string name="menu_settings">Настройки</string>
     <string name="menu_about">О программе</string>
     <string name="menu_flags">Флаги</string>
@@ -77,7 +77,7 @@
     <string name="message_name_reserved">Это имя зарезервировано. Введите другое</string>
     <!--Tabs TRANSLATABLE-->
     <string name="tab_help">Помощь</string>
-    <string name="tab_regex">REGEXP</string>
+    <string name="tab_regex">Тест регулярок</string>
     <string name="tab_documentation">Документация</string>
     <!--About-->
     <string name="title_activity_about">@string/menu_about</string>

@@ -18,42 +18,40 @@
             android:id="@+id/card_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
             <!--ABOUT APP REDESIGN-->
             <androidx.cardview.widget.CardView
                 android:id="@+id/about_app_card"
+                style="?attr/cardStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                app:cardCornerRadius="2dp"
-                app:cardElevation="2dp"
-                android:foreground="@drawable/ripple"
-                android:clickable="true"
-                style="?attr/cardStyle">
+                android:layout_height="wrap_content">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
                     <RelativeLayout
-                        android:layout_width="64dp"
-                        android:layout_height="115dp"
-                        android:background="@color/grey_overlay"
-                        android:id="@+id/relativeLayout">
+                        android:id="@+id/relativeLayout"
+                        android:layout_width="72dp"
+                        android:layout_height="120dp"
+                        android:alpha="0.5"
+                        android:background="@color/grey_overlay">
+
                         <ImageView
                             android:id="@+id/app_status"
                             android:layout_width="48dp"
                             android:layout_height="48dp"
-                            android:layout_centerVertical="true"
-                            android:layout_centerHorizontal="true" />
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true" />
                     </RelativeLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
                         android:layout_marginTop="8dp"
+                        android:layout_marginRight="16dp"
                         android:layout_marginBottom="8dp"
                         android:layout_toEndOf="@+id/relativeLayout"
                         android:orientation="vertical">
@@ -72,53 +70,50 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
+                            android:text="@string/version_sub"
                             android:textSize="14sp"
-                            android:textStyle="italic"
-                            android:text="@string/version_sub"/>
+                            android:textStyle="italic" />
+
                         <TextView
                             android:id="@+id/about_code_item_sub"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
+                            android:text="@string/id_sub"
                             android:textSize="14sp"
-                            android:textStyle="italic"
-                            android:text="@string/id_sub"/>
+                            android:textStyle="italic" />
+
                         <TextView
                             android:id="@+id/about_time_item_sub"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
+                            android:text="@string/date_sub"
                             android:textSize="14sp"
-                            android:textStyle="italic"
-                            android:text="@string/date_sub"/>
+                            android:textStyle="italic" />
                     </LinearLayout>
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                style="?attr/cardStyle"
+                style="?cardStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                app:cardCornerRadius="2dp"
-                app:cardElevation="2dp">
-                <include layout="@layout/about_bar"/>
+                android:layout_height="wrap_content">
+
+                <include layout="@layout/about_bar" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/about_artem_card"
+                style="?cardStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                app:cardCornerRadius="2dp"
-                app:cardElevation="2dp"
-                android:foreground="@drawable/ripple"
-                android:clickable="true"
-                style="?attr/cardStyle">
+                android:layout_height="wrap_content">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -127,27 +122,27 @@
                             android:id="@+id/artem_header_img"
                             android:layout_width="match_parent"
                             android:layout_height="180dp"
-                            android:scaleType="centerCrop"
                             android:clickable="true"
-                            android:src="@drawable/melissa2"
-                            app:blk_blurRadius="50"
-                            app:blk_fps="0"/>
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/melissa2" />
+
                         <ru.svolf.pcompiler.ui.widget.CircleImageView
-                            android:src="@drawable/circle_girl"
                             android:id="@+id/artem_profile_img"
                             android:layout_width="108dp"
                             android:layout_height="108dp"
                             android:layout_marginLeft="20dp"
-                            android:layout_marginRight="20dp"
                             android:layout_marginTop="125dp"
-                            app:civ_border_color="?colorAccent"
-                            app:civ_border_width="2dp" />
+                            android:layout_marginRight="20dp"
+                            android:src="@drawable/circle_girl"
+                            app:civ_border_color="?colorOnSecondary"
+                            app:civ_border_width="4dp" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
+                            android:layout_marginTop="185dp"
                             android:layout_toRightOf="@id/artem_profile_img"
-                            android:layout_marginTop="185dp">
+                            android:orientation="vertical">
 
                             <TextView
                                 android:id="@+id/artem_zhiganov"
@@ -171,8 +166,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
                         android:layout_marginTop="16dp"
+                        android:layout_marginRight="16dp"
                         android:text="@string/role_descr"
                         android:textSize="14sp" />
                     <!--ATREM LINKS  -->
@@ -181,42 +176,44 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:padding="10sp">
+
                         <Button
                             android:id="@+id/about_author_artem_mail_item"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="EMAIL"
-                            style="@style/Base.Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
+                            android:text="E-mail" />
+
                         <Button
                             android:id="@+id/about_author_artem_pda_item"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4PDA"
-                            style="@style/Base.Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
+                            android:text="4PDA" />
+
                         <Button
                             android:id="@+id/about_author_artem_github_item"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="GITHUB"
-                            style="@style/Base.Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
+                            android:text="GitHub" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/about_htc_card"
+                style="?attr/cardStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                app:cardCornerRadius="2dp"
-                app:cardElevation="2dp"
-                android:foreground="@drawable/ripple"
                 android:clickable="true"
-                style="?attr/cardStyle">
+                android:foreground="@drawable/ripple"
+                app:cardCornerRadius="2dp"
+                app:cardElevation="2dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -225,25 +222,28 @@
                             android:id="@+id/artem_htc_img"
                             android:layout_width="match_parent"
                             android:layout_height="180dp"
-                            android:scaleType="centerCrop"
                             android:clickable="true"
-                            android:src="@drawable/htc_wallp"/>
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/htc_wallp" />
+
                         <ru.svolf.pcompiler.ui.widget.CircleImageView
-                            android:src="@drawable/htc600"
                             android:id="@+id/htc_profile_img"
                             android:layout_width="108dp"
                             android:layout_height="108dp"
                             android:layout_marginLeft="20dp"
-                            android:layout_marginRight="20dp"
                             android:layout_marginTop="125dp"
-                            app:civ_border_color="?colorAccent"
-                            app:civ_border_width="2dp" />
+                            android:layout_marginRight="20dp"
+                            android:src="@drawable/htc600"
+                            app:civ_border_color="?colorOnSecondary"
+                            app:civ_border_width="4dp" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
+                            android:layout_marginTop="185dp"
                             android:layout_toRightOf="@id/htc_profile_img"
-                            android:layout_marginTop="185dp">
+                            android:orientation="vertical">
+
                             <TextView
                                 android:id="@+id/alexey_samsonov"
                                 android:layout_width="wrap_content"
@@ -274,30 +274,27 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:padding="10sp">
+
                         <Button
                             android:id="@+id/about_htc_pda_item"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4PDA"
-                            style="@style/Base.Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
+                            android:text="4PDA" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/about_radiationx_card"
+                style="?attr/cardStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                app:cardCornerRadius="2dp"
-                app:cardElevation="2dp"
-                android:foreground="@drawable/ripple"
-                android:clickable="true"
-                style="?attr/cardStyle">
+                android:layout_height="wrap_content">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -306,25 +303,28 @@
                             android:id="@+id/radiationx_img"
                             android:layout_width="match_parent"
                             android:layout_height="180dp"
-                            android:scaleType="centerCrop"
                             android:clickable="true"
-                            android:src="@drawable/htc_wallp"/>
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/htc_wallp" />
+
                         <ru.svolf.pcompiler.ui.widget.CircleImageView
-                            android:src="@drawable/radiationx"
                             android:id="@+id/radiationx_profile_img"
                             android:layout_width="108dp"
                             android:layout_height="108dp"
                             android:layout_marginLeft="20dp"
-                            android:layout_marginRight="20dp"
                             android:layout_marginTop="125dp"
-                            app:civ_border_color="?colorAccent"
-                            app:civ_border_width="2dp" />
+                            android:layout_marginRight="20dp"
+                            android:src="@drawable/radiationx"
+                            app:civ_border_color="?colorOnSecondary"
+                            app:civ_border_width="4dp" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
+                            android:layout_marginTop="185dp"
                             android:layout_toRightOf="@id/radiationx_profile_img"
-                            android:layout_marginTop="185dp">
+                            android:orientation="vertical">
+
                             <TextView
                                 android:id="@+id/evgeniy_nizamiev"
                                 android:layout_width="wrap_content"
@@ -355,18 +355,18 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:padding="10sp">
+
                         <Button
                             android:id="@+id/about_radiationx_pda_item"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4PDA"
-                            style="@style/Base.Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
+                            android:text="4PDA" />
+
                         <Button
                             android:id="@+id/about_radiationx_github_item"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="GitHub"
-                            style="@style/Base.Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
+                            android:text="GitHub" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

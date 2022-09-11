@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.tabs.TabLayout;
 
 import ru.svolf.pcompiler.App;
@@ -20,7 +21,7 @@ import ru.svolf.pcompiler.ui.fragment.regex.SpurFragment;
  */
 
 public class RegexpActivity extends BaseActivity {
-    private Toolbar toolbar;
+    private MaterialToolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

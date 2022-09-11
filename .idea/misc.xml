@@ -4,15 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/drawable/dot_indicator.xml" value="0.2215" />
+        <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/drawable/menu_selected.xml" value="0.2215" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/about_bar.xml" value="0.3569230769230769" />
-        <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/activity_about.xml" value="0.22407407407407406" />
+        <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/activity_about.xml" value="0.33" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/activity_help.xml" value="0.3569230769230769" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/activity_regexp.xml" value="0.3569230769230769" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/activity_settings.xml" value="0.3569230769230769" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/activity_tabbed.xml" value="0.25" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/app_bar.xml" value="0.22407407407407406" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/button_bar.xml" value="0.22407407407407406" />
-        <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/content_about.xml" value="0.22407407407407406" />
+        <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/content_about.xml" value="0.39658119658119656" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/content_updater.xml" value="0.3569230769230769" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/dialog_about.xml" value="0.3569230769230769" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/dialog_font_size.xml" value="0.3569230769230769" />
@@ -20,7 +21,7 @@
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/dialog_list.xml" value="0.22407407407407406" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/drawer_header_layout.xml" value="0.22407407407407406" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/drawer_menu_item.xml" value="0.22407407407407406" />
-        <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/drawer_tab_item.xml" value="0.22407407407407406" />
+        <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/drawer_tab_item.xml" value="0.33" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/fragment_base.xml" value="0.22407407407407406" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/fragment_dummy.xml" value="0.22407407407407406" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/fragment_full_editor.xml" value="0.22407407407407406" />
@@ -28,6 +29,7 @@
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/fragment_regex_spur.xml" value="0.3569230769230769" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/fragment_regex_validator.xml" value="0.3569230769230769" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/menu_row.xml" value="0.22407407407407406" />
+        <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/tab_drawer_header.xml" value="0.3569230769230769" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/tab_indicator.xml" value="0.3569230769230769" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/layout/test_layout.xml" value="0.3569230769230769" />
         <entry key="..\:/UserData/SVolf/Documents/GitHub/PCompiler/app/src/main/res/xml/settings.xml" value="0.22407407407407406" />

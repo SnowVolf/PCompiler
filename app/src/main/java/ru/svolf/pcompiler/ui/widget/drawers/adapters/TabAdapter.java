@@ -4,9 +4,11 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.recyclerview.widget.RecyclerView;
 
 import ru.svolf.pcompiler.R;
@@ -18,7 +20,6 @@ import ru.svolf.pcompiler.tabs.TabManager;
  */
 
 public class TabAdapter extends RecyclerView.Adapter<TabAdapter.ViewHolder> {
-    private int color = Color.argb(48, 128, 128, 128);
 
     private TabAdapter.OnItemClickListener itemClickListener;
     private TabAdapter.OnItemClickListener closeClickListener;
@@ -50,9 +51,9 @@ public class TabAdapter extends RecyclerView.Adapter<TabAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, int position) {
         TabFragment fragment = TabManager.getInstance().get(position);
         if (position == TabManager.getActiveIndex()) {
-            holder.itemView.setBackgroundColor(color);
+            holder.itemView.setBackground(AppCompatResources.getDrawable(holder.itemView.getContext(), R.drawable.tab_selected));
         } else {
-            holder.itemView.setBackgroundColor(Color.TRANSPARENT);
+            holder.itemView.setBackground(null);
         }
 
         holder.text.setText(fragment.getTabTitle());
@@ -61,7 +62,7 @@ public class TabAdapter extends RecyclerView.Adapter<TabAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView text;
-        public ImageView close;
+        public ImageButton close;
 
         public ViewHolder(View v) {
             super(v);

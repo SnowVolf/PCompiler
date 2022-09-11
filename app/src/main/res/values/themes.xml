@@ -29,11 +29,22 @@
         <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
         <item name="icon_color">?colorOnSurface</item>
         <item name="settings_icon_color">?colorOutline</item>
-        <item name="cardStyle">@style/CardView</item>
+        <item name="cardStyle">@style/CardViewStyle</item>
         <item name="android:windowTranslucentStatus">true</item>
+        <item name="buttonStyle">@style/Widget.Material3.Button.TonalButton</item>
     </style>
 
-    <style name="CardView" parent="Widget.Material3.CardView.Filled">
+    <style name="CardViewStyle" parent="Widget.Material3.CardView.Elevated">
         <item name="cardBackgroundColor">?colorOnSecondary</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="cardCornerRadius">8dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="android:foreground">@drawable/ripple</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">false</item>
     </style>
 </resources>

@@ -81,7 +81,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
 
     private void init(){
         findPreference("ui.font_size").setOnPreferenceClickListener(preference -> {
-            View v = getActivity().getLayoutInflater().inflate(R.layout.dialog_font_size, null);
+            View v = getLayoutInflater().inflate(R.layout.dialog_font_size, null);
 
             assert v != null;
             final SeekBar seekBar = v.findViewById(R.id.value_seekbar);
