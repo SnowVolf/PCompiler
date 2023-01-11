@@ -18,17 +18,10 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.app.ActivityCompat;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.material.color.DynamicColors;
-import com.google.android.material.resources.MaterialResources;
-
-import org.acra.ACRA;
-import org.acra.ReportField;
-import org.acra.ReportingInteractionMode;
-import org.acra.annotation.ReportsCrashes;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -41,31 +34,12 @@ import io.reactivex.plugins.RxJavaPlugins;
 import ru.svolf.girl.reactive.SimpleObservable;
 import ru.svolf.pcompiler.util.Constants;
 import ru.svolf.pcompiler.util.RuntimeUtil;
-import ru.svolf.pcompiler.util.StringWrapper;
 
 
 /**
  * Created by Snow Volf on 17.08.2017, 15:24
  */
-@ReportsCrashes(
-        mailTo = "svolf15@yandex.ru",
-        mode = ReportingInteractionMode.NOTIFICATION,
-        resDialogTitle = R.string.error_crashed,
-        resDialogText = R.string.error_occurred,
-        resNotifTitle = R.string.app_name,
-        resDialogIcon = R.mipmap.ic_launcher,
-        resNotifText = R.string.error_occurred,
-        resNotifTickerText = R.string.error_crashed,
-        customReportContent = {
-                ReportField.APP_VERSION_CODE,
-                ReportField.APP_VERSION_NAME,
-                ReportField.ANDROID_VERSION,
-                ReportField.BRAND,
-                ReportField.PHONE_MODEL,
-                ReportField.STACK_TRACE,
-                ReportField.LOGCAT
-        }
-)
+
 public class App extends Application {
     private static App INSTANCE = null;
     private SharedPreferences preferences;
@@ -100,9 +74,6 @@ public class App extends Application {
             Log.d(Constants.INSTANCE.getTAG(), String.format("RxJavaPlugins errorHandler %s", throwable));
             throwable.printStackTrace();
         });
-        if (StringWrapper.b("8zuv+ap22YnX6ohcFCYktA")) {
-            ACRA.init(this);
-        }
         PreferenceManager.setDefaultValues(this, R.xml.settings, false);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
         // Support android 12 Monet Engine

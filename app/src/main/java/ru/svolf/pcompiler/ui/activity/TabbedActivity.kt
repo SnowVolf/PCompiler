@@ -31,7 +31,6 @@ import net.lingala.zip4j.exception.ZipException
 import net.lingala.zip4j.model.ZipParameters
 import net.lingala.zip4j.model.enums.CompressionLevel
 import net.lingala.zip4j.model.enums.CompressionMethod
-import org.acra.ACRA
 import ru.svolf.girl.ui.CodeText
 import ru.svolf.girl.ui.GirlToolbar
 import ru.svolf.pcompiler.App
@@ -350,7 +349,6 @@ class TabbedActivity : BaseActivity(), TabManager.TabListener {
                     zipFile.addFiles(extra, parameters)
                     zipFile.addFiles(extraDex, parameters)
                 } catch (e: Exception) {
-                    ACRA.getErrorReporter().handleException(e)
                     Toast.makeText(this, e.message, Toast.LENGTH_LONG).show()
                 }
             }
@@ -358,7 +356,6 @@ class TabbedActivity : BaseActivity(), TabManager.TabListener {
             Toast.makeText(this, String.format(getString(R.string.message_saved_in_path_zip), zipFile.file.absolutePath), Toast.LENGTH_LONG).show()
         } catch (e: ZipException) {
             Log.e(TAG, e.message!!)
-            ACRA.getErrorReporter().handleException(e)
         }
     }
 

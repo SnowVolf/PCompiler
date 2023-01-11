@@ -1,15 +1,12 @@
 package ru.svolf.pcompiler.ui.activity;
 
 import android.app.AlertDialog;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
-
-import org.acra.ACRA;
 
 import ru.svolf.pcompiler.App;
 import ru.svolf.pcompiler.R;
@@ -53,7 +50,7 @@ public class SettingsActivity extends BaseActivity {
                             try {
                                 throw new RuntimeException("DevException");
                             } catch (RuntimeException ex){
-                                ACRA.getErrorReporter().handleException(ex);
+                                ex.printStackTrace();
                             }
                             break;
                         }
