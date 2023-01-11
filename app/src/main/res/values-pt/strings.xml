@@ -1,0 +1,139 @@
+<resources>
+    <!--Common strings-->
+    <string name="error_occurred">Um erro inesperado ocorreu. Por favor, envie o relatório de erro</string>
+    <string name="error_crashed">O aplicativo travou!</string>
+    <string name="button_clear">Limpar</string>
+    <string name="button_save">Salvar</string>
+    <string name="app_lang_changed">O idioma do aplicativo foi alterado. Por favor, reinicie o aplicativo</string>
+    <string name="activity_settings">@string/menu_settings</string>
+    <string name="button_uni">Todos os pacotes</string>
+    <!--Menu items-->
+    <string name="menu_fullview">Ver Tudo</string>
+    <string name="menu_savepatch">Salvar patch</string>
+    <string name="menu_reset">Redefinir</string>
+    <string name="menu_regexp">Expressões regulares</string>
+    <string name="menu_settings">Configurações</string>
+    <string name="menu_about">Sobre</string>
+    <string name="menu_flags">Flags</string>
+    <string name="menu_clear">@string/button_clear</string>
+    <string name="menu_web">Link</string>
+    <!--Title-->
+    <string name="title_fullview">Ver patches</string>
+    <string name="title_save">Salvar</string>
+    <string name="title_filename">nome do arquivo</string>
+    <string name="title_zip_filename">Nome do arquivo zip</string>
+    <string name="title_list_of_rules">Lista de regras</string>
+    <string name="title_regexp_flags">Regexp flags</string>
+    <!-- Hints -->
+    <string name="hint_comment">Comentários</string>
+    <string name="hint_author">Autor</string>
+    <string name="hint_package">Nome do pacote</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_target">Recurso Target</string>
+    <string name="hint_find">Procurar</string>
+    <string name="hint_replace">Substituir</string>
+    <string name="hint_next_rule">Próxima regra</string>
+    <string name="hint_vars">Variáveis</string>
+    <string name="hint_source">Fonte</string>
+    <string name="hint_regexp">RegExp</string>
+    <string name="hint_text">Texto</string>
+    <string name="hint_min_engine_ver">Versão mínima</string>
+    <string name="hint_description">Descrição do patch, que foi exibida antes do patch</string>
+    <!--Prefs strings-->
+    <string name="pref_interface">Interface</string>
+    <string name="pref_interface_theme">Tema do aplicativo</string>
+    <string name="pref_interface_arta">Arta syntax highlighting</string>
+    <string name="pref_system_language">Sistema</string>
+    <string name="pref_sys_lang">Idioma</string>
+    <string name="pref_interaction">Interação</string>
+    <string name="pref_interaction_open">Menu principal</string>
+    <string name="pref_interaction_open_symmary">Altera a menu principal do aplicativo. Precisa reiniciar o aplicativo</string>
+    <string name="pref_interaction_back">Pressione o botão voltar duas vezes</string>
+    <string name="pref_presets">Predefinições</string>
+    <string name="pref_presets_engine">Versão mínima padrão do mecanismo</string>
+    <string name="pref_presets_author">Autor padrão</string>
+    <string name="pref_presets_path">Pasta de saída do patch</string>
+    <string name="pref_presets_archive_comment">Arquivar comentário</string>
+    <string name="pref_presets_mime_type">Tipo MIME</string>
+    <string name="pref_tweaks">Ajustes</string>
+    <string name="pref_tweaks_escape_find">EscapeFind</string>
+    <string name="pref_tweaks_escape_find_summary">Escape de todas as quebras de linha, pontos, colchetes e muito mais…</string>
+    <string name="pref_tweaks_force_regexp">ForceRegexp</string>
+    <string name="pref_tweaks_force_regexp_summary">Forçar suporte a regexp</string>
+    <!--Short messages-->
+    <string name="message_patch_cleared">Configuração de patch limpa</string>
+    <string name="message_press_back">Pressione de volta mais uma vez</string>
+    <string name="message_copied_to_clipboard">Copiado para a área de transferência</string>
+    <string name="message_saved_in_path" formatted="false">Salvo em: %s%s</string>
+    <string name="message_saved_in_path_zip" formatted="false">Salvo em: %s</string>
+    <string name="message_patch_cannot_empty">Erro: Patch não pode estar vazio!</string>
+    <string name="message_file_overwrite">Criar arquivo…</string>
+    <string name="message_saved">Salvo</string>
+    <string name="message_name_reserved">Este nome está invertido. Por favor, digite outro</string>
+    <!--Tabs NOT TRANSLATABLE-->
+    <!--Tabs TRANSLATABLE-->
+    <string name="tab_help">Ajuda rápida</string>
+    <string name="tab_regex">testador de regex</string>
+    <string name="tab_documentation">Documentação</string>
+    <!--About-->
+    <string name="about_version">Versão: %s</string>
+    <string name="about_time">Data de construção: %s</string>
+    <string name="authors">Autor e desenvolvedor: Snow Volf (Artem Zhiganov)\nContribuinte principal: htc 600</string>
+    <!--REGEXP-->
+    <string name="regex_def_match">0 fósforos</string>
+    <string name="regex_def_match_one">%d match</string>
+    <string name="regex_def_match_few">%d matches</string>
+    <string name="title_list_of_files">Lista de arquivos (%d)</string>
+    <string name="title_list_of_dex">Lista dex (%d)</string>
+    <string name="title_activity_about">@string/menu_about</string>
+    <!--Test string NOT TRANSLATABLE-->
+    <string name="version_sub">Versão: %s</string>
+    <string name="id_sub">Código da compilação: %x</string>
+    <string name="date_sub">Data de construção: %s</string>
+    <string name="about_author_role">Autor e desenvolvedor</string>
+    <string name="role_descr">Tenho 23 anos. Estou programando em Java com o framework Android. Agora estou tentando começar a aprender Kotlin, e
+        expandir simultaneamente minha habilidade Java</string>
+    <string name="about_main_contributor_role">Modder</string>
+    <string name="action_refresh">Atualizar</string>
+    <string name="pref_interface_font_size">Tamanho da fonte</string>
+    <string name="pref_interface_typeface">fonte monospace</string>
+    <string name="load">Atualizar</string>
+    <string name="message_no_updates">Nenhuma atualização disponível</string>
+    <string name="update_important">Notícia importante</string>
+    <string name="update_added">Adicionado</string>
+    <string name="update_fixed">Fixado</string>
+    <string name="update_changed">Mudanças</string>
+    <string name="perform_request_link">Obtendo link de download para %s</string>
+    <string name="update_sys">Download do sistema</string>
+    <string name="update_ext">Download externo</string>
+    <string name="match_tags">Marcas de correspondência</string>
+    <string name="tags">Tags</string>
+    <string name="other">Outro</string>
+    <string name="expand">Expandir</string>
+    <string name="i_read">Ler</string>
+    <string name="title_activity_help">Por favor leia!</string>
+    <string name="index_of_bounds_error" formatted="false"><![CDATA[Cannot adicionar regra com índice %d, tamanho é %d. Mais informações: Sobre -> Ajuda]]></string>
+    <string name="radiationx_role">Desenvolvedor Android</string>
+    <string name="radiationx_role_description">Desenvolvedor para Android. Graças a ele, o app agora tem abas e bugs que estavam duplicando regras, e itens de configurações foram corrigidos;</string>
+    <string name="pref_sys_delay">Atraso de atualização de sintaxe (em ms)</string>
+    <string name="hint_enter_patch_body">Digite o corpo do patch</string>
+    <string name="menu_edit">Editor de patches</string>
+
+    <string name="subtitle_tab_assign">Atribuição de variáveis</string>
+    <string name="subtitle_tab_mgoto">Pesquisa de regex</string>
+    <string name="subtitle_tab_mreplace">Procurar &amp; Substituir</string>
+    <string name="subtitle_tab_about">Informações de patches comuns</string>
+    <string name="subtitle_tab_add_files">Adicionando arquivos</string>
+    <string name="subtitle_tab_dummy">patch finalizado</string>
+    <string name="subtitle_tab_goto">Procurar</string>
+    <string name="subtitle_tab_merge">Mesclar recursos</string>
+    <string name="subtitle_tab_remove_files">Removendo arquivos</string>
+    <string name="undo">Desfazer</string>
+    <string name="redo">Refazer</string>
+    <string name="hint_script">Nome do script Dex</string>
+    <string name="hint_main_class">Classe principal</string>
+    <string name="hint_param">Parâmetros</string>
+    <string name="hint_entrance">Método de entrada</string>
+    <string name="subtitle_tab_executor">Executar script customizado</string>
+
+</resources>

@@ -51,6 +51,7 @@ public class ReplaceFragment extends TabFragment {
                     .insertReplaceTag(binding.fieldReplace)
                     .insertEndTag("match_replace");
             PatchCollection.getCollection().setItemAt(getTag(), matchReplacePart);
+            getTabActivity().updateTabList();
         });
         binding.buttonBar.buttonClear.setOnClickListener(v -> {
             binding.fieldComment.clear();
@@ -60,6 +61,7 @@ public class ReplaceFragment extends TabFragment {
             binding.fieldReplace.clear();
             binding.checkboxRegex.setChecked(Preferences.INSTANCE.isForceRegexpAllowed());
             PatchCollection.getCollection().removeItemAt(getTag());
+            getTabActivity().updateTabList();
         });
         binding.variants.setOnClickListener(v-> {
             PopupMenu menu = new PopupMenu(getContext(), v);

@@ -47,12 +47,14 @@ public class RemoveFilesFragment extends TabFragment {
                     .insertEndTag("remove_files");
 
             PatchCollection.getCollection().setItemAt(getTag(), removeFilesPart);
+            getTabActivity().updateTabList();
         });
         binding.buttonBar.buttonClear.setOnClickListener(v -> {
             binding.fieldComment.clear();
             binding.fieldTarget.clear();
             binding.fieldName.clear();
             PatchCollection.getCollection().removeItemAt(getTag());
+            getTabActivity().updateTabList();
         });
         binding.variants.setOnClickListener(v -> {
             PopupMenu menu = new PopupMenu(getActivity(), binding.variants);

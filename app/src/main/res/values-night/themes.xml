@@ -1,5 +1,5 @@
-
 <resources>
+
     <style name="AppTheme" parent="Theme.Material3.Dark.NoActionBar">
         <item name="colorPrimary">@color/md_theme_dark_primary</item>
         <item name="colorOnPrimary">@color/md_theme_dark_onPrimary</item>
@@ -31,6 +31,7 @@
         <item name="settings_icon_color">?colorOutline</item>
         <item name="cardStyle">@style/CardViewStyle</item>
         <item name="android:windowTranslucentStatus">true</item>
+<!--        <item name="android:editTextBackground">@drawable/edit_text_background</item>-->
     </style>
 
     <style name="CardViewStyle" parent="Widget.Material3.CardView.Elevated">

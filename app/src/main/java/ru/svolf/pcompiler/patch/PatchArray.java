@@ -36,6 +36,10 @@ public class PatchArray extends LinkedHashMap<String, String> {
         }
     }
 
+    public String getItem(String tabTag){
+        return get(tabTag);
+    }
+
     public void setItemAt(String tabTag, ReactiveBuilder builder) {
         try {
             put(tabTag, builder.toString());
@@ -46,4 +50,5 @@ public class PatchArray extends LinkedHashMap<String, String> {
             e.printStackTrace();
         }
     }
+
 }

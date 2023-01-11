@@ -7,10 +7,14 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PCompiler.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PCompiler.app.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PCompiler.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PCompiler.app.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PCompiler.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PCompiler.app.unitTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/blurkit/PCompiler.blurkit.iml" filepath="$PROJECT_DIR$/.idea/modules/blurkit/PCompiler.blurkit.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/blurkit/PCompiler.blurkit.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/blurkit/PCompiler.blurkit.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/blurkit/PCompiler.blurkit.main.iml" filepath="$PROJECT_DIR$/.idea/modules/blurkit/PCompiler.blurkit.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/blurkit/PCompiler.blurkit.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/blurkit/PCompiler.blurkit.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/backdrop/PCompiler.backdrop.iml" filepath="$PROJECT_DIR$/.idea/modules/backdrop/PCompiler.backdrop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/backdrop/PCompiler.backdrop.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/backdrop/PCompiler.backdrop.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/backdrop/PCompiler.backdrop.main.iml" filepath="$PROJECT_DIR$/.idea/modules/backdrop/PCompiler.backdrop.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/backdrop/PCompiler.backdrop.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/backdrop/PCompiler.backdrop.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core-ui/PCompiler.core-ui.iml" filepath="$PROJECT_DIR$/.idea/modules/core-ui/PCompiler.core-ui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core-ui/PCompiler.core-ui.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/core-ui/PCompiler.core-ui.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core-ui/PCompiler.core-ui.main.iml" filepath="$PROJECT_DIR$/.idea/modules/core-ui/PCompiler.core-ui.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core-ui/PCompiler.core-ui.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/core-ui/PCompiler.core-ui.unitTest.iml" />
     </modules>
   </component>
 </project>

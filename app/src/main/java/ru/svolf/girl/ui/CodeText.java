@@ -19,26 +19,27 @@ import ru.svolf.pcompiler.settings.Preferences;
 
 public class CodeText extends ShaderText {
     private Context context;
-    private transient Paint paint = new Paint();
-    private transient Paint bgPaint = new Paint();
+    private final transient Paint paint = new Paint();
+    private final transient Paint bgPaint = new Paint();
     private Layout layout;
 
     public CodeText(Context context, AttributeSet attrs) {
         super(context, attrs);
+        if (!isInEditMode()) {
+            this.context = context;
+            bgPaint.setStyle(Paint.Style.FILL);
+            bgPaint.setColor(App.getColorFromAttr(getContext(), android.R.attr.windowBackground));
 
-        this.context = context;
-        bgPaint.setStyle(Paint.Style.FILL);
-        bgPaint.setColor(App.getColorFromAttr(getContext(), android.R.attr.windowBackground));
-
-        paint.setStyle(Paint.Style.FILL);
-        paint.setAntiAlias(true);
-        if (Preferences.INSTANCE.isMonospaceFontAllowed()){
-            setTypeface(ResourcesCompat.getFont(getContext(), R.font.mono));
+            paint.setStyle(Paint.Style.FILL);
+            paint.setAntiAlias(true);
+            if (Preferences.INSTANCE.isMonospaceFontAllowed()) {
+                setTypeface(ResourcesCompat.getFont(getContext(), R.font.mono));
+            }
+            setTextSize(Preferences.INSTANCE.getFontSize());
+            paint.setColor(App.getColorFromAttr(getContext(), R.attr.icon_color));
+            paint.setTextSize(getPixels(14));
+            getViewTreeObserver().addOnGlobalLayoutListener(() -> layout = getLayout());
         }
-        setTextSize(Preferences.INSTANCE.getFontSize());
-        paint.setColor(App.getColorFromAttr(getContext(), android.R.attr.textColor));
-        paint.setTextSize(getPixels(14));
-        getViewTreeObserver().addOnGlobalLayoutListener(() -> layout = getLayout());
     }
 
     private int getDigitCount() {
@@ -53,27 +54,30 @@ public class CodeText extends ShaderText {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        int padding = (int) getPixels(getDigitCount() * 10 + 10);
-        setPadding(padding, 0, 0, 0);
+        if (!isInEditMode()) {
+            int padding = (int) getPixels(getDigitCount() * 10 + 10);
+            setPadding(padding, 0, 0, 0);
 
-        int scrollY = getScrollY();
-        int firstLine = layout.getLineForVertical(scrollY), lastLine;
+            int scrollY = getScrollY();
+            int firstLine = layout.getLineForVertical(scrollY), lastLine;
 
-        try {
-            lastLine = layout.getLineForVertical(scrollY + (getHeight() - getExtendedPaddingTop() - getExtendedPaddingBottom()));
-        } catch (NullPointerException npe) {
-            lastLine = layout.getLineForVertical(scrollY + (getHeight() - getPaddingTop() - getPaddingBottom()));
+            try {
+                lastLine = layout.getLineForVertical(scrollY + (getHeight() - getExtendedPaddingTop() - getExtendedPaddingBottom()));
+            } catch (NullPointerException npe) {
+                lastLine = layout.getLineForVertical(scrollY + (getHeight() - getPaddingTop() - getPaddingBottom()));
+            }
+
+            //the y position starts at the baseline of the first line
+            int positionY = getBaseline() + (layout.getLineBaseline(firstLine) - layout.getLineBaseline(0));
+            drawLineNumber(canvas, layout, positionY, firstLine);
+            for (int i = firstLine + 1; i <= lastLine; i++) {
+                //get the next y position using the difference between the current and last baseline
+                positionY += layout.getLineBaseline(i) - layout.getLineBaseline(i - 1);
+                drawLineNumber(canvas, layout, positionY, i);
+            }
         }
+            super.onDraw(canvas);
 
-        //the y position starts at the baseline of the first line
-        int positionY = getBaseline() + (layout.getLineBaseline(firstLine) - layout.getLineBaseline(0));
-        drawLineNumber(canvas, layout, positionY, firstLine);
-        for (int i = firstLine + 1; i <= lastLine; i++) {
-            //get the next y position using the difference between the current and last baseline
-            positionY += layout.getLineBaseline(i) - layout.getLineBaseline(i - 1);
-            drawLineNumber(canvas, layout, positionY, i);
-        }
-        super.onDraw(canvas);
     }
 
     private void drawLineNumber(Canvas canvas, Layout layout, int positionY, int line) {

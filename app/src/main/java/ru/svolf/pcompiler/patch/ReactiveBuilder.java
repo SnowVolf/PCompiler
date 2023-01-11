@@ -1,5 +1,6 @@
 package ru.svolf.pcompiler.patch;
 
+import android.util.Log;
 import android.widget.EditText;
 
 import ru.svolf.pcompiler.settings.Preferences;
@@ -9,16 +10,20 @@ import ru.svolf.pcompiler.settings.Preferences;
  */
 
 public class ReactiveBuilder {
+    private static final String TAG = "ReactiveBuilder";
     private final StringBuilder mBuilder;
 
     public ReactiveBuilder(){
+        Log.d(TAG, "ReactiveBuilder: create");
         mBuilder = new StringBuilder();
     }
 
     // Generate a full patch string
     public static StringBuilder build(){
+        Log.d(TAG, "build: call build");
         StringBuilder str = new StringBuilder();
         for (String s: PatchCollection.getCollection().values()) {
+            Log.d(TAG, "build: items = " + s);
             str.append(s);
         }
         return str;
@@ -146,7 +151,7 @@ public class ReactiveBuilder {
     // [  \t]*\\R[  \t]*
 
     // Escape most common sub sequences with its escaped equivalents
-    private ReactiveBuilder escapeFind(String find){
+    private String escapeFind(String find){
         if (Preferences.INSTANCE.isEscapeFindAllowed()) {
             find = find
                     .replace("    .", "    \\.")
@@ -161,8 +166,7 @@ public class ReactiveBuilder {
                     .replace(System.lineSeparator(), "\\n    ")
                     .replaceAll(RegexPattern.INSTANCE.getEIGHT_SPACES(), "    ");
         }
-        mBuilder.append(find);
-        return this;
+        return find;
     }
 
     @Override

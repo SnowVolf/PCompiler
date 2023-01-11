@@ -8,7 +8,7 @@ import java.util.regex.Pattern
 
 object RegexPattern {
     var COMMON_SYMBOLS = Pattern.compile("\\[|\\]|\\[/|\\*|\\{|\\}|true|false")
-    var ATTRIBUTE = Pattern.compile("MIN_ENGINE_VER|AUTHOR|PACKAGE|MATCH_GOTO|MATCH_ASSIGN|MATCH_REPLACE|GOTO|ADD_FILES|" + "ADD_FILES|REMOVE_FILES|MERGE|DUMMY|APPLICATION|LAUNCHER_ACTIVTIES|ACTIVTIES|GROUP\\d+")
+    var ATTRIBUTE = Pattern.compile("MIN_ENGINE_VER|AUTHOR|PACKAGE|MATCH_GOTO|MATCH_ASSIGN|MATCH_REPLACE|GOTO|ADD_FILES|" + "REMOVE_FILES|MERGE|DUMMY|APPLICATION|LAUNCHER_ACTIVTIES|ACTIVTIES|GROUP\\d+")
     var SUB_ATTRIBUTE = Pattern.compile("REGEX:|MATCH:|REPLACE:|GOTO:|TARGET:|ASSIGN:|MERGE:|SOURCE:|EXTRACT:|NAME:")
     var STRING = Pattern.compile("(?:'[^'\\\\\\n]*(?:\\\\.[^'\\\\\\n]*)*')|(?:\"[^\"\\\\\\n]*(?:\\\\.[^\"\\\\\\n]*)*\")")
     var OPERATOR = Pattern.compile("\\([^)]+\\)|\\$", Pattern.CASE_INSENSITIVE)

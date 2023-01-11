@@ -1,0 +1,141 @@
+<resources>
+    <!--Common strings-->
+    <string name="error_occurred">یک خطای غیرمنتظره رخ داد. لطفا گزارش خطا را ارسال کنید</string>
+    <string name="error_crashed">!برنامه از کار افتاد</string>
+    <string name="button_clear">پاک کردن</string>
+    <string name="button_save">ذخیره</string>
+    <string name="app_lang_changed">زبان برنامه تغییر کرده است. لطفاً برنامه را مجدداً راه اندازی کنید</string> 
+    <string name="activity_settings">@string/menu_settings</string>
+    <string name="button_uni">همه بسته ها</string>
+       <!--Menu items-->
+    <string name="menu_fullview">نمایش کامل</string>
+    <string name="menu_savepatch">ذخیره پچ</string>
+    <string name="menu_reset">بازنشانی</string>
+    <string name="menu_regexp">عبارات منظم</string>
+    <string name="menu_settings">تنظیمات</string>
+    <string name="menu_about">درباره</string>
+    <string name="menu_flags">پرچم ها</string>
+    <string name="menu_clear">@string/button_clear</string>
+    <string name="menu_web">لینک</string>
+    <!--Title-->
+    <string name="title_fullview">نمایشگر پچ</string>
+    <string name="title_save">ذخیره</string>
+    <string name="title_filename">نام فایل</string>
+    <string name="title_zip_filename">نام فایل فشرده</string>
+    <string name="title_list_of_rules">فهرست قوانین</string>
+    <string name="title_regexp_flags">پرچم‌های عبارات منظم</string>
+        <!-- Hints -->
+    <string name="hint_comment">نظر</string>
+    <string name="hint_author">نویسنده</string>
+    <string name="hint_package">نام بسته</string>
+    <string name="hint_name">نام</string>
+    <string name="hint_target">منبع هدف</string>
+    <string name="hint_find">یافتن</string>
+    <string name="hint_replace">جایگزین</string>
+    <string name="hint_next_rule">قانون بعدی</string>
+    <string name="hint_vars">متغیرها</string>
+    <string name="hint_source">منبع</string>
+    <string name="hint_regexp">عبارت‌ های منظم</string>
+    <string name="hint_text">متن</string>
+    <string name="hint_min_engine_ver">حداقل نسخه انجین </string>
+    <string name="hint_description">توضیحات پچ، که قبل از پچ شدن نمایش داده شده است</string>
+        <!--Prefs strings-->
+    <string name="pref_interface">رابط</string>
+    <string name="pref_interface_theme">طرح زمینه برنامه</string>
+    <string name="pref_interface_arta">Arta نحوه برجستگی</string>
+    <string name="pref_system_language">سیستم</string>
+    <string name="pref_sys_lang">زبان</string>
+    <string name="pref_interaction">تعامل</string>
+    <string name="pref_interaction_open">برگه اصلی</string>
+    <string name="pref_interaction_open_symmary">برگه اصلی برنامه را تغییر می‌دهد. نیاز به راه اندازی مجدد برنامه دارد</string> 
+    <string name="pref_interaction_back">دکمه برگشت را دو بار فشار دهید</string>
+    <string name="pref_presets">تنظیمات پیش فرض</string>
+    <string name="pref_presets_engine">حداقل نسخه پیش‌فرض انجین </string>
+    <string name="pref_presets_author"> پیش‌فرض سازنده</string>
+    <string name="pref_presets_path">پوشه خروجی پچ</string>
+    <string name="pref_presets_archive_comment"> بایگانی نظرات</string>
+    <string name="pref_presets_mime_type">نوع پسوند</string>
+    <string name="pref_tweaks">ترفندها</string>
+    <string name="pref_tweaks_escape_find">یافتن راه خروجی</string>
+    <string name="pref_tweaks_escape_find_summary">...فرار از تمام شکسته‌های خط، نقطه‌ها، براکت‌ها و موارد دیگر </string>
+    <string name="pref_tweaks_force_regexp">بسته شدن عبارات منظم </string>
+    <string name="pref_tweaks_force_regexp_summary">فعال کردن اجباری پشتیبانی از عبارات منظم</string>
+        <!--Short messages-->
+    <string name="message_patch_cleared">پیکربندی پچ پاک شد</string>
+    <string name="message_press_back">یکبار دیگر به عقب فشار دهید</string>
+    <string name="message_copied_to_clipboard">در کلیپ بورد کپی شد</string>
+    <string name="message_saved_in_path" formatted="false">ذخیره شده در: %s%s</string>
+    <string name="message_saved_in_path_zip" formatted="false">ذخیره شده در: %s</string>
+    <string name="message_patch_cannot_empty">خطا: پچ نمی تواند خالی باشد!</string>
+    <string name="message_file_overwrite">ایجاد فایل…</string>
+    <string name="message_saved">ذخیره شد</string>
+    <string name="message_name_reserved">این نام معکوس شده است. لطفاً یکی دیگر را وارد کنید</string> 
+    <!--Tabs NOT Translatable-->
+    <!--Tabs Translatable-->
+    <string name="tab_help">کمک سریع</string>
+    <string name="tab_regex">آزمایش عبارات منظم </string>
+    <string name="tab_documentation">مستندات</string>
+    <!--About-->
+    <string name="about_version">نسخه: %s</string>
+    <string name="about_time">تاریخ ساخت: %s</string>
+    <string name="authors">نویسنده و توسعه دهنده: Snow Volf (Artem Zhiganov)\nشرکت کننده اصلی: htc 600</string>
+    <!--REGEXP-->
+    <string name="regex_def_match">0 منطبق</string>
+    <string name="regex_def_match_one">%d مطابقت</string>
+    <string name="regex_def_match_few">%d منطبق</string>
+    <string name="title_list_of_files">فهرست فایل (%d)</string>
+    <string name="title_list_of_dex">لیست دکس (%d)</string>
+    <string name="title_activity_about">@string/menu_about</string>
+        <!--Test string NOT TRANSLATABLE-->
+    <string name="version_sub">نسخه: %s</string>
+    <string name="id_sub">شناسه ساخت: %x</string>
+    <string name="date_sub">تاریخ ساخت: %s</string>
+    <string name="about_author_role">سازنده و توسعه دهنده</string>
+    <string name="role_descr">من 23 سال دارم. من در جاوا با چارچوب اندروید برنامه نویسی می کنم. اکنون سعی می کنم شروع به یادگیری کاتلین کنم، و
+        به طور همزمان مهارت جاوا را گسترش دهم</string>
+    <string name="about_main_contributor_role">Modder</string>
+    <string name="action_refresh">بازخوانی</string>
+    <string name="pref_interface_font_size">اندازه قلم</string>
+    <string name="pref_interface_typeface">فونت Monospace</string>
+    <string name="load">به‌روزرسانی</string>
+    <string name="message_no_updates">به‌روزرسانی در دسترس نیست</string>
+    <string name="update_important">اطلاعیه مهم</string>
+    <string name="update_added">افزوده شد</string>
+    <string name="update_fixed">اصلاح شد</string>
+    <string name="update_changed">تغییر شد</string>
+    <string name="perform_request_link">در حال دریافت پیوند دانلود برای %s</string>
+    <string name="update_sys">دانلودر سیستم</string>
+    <string name="update_ext">دانلودر خارجی</string>
+    <string name="match_tags">برچسب‌های مطابقت</string>
+    <string name="tags">برچسب‌ها</string>
+    <string name="other">سایر</string>
+    <string name="expand">بسط</string>
+    <string name="i_read">من خوانده‌ام</string>
+    <string name="title_activity_help">لطفاً بخوانید!</string>
+    <string name="index_of_bounds_error" formatted="false"><![CDATA[قانونی با نمایه %d نمی‌توان اضافه کرد، اندازه %d است. اطلاعات بیشتر: درباره -> راهنما]]></string>
+    <string name="radiationx_role">برنامه‌نویس اندروید</string>
+    <string name="radiationx_role_description">برنامه‌نویس برای اندروید . به لطف او، برنامه اکنون دارای برگه‌ها و اشکالات تکراری قوانین و موارد تنظیمات رفع شده است.</string>
+    <string name="pref_sys_delay">تاخیر به‌روزرسانی نحو (در میلی‌ثانیه)</string>
+    <string name="hint_enter_patch_body">ورود متن پچ</string>
+    <string name="menu_edit">ویرایشگر پچ</string>
+
+    <string name="subtitle_tab_assign">تخصیص متغیرها</string>
+    <string name="subtitle_tab_mgoto">جستجوی عبارات منظم</string>
+    <string name="subtitle_tab_mreplace">جستجو و amp; جایگزین</string>
+    <string name="subtitle_tab_about">اطلاعات پچ متداول</string>
+    <string name="subtitle_tab_add_files">افزودن فایل‌ها</string>
+    <string name="subtitle_tab_dummy">انتهای پچ</string>
+    <string name="subtitle_tab_goto">جستجو</string>
+    <string name="subtitle_tab_merge">ادغام منابع</string>
+    <string name="subtitle_tab_remove_files">حذف فایل‌ها</string>
+    <string name="undo">بازگشت به قبل</string>
+    <string name="redo">دوباره</string>
+    <string name="hint_script">نام اسکریپت Dex</string>
+    <string name="hint_main_class">کلاس اصلی</string>
+    <string name="hint_param">پارامترها</string>
+    <string name="hint_entrance">روش ورود</string>
+    <string name="subtitle_tab_executor">یک اسکریپت سفارشی را اجرا کنید</string>
+    
+</resources>    
+        
+        

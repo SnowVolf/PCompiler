@@ -1,0 +1,139 @@
+<resources> 
+    <!--Common strings-->
+    <string name="error_occurred">एक अप्रत्याशित त्रुटि हुई, कृपया त्रुटि रिपोर्ट भेजें</string>
+    <string name="error_crashed">ऐप क्रैश हो गया!</string> 
+    <string name="button_clear">डिलीट करे</string> 
+    <string name="button_save">सेव करे</string> 
+    <string name="app_lang_changed">ऐप की भाषा बदल दी गई है। कृपया एप को पुनः आरंभ करें</string> 
+    <string name="activity_settings">@string/menu_settings</string> 
+    <string name="button_uni">सभी पैकेज</string> 
+    <!--Menu items--> 
+    <string name="menu_fullview">पूर्ण दृश्य</string> 
+    <string name="menu_savepatch">पैच सेव करे</string> 
+    <string name="menu_reset">रीसेट</string> 
+    <string name="menu_regexp">रेगुलर एक्सप्रेशन</string> 
+    <string name="menu_settings">सेटिंग</string> 
+    <string name="menu_about">एप की जानकारी</string> 
+    <string name="menu_flags">फ्लैग्स</string> 
+    <string name="menu_clear">@string/button_clear</string> 
+    <string name="menu_web">लिंक</string>
+    <!--Title-->
+    <string name="title_fullview">पैच व्यूअर</string> 
+    <string name="title_save">सेव करे</string> 
+    <string name="title_filename">फ़ाइल का नाम</string> 
+    <string name="title_zip_filename">ज़िप फ़ाइल का नाम</string> 
+    <string name="title_list_of_rules">नियमों की सूची</string> 
+    <string name="title_regexp_flags">रेजेक्स फ्लैग्स</string> 
+    <!-- Hints --> 
+    <string name="hint_comment">टिप्पणी</string> 
+    <string name="hint_author">लेखक</string> 
+    <string name="hint_package">पैकेज का नाम</string> 
+    <string name="hint_name">नाम</string> 
+    <string name="hint_target">लक्ष्य संसाधन</string> 
+    <string name="hint_find">ढूंढे</string> 
+    <string name="hint_replace">बदले</string> 
+    <string name="hint_next_rule">अगला नियम</string> 
+    <string name="hint_vars">चर</string> 
+    <string name="hint_source">स्रोत</string>
+    <string name="hint_regexp">रेगुलर एक्सप्रेशन</string>
+    <string name="hint_text">टेक्स्ट</string> 
+    <string name="hint_min_engine_ver">न्यूनतम इंजन संस्करण</string> 
+    <string name="hint_description">पैच विवरण, जो पैचिंग से पहले प्रदर्शित किया गया है</string> 
+    <!--Prefs strings--> 
+    <string name="pref_interface">इंटरफेस</string> 
+    <string name="pref_interface_theme">ऐप थीम</string> 
+    <string name="pref_interface_arta">आर्टा सिंटैक्स हाइलाइटिंग</string> 
+    <string name="pref_system_language">व्यवस्था</string> 
+    <string name="pref_sys_lang">भाषा</string> 
+    <string name="pref_interaction">परस्पर क्रिया</string> 
+    <string name="pref_interaction_open">मुख्य टैब</string> 
+    <string name="pref_interaction_open_symmary">मुख्य ऐप टैब बदलता है। ऐप को पुनरारंभ करने की आवश्यकता है</string> 
+    <string name="pref_interaction_back">दो बार बैक बटन दबाएं</string> 
+    <string name="pref_presets">प्रीसेट</string> 
+    <string name="pref_presets_engine">डिफ़ॉल्ट न्यूनतम इंजन संस्करण</string> 
+    <string name="pref_presets_author">डिफ़ॉल्ट लेखक</string> 
+    <string name="pref_presets_path">पैच आउटपुट फ़ोल्डर</string> 
+    <string name="pref_presets_archive_comment">पुरालेख टिप्पणी</string> 
+    <string name="pref_presets_mime_type">फाइल प्रकार</string> 
+    <string name="pref_tweaks">बदलाव</string> 
+    <string name="pref_tweaks_escape_find">एस्केप</string> 
+    <string name="pref_tweaks_escape_find_summary">सभी लाइन ब्रेक, डॉट्स, ब्रैकेट, और बहुत कुछ से बचें…</string> 
+    <string name="pref_tweaks_force_regexp">बलपूर्वक रेगुलर एक्सप्रेशन</string> 
+    <string name="pref_tweaks_force_regexp_summary">बलपूर्वक रेगुलर एक्सप्रेशन समर्थन सक्षम करें</string> 
+    <!--Short messages--> 
+    <string name="message_patch_cleared">पैच कॉन्फ़िगरेशन साफ़ किया गया</string> 
+    <string name="message_press_back">एक बार बैक फिर दबाएं</string> 
+    <string name="message_copied_to_clipboard">क्लिपबोर्ड पर कॉपी हो गया</string> 
+    <string name="message_saved_in_path" formatted="false">%s%s में सेव हो गया</string> 
+    <string name="message_saved_in_path_zip" formatted="false">%s में सेव हो गया</string> 
+    <string name="message_patch_cannot_empty">त्रुटि: पैच खाली नहीं हो सकता!</string> 
+    <string name="message_file_overwrite">फ़ाइल बनाएं…</string> 
+    <string name="message_saved">सेव हो गया</string> 
+    <string name="message_name_reserved">यह नाम उल्टा है। कृपया एक और दर्ज करें</string> 
+    <!--Tabs NOT TRANSLATABLE-->
+    <!--Tabs TRANSLATABLE-->
+    <string name="tab_help">त्वरित सहायता</string> 
+    <string name="tab_regex">रेगुलर एक्सप्रेशन परीक्षक</string> 
+    <string name="tab_documentation">प्रलेखन</string> 
+    <!--About--> 
+    <string name="about_version">संस्करण: %s</string> 
+    <string name="about_time">निर्माण तिथि: %s</string>
+    <string name="authors">लेखक और डेवलपर: स्नो वोल्फ (आर्टेम ज़िगानोव)\nमुख्य योगदानकर्ता: एचटीसी 600</string>
+    <!--REGEXP--> 
+    <string name="regex_def_match">0 मैच</string> 
+    <string name="regex_def_match_one">%d मैच</string> 
+    <string name="regex_def_match_few">%d मैच</string> 
+    <string name="title_list_of_files">फ़ाइल सूची (%d)</string> 
+    <string name="title_list_of_dex">डेक्स सूची (%d)</string> 
+    <string name="title_activity_about">@string/menu_about</string> 
+    <!--Test string NOT TRANSLATABLE-->
+    <string name="version_sub">संस्करण: %s</string>
+    <string name="id_sub">बिल्ड आईडी: %x</string> 
+    <string name="date_sub">निर्माण तिथि: %s</string>
+    <string name="about_author_role">लेखक और डेवलपर</string>
+    <string name="role_descr">मैं 23 वर्ष का हूं। मैं जावा में एंड्रॉइड फ्रेमवर्क के साथ प्रोग्रामिंग कर रहा हूं। अब मैं कोटलिन सीखना शुरू करने की कोशिश कर रहा हूं, और साथ ही साथ अपने जावा कौशल का विस्तार कर रहा हूं।</string>
+    <string name="about_main_contributor_role">मोडर</string>
+    <string name="action_refresh">रिफ्रेश</string>
+    <string name="pref_interface_font_size">फ़ॉन्ट आकार</string> 
+    <string name="pref_interface_typeface">मोनोस्पेस फ़ॉन्ट</string> 
+    <string name="load">अद्यतन</string> 
+    <string name="message_no_updates">कोई अपडेट उपलब्ध नहीं</string> 
+    <string name="update_important">महत्वपूर्ण सूचना</string> 
+    <string name="update_added">जोड़ा</string> 
+    <string name="update_fixed">ठीक हो गया</string> 
+    <string name="update_changed">बदल दिया</string> 
+    <string name="perform_request_link">%s के लिए डाउनलोड लिंक प्राप्त कर रहे है</string> 
+    <string name="update_sys">सिस्टम डाउनलोडर</string> 
+    <string name="update_ext">बाहरी डाउनलोडर</string> 
+    <string name="match_tags">मैच टैग</string> 
+    <string name="tags">टैग</string> 
+    <string name="other">अन्य</string> 
+    <string name="expand">बढ़ाना</string> 
+    <string name="i_read">मैं पढ़ रहा हूँ</string> 
+    <string name="title_activity_help">कृपया पढ़ें!</string> 
+    <string name="index_of_bounds_error" formatted="false"><![CDATA[अनुक्रमणिका %d के साथ नियम नहीं जोड़ सकता, आकार %d है। अधिक जानकारी: -> सहायता]]></string>
+    <string name="radiationx_role">एंड्रॉयड डेवलपर</string>
+    <string name="radiationx_role_description">एंड्रॉयड के लिए डेवलपर को धन्यवाद, ऐप में अब टैब हैं और बग और सेटिंग्स आइटम ठीक कर दिए गए है;</string>
+    <string name="pref_sys_delay">सिंटैक्स अपडेट में देरी (एमएस में)</string>
+    <string name="hint_enter_patch_body">पैच बॉडी दर्ज करें</string> 
+    <string name="menu_edit">पैच संपादक</string> 
+ 
+    <string name="subtitle_tab_assign">चर असाइनमेंट</string> 
+    <string name="subtitle_tab_mgoto">रिजेक्स खोज</string> 
+    <string name="subtitle_tab_mreplace">खोजें और बदले</string> 
+    <string name="subtitle_tab_about">आम पैच जानकारी</string> 
+    <string name="subtitle_tab_add_files">फ़ाइलें जोड़ना</string> 
+    <string name="subtitle_tab_dummy">पैच का अंत</string> 
+    <string name="subtitle_tab_goto">खोज</string> 
+    <string name="subtitle_tab_merge">संसाधनों को मिलाएं</string> 
+    <string name="subtitle_tab_remove_files">फ़ाइलें हटाना</string> 
+    <string name="undo">पूर्ववत</string> 
+    <string name="redo">फिर से करें</string>
+    <string name="hint_script">डेक्स स्क्रिप्ट का नाम</string>
+    <string name="hint_main_class">मुख्य वर्ग</string> 
+    <string name="hint_param">मापदंडों</string> 
+    <string name="hint_entrance">प्रवेश विधि</string> 
+    <string name="subtitle_tab_executor">एक कस्टम स्क्रिप्ट निष्पादित करें</string> 
+ 
+</resources> 
+

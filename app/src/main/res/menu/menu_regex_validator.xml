@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/action_flags"
-        android:title="@string/menu_flags"
         android:icon="@drawable/ic_flag"
-        app:showAsAction="always"/>
+        android:title="@string/menu_flags"
+        app:showAsAction="always" />
     <item
         android:id="@+id/action_clear"
-        android:title="@string/menu_clear"
         android:icon="@drawable/ic_clear_all"
-        app:showAsAction="always"/>
+        android:title="@string/menu_clear"
+        app:showAsAction="always" />
 </menu>

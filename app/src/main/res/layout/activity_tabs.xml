@@ -1,0 +1,40 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="?colorSurfaceVariant">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"
+        app:title="@string/app_name" />
+    <com.roacult.backdrop.BackdropLayout
+        android:paddingTop="94dp"
+        android:id="@+id/back_drop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:front_layout="@id/bottomSheet"
+        app:back_layout="@id/menu_rules"
+        app:toolbarId="@id/toolbar"
+        app:disable_when_open="true"
+        app:front_header_radius="16dp"
+        app:menuDrawable="@drawable/ic_menu_hamburger"
+        app:closeDrawable="@drawable/ic_menu_close">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/menu_rules"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            tools:listitem="@layout/drawer_menu_item"/>
+
+        <include layout="@layout/fragment_bottomsheet"
+            android:id="@+id/bottomSheet"/>
+
+    </com.roacult.backdrop.BackdropLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

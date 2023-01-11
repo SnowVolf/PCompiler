@@ -36,7 +36,7 @@ class ScriptExecutorFragment : TabFragment() {
         tabTitle = getString(R.string.tab_executor)
         title = getString(R.string.tab_executor)
         subtitle = getString(R.string.subtitle_tab_executor)
-        binding.drawerHeaderNick.text = String.format(getString(R.string.title_list_of_dex), TabbedActivity.extraDex.size)
+        binding.drawerHeaderNick.text = String.format(getString(R.string.title_list_of_dex), TabbedActivity.extraDex?.size)
         binding.buttonBar.buttonSave.setOnClickListener { view ->
             val execPart: ReactiveBuilder
 
@@ -51,6 +51,7 @@ class ScriptExecutorFragment : TabFragment() {
                 .insertEndTag("execute_dex")
 
             PatchCollection.getCollection().setItemAt(tag, execPart)
+            tabActivity.updateTabList()
         }
         binding.buttonBar.buttonClear.setOnClickListener { view ->
             binding.fieldScript.clear()
@@ -58,9 +59,10 @@ class ScriptExecutorFragment : TabFragment() {
             binding.fieldEntrance.clear()
             binding.fieldParam.clear()
             binding.fieldMainClass.clear()
-            TabbedActivity.extraDex.clear()
+            TabbedActivity.extraDex?.clear()
             PatchCollection.getCollection().removeItemAt(tag)
             App.ctx().preferences.edit().putString(Constants.KEY_EXTRA_DEXES, "").apply()
+            tabActivity.updateTabList()
         }
         binding.add.setOnClickListener { view -> add() }
     }
@@ -73,8 +75,8 @@ class ScriptExecutorFragment : TabFragment() {
                     val mLastSelectedFile = App.ctx().preferences.getString(Constants.KEY_EXTRA_DEXES, "")
                     if (mLastSelectedFile != data?.data?.path) {
                         App.ctx().preferences.edit().putString(Constants.KEY_EXTRA_DEXES, data?.data?.path).apply()
-                        TabbedActivity.extraDex.add(File(App.ctx().preferences.getString(Constants.KEY_EXTRA_DEXES, "")!!))
-                        binding.drawerHeaderNick.text = String.format(getString(R.string.title_list_of_dex), TabbedActivity.extraDex.size)
+                        TabbedActivity.extraDex?.add(File(App.ctx().preferences.getString(Constants.KEY_EXTRA_DEXES, "")!!))
+                        binding.drawerHeaderNick.text = String.format(getString(R.string.title_list_of_dex), TabbedActivity.extraDex?.size)
                         Toast.makeText(activity, data?.data?.path, Toast.LENGTH_LONG).show()
                     }
                 }
@@ -94,6 +96,6 @@ class ScriptExecutorFragment : TabFragment() {
     @Experimental
     private fun generateScript() {
         val runtime = Runtime.getRuntime()
-        runtime.exec("javac -source 1.7 -target 1.7 " + TabbedActivity.extraDex[0])
+        runtime.exec("javac -source 1.7 -target 1.7 " + TabbedActivity.extraDex!![0])
     }
 }

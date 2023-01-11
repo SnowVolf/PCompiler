@@ -1,0 +1,139 @@
+<resources>
+    <!--Common strings-->
+    <string name="error_occurred">අනපේක්ෂිත දෝෂයක් ඇතිවුනා. කරුණාකර දෝෂ වාර්තාව එවන්න</string>
+    <string name="error_crashed">යෙදුම බිඳ වැටුණි!</string>
+    <string name="button_clear">පැහැදිලිව</string>
+    <string name="button_save">සුරකින්න</string>
+    <string name="app_lang_changed">යෙදුම් භාෂාව වෙනස් කර ඇත. කරුණාකර යෙදුම නැවත ආරම්භ කරන්න</string>
+    <string name="activity_settings">@string/menu_settings</string>
+    <string name="button_uni">සියලුම පැකේජ</string>
+    <!--Menu items-->
+    <string name="menu_fullview">සම්පූර්ණ දසුන</string>
+    <string name="menu_savepatch">පැච් සුරකින්න</string>
+    <string name="menu_reset">යළි පිහිටුවන්න</string>
+    <string name="menu_regexp">නිතිපතා ප්රකාශන</string>
+    <string name="menu_settings">සැකසුම්</string>
+    <string name="menu_about">ගැන</string>
+    <string name="menu_flags">කොඩි</string>
+    <string name="menu_clear">@string/button_clear</string>
+    <string name="menu_web">සබැඳිය</string>
+    <!--Title-->
+    <string name="title_fullview">පැච් නරඹන්නා</string>
+    <string name="title_save">සුරකින්න</string>
+    <string name="title_filename">ගොනුවේ නම</string>
+    <string name="title_zip_filename">Zip ගොනුවේ නම</string>
+    <string name="title_list_of_rules">නීති ලැයිස්තුව</string>
+    <string name="title_regexp_flags">Regexp කොඩි</string>
+    <!-- Hints -->
+    <string name="hint_comment">අදහස් දක්වන්න</string>
+    <string name="hint_author">කර්තෘ</string>
+    <string name="hint_package">පැකේජයේ නම</string>
+    <string name="hint_name">නම</string>
+    <string name="hint_target">ඉලක්ක සම්පත</string>
+    <string name="hint_find">සොයන්න</string>
+    <string name="hint_replace">ආදේශ කරන්න</string>
+    <string name="hint_next_rule">ඊළඟ රීතිය</string>
+    <string name="hint_vars">විචල්යයන්</string>
+    <string name="hint_source">මූලාශ්රය</string>
+    <string name="hint_regexp">RegExp</string>
+    <string name="hint_text">පෙළ</string>
+    <string name="hint_min_engine_ver">අවම එන්ජින් අනුවාදය</string>
+    <string name="hint_description">පැච් විස්තරය, පැච් කිරීමට පෙර ප්‍රදර්ශනය කර ඇත</string>
+    <!--Prefs strings-->
+    <string name="pref_interface">අතුරුමුහුණත</string>
+    <string name="pref_interface_theme">යෙදුම් තේමාව</string>
+    <string name="pref_interface_arta">Arta syntax ඉස්මතු කිරීම</string>
+    <string name="pref_system_language">පද්ධතිය</string>
+    <string name="pref_sys_lang">භාෂාව</string>
+    <string name="pref_interaction">අන්තර්ක්රියා</string>
+    <string name="pref_interaction_open">ප්රධාන ටැබය</string>
+    <string name="pref_interaction_open_symmary">ප්‍රධාන යෙදුම් පටිත්ත වෙනස් කරයි. යෙදුම නැවත ආරම්භ කිරීම අවශ්‍යයි</string>
+    <string name="pref_interaction_back">පසුපස බොත්තම දෙවරක් ඔබන්න</string>
+    <string name="pref_presets">පෙරසිටුවීම්</string>
+    <string name="pref_presets_engine">පෙරනිමි අවම එන්ජින් අනුවාදය</string>
+    <string name="pref_presets_author">පෙරනිමි කර්තෘ</string>
+    <string name="pref_presets_path">පැච් ප්‍රතිදාන ෆෝල්ඩරය</string>
+    <string name="pref_presets_archive_comment">අදහස් සංරක්ෂණය කරන්න</string>
+    <string name="pref_presets_mime_type">MIME වර්ගය</string>
+    <string name="pref_tweaks">tweaks</string>
+    <string name="pref_tweaks_escape_find">EscapeFind</string>
+    <string name="pref_tweaks_escape_find_summary">සියලුම රේඛා බිඳීම්, තිත්, වරහන්, සහ තවත් දේවලින් ගැලවෙන්න...</string>
+    <string name="pref_tweaks_force_regexp">ForceRegexp</string>
+    <string name="pref_tweaks_force_regexp_summary">බලහත්කාරයෙන් regexp සහාය සබල කරන්න</string>
+    <!--Short messages-->
+    <string name="message_patch_cleared">පැච් වින්‍යාසය හිස් කරන ලදී</string>
+    <string name="message_press_back">නැවත වරක් ඔබන්න</string>
+    <string name="message_copied_to_clipboard">පසුරු පුවරුවට පිටපත් කර ඇත</string>
+    <string name="message_saved_in_path" formatted="false">Saved in: %s%s</string>
+    <string name="message_saved_in_path_zip" formatted="false">සුරකින ලද්දේ: %s</string>
+    <string name="message_patch_cannot_empty">දෝෂය: පැච් හිස් විය නොහැක!</string>
+    <string name="message_file_overwrite">ගොනුවක් සාදන්න...</string>
+    <string name="message_saved">සුරකින ලදී</string>
+    <string name="message_name_reserved">මෙම නම ආපසු හරවා ඇත. කරුණාකර වෙනත් එකක් ඇතුළු කරන්න</string>
+    <!--Tabs NOT TRANSLATABLE-->
+    <!--Tabs TRANSLATABLE-->
+    <string name="tab_help">ඉක්මන් උදව්</string>
+    <string name="tab_regex">Regexp පරීක්ෂක</string>
+    <string name="tab_documentation">ලේඛනගත කිරීම</string>
+    <!--About-->
+    <string name="about_version">Version: %s</string>
+    <string name="about_time">ගොඩනැගීමේ දිනය: %s</string>
+    <string name="authors">කර්තෘ සහ සංවර්ධක: Snow Volf (Artem Zhiganov)\nප්‍රධාන දායකයා: htc 600</string>
+    <!--REGEXP-->
+    <string name="regex_def_match">0 matches</string>
+    <string name="regex_def_match_one">%d තරගය</string>
+    <string name="regex_def_match_few">තරඟ %dක්</string>
+    <string name="title_list_of_files">ගොනු ලැයිස්තුව (%d)</string>
+    <string name="title_list_of_dex">ඩෙක්ස් ලැයිස්තුව (%d)</string>
+    <string name="title_activity_about">@string/menu_about</string>
+    <!--Test string NOT TRANSLATABLE-->
+    <string name="version_sub">Version: %s</string>
+    <string name="id_sub">ගොඩනැගීමේ ID: %x</string>
+    <string name="date_sub">ගොඩනැගීමේ දිනය: %s</string>
+    <string name="about_author_role">කර්තෘ සහ සංවර්ධකයා</string>
+    <string name="role_descr">I\'m 23. I\'m programming in Java with the Android framework. Now I\'m trying to start learning Kotlin, and
+        simultaneously expand my Java skill</string>
+    <string name="about_main_contributor_role">මොඩර්</string>
+    <string name="action_refresh">නැවුම් කරන්න</string>
+    <string name="pref_interface_font_size">අකුරු ප්රමාණය</string>
+    <string name="pref_interface_typeface">මොනොස්පේස් අකුරු</string>
+    <string name="load">යාවත්කාලීන කරන්න</string>
+    <string name="message_no_updates">යාවත්කාලීන නොමැත</string>
+    <string name="update_important">වැදගත් දැනුම්දීමක්</string>
+    <string name="update_added">එකතු කරන ලදී</string>
+    <string name="update_fixed">ස්ථාවර</string>
+    <string name="update_changed">වෙනස් කළා</string>
+    <string name="perform_request_link">%s සඳහා බාගත කිරීමේ සබැඳිය ලබා ගනිමින්</string>
+    <string name="update_sys">පද්ධති බාගත කරන්නා</string>
+    <string name="update_ext">බාහිර බාගත කරන්නා</string>
+    <string name="match_tags">ගැලපුම් ටැග්</string>
+    <string name="tags">ටැග්</string>
+    <string name="other">වෙනත්</string>
+    <string name="expand">පුළුල් කරන්න</string>
+    <string name="i_read">මම කියෙව්වා</string>
+    <string name="title_activity_help">කරුණාකර කියවන්න!</string>
+    <string name="index_of_bounds_error" formatted="false"><![CDATA[Cannot add rule with index %d, size is %d. More info: About -> Help]]></string>
+    <string name="radiationx_role">Android සංවර්ධක</string>
+    <string name="radiationx_role_description">Android සඳහා සංවර්ධක. ඔහුට ස්තූතියි, යෙදුමට දැන් ටැබ් ඇති අතර දෝෂ නීති අනුපිටපත් කරන ලද අතර සැකසුම් අයිතම සවි කර ඇත;</string>
+    <string name="pref_sys_delay">වාක්‍ය ඛණ්ඩ යාවත්කාලීන ප්‍රමාදය (ms වලින්)</string>
+    <string name="hint_enter_patch_body">පැච් බොඩි ඇතුල් කරන්න</string>
+    <string name="menu_edit">පැච් සංස්කාරකය</string>
+
+    <string name="subtitle_tab_assign">විචල්‍ය පැවරීම</string>
+    <string name="subtitle_tab_mgoto">Regex සෙවීම</string>
+    <string name="subtitle_tab_mreplace">සොයන්න &amp; ප්‍රතිස්ථාපනය කරන්න</string>
+    <string name="subtitle_tab_about">පොදු පැච් තොරතුරු</string>
+    <string name="subtitle_tab_add_files">ගොනු එකතු කිරීම</string>
+    <string name="subtitle_tab_dummy">පැච් එකේ අවසානය</string>
+    <string name="subtitle_tab_goto">සොයන්න</string>
+    <string name="subtitle_tab_merge">සම්පත් ඒකාබද්ධ කරන්න</string>
+    <string name="subtitle_tab_remove_files">ගොනු ඉවත් කිරීම</string>
+    <string name="undo">අහෝසි කරන්න</string>
+    <string name="redo">නැවත කරන්න</string>
+    <string name="hint_script">ඩෙක්ස් ස්ක්‍රිප්ට් නම</string>
+    <string name="hint_main_class">ප්රධාන පන්තිය</string>
+    <string name="hint_param">පරාමිතීන්</string>
+    <string name="hint_entrance">ඇතුල්වීමේ ක්රමය</string>
+    <string name="subtitle_tab_executor">අභිරුචි ස්ක්‍රිප්ට් ක්‍රියාත්මක කරන්න</string>
+
+</resources>

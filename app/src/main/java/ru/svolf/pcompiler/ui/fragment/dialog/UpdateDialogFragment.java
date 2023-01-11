@@ -41,6 +41,7 @@ import ru.svolf.pcompiler.util.RuntimeUtil;
  * Created by Snow Volf on 28.09.2017, 22:41
  */
 
+@SuppressWarnings("deprecation")
 public class UpdateDialogFragment extends BottomSheetDialogFragment {
     private static String mValue;
     String jsonSource = null;

@@ -18,11 +18,7 @@
 #retrolambda
 -dontwarn java.lang.invoke.*
 -dontwarn **$$Lambda$*
-#butterknife
--keep class butterknife.*
--keep public class * implements butterknife.Unbinder { public <init>(**, android.view.View); }
--keepclasseswithmembernames class * { @butterknife.* <methods>; }
--keepclasseswithmembernames class * { @butterknife.* <fields>; }
+
 -dontwarn net.lingala.zip4j.**
 #okhttp3
 -keepattributes Signature

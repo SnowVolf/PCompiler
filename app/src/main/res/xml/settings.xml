@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory
-        android:title="@string/pref_interface">
-        <ListPreference
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory android:title="@string/pref_interface">
+        <Preference
             android:icon="@drawable/ic_settings_style"
-            android:defaultValue="0"
             android:key="ui.theme"
             android:title="@string/pref_interface_theme"
-            android:entries="@array/theme_names"
-            android:entryValues="@array/theme_values"/>
+            android:summary="Follow system theme"
+            android:enabled="false"/>
         <SwitchPreference
             android:icon="@drawable/ic_settings_arta"
             android:key="ui.arta"
@@ -16,83 +16,82 @@
         <Preference
             android:icon="@drawable/ic_settings_font_size"
             android:key="ui.font_size"
-            android:title="@string/pref_interface_font_size"/>
+            android:title="@string/pref_interface_font_size" />
         <SwitchPreference
+            android:clickable="true"
+            android:defaultValue="true"
             android:icon="@drawable/ic_settings_typeface"
             android:key="ui.font_monospace"
-            android:title="@string/pref_interface_typeface"
-            android:defaultValue="true"
-            android:clickable="true"/>
+            android:title="@string/pref_interface_typeface" />
     </PreferenceCategory>
-    <PreferenceCategory
-        android:title="@string/pref_system_language">
-        <ListPreference
-            android:icon="@drawable/ic_settings_language"
-            android:key="sys.language"
-            android:title="@string/pref_sys_lang"
-            android:entries="@array/entries_lang"
-            android:entryValues="@array/values_lang"/>
+    <PreferenceCategory android:title="@string/pref_system_language">
         <EditTextPreference
+            android:defaultValue="2000"
             android:icon="@drawable/ic_settings_update_delay"
             android:key="sys.delay"
-            android:title="@string/pref_sys_delay"
-            android:defaultValue="2000"/>
+            android:title="@string/pref_sys_delay" />
     </PreferenceCategory>
-    <PreferenceCategory
-        android:title="@string/pref_interaction">
+    <PreferenceCategory android:title="@string/pref_interaction">
         <ListPreference
-            android:icon="@drawable/ic_settings_launch"
             android:defaultValue="1"
-            android:key="tab.sort"
-            android:title="@string/pref_interaction_open"
-            android:summary="@string/pref_interaction_open_symmary"
             android:entries="@array/tab_names"
-            android:entryValues="@array/tab_values"/>
+            android:entryValues="@array/tab_values"
+            android:icon="@drawable/ic_settings_launch"
+            android:key="tab.sort"
+            android:summary="@string/pref_interaction_open_symmary"
+            android:title="@string/pref_interaction_open"
+            app:useSimpleSummaryProvider="true"/>
         <SwitchPreference
+            android:clickable="true"
+            android:defaultValue="true"
             android:icon="@drawable/ic_settings_back"
             android:key="interaction.back"
-            android:title="@string/pref_interaction_back"
-            android:defaultValue="true"
-            android:clickable="true"/>
+            android:title="@string/pref_interaction_back" />
     </PreferenceCategory>
-    <PreferenceCategory
-        android:title="@string/pref_presets">
-        <Preference
+    <PreferenceCategory android:title="@string/pref_presets">
+        <EditTextPreference
             android:icon="@drawable/ic_settings_presets"
             android:key="preset.engine_ver"
-            android:title="@string/pref_presets_engine"/>
-        <Preference
+            android:title="@string/pref_presets_engine"
+            app:defaultValue="2"
+            app:useSimpleSummaryProvider="true"/>
+        <EditTextPreference
             android:icon="@drawable/ic_settings_person"
             android:key="preset.author"
-            android:title="@string/pref_presets_author"/>
-        <Preference
+            android:title="@string/pref_presets_author"
+            app:defaultValue="Snow Volf"
+            app:useSimpleSummaryProvider="true"/>
+        <EditTextPreference
             android:icon="@drawable/ic_settings_folder"
             android:key="preset.path"
-            android:title="@string/pref_presets_path"/>
-        <Preference
+            android:title="@string/pref_presets_path" />
+        <EditTextPreference
             android:icon="@drawable/ic_settings_edit"
             android:key="preset.archive_comment"
-            android:title="@string/pref_presets_archive_comment"/>
-        <Preference
+            android:title="@string/pref_presets_archive_comment"
+            app:defaultValue="Created by PCompiler"
+            app:useSimpleSummaryProvider="true"/>
+        <EditTextPreference
             android:icon="@drawable/ic_settings_presets"
             android:key="preset.mime_type"
-            android:title="@string/pref_presets_mime_type"/>
+            android:title="@string/pref_presets_mime_type"
+            app:defaultValue="file/*"
+            app:useSimpleSummaryProvider="true"/>
     </PreferenceCategory>
-    <PreferenceCategory
-        android:title="@string/pref_tweaks">
-    <SwitchPreference
-        android:icon="@drawable/ic_settings_escape"
-        android:key="other.escape_find"
-        android:title="@string/pref_tweaks_escape_find"
-        android:summary="@string/pref_tweaks_escape_find_summary"
-        android:defaultValue="false"
-        android:clickable="true"/>
-    <SwitchPreference
-        android:icon="@drawable/ic_settings_forceregex"
-        android:key="other.regexp"
-        android:title="@string/pref_tweaks_force_regexp"
-        android:summary="@string/pref_tweaks_force_regexp_summary"
-        android:defaultValue="true"
-        android:clickable="true" />
+    <PreferenceCategory android:title="@string/pref_tweaks">
+        <SwitchPreference
+            android:clickable="true"
+            android:defaultValue="false"
+            android:icon="@drawable/ic_settings_escape"
+            android:key="other.escape_find"
+            android:summary="@string/pref_tweaks_escape_find_summary"
+            android:title="@string/pref_tweaks_escape_find" />
+        <SwitchPreference
+            android:clickable="true"
+            android:defaultValue="true"
+            android:icon="@drawable/ic_settings_forceregex"
+            android:key="other.regexp"
+            android:summary="@string/pref_tweaks_force_regexp_summary"
+            android:title="@string/pref_tweaks_force_regexp" />
     </PreferenceCategory>
 </PreferenceScreen>

@@ -2,57 +2,53 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<LinearLayout
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp">
-    <com.google.android.material.textfield.TextInputLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hint_min_engine_ver">
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical">
+
         <ru.svolf.girl.ui.GirlEditText
             android:id="@+id/field_engine_ver"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/hint_min_engine_ver"
             android:inputType="phone"
-            android:maxLines="1"/>
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hint_author">
+            android:maxLines="1" />
+
         <ru.svolf.girl.ui.GirlEditText
             android:id="@+id/field_author"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLines="1"/>
-    </com.google.android.material.textfield.TextInputLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <com.google.android.material.textfield.TextInputLayout
+            android:hint="@string/hint_author"
+            android:maxLines="1" />
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_package"
-            android:layout_toStartOf="@+id/all_packages">
+            android:layout_height="wrap_content">
+
             <ru.svolf.girl.ui.GirlEditText
                 android:id="@+id/field_package_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@+id/all_packages"
+                android:hint="@string/hint_package" />
 
-        <Button
-            android:id="@+id/all_packages"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="8dp"
-            android:text="@string/button_uni" />
-    </RelativeLayout>
-    <include
-        android:id="@+id/button_bar"
-        layout="@layout/button_bar"/>
-</LinearLayout>
+
+            <Button
+                android:id="@+id/all_packages"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:text="@string/button_uni" />
+        </RelativeLayout>
+
+        <include
+            android:id="@+id/button_bar"
+            layout="@layout/button_bar" />
+    </LinearLayout>
 </androidx.core.widget.NestedScrollView>

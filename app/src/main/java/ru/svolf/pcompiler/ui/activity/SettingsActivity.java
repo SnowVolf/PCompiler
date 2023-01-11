@@ -26,9 +26,6 @@ public class SettingsActivity extends BaseActivity {
         setContentView(R.layout.activity_settings);
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setPadding(0, App.ctx().getStatusBarHeight(), 0, 0);
-        if (Build.VERSION.SDK_INT >= 23) {
-            toolbar.setTitleTextColor(App.getColorFromAttr(this, R.attr.icon_color));
-        }
         toolbar.getMenu().add("Debug menu")
                 .setIcon(R.drawable.ic_bug)
                 .setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS)

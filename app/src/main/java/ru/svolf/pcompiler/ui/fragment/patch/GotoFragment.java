@@ -45,12 +45,14 @@ public class GotoFragment extends TabFragment {
                     .insertEndTag("goto");
 
             PatchCollection.getCollection().setItemAt(getTag(), gotoPart);
+            getTabActivity().updateTabList();
         });
 
         binding.buttonBar.buttonClear.setOnClickListener(v -> {
             binding.fieldComment.clear();
             binding.fieldNextRule.clear();
             PatchCollection.getCollection().removeItemAt(getTag());
+            getTabActivity().updateTabList();
         });
     }
 

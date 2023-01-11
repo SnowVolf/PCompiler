@@ -3,17 +3,20 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="end">
+
     <Button
+        android:id="@+id/button_clear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button_clear"
         android:text="@string/button_clear" />
+
     <Space
         android:layout_width="4dp"
-        android:layout_height="0dp"/>
+        android:layout_height="0dp" />
+
     <Button
+        android:id="@+id/button_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button_save"
         android:text="@string/button_save" />
 </LinearLayout>

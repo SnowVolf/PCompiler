@@ -46,12 +46,14 @@ public class MergeFragment extends TabFragment {
                     .insertEndTag("merge");
 
             PatchCollection.getCollection().setItemAt(getTag(), mergePart);
+            getTabActivity().updateTabList();
         });
         binding.buttonBar.buttonClear.setOnClickListener(v -> {
             binding.fieldComment.clear();
             binding.fieldName.clear();
             binding.fieldSource.clear();
             PatchCollection.getCollection().removeItemAt(getTag());
+            getTabActivity().updateTabList();
         });
     }
 

@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/action_help"
-        android:title="@string/title_activity_help"
         android:icon="@drawable/ic_help"
-        app:showAsAction="always"/>
+        android:title="@string/title_activity_help"
+        app:showAsAction="always" />
     <item
         android:id="@+id/action_schedule_update"
-        android:title="@string/action_refresh"
         android:icon="@drawable/ic_refresh"
-        app:showAsAction="always"/>
+        android:title="@string/action_refresh"
+        app:showAsAction="always" />
 </menu>

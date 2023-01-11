@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
     <ImageButton
         android:id="@+id/button_repo"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:src="@drawable/ic_fork"
         android:layout_weight="1"
-        android:background="?selectableItemBackground"/>
+        android:background="?selectableItemBackground"
+        android:src="@drawable/ic_fork" />
+
     <ImageButton
         android:id="@+id/button_changelog"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:src="@drawable/ic_change_history"
         android:layout_weight="1"
-        android:background="?selectableItemBackground"/>
+        android:background="?selectableItemBackground"
+        android:src="@drawable/ic_change_history" />
+
     <ImageButton
         android:id="@+id/button_forum"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:src="@drawable/ic_forum"
         android:layout_weight="1"
-        android:background="?selectableItemBackground"/>
+        android:background="?selectableItemBackground"
+        android:src="@drawable/ic_forum" />
 </LinearLayout>

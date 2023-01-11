@@ -1,0 +1,140 @@
+<resources>  
+    <!--Common strings-->
+    <string name="error_occurred">Đã xảy ra lỗi không mong muốn. Vui lòng gửi báo cáo lỗi</string>
+    <string name="error_crashed">Ứng dụng bị lỗi!</string>  
+    <string name="button_clear">Xóa</string>  
+    <string name="button_save">Lưu</string>  
+    <string name="app_lang_changed">Ngôn ngữ ứng dụng đã được thay đổi. Vui lòng khởi động lại ứng dụng</string>  
+    <string name="activity_settings">@string/menu_settings</string>  
+    <string name="button_uni">Toàn bộ gói</string>  
+    <!--Menu items-->  
+    <string name="menu_fullview">Toàn cảnh</string>  
+    <string name="menu_savepatch">Lưu bản vá</string>  
+    <string name="menu_reset">Cài lại</string>  
+    <string name="menu_regexp">Biểu thức chính quy</string>  
+    <string name="menu_settings">Thiết trí</string>  
+    <string name="menu_about">Về</string>  
+    <string name="menu_flags">Cờ</string>  
+    <string name="menu_clear">@string/button_clear</string>  
+    <string name="menu_web">Liên kết</string>
+    <!--Title-->
+    <string name="title_fullview">Trình xem bản vá</string>  
+    <string name="title_save">Lưu</string>  
+    <string name="title_filename">Tên tệp</string>  
+    <string name="title_zip_filename">Tên tệp nén</string>  
+    <string name="title_list_of_rules">Danh sách quy tắc</string>  
+    <string name="title_regexp_flags">Cờ biểu thức chính quy</string>  
+    <!-- Hints -->  
+    <string name="hint_comment">Bình luận</string>  
+    <string name="hint_author">Tác giả</string>  
+    <string name="hint_package">Tên gói hàng</string>  
+    <string name="hint_name">Tên</string>  
+    <string name="hint_target">Mục tiêu tư nguyên</string>  
+    <string name="hint_find">Tìm thấy</string>  
+    <string name="hint_replace">Thay thế</string>  
+    <string name="hint_next_rule">Tiếp theo quy tắc</string>  
+    <string name="hint_vars">Biến</string>  
+    <string name="hint_source">Nguồn</string>
+    <string name="hint_regexp">Biểu hiện thông thường</string>
+    <string name="hint_text">Văn bản</string>  
+    <string name="hint_min_engine_ver">Phiên bản động cơ tối thiểu</string>  
+    <string name="hint_description">Mô tả bản vá, đã được hiển thị trước khi vá</string>  
+    <!--Prefs strings-->  
+    <string name="pref_interface">Giao diện</string>  
+    <string name="pref_interface_theme">Ứng dụng chủ đề</string>  
+    <string name="pref_interface_arta">Đánh dấu cú pháp nghệ thuật</string>  
+    <string name="pref_system_language">Hệ thống</string>  
+    <string name="pref_sys_lang">Ngữ ngôn</string>  
+    <string name="pref_interaction">Tương tác</string>  
+    <string name="pref_interaction_open">Chuyển hướng chính</string>  
+    <string name="pref_interaction_open_symmary">Thay đổi chuyển hướng ứng dụng chính. Cần khởi động lại ứng dụng</string>  
+    <string name="pref_interaction_back">Nhấn nút quay lại hai lần</string>  
+    <string name="pref_presets">Cài đặt trước</string>  
+    <string name="pref_presets_engine">Phiên bản công cụ tối thiểu mặc định</string>  
+    <string name="pref_presets_author">Mặc nhận tác giả</string>  
+    <string name="pref_presets_path">Bản vá thư mục đầu ra</string>  
+    <string name="pref_presets_archive_comment">Lưu trữ bình luận</string>  
+    <string name="pref_presets_mime_type">MIME Loại hình</string>  
+    <string name="pref_tweaks">Điều chỉnh</string>  
+    <string name="pref_tweaks_escape_find">Thoát khỏi tìm kiếm</string>  
+    <string name="pref_tweaks_escape_find_summary">Thoát toàn bộ ngắt dòng, dấu chấm, dấu ngoặc và hơn thế nữa…</string>  
+    <string name="pref_tweaks_force_regexp">Biểu thức chính quy bắt buộc</string>  
+    <string name="pref_tweaks_force_regexp_summary">Thực thi hỗ trợ biểu thức chính quy</string>  
+    <!--Short messages-->  
+    <string name="message_patch_cleared">Đã xóa cấu hình bản vá</string>  
+    <string name="message_press_back">Nhấn lại một lần nữa</string>  
+    <string name="message_copied_to_clipboard">Sao chép vào khay nhớ tạm</string>  
+    <string name="message_saved_in_path" formatted="false">Đã lưu trong: %s%s</string>  
+    <string name="message_saved_in_path_zip" formatted="false">Đã lưu trong: %s</string>  
+    <string name="message_patch_cannot_empty">Lỗi: Không được để trống bản vá!</string>  
+    <string name="message_file_overwrite">Tạo tệp…</string>  
+    <string name="message_saved">Đã lưu</string>  
+    <string name="message_name_reserved">Tên này được đảo ngược. Vui lòng nhập một cái khác</string>  
+    <!--Tabs NOT TRANSLATABLE-->
+    <!--Tabs TRANSLATABLE-->
+    <string name="tab_help">Nhanh chóng bang trợ</string>  
+    <string name="tab_regex">Trình kiểm tra biểu thức chính quy</string>  
+    <string name="tab_documentation">Tài liệu</string>  
+    <!--About-->  
+    <string name="about_version">Phiên bản: %s</string>  
+    <string name="about_time">Ngày xây dựng: %s</string>
+    <string name="authors">Tác giả và nhà phát triển: Snow Volf (Artem Zhiganov)\nMain cống hiến giả: htc 600</string>
+    <!--REGEXP-->  
+    <string name="regex_def_match">0 phù hợp</string>  
+    <string name="regex_def_match_one">%d phù hợp</string>  
+    <string name="regex_def_match_few">%d phù hợp</string>  
+    <string name="title_list_of_files">Tệp danh sách (%d)</string>  
+    <string name="title_list_of_dex">Dex danh sách (%d)</string>  
+    <string name="title_activity_about">@string/menu_about</string>  
+    <!--Test string NOT TRANSLATABLE-->
+    <string name="version_sub">Phiên bản: %s</string>
+    <string name="id_sub">Xây dựng ID: %x</string>  
+    <string name="date_sub">Ngày xây dựng: %s</string>
+    <string name="about_author_role">Tác giả và nhà phát triển</string>
+    <string name="role_descr">I\'m 23. I\'m lập trình bằng Trảo Oa với An Trác khung giá. Hiện tại I\'m cố gắng bắt đầu học Khoa Đặc Lâm và đồng thời mở rộng kỹ năng Trảo Oa của tôi</string>
+    <string name="about_main_contributor_role">Nê</string>
+    <string name="action_refresh">Làm mới</string>
+    <string name="pref_interface_font_size">Phông chữ kích thước</string>  
+    <string name="pref_interface_typeface">Đẳng khoan phông chữ</string>  
+    <string name="load">Cập nhật</string>  
+    <string name="message_no_updates">Không có bản cập nhật nào</string>  
+    <string name="update_important">Quan trọng thông báo</string>  
+    <string name="update_added">Đã thêm</string>  
+    <string name="update_fixed">Đã sửa</string>  
+    <string name="update_changed">Đã thay đổi</string>  
+    <string name="perform_request_link">Nhận tải xuống liên kết cho %s</string>  
+    <string name="update_sys">Hệ thống trình tải xuống</string>  
+    <string name="update_ext">Bên ngoài trình tải xuống</string>  
+    <string name="match_tags">Đối sánh nhãn mác</string>  
+    <string name="tags">Nhãn mác</string>  
+    <string name="other">Khác</string>  
+    <string name="expand">Mở rộng</string>  
+    <string name="i_read">I\'m đọc</string>  
+    <string name="title_activity_help">Xin vui lòng đọc!</string>  
+    <string name="index_of_bounds_error" formatted="false"><![CDATA[Không thể thêm quy tắc với chỉ mục %d, kích thước là %d. Thêm thông tin: Về -> Bang trợ]]></string>
+    <string name="radiationx_role">An Trác nhà phát triển</string>
+    <string name="radiationx_role_description">Nhà phát triển cho An Trác. Cảm ơn anh ấy, ứng dụng hiện có chuyển hướng và lỗi là quy tắc trùng lặp và mục cài đặt đã được sửa;</string>
+    <string name="pref_sys_delay">Cú pháp cập nhật độ trễ (tính bằng ms)</string>
+    <string name="hint_enter_patch_body">Nhập bản vá nội dung</string>  
+    <string name="menu_edit">Bản vá trình chỉnh sửa</string>  
+  
+    <string name="subtitle_tab_assign">Biến chỉ định</string>  
+    <string name="subtitle_tab_mgoto">Tìm kiếm biểu thức chính quy</string>  
+    <string name="subtitle_tab_mreplace">Tìm kiếm &amp; Thay thế</string>  
+    <string name="subtitle_tab_about">Phổ biến bản vá thông tin</string>  
+    <string name="subtitle_tab_add_files">Thêm tệp</string>  
+    <string name="subtitle_tab_dummy">Phần cuối của bản vá</string>  
+    <string name="subtitle_tab_goto">Tìm kiếm</string>  
+    <string name="subtitle_tab_merge">Hợp tính tư nguyên</string>  
+    <string name="subtitle_tab_remove_files">Xóa tệp</string>  
+    <string name="undo">Hoàn tác</string>  
+    <string name="redo">Làm lại</string>
+    <string name="hint_script">Dex tên tập lệnh</string>
+    <string name="hint_main_class">Lớp chính</string>  
+    <string name="hint_param">Tham số</string>  
+    <string name="hint_entrance">Cổng vào phương pháp</string>  
+    <string name="subtitle_tab_executor">Thực thi một tùy chỉnh tập lệnh</string>  
+  
+</resources>  
+ 
+

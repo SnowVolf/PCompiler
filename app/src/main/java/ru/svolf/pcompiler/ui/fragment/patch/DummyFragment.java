@@ -47,11 +47,13 @@ public class DummyFragment extends TabFragment {
                     .insertEndTag("dummy");
 
             PatchCollection.getCollection().setItemAt(getTag(), dummyPart);
+            getTabActivity().updateTabList();
         });
         binding.buttonBar.buttonClear.setOnClickListener(v -> {
             binding.fieldComment.clear();
             binding.fieldName.clear();
             PatchCollection.getCollection().removeItemAt(getTag());
+            getTabActivity().updateTabList();
         });
     }
 

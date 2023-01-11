@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_focused="true">
-        <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
-            <corners android:radius="24dp" />
-            <solid android:color="@color/tab_colorIndicator" />
-        </shape>
-    </item>
-    <item android:state_pressed="true">
-        <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
-            <corners android:radius="24dp" />
-            <solid android:color="@color/tab_colorIndicator" />
-        </shape>
-    </item>
-    <item>
-        <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
-            <corners android:radius="24dp" />
-            <solid android:color="@color/tab_colorIndicator" />
-        </shape>
-    </item>
-</selector>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <corners android:radius="4dp"/>
+    <size android:width="36dp" android:height="36dp"/>
+    <solid android:color="?colorTertiaryContainer" />
+    <padding android:bottom="4dp" android:top="4dp" android:right="4dp" android:left="4dp"/>
+</shape>

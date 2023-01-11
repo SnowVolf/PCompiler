@@ -1,34 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/notify_dot"
-    android:layout_width="?attr/actionBarSize"
-    android:layout_height="?attr/actionBarSize"
-    android:descendantFocusability="blocksDescendants"
-    app:layout_collapseMode="pin">
-    <ImageView
-        android:src="@drawable/ic_drawer_menu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"/>
-
-        <TextView
-            android:id="@+id/drawer_tabs_count"
-            android:layout_width="wrap_content"
-            android:layout_height="16dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="6dp"
-            android:layout_marginStart="6dp"
-            android:background="@drawable/dot_indicator"
-            android:gravity="center"
-            android:minWidth="20dp"
-            android:paddingEnd="6dp"
-            android:paddingStart="6dp"
-            android:layout_marginBottom="10dp"
-            android:maxLines="1"
-            android:textSize="10sp"
-            android:textStyle="bold"
-            android:layout_alignParentBottom="true"
-            android:textColor="?colorPrimary" />
-</RelativeLayout>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:padding="8dp">
+    <TextView
+        android:descendantFocusability="blocksDescendants"
+        android:includeFontPadding="false"
+        android:id="@+id/drawer_tabs_count"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/dot_indicator"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textStyle="bold"
+        tools:text="1" />
+</LinearLayout>

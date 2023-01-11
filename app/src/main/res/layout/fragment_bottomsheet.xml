@@ -1,0 +1,17 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backdrop_front_bg">
+
+    <FrameLayout
+        android:id="@+id/fragments_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="90dp"/>
+
+    <!-- Adding bottom sheet after main content -->
+    <include
+        android:id="@+id/bottomSheetBack"
+        layout="@layout/bottomsheet_back" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

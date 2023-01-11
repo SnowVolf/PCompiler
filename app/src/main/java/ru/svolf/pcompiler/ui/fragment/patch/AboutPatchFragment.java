@@ -13,6 +13,7 @@ import ru.svolf.pcompiler.patch.PatchCollection;
 import ru.svolf.pcompiler.patch.ReactiveBuilder;
 import ru.svolf.pcompiler.settings.Preferences;
 import ru.svolf.pcompiler.tabs.TabFragment;
+import ru.svolf.pcompiler.tabs.TabManager;
 
 /**
  * Created by Snow Volf on 17.08.2017, 15:48
@@ -54,12 +55,14 @@ public class AboutPatchFragment extends TabFragment {
                             .insertAboutTag(binding.fieldPackageName, "package");
 
             PatchCollection.getCollection().setItemAt(getTag(), aboutPart);
+            getTabActivity().updateTabList();
         });
         binding.buttonBar.buttonClear.setOnClickListener(v -> {
             binding.fieldEngineVer.clear();
             binding.fieldAuthor.clear();
             binding.fieldPackageName.clear();
             PatchCollection.getCollection().removeItemAt(getTag());
+            getTabActivity().updateTabList();
         });
     }
 

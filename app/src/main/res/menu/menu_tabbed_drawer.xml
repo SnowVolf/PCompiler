@@ -2,23 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/tab_about"
-        android:title="@string/tab_about"
-        android:icon="@drawable/ic_settings_person"/>
+        android:icon="@drawable/ic_settings_person"
+        android:title="@string/tab_about" />
 
     <item android:title="@string/match_tags">
         <menu>
             <item
                 android:id="@+id/tab_match_replace"
-                android:title="@string/tab_match_replace"
-                android:icon="@drawable/ic_find_replace"/>
+                android:icon="@drawable/ic_find_replace"
+                android:title="@string/tab_match_replace" />
             <item
                 android:id="@+id/tab_match_goto"
-                android:title="@string/tab_match_goto"
-                android:icon="@drawable/ic_find_replace"/>
+                android:icon="@drawable/ic_find_replace"
+                android:title="@string/tab_match_goto" />
             <item
                 android:id="@+id/tab_match_assign"
-                android:title="@string/tab_match_assign"
-                android:icon="@drawable/ic_find_replace"/>
+                android:icon="@drawable/ic_find_replace"
+                android:title="@string/tab_match_assign" />
         </menu>
     </item>
 
@@ -26,40 +26,40 @@
         <menu>
             <item
                 android:id="@+id/tab_goto"
-                android:title="@string/tab_goto"
-                android:icon="@drawable/ic_goto"/>
+                android:icon="@drawable/ic_goto"
+                android:title="@string/tab_goto" />
             <item
                 android:id="@+id/tab_add_files"
-                android:title="@string/tab_add_files"
-                android:icon="@drawable/ic_add_files"/>
+                android:icon="@drawable/ic_add_files"
+                android:title="@string/tab_add_files" />
             <item
                 android:id="@+id/tab_remove_files"
-                android:title="@string/tab_remove_files"
-                android:icon="@drawable/ic_delete_files"/>
+                android:icon="@drawable/ic_delete_files"
+                android:title="@string/tab_remove_files" />
             <item
                 android:id="@+id/tab_merge"
-                android:title="@string/tab_merge"
-                android:icon="@drawable/ic_merge"/>
+                android:icon="@drawable/ic_merge"
+                android:title="@string/tab_merge" />
             <item
                 android:id="@+id/tab_dummy"
-                android:title="@string/tab_dummy"
-                android:icon="@drawable/ic_dummy"/>
+                android:icon="@drawable/ic_dummy"
+                android:title="@string/tab_dummy" />
         </menu>
     </item>
     <item android:title="@string/other">
         <menu>
             <item
                 android:id="@+id/action_regex_help"
-                android:title="@string/menu_regexp"
-                android:icon="@drawable/ic_regexp"/>
+                android:icon="@drawable/ic_regexp"
+                android:title="@string/menu_regexp" />
             <item
                 android:id="@+id/action_settings"
-                android:title="@string/menu_settings"
-                android:icon="@drawable/ic_settings"/>
+                android:icon="@drawable/ic_settings"
+                android:title="@string/menu_settings" />
             <item
                 android:id="@+id/action_about"
-                android:title="@string/menu_about"
-                android:icon="@drawable/ic_info"/>
+                android:icon="@drawable/ic_info"
+                android:title="@string/menu_about" />
         </menu>
     </item>
 </menu>

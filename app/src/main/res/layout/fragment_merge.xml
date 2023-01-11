@@ -2,40 +2,36 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<LinearLayout
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp">
-    <com.google.android.material.textfield.TextInputLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hint_comment">
-        <ru.svolf.girl.ui.GirlEditText
-            android:id="@+id/field_comment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hint_name">
-        <ru.svolf.girl.ui.GirlEditText
-            android:id="@+id/field_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hint_source">
-        <ru.svolf.girl.ui.GirlEditText
-            android:id="@+id/field_source"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <include
-        android:id="@+id/button_bar"
-        layout="@layout/button_bar"/>
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical">
+
+
+
+            <ru.svolf.girl.ui.GirlEditText
+                android:id="@+id/field_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_comment"/>
+
+            <ru.svolf.girl.ui.GirlEditText
+                android:id="@+id/field_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_name"/>
+
+            <ru.svolf.girl.ui.GirlEditText
+                android:id="@+id/field_source"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_source"/>
+
+        <include
+            android:id="@+id/button_bar"
+            layout="@layout/button_bar" />
+    </LinearLayout>
 </androidx.core.widget.NestedScrollView>

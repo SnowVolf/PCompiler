@@ -29,54 +29,19 @@ import ru.svolf.pcompiler.ui.fragment.dialog.SweetInputDialogFragment;
  * Created by Snow Volf on 18.08.2017, 21:55
  */
 
-public class SettingsFragment extends PreferenceFragmentCompat implements SharedPreferences.OnSharedPreferenceChangeListener{
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
-    }
+public class SettingsFragment extends PreferenceFragmentCompat {
 
     @Override
     public void onCreatePreferences(@Nullable Bundle savedInstanceState, String rootKey) {
         setHasOptionsMenu(true);
         addPreferencesFromResource(R.xml.settings);
-        setCurrentValue(findPreference("sys.language"));
-        findPreference("sys.delay").setSummary(App.ctx().getPreferences().getString("sys.delay", "2000"));
-        setCurrentValue(findPreference("ui.theme"));
-        getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
         init();
     }
 
-    @Override
-    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        switch (key){
-            case "ui.theme":{
-                setCurrentValue((ListPreference) findPreference(key));
-                LocalBroadcastManager.getInstance(getActivity()).sendBroadcast(new Intent("org.openintents.action.REFRESH_THEME"));
-                break;
-            }
-            case "sys.language": {
-                setCurrentValue((ListPreference) findPreference(key));
-                break;
-            }
-            case "sys.delay":{
-                findPreference(key).setSummary(sharedPreferences.getString(key, "2000"));
-            }
-        }
-    }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        getPreferenceScreen().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(this);
-    }
-
-    private void setCurrentValue(ListPreference listPreference){
-        listPreference.setSummary(listPreference.getEntry());
     }
 
     private void init(){
@@ -119,19 +84,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
             });
             return false;
         });
-        findPreference("preset.engine_ver").setOnPreferenceClickListener(preference -> {
-            FragmentManager manager = getActivity().getSupportFragmentManager();
-            SweetInputDialogFragment dialogFragment = SweetInputDialogFragment.newInstance(preference, Preferences.INSTANCE.getPatchEngineVer());
-            dialogFragment.show(manager, null);
-            return true;
-        });
-
-        findPreference("preset.author").setOnPreferenceClickListener(preference -> {
-            FragmentManager manager = getActivity().getSupportFragmentManager();
-            SweetInputDialogFragment dialogFragment = SweetInputDialogFragment.newInstance(preference, Preferences.INSTANCE.getPatchAuthor());
-            dialogFragment.show(manager, null);
-            return true;
-        });
 
         findPreference("preset.path").setOnPreferenceClickListener(preference -> {
             FragmentManager manager = getActivity().getSupportFragmentManager();
@@ -140,18 +92,5 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
             return true;
         });
 
-        findPreference("preset.archive_comment").setOnPreferenceClickListener(preference -> {
-            FragmentManager manager = getActivity().getSupportFragmentManager();
-            SweetInputDialogFragment dialogFragment = SweetInputDialogFragment.newInstance(preference, null);
-            dialogFragment.show(manager, null);
-            return true;
-        });
-
-        findPreference("preset.mime_type").setOnPreferenceClickListener(preference -> {
-            FragmentManager manager = getActivity().getSupportFragmentManager();
-            SweetInputDialogFragment dialogFragment = SweetInputDialogFragment.newInstance(preference, Preferences.INSTANCE.getMimeType());
-            dialogFragment.show(manager, null);
-            return true;
-        });
     }
 }

@@ -2,35 +2,39 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <LinearLayout
-        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp">
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp">
+
             <ImageView
                 android:id="@+id/drawer_header_avatar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="6dp"
-                android:src="@drawable/ic_file"/>
+                android:src="@drawable/ic_file" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/drawer_header_nick"
+                style="@style/Base.TextAppearance.AppCompat.Title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="16dp"
-                android:layout_toEndOf="@+id/drawer_header_avatar"
                 android:layout_toStartOf="@+id/add"
-                android:textSize="14sp"
-                android:textStyle="bold"
+                android:layout_toEndOf="@+id/drawer_header_avatar"
                 android:lines="1"
-                style="@style/Base.TextAppearance.AppCompat.Title"/>
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
             <ImageButton
                 android:id="@+id/add"
@@ -42,78 +46,72 @@
                 android:clickable="true"
                 android:src="@drawable/ic_add" />
         </RelativeLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_comment">
+
             <ru.svolf.girl.ui.GirlEditText
                 android:id="@+id/field_comment"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_comment"/>
+
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_script"
-                android:layout_toStartOf="@id/checkBoxContainer">
+
                 <ru.svolf.girl.ui.GirlEditText
                     android:id="@+id/field_script"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_toStartOf="@id/checkBoxContainer"
+                    android:hint="@string/hint_script"
+                    android:layout_centerVertical="true"/>
+
             <LinearLayout
-                android:orientation="vertical"
                 android:id="@+id/checkBoxContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <CheckBox
                     android:id="@+id/checkbox_smali"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_margin="4dp"/>
+
                 <TextView
+                    android:includeFontPadding="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/smali_needed"
+                    android:textColor="?colorAccent"
                     android:textSize="10sp"
-                    android:textColor="?colorAccent"/>
+                    android:gravity="center"/>
             </LinearLayout>
         </RelativeLayout>
-            <com.google.android.material.textfield.TextInputLayout
+
+            <ru.svolf.girl.ui.GirlEditText
+                android:id="@+id/field_main_class"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_main_class">
-                <ru.svolf.girl.ui.GirlEditText
-                    android:id="@+id/field_main_class"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_entrance">
+                android:hint="@string/hint_main_class"/>
+
             <ru.svolf.girl.ui.GirlEditText
                 android:id="@+id/field_entrance"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_param">
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_entrance"/>
+
             <ru.svolf.girl.ui.GirlEditText
                 android:id="@+id/field_param"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_param"/>
+
         <include
             android:id="@+id/button_bar"
-            layout="@layout/button_bar"/>
+            layout="@layout/button_bar" />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

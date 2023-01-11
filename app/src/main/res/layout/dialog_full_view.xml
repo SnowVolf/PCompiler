@@ -1,37 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="bottom">
+    android:layout_gravity="bottom"
+    android:orientation="vertical">
+
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/caption_bar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         app:title="@string/title_fullview" />
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_weight="1"
         android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:layout_weight="1">
+        android:paddingEnd="16dp">
+
         <ru.svolf.girl.ui.CodeText
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
             android:id="@+id/content"
+            style="@style/Base.TextAppearance.AppCompat.Subhead"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:textIsSelectable="true"
-            style="@style/Base.TextAppearance.AppCompat.Subhead"
-            tools:text="@string/large_text"/>
+            tools:text="@string/large_text" />
     </androidx.core.widget.NestedScrollView>
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_save_patch"
+        style="@style/Widget.Material3.Button.TonalButton.Icon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/button_save"
         android:background="?selectableItemBackground"
-        style="@style/Widget.Material3.Button.TonalButton.Icon"/>
+        android:text="@string/button_save" />
 </LinearLayout>

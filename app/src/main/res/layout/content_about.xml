@@ -181,19 +181,22 @@
                             android:id="@+id/about_author_artem_mail_item"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="E-mail" />
+                            android:text="E-mail"
+                            style="@style/Widget.Material3.Button.TextButton"/>
 
                         <Button
                             android:id="@+id/about_author_artem_pda_item"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4PDA" />
+                            android:text="4PDA"
+                            style="@style/Widget.Material3.Button.TextButton"/>
 
                         <Button
                             android:id="@+id/about_author_artem_github_item"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="GitHub" />
+                            android:text="GitHub"
+                            style="@style/Widget.Material3.Button.TextButton"/>
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -279,7 +282,8 @@
                             android:id="@+id/about_htc_pda_item"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4PDA" />
+                            android:text="4PDA"
+                            style="@style/Widget.Material3.Button.TextButton"/>
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -360,13 +364,15 @@
                             android:id="@+id/about_radiationx_pda_item"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4PDA" />
+                            android:text="4PDA"
+                            style="@style/Widget.Material3.Button.TextButton"/>
 
                         <Button
                             android:id="@+id/about_radiationx_github_item"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="GitHub" />
+                            android:text="GitHub"
+                            style="@style/Widget.Material3.Button.TextButton"/>
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

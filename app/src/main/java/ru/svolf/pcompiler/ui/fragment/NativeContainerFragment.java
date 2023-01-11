@@ -1,9 +1,7 @@
 package ru.svolf.pcompiler.ui.fragment;
 
-import android.os.Bundle;
 import android.view.View;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 /**
@@ -15,12 +13,6 @@ public class NativeContainerFragment extends Fragment {
 
     public NativeContainerFragment(){
 
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setRetainInstance(true);
     }
 
     @Override

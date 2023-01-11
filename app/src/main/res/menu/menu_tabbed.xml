@@ -2,8 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_view"
-        android:title="@string/menu_fullview"
-        android:icon="@drawable/ic_full_view"
-        app:showAsAction="always"/>
+        android:id="@+id/action_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/menu_settings"
+        app:showAsAction="always" />
 </menu>

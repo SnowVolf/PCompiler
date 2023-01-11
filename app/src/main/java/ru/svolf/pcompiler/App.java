@@ -40,7 +40,6 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.plugins.RxJavaPlugins;
 import ru.svolf.girl.reactive.SimpleObservable;
 import ru.svolf.pcompiler.util.Constants;
-import ru.svolf.pcompiler.util.LocaleGirl;
 import ru.svolf.pcompiler.util.RuntimeUtil;
 import ru.svolf.pcompiler.util.StringWrapper;
 
@@ -110,10 +109,10 @@ public class App extends Application {
         DynamicColors.applyToActivitiesIfAvailable(this);
     }
 
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(LocaleGirl.INSTANCE.onAttach(base, LocaleGirl.INSTANCE.getDefaultLocale().getLanguage()));
-    }
+//    @Override
+//    protected void attachBaseContext(Context base) {
+//        super.attachBaseContext(LocaleGirl.INSTANCE.onAttach(base, LocaleGirl.INSTANCE.getDefaultLocale().getLanguage()));
+//    }
 
     public SharedPreferences getPreferences() {
         if (preferences == null) {

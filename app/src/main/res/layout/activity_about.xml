@@ -9,21 +9,16 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/app_bar_height"
+        android:layout_height="wrap_content"
         android:fitsSystemWindows="true">
-
-        <com.google.android.material.appbar.CollapsingToolbarLayout
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_collapseMode="parallax"
-                app:navigationIcon="@drawable/ic_arrow_back" />
+            app:layout_collapseMode="parallax"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:titleCentered="true"/>
 
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
     <include

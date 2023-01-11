@@ -1,0 +1,139 @@
+<resources> 
+    <!--Common strings-->
+    <string name="error_occurred">Si è verificato un errore imprevisto. Si prega di inviare il rapporto di errore</string> 
+    <string name="error_crashed">L\'app si è arrestata in modo anomalo!</string>
+    <string name="button_clear">Chiaro</string> 
+    <string name="button_save">Salva</string> 
+    <string name="app_lang_changed">La lingua dell\'app è stata cambiata. Si prega di riavviare l\'applicazione</string>
+    <string name="activity_settings">@string/menu_settings</string> 
+    <string name="button_uni">Tutti i pacchetti</string> 
+    <!--Menu items--> 
+    <string name="menu_fullview">Vista completa</string> 
+    <string name="menu_savepatch">Salva patch</string> 
+    <string name="menu_reset">Ripristina</string> 
+    <string name="menu_regexp">Espressioni regolari</string> 
+    <string name="menu_settings">Impostazioni</string> 
+    <string name="menu_about">Di</string> 
+    <string name="menu_flags">Bandiere</string> 
+    <string name="menu_clear">@string/button_clear</string> 
+    <string name="menu_web">Collegamento</string>
+    <!--Title--> 
+    <string name="title_fullview">Visualizzatore di patch</string> 
+    <string name="title_save">Salva</string> 
+    <string name="title_filename">Nome del file</string> 
+    <string name="title_zip_filename">Nome del file zip</string> 
+    <string name="title_list_of_rules">Elenco delle regole</string> 
+    <string name="title_regexp_flags">Flag di espressione regolare</string> 
+    <!-- Hints --> 
+    <string name="hint_comment">Commento</string> 
+    <string name="hint_author">Autore</string> 
+    <string name="hint_package">Nome del pacchetto</string> 
+    <string name="hint_name">Nome</string> 
+    <string name="hint_target">Risorsa di destinazione</string> 
+    <string name="hint_find">Trova</string> 
+    <string name="hint_replace">Sostituisci</string> 
+    <string name="hint_next_rule">Prossima regola</string> 
+    <string name="hint_vars">Variabili</string> 
+    <string name="hint_source">Fonte</string>
+    <string name="hint_regexp">RegExp</string> 
+    <string name="hint_text">Testo</string> 
+    <string name="hint_min_engine_ver">Versione motore minima</string> 
+    <string name="hint_description">Descrizione della patch, che è stata visualizzata prima dell\'applicazione della patch</string>
+    <!--Prefs strings--> 
+    <string name="pref_interface">Interfaccia</string> 
+    <string name="pref_interface_theme">Tema dell \'app</string>
+    <string name="pref_interface_arta">Evidenziazione della sintassi Arta</string> 
+    <string name="pref_system_language">Sistema</string> 
+    <string name="pref_sys_lang">Lingua</string> 
+    <string name="pref_interaction">Interazione</string> 
+    <string name="pref_interaction_open">Scheda principale</string> 
+    <string name="pref_interaction_open_symmary">Modifica la scheda principale dell\'app. Richiede il riavvio dell\'app</string>
+    <string name="pref_interaction_back">Premere due volte il pulsante indietro</string> 
+    <string name="pref_presets">Preimpostazioni</string> 
+    <string name="pref_presets_engine">Versione minima del motore predefinita</string> 
+    <string name="pref_presets_author">Autore predefinito</string> 
+    <string name="pref_presets_path">Cartella di output della patch</string> 
+    <string name="pref_presets_archive_comment">Commento all\'archivio</string>
+    <string name="pref_presets_mime_type">Tipo MIME</string> 
+    <string name="pref_tweaks">Ritocchi</string> 
+    <string name="pref_tweaks_escape_find">Trova fuga</string> 
+    <string name="pref_tweaks_escape_find_summary">Sfuggi a tutte le interruzioni di riga, punti, parentesi e altro…</string>
+    <string name="pref_tweaks_force_regexp">ForceRegexp</string> 
+    <string name="pref_tweaks_force_regexp_summary">Forza l\'abilitazione del supporto per espressioni regolari</string>
+    <!--Short messages--> 
+    <string name="message_patch_cleared">Configurazione della patch cancellata</string> 
+    <string name="message_press_back">Premi indietro ancora una volta</string> 
+    <string name="message_copied_to_clipboard">Copiato negli appunti</string> 
+    <string name="message_saved_in_path" formatted="false">Salvato in: %s%s</string> 
+    <string name="message_saved_in_path_zip" formatted="false">Salvato in: %s</string> 
+    <string name="message_patch_cannot_empty">Errore: la patch non può essere vuota!</string> 
+    <string name="message_file_overwrite">Crea file…</string>
+    <string name="message_saved">Salvato</string> 
+    <string name="message_name_reserved">Questo nome è invertito. Per favore, inseriscine un altro</string> 
+
+    <!--Tabs TRANSLATABLE--> 
+    <string name="tab_help">Aiuto rapido</string> 
+    <string name="tab_regex">Tester dell\'espressione regolare</string>
+    <string name="tab_documentation">Documentazione</string> 
+    <!--About--> 
+    <string name="about_version">Versione: %s</string>
+    <string name="about_time">Data di costruzione: %s</string>
+    <string name="authors">Autore e sviluppatore: Snow Volf (Artem Zhiganov)\nCollaboratore principale: HTC 600</string> 
+    <!--REGEXP--> 
+    <string name="regex_def_match">0 corrispondenze</string> 
+    <string name="regex_def_match_one">%d corrispondenza</string> 
+    <string name="regex_def_match_few">%d corrisponde</string> 
+    <string name="title_list_of_files">Elenco file (%d)</string> 
+    <string name="title_list_of_dex">Elenco Dex (%d)</string> 
+    <string name="title_activity_about">@string/menu_about</string>
+
+    <string name="version_sub">Versione: %s</string> 
+    <string name="id_sub">ID build: %x</string> 
+    <string name="date_sub">Data di costruzione: %s</string>
+    <string name="about_author_role">Autore e sviluppatore</string> 
+    <string name="role_descr">Ho 23 anni. Sto programmando in Java con il framework Android. Ora sto cercando di iniziare a imparare Kotlin e contemporaneamente espandere le mie abilità Java</string>
+    <string name="about_main_contributor_role">Moderatore</string>
+    <string name="action_refresh">ricaricare</string>
+    <string name="pref_interface_font_size">Dimensione del font</string> 
+    <string name="pref_interface_typeface">Carattere monospazio</string> 
+    <string name="load">Aggiornare</string> 
+    <string name="message_no_updates">Nessun aggiornamento disponibile</string> 
+    <string name="update_important">Avviso importante </string> 
+    <string name="update_added">Aggiunto</string> 
+    <string name="update_fixed">Fisso</string> 
+    <string name="update_changed">Cambiato</string> 
+    <string name="perform_request_link">Ottenere il collegamento per il download per %s</string> 
+    <string name="update_sys">Scaricatore di sistema</string> 
+    <string name="update_ext">Downloader esterno</string> 
+    <string name="match_tags">Abbina i tag</string> 
+    <string name="tags">Tag</string> 
+    <string name="other">Altro</string> 
+    <string name="expand">Espandere</string> 
+    <string name="i_read">ho letto</string> 
+    <string name="title_activity_help">Si prega di leggere!</string> 
+    <string name="index_of_bounds_error" formatted="false"><![CDATA[Impossibile aggiungere la regola con l\'indice %d, la dimensione è %d. Maggiori informazioni: Informazioni -> Aiuto]]></string>
+    <string name="radiationx_role">Sviluppatore Android</string> 
+    <string name="radiationx_role_description">Sviluppatore per Android. Grazie a lui, l\'app ora ha schede e bug duplicavano le regole e gli elementi delle impostazioni sono stati corretti;</string>
+    <string name="pref_sys_delay">Ritardo aggiornamento sintassi (in ms)</string> 
+    <string name="hint_enter_patch_body">Inserisci il corpo della toppa</string> 
+    <string name="menu_edit">Editor di patch</string> 
+ 
+    <string name="subtitle_tab_assign">Assegnazione variabili</string> 
+    <string name="subtitle_tab_mgoto">Ricerca delle espressioni regolari</string> 
+    <string name="subtitle_tab_mreplace">Cerca &amp; Sostituire</string> 
+    <string name="subtitle_tab_about">Informazioni comuni sulla patch</string> 
+    <string name="subtitle_tab_add_files">Aggiunta di file</string> 
+    <string name="subtitle_tab_dummy">La fine della patch</string> 
+    <string name="subtitle_tab_goto">Ricerca</string> 
+    <string name="subtitle_tab_merge">Unisci risorse</string> 
+    <string name="subtitle_tab_remove_files">Rimozione di file</string> 
+    <string name="undo">Annullare</string> 
+    <string name="redo">Rifare</string>
+    <string name="hint_script">Nome dello script Dex</string> 
+    <string name="hint_main_class">Classe principale</string> 
+    <string name="hint_param">Parametri</string> 
+    <string name="hint_entrance">Metodo di ingresso</string> 
+    <string name="subtitle_tab_executor">Eseguire uno script personalizzato</string> 
+ 
+</resources> 
+

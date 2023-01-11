@@ -5,19 +5,21 @@ plugins {
 
 
 static def buildTime(){
-    def date = new Date().format("dd.MM.yyyy, HH:mm:ss")
+    def date = new Date().format("dd.MM.yyyy, HH:mm")
     return date
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
     defaultConfig {
         applicationId "ru.svolf.pcompiler"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 25
         versionName "2.5.0"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+
+        resConfigs "en", "ar", "bn", "fa", "hi", "in", "it", "pt", "ru", "si", "tr", "vi"
     }
     signingConfigs {
         release {
@@ -43,34 +45,35 @@ android {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
+
     buildFeatures {
         viewBinding = true
     }
+
+    namespace 'ru.svolf.pcompiler'
 }
 
 dependencies {
+//    def latestFastAdapterRelease = '5.7.0'
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.6.1'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'androidx.preference:preference:1.2.0'
-    implementation 'androidx.legacy:legacy-preference-v14:1.0.0'
     testImplementation 'junit:junit:4.13.2'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.7.10"
     implementation 'com.faendir:acra:4.10.0'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.17'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     implementation 'com.squareup.okhttp3:okhttp:4.3.1'
-//    implementation "com.trello.rxlifecycle2:rxlifecycle:2.2.0"
-//    implementation "com.trello.rxlifecycle2:rxlifecycle-components:2.2.0"
-//    implementation "com.trello.rxlifecycle2:rxlifecycle-android:2.2.0"
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
-    implementation files('libs/zip4j_1.3.2.jar')
-    implementation project(":blurkit")
+//    implementation "com.mikepenz:fastadapter:${latestFastAdapterRelease}"
+//    implementation "com.mikepenz:fastadapter-extensions-binding:${latestFastAdapterRelease}" // view binding helpers
+    implementation "net.lingala.zip4j:zip4j:2.11.2"
+    implementation project(":backdrop")
+    implementation project(":core-ui")
 
 }

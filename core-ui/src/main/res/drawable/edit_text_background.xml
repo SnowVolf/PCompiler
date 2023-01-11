@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:bottom="4dp"
+        android:top="4dp"
+        android:drawable="@drawable/edit_text_selector">
+    </item>
+</layer-list>

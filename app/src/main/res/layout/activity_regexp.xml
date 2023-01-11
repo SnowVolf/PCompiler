@@ -1,33 +1,35 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="ru.svolf.pcompiler.ui.activity.TabbedActivity"
-    android:fitsSystemWindows="false">
+    android:fitsSystemWindows="false"
+    tools:context="ru.svolf.pcompiler.ui.activity.TabbedActivity">
+
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="?actionBarSize"
-            android:popupTheme="?popupTheme">
-        </com.google.android.material.appbar.MaterialToolbar>
+            android:popupTheme="?popupTheme"></com.google.android.material.appbar.MaterialToolbar>
+
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
             app:tabGravity="center"
-            app:tabMode="auto"
-            app:layout_scrollFlags="scroll|enterAlways|snap"/>
+            app:tabMode="auto" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/tab_pager"
-        android:layout_marginTop="4dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        android:layout_marginTop="4dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

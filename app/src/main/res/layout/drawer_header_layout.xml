@@ -18,11 +18,11 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginStart="16dp"
-        android:layout_toEndOf="@+id/drawer_header_avatar"
         android:layout_toStartOf="@+id/drawer_header_open_link"
+        android:layout_toEndOf="@+id/drawer_header_avatar"
+        android:lines="1"
         android:textSize="14sp"
-        android:textStyle="bold"
-        android:lines="1" />
+        android:textStyle="bold" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/drawer_header_open_link"

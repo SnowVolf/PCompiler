@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:top="3dp">
-        <shape
-            android:shape="rectangle">
+        <shape android:shape="rectangle">
             <gradient
                 android:angle="90"
                 android:endColor="#000"
                 android:startColor="#11000000"
-                android:type="linear"/>
+                android:type="linear" />
         </shape>
     </item>
 </layer-list>

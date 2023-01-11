@@ -59,6 +59,7 @@ public class AddFilesFragment extends TabFragment {
                     .insertEndTag("add_files");
 
             PatchCollection.getCollection().setItemAt(getTag(), addFilesPart);
+            getTabActivity().updateTabList();
         });
         binding.add.setOnClickListener(v -> add());
         binding.buttonBar.buttonClear.setOnClickListener(v -> {
@@ -70,6 +71,7 @@ public class AddFilesFragment extends TabFragment {
             TabbedActivity.extra.clear();
             PatchCollection.getCollection().removeItemAt(getTag());
             App.ctx().getPreferences().edit().putString(Constants.INSTANCE.getKEY_EXTRA_DEXES(), "").apply();
+            getTabActivity().updateTabList();
         });
         binding.variants.setOnClickListener(v -> {
             PopupMenu menu = new PopupMenu(getActivity(), binding.variants);

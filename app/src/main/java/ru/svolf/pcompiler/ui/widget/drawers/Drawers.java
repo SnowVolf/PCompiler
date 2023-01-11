@@ -16,6 +16,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.roacult.backdrop.BackdropLayout;
+
 import java.util.ArrayList;
 
 import ru.svolf.pcompiler.R;
@@ -38,59 +40,24 @@ import ru.svolf.pcompiler.util.Constants;
  */
 
 public class Drawers {
+    private BackdropLayout backdropLayout;
     private TabbedActivity activity;
-    private DrawerLayout drawerLayout;
-
-    private DrawerLayout menuDrawer;
     private RecyclerView menuListView;
     private MenuAdapter menuAdapter;
     private MenuItems allMenuItems = new MenuItems();
     private ArrayList<MenuItems.MenuItem> menuItems = new ArrayList<>();
     private MenuItems.MenuItem lastActive;
 
-    private DrawerLayout tabDrawer;
     private RecyclerView tabListView;
     private TabAdapter tabAdapter;
 
-    private DrawerLayout.DrawerListener l;
-
     @SuppressLint("RestrictedApi")
-    public Drawers(TabbedActivity activity, DrawerLayout drawerLayout) {
+    public Drawers(TabbedActivity activity, BackdropLayout backdropLayout) {
         this.activity = activity;
-        this.drawerLayout = drawerLayout;
+        this.backdropLayout = backdropLayout;
 
-        l = new DrawerLayout.DrawerListener() {
-            @Override
-            public void onDrawerSlide(View drawerView, float slideOffset) {
-                if (slideOffset >= 0.4f){
-                    activity.hideKeyboard();
-                }
-            }
-
-            @Override
-            public void onDrawerOpened(View drawerView) {
-                //activity.getToolbar().setNavigationIcon(R.drawable.ic_arrow_back);
-            }
-
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                //activity.getToolbar().setNavigationIcon(R.drawable.ic_menu_hamburger);
-            }
-
-            @Override
-            public void onDrawerStateChanged(int newState) {
-
-            }
-        };
-
-        menuDrawer = activity.findViewById(R.id.menu_drawer);
-        tabDrawer = activity.findViewById(R.id.tab_drawer);
-        drawerLayout.addDrawerListener(l);
-        menuListView = activity.findViewById(R.id.menu_list);
-        tabListView = activity.findViewById(R.id.tab_list);
-
-        menuListView.setLayoutManager(new LinearLayoutManager(activity));
-        tabListView.setLayoutManager(new LinearLayoutManager(activity));
+        menuListView = activity.findViewById(R.id.menu_rules);
+        tabListView = activity.findViewById(R.id.menu_tabs);
 
         menuAdapter = new MenuAdapter(menuItems);
         tabAdapter = new TabAdapter();
@@ -98,44 +65,7 @@ public class Drawers {
         menuListView.setAdapter(menuAdapter);
         tabListView.setAdapter(tabAdapter);
 
-        menuListView.setHasFixedSize(true);
-
-        final TextView nick = activity.findViewById(R.id.nick);
-        nick.setText(Preferences.INSTANCE.getPatchAuthor());
-
-        final ImageButton popup = activity.findViewById(R.id.popup_menu);
-        popup.setOnClickListener(v -> {
-            final PopupMenu popupMenu = new PopupMenu(activity, v);
-            popupMenu.inflate(R.menu.menu_popup_extra);
-            popupMenu.setOnMenuItemClickListener(item -> {
-                switch (item.getItemId()){
-                    case R.id.action_regex_help: {
-                        activity.startActivity(new Intent(activity, RegexpActivity.class));
-                        return true;
-                    }
-                    case R.id.action_settings: {
-                        activity.startActivity(new Intent(activity, SettingsActivity.class));
-                        return true;
-                    }
-                    case R.id.action_about: {
-                        activity.startActivity(new Intent(activity, AboutActivity.class));
-                        return true;
-                    }
-                }
-                return false;
-            });
-            MenuPopupHelper helper = new MenuPopupHelper(activity, (MenuBuilder) popupMenu.getMenu(), v);
-            helper.setForceShowIcon(true);
-            helper.show();
-        });
-    }
-
-    public DrawerLayout getMenuDrawer() {
-        return menuDrawer;
-    }
-
-    public DrawerLayout getTabDrawer() {
-        return tabDrawer;
+        //menuListView.setHasFixedSize(true);
     }
 
     public void init(Bundle savedInstanceState) {
@@ -160,20 +90,11 @@ public class Drawers {
         selectMenuItem(item);
     }
 
-    public void destroy() {
-        drawerLayout.removeDrawerListener(l);
-    }
-
-    public void setStatusBarHeight(int height) {
-        //menuDrawer.setPadding(0, height, 0, 0);
-        tabDrawer.setPadding(0, height, 0, 0);
-    }
-
     private void initMenu() {
         fillMenuItems();
         menuAdapter.setItemClickListener((menuItem, position) -> {
             selectMenuItem(menuItem);
-            closeMenu();
+            backdropLayout.close();
         });
 
     }
@@ -251,26 +172,10 @@ public class Drawers {
         return null;
     }
 
-    public void openMenu() {
-        drawerLayout.openDrawer(menuDrawer);
-    }
-
-    public void closeMenu() {
-        drawerLayout.closeDrawer(menuDrawer);
-    }
-
-    public void toggleMenu() {
-        if (drawerLayout.isDrawerOpen(menuDrawer)) {
-            closeMenu();
-        } else {
-            openMenu();
-        }
-    }
-
     private void initTabs(Bundle savedInstanceState) {
         tabAdapter.setItemClickListener((tabFragment, position) -> {
             TabManager.getInstance().select(tabFragment);
-            closeTabs();
+            //closeTabs();
         });
         tabAdapter.setCloseClickListener((tabFragment, position) -> {
             PatchCollection.getCollection().remove(tabFragment.getTag());
@@ -302,19 +207,4 @@ public class Drawers {
         tabAdapter.notifyDataSetChanged();
     }
 
-    public void openTabs() {
-        drawerLayout.openDrawer(tabDrawer);
-    }
-
-    public void closeTabs() {
-        drawerLayout.closeDrawer(tabDrawer);
-    }
-
-    public void toggleTabs() {
-        if (drawerLayout.isDrawerOpen(tabDrawer)) {
-            closeTabs();
-        } else {
-            openTabs();
-        }
-    }
 }

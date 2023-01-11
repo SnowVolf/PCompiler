@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?colorOnSecondary"
+    android:orientation="vertical"
+    app:behavior_hideable="false"
+    app:behavior_peekHeight="90dp"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@drawable/drawable_shadow_bottom" />
+    <ru.svolf.girl.ui.GirlToolbar
+        android:id="@+id/tab_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:titleTextAppearance="@style/TextAppearance.MaterialComponents.Body1"
+        app:title="@string/title_fullview"
+        app:menu="@menu/menu_tab_indicator"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/menu_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_rule"/>
+</LinearLayout>

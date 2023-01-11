@@ -3,15 +3,11 @@ package ru.svolf.pcompiler.ui.activity
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.content.IntentFilter
 import android.os.Bundle
 import android.transition.Explode
 import android.transition.Fade
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
-
-import ru.svolf.pcompiler.util.LocaleGirl
 
 /**
  * Created by Snow Volf on 19.08.2017, 12:09
@@ -30,9 +26,9 @@ open class BaseActivity : AppCompatActivity() {
         }
     }
 
-    override fun attachBaseContext(base: Context) {
-        super.attachBaseContext(LocaleGirl.onAttach(base))
-    }
+//    override fun attachBaseContext(base: Context) {
+//        super.attachBaseContext(LocaleGirl.onAttach(base))
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,10 +45,5 @@ open class BaseActivity : AppCompatActivity() {
     override fun onDestroy() {
         LocalBroadcastManager.getInstance(this).unregisterReceiver(mThemeReceiver)
         super.onDestroy()
-    }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
-        finishAfterTransition()
     }
 }

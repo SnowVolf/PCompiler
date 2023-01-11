@@ -2,124 +2,124 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<LinearLayout
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp">
-        <ImageView
-            android:id="@+id/drawer_header_avatar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="6dp"
-            android:src="@drawable/ic_file"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/drawer_header_nick"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="16dp"
-            android:layout_toEndOf="@+id/drawer_header_avatar"
-            android:layout_toStartOf="@+id/add"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:lines="1"
-            style="@style/Base.TextAppearance.AppCompat.Title"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/add"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:src="@drawable/ic_add" />
-    </RelativeLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hint_comment">
-        <ru.svolf.girl.ui.GirlEditText
-            android:id="@+id/field_comment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hint_name">
-        <ru.svolf.girl.ui.GirlEditText
-            android:id="@+id/field_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <com.google.android.material.textfield.TextInputLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_source"
-            android:layout_toStartOf="@+id/checkBoxContainer">
-            <ru.svolf.girl.ui.GirlEditText
-                android:id="@+id/field_source"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
-        <LinearLayout
-            android:orientation="vertical"
-            android:id="@+id/checkBoxContainer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true">
-            <CheckBox
-                android:id="@+id/checkbox_root"
-                android:layout_width="48dp"
-                android:layout_height="wrap_content" />
-            <TextView
+            android:layout_marginTop="8dp">
+
+            <ImageView
+                android:id="@+id/drawer_header_avatar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/root_f"
-                android:gravity="center_horizontal"
-                android:textSize="10sp"
-                android:layout_gravity="center_horizontal"
-                android:includeFontPadding="false"/>
-        </LinearLayout>
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_target"
-            android:layout_toStartOf="@+id/variants">
+                android:layout_centerVertical="true"
+                android:layout_marginStart="6dp"
+                android:src="@drawable/ic_file" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/drawer_header_nick"
+                style="@style/Base.TextAppearance.AppCompat.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="16dp"
+                android:layout_toStartOf="@+id/add"
+                android:layout_toEndOf="@+id/drawer_header_avatar"
+                android:lines="1"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/add"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:src="@drawable/ic_add" />
+        </RelativeLayout>
 
             <ru.svolf.girl.ui.GirlEditText
-                android:id="@+id/field_target"
+                android:hint="@string/hint_comment"
+                android:id="@+id/field_comment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
 
-        <ImageButton
-            android:id="@+id/variants"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:background="?selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_expand_more" />
-    </RelativeLayout>
-    <include
-        android:id="@+id/button_bar"
-        layout="@layout/button_bar"/>
-</LinearLayout>
+            <ru.svolf.girl.ui.GirlEditText
+                android:hint="@string/hint_name"
+                android:id="@+id/field_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+                <ru.svolf.girl.ui.GirlEditText
+                    android:layout_toStartOf="@+id/checkBoxContainer"
+                    android:hint="@string/hint_source"
+                    android:id="@+id/field_source"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"/>
+
+
+            <LinearLayout
+                android:id="@+id/checkBoxContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:id="@+id/checkbox_root"
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:includeFontPadding="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:text="@string/root_f"
+                    android:textSize="10sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+                <ru.svolf.girl.ui.GirlEditText
+                    android:id="@+id/field_target"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toStartOf="@+id/variants"
+                    android:hint="@string/hint_target"/>
+
+            <ImageButton
+                android:id="@+id/variants"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="?selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_expand_more" />
+        </RelativeLayout>
+
+        <include
+            android:id="@+id/button_bar"
+            layout="@layout/button_bar" />
+    </LinearLayout>
 </androidx.core.widget.NestedScrollView>

@@ -6,17 +6,17 @@
         android:icon="@drawable/ic_edit"
         android:title="@string/menu_edit"
         android:visible="false"
-        app:showAsAction="always"/>
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/action_reset"
         android:icon="@drawable/ic_reset"
         android:title="@string/menu_reset"
-        app:showAsAction="always"/>
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/action_full_view"
         android:icon="@drawable/ic_chevron_down"
         android:title="@string/menu_fullview"
-        app:showAsAction="always"/>
+        app:showAsAction="always" />
 </menu>

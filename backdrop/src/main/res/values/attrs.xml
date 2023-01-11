@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BackdropLayout">
+        <attr name="front_layout" format="reference"/>
+        <attr name="back_layout" format="reference"/>
+        <attr name="toolbarId" format="reference"/>
+        <attr name="peekHeight" format="dimension"/>
+        <attr name="menuDrawable" format="reference"/>
+        <attr name="closeDrawable" format="reference"/>
+        <attr name="animationDuration" format="integer"/>
+        <attr name="disable_when_open" format="boolean"/>
+        <attr name="front_header_radius" format="dimension"/>
+    </declare-styleable>
+</resources>

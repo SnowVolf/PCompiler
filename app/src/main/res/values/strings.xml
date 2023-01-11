@@ -18,12 +18,12 @@
     <string name="menu_flags">Flags</string>
     <string name="menu_clear">@string/button_clear</string>
     <string name="menu_web">Link</string>
-    <string name="menu_context_smali">smali*/*.smali</string>
-    <string name="menu_context_xml">res/*.xml</string>
-    <string name="menu_context_androidmanifest">AndroidManifest.xml</string>
-    <string name="menu_context_application">[APPLICATION]</string>
-    <string name="menu_context_launcher_activities">[ACTIVITIES]</string>
-    <string name="menu_context_activities">[LAUNCHER_ACTIVITIES]</string>
+    <string name="menu_context_smali" translatable="false">smali*/*.smali</string>
+    <string name="menu_context_xml" translatable="false">res/*.xml</string>
+    <string name="menu_context_androidmanifest" translatable="false">AndroidManifest.xml</string>
+    <string name="menu_context_application" translatable="false">[APPLICATION]</string>
+    <string name="menu_context_launcher_activities" translatable="false">[ACTIVITIES]</string>
+    <string name="menu_context_activities" translatable="false">[LAUNCHER_ACTIVITIES]</string>
     <!--Title-->
     <string name="title_fullview">Patch viewer</string>
     <string name="title_save">Save</string>
@@ -47,6 +47,7 @@
     <string name="hint_regexp">RegExp</string>
     <string name="hint_text">Text</string>
     <string name="hint_min_engine_ver">Min engine version</string>
+    <string name="hint_description">Patch description, which has been displayed before patching</string>
     <!--Prefs strings-->
     <string name="pref_interface">Interface</string>
     <string name="pref_interface_theme">App theme</string>
@@ -104,7 +105,8 @@
     <string name="title_list_of_files">File list (%d)</string>
     <string name="title_list_of_dex">Dex list (%d)</string>
     <string name="title_activity_about">@string/menu_about</string>
-    <string name="large_text">
+    <!--Test string NOT TRANSLATABLE-->
+    <string name="large_text" translatable="false">
         "Material is the metaphor.\n\n"
 
         "A material metaphor is the unifying theory of a rationalized space and a system of motion."
@@ -198,7 +200,8 @@
     <string name="date_sub">Build date: %s</string>
     <string name="about_author_name" translatable="false">Артём Жиганов</string>
     <string name="about_author_role">Author and developer</string>
-    <string name="role_descr">I\'m 18. I\'m programming in Java with the Android framework. Now I\'m trying to start learning Kotlin, and simultaneously expand my Java skill</string>
+    <string name="role_descr">I\'m 23. I\'m programming in Java with the Android framework. Now I\'m trying to start learning Kotlin, and
+        simultaneously expand my Java skill</string>
     <string name="about_main_contributor_name" translatable="false">htc 600</string>
     <string name="about_main_contributor_role">Modder</string>
     <string name="htc_role_descr" translatable="false">Coming soon…</string>
@@ -218,7 +221,7 @@
     <string name="tags">Tags</string>
     <string name="other">Other</string>
     <string name="expand">Expand</string>
-    <string name="i_read">I read</string>
+    <string name="i_read">I\'m read</string>
     <string name="title_activity_help">Please read!</string>
     <string name="index_of_bounds_error" formatted="false"><![CDATA[Cannot add rule with index %d, size is %d. More info: About -> Help]]></string>
     <string name="radiationx_name" translatable="false">Евгений Низамиев</string>
@@ -241,7 +244,7 @@
     <string name="undo">Undo</string>
     <string name="redo">Redo</string>
     <string name="tab_executor" translatable="false">execute script</string>
-    <string name="smali_needed" translatable="false">SMALI</string>
+    <string name="smali_needed" translatable="false">SMALI\nNEEDED</string>
     <string name="hint_script">Dex script name</string>
     <string name="hint_main_class">Main class</string>
     <string name="hint_param">Parameters</string>

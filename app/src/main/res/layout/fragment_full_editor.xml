@@ -1,149 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_gravity="bottom"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/editor_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/editor_background"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_gravity="bottom">
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/bottom_tools">
-    <ru.svolf.girl.ui.CodeEditText
-        android:id="@+id/full_editor"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:hint="@string/hint_enter_patch_body"
-        android:gravity="top"
-        android:background="@null"
-        android:padding="8dp"
-        android:imeOptions="flagNoFullscreen|flagNoExtractUi"/>
+
+        <ru.svolf.girl.ui.CodeEditText
+            android:id="@+id/full_editor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:gravity="top"
+            android:hint="@string/hint_enter_patch_body"
+            android:imeOptions="flagNoFullscreen|flagNoExtractUi"
+            android:padding="8dp" />
     </com.google.android.material.textfield.TextInputLayout>
+
     <LinearLayout
         android:id="@+id/bottom_tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true">
-    <HorizontalScrollView
-        android:layout_weight="7"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/horizontalScrollView"
-        android:scrollbars="none">
-        <LinearLayout
-            android:id="@+id/buttons_container"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-            <ru.svolf.girl.ui.GirlButton
-                android:id="@+id/ed_tab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TAB"
-                app:insert="    "
-                style="@style/Base.Widget.AppCompat.Button.Small"/>
-            <ru.svolf.girl.ui.GirlButton
-                android:id="@+id/ed_esc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="\\"
-                app:insert="\\"
-                style="@style/Base.Widget.AppCompat.Button.Small"/>
-            <ru.svolf.girl.ui.GirlButton
-                android:id="@+id/ed_dot"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="."
-                android:textStyle="bold"
-                app:insert="."
-                style="@style/Base.Widget.AppCompat.Button.Small"/>
-            <ru.svolf.girl.ui.GirlButton
-                android:id="@+id/ed_plus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="+"
-                app:insert="+"
-                style="@style/Base.Widget.AppCompat.Button.Small"/>
-            <ru.svolf.girl.ui.GirlButton
-                android:id="@+id/ed_obrace"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="("
-                app:insert="("
-                style="@style/Base.Widget.AppCompat.Button.Small"/>
-            <ru.svolf.girl.ui.GirlButton
-                android:id="@+id/ed_cobrace"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=")"
-                app:insert=")"
-                style="@style/Base.Widget.AppCompat.Button.Small"/>
-            <ru.svolf.girl.ui.GirlButton
-                android:id="@+id/ed_dollar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="$"
-                app:insert="$"
-                style="@style/Base.Widget.AppCompat.Button.Small"/>
-            <ru.svolf.girl.ui.GirlButton
-                android:id="@+id/ed_ofbrace"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="{"
-                app:insert="{"
-                style="@style/Base.Widget.AppCompat.Button.Small"/>
-            <ru.svolf.girl.ui.GirlButton
-                android:id="@+id/ed_cfbrace"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="}"
-                app:insert="}"
-                style="@style/Base.Widget.AppCompat.Button.Small"/>
-            <ru.svolf.girl.ui.GirlButton
-                android:id="@+id/ed_obracket"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="["
-                app:insert="["
-                style="@style/Base.Widget.AppCompat.Button.Small"/>
-            <ru.svolf.girl.ui.GirlButton
-                android:id="@+id/ed_cbracket"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="]"
-                app:insert="]"
-                style="@style/Base.Widget.AppCompat.Button.Small"/>
-            <ru.svolf.girl.ui.GirlButton
-                android:id="@+id/ed_all"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="*"
-                app:insert="*"
-                style="@style/Base.Widget.AppCompat.Button.Small"/>
-            <ru.svolf.girl.ui.GirlButton
-                android:id="@+id/ed_or"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="|"
-                app:insert="|"
-                style="@style/Base.Widget.AppCompat.Button.Small"/>
-            <ru.svolf.girl.ui.GirlButton
-                android:id="@+id/ed_group"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="GROUP"
-                app:insert="GROUP"
-                style="@style/Base.Widget.AppCompat.Button.Small"/>
-        </LinearLayout>
-    </HorizontalScrollView>
-        <ImageButton
-            android:id="@+id/button_menu"
-            android:layout_weight="0.5"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/buttons_container"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ru.svolf.girl.ui.GirlButton
+                    android:id="@+id/ed_tab"
+                    style="@style/Base.Widget.AppCompat.Button.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TAB"
+                    app:insert="    " />
+
+                <ru.svolf.girl.ui.GirlButton
+                    android:id="@+id/ed_esc"
+                    style="@style/Base.Widget.AppCompat.Button.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="\\"
+                    app:insert="\\" />
+
+                <ru.svolf.girl.ui.GirlButton
+                    android:id="@+id/ed_dot"
+                    style="@style/Base.Widget.AppCompat.Button.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="."
+                    android:textStyle="bold"
+                    app:insert="." />
+
+                <ru.svolf.girl.ui.GirlButton
+                    android:id="@+id/ed_plus"
+                    style="@style/Base.Widget.AppCompat.Button.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+"
+                    app:insert="+" />
+
+                <ru.svolf.girl.ui.GirlButton
+                    android:id="@+id/ed_obrace"
+                    style="@style/Base.Widget.AppCompat.Button.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="("
+                    app:insert="(" />
+
+                <ru.svolf.girl.ui.GirlButton
+                    android:id="@+id/ed_cobrace"
+                    style="@style/Base.Widget.AppCompat.Button.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=")"
+                    app:insert=")" />
+
+                <ru.svolf.girl.ui.GirlButton
+                    android:id="@+id/ed_dollar"
+                    style="@style/Base.Widget.AppCompat.Button.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$"
+                    app:insert="$" />
+
+                <ru.svolf.girl.ui.GirlButton
+                    android:id="@+id/ed_ofbrace"
+                    style="@style/Base.Widget.AppCompat.Button.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="{"
+                    app:insert="{" />
+
+                <ru.svolf.girl.ui.GirlButton
+                    android:id="@+id/ed_cfbrace"
+                    style="@style/Base.Widget.AppCompat.Button.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="}"
+                    app:insert="}" />
+
+                <ru.svolf.girl.ui.GirlButton
+                    android:id="@+id/ed_obracket"
+                    style="@style/Base.Widget.AppCompat.Button.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="["
+                    app:insert="[" />
+
+                <ru.svolf.girl.ui.GirlButton
+                    android:id="@+id/ed_cbracket"
+                    style="@style/Base.Widget.AppCompat.Button.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="]"
+                    app:insert="]" />
+
+                <ru.svolf.girl.ui.GirlButton
+                    android:id="@+id/ed_all"
+                    style="@style/Base.Widget.AppCompat.Button.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    app:insert="*" />
+
+                <ru.svolf.girl.ui.GirlButton
+                    android:id="@+id/ed_or"
+                    style="@style/Base.Widget.AppCompat.Button.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="|"
+                    app:insert="|" />
+
+                <ru.svolf.girl.ui.GirlButton
+                    android:id="@+id/ed_group"
+                    style="@style/Base.Widget.AppCompat.Button.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GROUP"
+                    app:insert="GROUP" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <ImageButton
+            android:id="@+id/button_menu"
+            style="@style/Base.Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
             android:src="@drawable/ic_more_vert"
-            android:tint="?settings_icon_color"
-            style="@style/Base.Widget.AppCompat.Button.Borderless"/>
+            android:tint="?settings_icon_color" />
     </LinearLayout>
 </RelativeLayout>

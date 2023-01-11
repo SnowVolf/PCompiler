@@ -1,0 +1,139 @@
+<resources>
+    <!--Common strings-->
+    <string name="error_occurred">حدث خطأ غير متوقع.  الرجاء إرسال تقرير الخطأ</string>
+    <string name="error_crashed">توقف التطبيق</string>
+    <string name="button_clear">تنظيف</string>
+    <string name="button_save">حفظ</string>
+    <string name="app_lang_changed">تم تغيير لغة التطبيق.  الرجاء إعادة تشغيل التطبيق</string>
+    <string name="activity_settings">@string/menu_settings</string>
+    <string name="button_uni">كُل الحزم</string>
+    <!--Menu items-->
+    <string name="menu_fullview">مشاهدة الكل</string>
+    <string name="menu_savepatch">حفظ الباتش</string>
+    <string name="menu_reset">أعادة تشغيل</string>
+    <string name="menu_regexp">التعبيرات العادية</string>
+    <string name="menu_settings">الإعدادات</string>
+    <string name="menu_about">حَول</string>
+    <string name="menu_flags">علامات</string>
+    <string name="menu_clear">@string/button_clear</string>
+    <string name="menu_web">رابط</string>
+    <!--Title-->
+    <string name="title_fullview">عارض الباتش</string>
+    <string name="title_save">حفظ</string>
+    <string name="title_filename">اسم الملف</string>
+    <string name="title_zip_filename">اسم الملف المضغوط</string>
+    <string name="title_list_of_rules">قائمة القواعد</string>
+    <string name="title_regexp_flags">Regexp الإعلام</string>
+    <!-- Hints -->
+    <string name="hint_comment">تعليق</string>
+    <string name="hint_author">الكُل</string>
+    <string name="hint_package">اسم الحزمة</string>
+    <string name="hint_name">الأسم</string>
+    <string name="hint_target">هدف الموارد</string>
+    <string name="hint_find">وجد</string>
+    <string name="hint_replace">يحل محل</string>
+    <string name="hint_next_rule">القاعدة التالية</string>
+    <string name="hint_vars">التغييرات</string>
+    <string name="hint_source">السورس ⑉ المصدر</string>
+    <string name="hint_regexp">RegExp</string>
+    <string name="hint_text">نص</string>
+    <string name="hint_min_engine_ver">نسخة المحرك دقيقة</string>
+    <string name="hint_description">وصف التصحيح ، والذي تم عرضه قبل التصحيح</string>
+    <!--Prefs strings-->
+    <string name="pref_interface">واجهه المستخدم</string>
+    <string name="pref_interface_theme">ثيم التطبيق</string>
+    <string name="pref_interface_arta">إبراز بناء الجملة Arta</string>
+    <string name="pref_system_language">النظام</string>
+    <string name="pref_sys_lang">اللُغة</string>
+    <string name="pref_interaction">التفاعل</string>
+    <string name="pref_interaction_open">علامة التبويب الرئيسية</string>
+    <string name="pref_interaction_open_symmary">يغير علامة تبويب التطبيق الرئيسية.  يحتاج إلى إعادة تشغيل التطبيق</string>
+    <string name="pref_interaction_back">اضغط مرتين على زر الرجوع</string>
+    <string name="pref_presets">الإعدادات المسبقة</string>
+    <string name="pref_presets_engine">نسخة المحرك الافتراضية دقيقة</string>
+    <string name="pref_presets_author">المؤلف الافتراضي</string>
+    <string name="pref_presets_path">مجلد الإخراج التصحيح</string>
+    <string name="pref_presets_archive_comment">أرشفة التعليق</string>
+    <string name="pref_presets_mime_type">MIME Type</string>
+    <string name="pref_tweaks">القرص</string>
+    <string name="pref_tweaks_escape_find">تجاهل</string>
+    <string name="pref_tweaks_escape_find_summary">تجاهل من كل فواصل الأسطر والنقاط والأقواس والمزيد…</string>
+    <string name="pref_tweaks_force_regexp">فرض Regex</string>
+    <string name="pref_tweaks_force_regexp_summary">فرض تمكين دعم regexp</string>
+    <!--Short messages-->
+    <string name="message_patch_cleared">تم مسح تكوين التصحيح</string>
+    <string name="message_press_back">اضغط على رجوع مرة أخرى</string>
+    <string name="message_copied_to_clipboard">نسخ إلى الحافظة</string>
+    <string name="message_saved_in_path" formatted="false">حُفظ في: %s%s</string>
+    <string name="message_saved_in_path_zip" formatted="false">حفظ في: %s</string>
+    <string name="message_patch_cannot_empty">خطأ: لا يمكن أن يكون التصحيح فارغًا!</string>
+    <string name="message_file_overwrite">إنشاء ملف……</string>
+    <string name="message_saved">حفظ</string>
+    <string name="message_name_reserved">تم عكس هذا الاسم.  الرجاء إدخال واحد آخر</string>
+    <!--Tabs NOT TRANSLATABLE-->
+    <!--Tabs TRANSLATABLE-->
+    <string name="tab_help">مساعدة سريعة</string>
+    <string name="tab_regex">Regexp أختبار</string>
+    <string name="tab_documentation">توثيق</string>
+    <!--About-->
+    <string name="about_version">الأصدار: %s</string>
+    <string name="about_time">تاريخ الأنشاء: %s</string>
+    <string name="authors">Author and developer: Snow Volf (Artem Zhiganov)\nMain contributor: htc 600</string>
+    <!--REGEXP-->
+    <string name="regex_def_match">0 تطابق</string>
+    <string name="regex_def_match_one">%d تطابق</string>
+    <string name="regex_def_match_few">%d تطابقات</string>
+    <string name="title_list_of_files">قائمة الملفات (%d)</string>
+    <string name="title_list_of_dex">قائمة الـDEX (%d)</string>
+    <string name="title_activity_about">@string/menu_about</string>
+    <!--Test string NOT TRANSLATABLE-->
+    <string name="version_sub">الإصدار: %s</string>
+    <string name="id_sub">معرف الأنشاء: %x</string>
+    <string name="date_sub">تاريخ الأنشاء: %s</string>
+    <string name="about_author_role">المترجم</string>
+    <string name="role_descr">I\'m 23. I\'m programming in Java with the Android framework. Now I\'m trying to start learning Kotlin, and
+        simultaneously expand my Java skill</string>
+    <string name="about_main_contributor_role">المطور</string>
+    <string name="action_refresh">إعادة تحميل</string>
+    <string name="pref_interface_font_size">حجم الخط</string>
+    <string name="pref_interface_typeface">الخـــط</string>
+    <string name="load">تحديث</string>
+    <string name="message_no_updates">لا توجد تحديثات</string>
+    <string name="update_important">ملاحظة مهمة؟</string>
+    <string name="update_added">إضافة</string>
+    <string name="update_fixed">إصلاح</string>
+    <string name="update_changed">تغيير</string>
+    <string name="perform_request_link">الحصول على رابط التنزيل لـ %s</string>
+    <string name="update_sys">برنامج تنزيل النظام</string>
+    <string name="update_ext">برنامج تنزيل خارجي</string>
+    <string name="match_tags">تطابق  العلامات</string>
+    <string name="tags">العلامات</string>
+    <string name="other">الكل</string>
+    <string name="expand">رفع</string>
+    <string name="i_read">قرأتها</string>
+    <string name="title_activity_help">اقراها لخاطري</string>
+    <string name="index_of_bounds_error" formatted="false"><![CDATA[Cannot add rule with index %d, size is %d. More info: About -> Help]]></string>
+    <string name="radiationx_role">مطور أندرويد</string>
+    <string name="radiationx_role_description">مطور لأجهزة الأندرويد.  بفضله ، يحتوي التطبيق الآن على علامات تبويب وأخطاء كانت تكرر القواعد ، وتم إصلاح عناصر الإعدادات;</string>
+    <string name="pref_sys_delay">تأخير تحديث بناء الجملة (بالمللي ثانية)</string>
+    <string name="hint_enter_patch_body">أدخل الجسم التصحيح</string>
+    <string name="menu_edit">محرر الباتش</string>
+
+    <string name="subtitle_tab_assign">تخصيص المتغيرات</string>
+    <string name="subtitle_tab_mgoto">Regex بحث</string>
+    <string name="subtitle_tab_mreplace">بحث  &amp; تغيير</string>
+    <string name="subtitle_tab_about">معلومات الباتش المشتركة</string>
+    <string name="subtitle_tab_add_files">اضافة ملفات</string>
+    <string name="subtitle_tab_dummy">نهاية الباتش</string>
+    <string name="subtitle_tab_goto">بحث</string>
+    <string name="subtitle_tab_merge">دمج الموارد</string>
+    <string name="subtitle_tab_remove_files">إزالة الملفات</string>
+    <string name="undo">الغاء التحميل</string>
+    <string name="redo">أعاده التحميل</string>
+    <string name="hint_script">اسم ملف الـdex</string>
+    <string name="hint_main_class">الفئة الرأيسية</string>
+    <string name="hint_param">المعلومات</string>
+    <string name="hint_entrance">طريقة الدخول</string>
+    <string name="subtitle_tab_executor">تنفيذ البرامج النصية المخصصة</string>
+
+</resources>

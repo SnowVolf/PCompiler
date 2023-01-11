@@ -23,6 +23,7 @@ import com.google.android.material.appbar.CollapsingToolbarLayout;
 import ru.svolf.girl.ui.GirlToolbar;
 import ru.svolf.pcompiler.App;
 import ru.svolf.pcompiler.R;
+import ru.svolf.pcompiler.databinding.FragmentBaseBinding;
 import ru.svolf.pcompiler.ui.activity.TabbedActivity;
 import ru.svolf.pcompiler.ui.fragment.NativeContainerFragment;
 import ru.svolf.pcompiler.util.Constants;
@@ -47,10 +48,8 @@ public class TabFragment extends NativeContainerFragment {
     protected RelativeLayout fragmentContainer;
     protected FrameLayout fragmentContent;
     protected CoordinatorLayout coordinatorLayout;
-    protected AppBarLayout appBarLayout;
-    protected CollapsingToolbarLayout toolbarLayout;
-    public static GirlToolbar toolbar;
-    protected TextView toolbarTitleView, toolbarSubtitleView;
+
+    protected TextView toolbarSubtitleView;
 
     public TabFragment() {
         parentTag = TabManager.getActiveTag();
@@ -73,7 +72,6 @@ public class TabFragment extends NativeContainerFragment {
         this.title = newTitle;
         if (tabTitle == null)
             getTabActivity().updateTabList();
-        toolbarTitleView.setText(getTitle());
     }
 
     protected final String getSubtitle() {
@@ -99,10 +97,6 @@ public class TabFragment extends NativeContainerFragment {
     public void setTabTitle(String tabTitle) {
         this.tabTitle = tabTitle;
         getTabActivity().updateTabList();
-    }
-
-    public Menu getMenu() {
-        return toolbar.getMenu();
     }
 
 
@@ -145,32 +139,13 @@ public class TabFragment extends NativeContainerFragment {
         //Осторожно! Чувствительно к структуре разметки! (по идеи так должно работать чуть быстрее)
         fragmentContainer = rootView.findViewById(R.id.fragment_container);
         coordinatorLayout = fragmentContainer.findViewById(R.id.coordinator_layout);
-        appBarLayout = coordinatorLayout.findViewById(R.id.appbar_layout);
-        toolbarLayout = appBarLayout.findViewById(R.id.toolbar_layout);
-        toolbar = toolbarLayout.findViewById(R.id.toolbar);
-        toolbarTitleView = toolbar.findViewById(R.id.toolbar_title);
-        toolbarSubtitleView = toolbar.findViewById(R.id.toolbar_subtitle);
+        toolbarSubtitleView = coordinatorLayout.findViewById(R.id.toolbar_subtitle);
         fragmentContent = coordinatorLayout.findViewById(R.id.fragment_content);
 
         //Для обновления вьюх
         setTitle(title);
         setSubtitle(subtitle);
         return rootView;
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        toolbar = view.findViewById(R.id.toolbar);
-        toolbar.inflateMenu(R.menu.menu_tab_indicator);
-        toolbar.setNavigationOnClickListener(v -> getTabActivity().getDrawers().openMenu());
-        toolbar.getTabIndicator().setOnClickListener(v -> getTabActivity().getDrawers().openTabs());
-        ActionBarDrawerToggle toggle =
-                new ActionBarDrawerToggle(getActivity(), getTabActivity().getDrawer(), toolbar,
-                        R.string.app_name, R.string.app_name);
-        toggle.getDrawerArrowDrawable().setColor(App.getColorFromAttr(getContext(), R.attr.icon_color));
-        getTabActivity().getDrawer().addDrawerListener(toggle);
-        toggle.syncState();
     }
 
     protected void baseInflateFragment(LayoutInflater inflater, @LayoutRes int res) {
@@ -188,12 +163,6 @@ public class TabFragment extends NativeContainerFragment {
 
     protected void addBaseToolbarMenu() {
 
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        Log.d(Constants.INSTANCE.getTAG(), "onactivitycreated args = " + getArguments() + " : savedInstance = " + savedInstanceState + " : title = " + title);
     }
 
     @Override

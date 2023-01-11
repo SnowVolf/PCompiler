@@ -52,6 +52,7 @@ public class AssignFragment extends TabFragment {
                     .insertEndTag("match_assign");
 
             PatchCollection.getCollection().setItemAt(getTag(), matchAssignPart);
+            getTabActivity().updateTabList();
         });
         binding.buttonBar.buttonClear.setOnClickListener(v -> {
             binding.fieldComment.clear();

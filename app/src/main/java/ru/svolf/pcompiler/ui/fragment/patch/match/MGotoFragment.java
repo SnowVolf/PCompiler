@@ -52,6 +52,7 @@ public class MGotoFragment extends TabFragment {
                     .insertEndTag("match_goto");
 
             PatchCollection.getCollection().setItemAt(getTag(), matchGotoPart);
+            getTabActivity().updateTabList();
         });
         binding.buttonBar.buttonClear.setOnClickListener(v -> {
             binding.fieldComment.clear();

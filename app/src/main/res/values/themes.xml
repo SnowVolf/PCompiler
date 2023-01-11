@@ -1,5 +1,5 @@
-
 <resources>
+
     <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
         <item name="colorPrimary">@color/md_theme_light_primary</item>
         <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
@@ -33,6 +33,8 @@
         <item name="cardStyle">@style/CardViewStyle</item>
         <item name="android:windowTranslucentStatus">true</item>
         <item name="buttonStyle">@style/Widget.Material3.Button.TonalButton</item>
+        <item name="android:editTextBackground">@drawable/edit_text_background</item>
+
     </style>
 
     <style name="CardViewStyle" parent="Widget.Material3.CardView.Elevated">
@@ -48,4 +50,6 @@
         <item name="android:clickable">true</item>
         <item name="android:focusable">false</item>
     </style>
+
+
 </resources>

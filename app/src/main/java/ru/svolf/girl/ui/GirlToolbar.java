@@ -30,7 +30,7 @@ public class GirlToolbar extends Toolbar {
     }
 
     public View getTabIndicator() {
-        return getMenu().getItem(0).getActionView();
+        return getMenu().getItem(1).getActionView();
     }
 
     public void setTabIndicatorValue(int value){

@@ -133,4 +133,10 @@ public class AboutActivity extends BaseActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         App.ctx().onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
+
+    @Override
+    protected void onDestroy() {
+        binding = null;
+        super.onDestroy();
+    }
 }
