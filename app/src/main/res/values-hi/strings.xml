@@ -133,7 +133,8 @@
     <string name="hint_main_class">मुख्य वर्ग</string> 
     <string name="hint_param">मापदंडों</string> 
     <string name="hint_entrance">प्रवेश विधि</string> 
-    <string name="subtitle_tab_executor">एक कस्टम स्क्रिप्ट निष्पादित करें</string> 
- 
+    <string name="subtitle_tab_executor">एक कस्टम स्क्रिप्ट निष्पादित करें</string>
+    <string name="rule_is_empty">This rule is empty</string>
+
 </resources> 
 

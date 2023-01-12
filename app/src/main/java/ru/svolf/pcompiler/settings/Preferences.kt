@@ -15,7 +15,7 @@ import ru.svolf.pcompiler.ui.fragment.patch.match.ReplaceFragment
 object Preferences {
 
     val tabIndex: Int
-        get() = Integer.parseInt(App.ctx().preferences.getString("tab.sort", "0".toString()))
+        get() = Integer.parseInt(App.ctx().preferences.getString("tab.sort", "0"))
 
     val isTwiceBackAllowed: Boolean
         get() = App.ctx().preferences.getBoolean("interaction.back", true)
@@ -43,7 +43,7 @@ object Preferences {
         get() = App.ctx().preferences.getBoolean("ui.arta", false)
 
     val mimeType: String?
-        get() = App.ctx().preferences.getString("preset.mime_type", "file/*")
+        get() = App.ctx().preferences.getString("preset.mime_type", "*/*")
 
     val isMonospaceFontAllowed: Boolean
         get() = App.ctx().preferences.getBoolean("ui.font_monospace", true)
@@ -51,7 +51,7 @@ object Preferences {
     var fontSize: Int
         get() {
             var size = App.ctx().preferences.getInt("ui.font_size", 16)
-            size = Math.max(Math.min(size, 64), 8)
+            size = size.coerceAtMost(64).coerceAtLeast(8)
             return size
         }
         set(size) = App.ctx().preferences.edit().putInt("ui.font_size", size).apply()

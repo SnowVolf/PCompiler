@@ -135,7 +135,8 @@
     <string name="hint_param">پارامترها</string>
     <string name="hint_entrance">روش ورود</string>
     <string name="subtitle_tab_executor">یک اسکریپت سفارشی را اجرا کنید</string>
-    
+    <string name="rule_is_empty">This rule is empty</string>
+
 </resources>    
         
         

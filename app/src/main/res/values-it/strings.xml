@@ -133,7 +133,8 @@
     <string name="hint_main_class">Classe principale</string> 
     <string name="hint_param">Parametri</string> 
     <string name="hint_entrance">Metodo di ingresso</string> 
-    <string name="subtitle_tab_executor">Eseguire uno script personalizzato</string> 
- 
+    <string name="subtitle_tab_executor">Eseguire uno script personalizzato</string>
+    <string name="rule_is_empty">This rule is empty</string>
+
 </resources> 
 

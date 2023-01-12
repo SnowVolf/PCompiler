@@ -56,7 +56,7 @@ public class DocumentationFragment extends NativeContainerFragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_web_doc:{
-                Uri uri = Uri.parse("https://github.com/zeeshanu/learn-regex/README.md");
+                Uri uri = Uri.parse("https://github.com/ziishaned/learn-regex");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(Intent.createChooser(intent, "learn-regex"));
                 return true;

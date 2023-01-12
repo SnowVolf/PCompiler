@@ -124,7 +124,7 @@
                             android:layout_height="180dp"
                             android:clickable="true"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/melissa2" />
+                            android:src="@drawable/helly_valentine" />
 
                         <ru.svolf.pcompiler.ui.widget.CircleImageView
                             android:id="@+id/artem_profile_img"

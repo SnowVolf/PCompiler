@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="?actionBarSize"
-            android:popupTheme="?popupTheme"></com.google.android.material.appbar.MaterialToolbar>
+            android:popupTheme="?popupTheme"/>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"
@@ -26,10 +26,11 @@
             app:tabMode="auto" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.viewpager.widget.ViewPager
+    <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/tab_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="4dp"
+        android:orientation="horizontal"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

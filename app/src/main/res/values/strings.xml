@@ -250,5 +250,6 @@
     <string name="hint_param">Parameters</string>
     <string name="hint_entrance">Entrance method</string>
     <string name="subtitle_tab_executor">Execute a custom scripts</string>
+    <string name="rule_is_empty">This rule is empty</string>
 
 </resources>

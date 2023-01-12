@@ -1,13 +1,12 @@
 package ru.svolf.pcompiler.ui.activity;
 
-import android.os.Build;
 import android.os.Bundle;
 
-import androidx.appcompat.widget.Toolbar;
-import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 import ru.svolf.pcompiler.App;
 import ru.svolf.pcompiler.R;
@@ -21,28 +20,29 @@ import ru.svolf.pcompiler.ui.fragment.regex.SpurFragment;
  */
 
 public class RegexpActivity extends BaseActivity {
-    private MaterialToolbar toolbar;
+    private final int[] titles = { R.string.tab_regex, R.string.tab_help, R.string.tab_documentation };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regexp);
-        toolbar = findViewById(R.id.toolbar);
+        MaterialToolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setPadding(0, App.ctx().getStatusBarHeight(), 0, 0);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
         toolbar.setNavigationOnClickListener(v -> finish());
-        ViewPager viewPager = findViewById(R.id.tab_pager);
-        setViewPager(viewPager);
+        ViewPager2 viewPager = findViewById(R.id.tab_pager);
         TabLayout tabLayout = findViewById(R.id.tab_layout);
-        tabLayout.setupWithViewPager(viewPager);
+        setViewPager(viewPager);
+        TabLayoutMediator mediator = new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> tab.setText(titles[position]));
+        mediator.attach();
     }
 
-    private void setViewPager(ViewPager viewPager){
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new RegexValidator(), getString(R.string.tab_regex));
-        adapter.addFragment(new SpurFragment(), getString(R.string.tab_help));
-        adapter.addFragment(new DocumentationFragment(), getString(R.string.tab_documentation));
+    private void setViewPager(ViewPager2 viewPager){
+        ViewPagerAdapter adapter = new ViewPagerAdapter(this);
+        adapter.addFragment(new RegexValidator(), titles[0]);
+        adapter.addFragment(new SpurFragment(), titles[1]);
+        adapter.addFragment(new DocumentationFragment(), titles[2]);
         viewPager.setAdapter(adapter);
     }
 

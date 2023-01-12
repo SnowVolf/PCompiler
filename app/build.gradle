@@ -23,7 +23,7 @@ android {
     }
     signingConfigs {
         release {
-            storeFile file('app/SVolfDev.key')
+            storeFile file('E:\\Tools\\SVolfDev.jks')
             storePassword KEYSTORE_PASSWORD
             keyAlias KEY_ALIAS
             keyPassword KEY_PASSWORD

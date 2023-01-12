@@ -135,5 +135,6 @@
     <string name="hint_param">පරාමිතීන්</string>
     <string name="hint_entrance">ඇතුල්වීමේ ක්රමය</string>
     <string name="subtitle_tab_executor">අභිරුචි ස්ක්‍රිප්ට් ක්‍රියාත්මක කරන්න</string>
+    <string name="rule_is_empty">This rule is empty</string>
 
 </resources>

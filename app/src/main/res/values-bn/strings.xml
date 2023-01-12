@@ -124,4 +124,5 @@
     <string name="hint_param">প্যারামিটার</string>
     <string name="hint_entrance">প্রবেশ পদ্ধতি</string>
     <string name="subtitle_tab_executor">একটি কাস্টম স্ক্রিপ্ট কার্যকর করুন</string>
+    <string name="rule_is_empty">This rule is empty</string>
 </resources>

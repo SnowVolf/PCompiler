@@ -6,21 +6,15 @@
     android:layout_height="match_parent"
     android:layout_gravity="bottom">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_tools">
-
-        <ru.svolf.girl.ui.CodeEditText
+        <EditText
             android:id="@+id/full_editor"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@null"
+            android:layout_above="@+id/bottom_tools"
             android:gravity="top"
             android:hint="@string/hint_enter_patch_body"
             android:imeOptions="flagNoFullscreen|flagNoExtractUi"
-            android:padding="8dp" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_margin="8dp" />
 
     <LinearLayout
         android:id="@+id/bottom_tools"

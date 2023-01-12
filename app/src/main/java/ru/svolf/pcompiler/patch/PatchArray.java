@@ -13,7 +13,7 @@ import ru.svolf.pcompiler.R;
  */
 
 public class PatchArray extends LinkedHashMap<String, String> {
-    private ReactiveBuilder.OnBuildListener mBuildListener;
+    private final ReactiveBuilder.OnBuildListener mBuildListener;
 
     PatchArray() {
         mBuildListener = new ReactiveBuilder.OnBuildListener() {

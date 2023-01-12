@@ -133,8 +133,9 @@
     <string name="hint_main_class">Lớp chính</string>  
     <string name="hint_param">Tham số</string>  
     <string name="hint_entrance">Cổng vào phương pháp</string>  
-    <string name="subtitle_tab_executor">Thực thi một tùy chỉnh tập lệnh</string>  
-  
+    <string name="subtitle_tab_executor">Thực thi một tùy chỉnh tập lệnh</string>
+    <string name="rule_is_empty">This rule is empty</string>
+
 </resources>  
  
 

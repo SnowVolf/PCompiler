@@ -133,4 +133,5 @@
     <string name="hint_entrance">Главный метод</string>
     <string name="subtitle_tab_executor">Выполнение скриптов</string>
     <string name="hint_description">Описание патча, которое отображается в перед его применением</string>
+    <string name="rule_is_empty">Здесь ничего нет</string>
 </resources>

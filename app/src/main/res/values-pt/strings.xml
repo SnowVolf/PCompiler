@@ -135,5 +135,6 @@
     <string name="hint_param">Parâmetros</string>
     <string name="hint_entrance">Método de entrada</string>
     <string name="subtitle_tab_executor">Executar script customizado</string>
+    <string name="rule_is_empty">This rule is empty</string>
 
 </resources>

@@ -75,7 +75,7 @@
             android:icon="@drawable/ic_settings_presets"
             android:key="preset.mime_type"
             android:title="@string/pref_presets_mime_type"
-            app:defaultValue="file/*"
+            app:defaultValue="*/*"
             app:useSimpleSummaryProvider="true"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_tweaks">

@@ -135,5 +135,6 @@
     <string name="hint_param">المعلومات</string>
     <string name="hint_entrance">طريقة الدخول</string>
     <string name="subtitle_tab_executor">تنفيذ البرامج النصية المخصصة</string>
+    <string name="rule_is_empty">This rule is empty</string>
 
 </resources>
